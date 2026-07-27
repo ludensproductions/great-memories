@@ -16,6 +16,7 @@ BLE_DIR="/opt/immich-ble"
 
 echo ">>> 0.1 Sistema base"
 sudo apt update && sudo apt full-upgrade -y
+sleep 3
 sudo apt install -y git curl wget nano
 
 echo ">>> 0.2 Docker"
