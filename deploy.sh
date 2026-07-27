@@ -145,12 +145,12 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now immich-ble
 
 echo ""
-echo "=== Verificacion ==="
-sleep 4
-for svc in avahi-daemon bluetooth immich-ble; do
-  systemctl is-active "$svc" &>/dev/null && echo "$svc: OK" || echo "$svc: FALLO"
+echo "=== Esperando que todo arranque ==="
+for i in $(seq 1 12); do
+  sleep 5
+  echo "--- intento $i/12 ---"
+  bash "$IMMICH_DIR/check.sh" && break || true
 done
-curl -sf "http://localhost:${SERVER_PORT}/api/server/ping" && echo "immich http: OK" || echo "immich http: aun iniciando (esperar 30s)"
 
 echo ""
 echo "============================================================"
