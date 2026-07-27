@@ -22,18 +22,13 @@ class ServerDiscoveryConstants {
   /// Port where the Immich server listens.
   static const int serverPort = 2283;
 
-  /// BLE Service UUID present in the server's advertising packet
-  /// ("IMMI" in hex + port 2283). Override at build time:
-  ///   flutter run --dart-define=BLE_SERVICE_UUID=<uuid>
-  static final Guid bleServiceUuid = Guid(
-    const String.fromEnvironment('BLE_SERVICE_UUID'),
-  );
-
-  /// BLE characteristic (read) that returns the host's local IP as UTF-8.
-  ///   flutter run --dart-define=BLE_IP_CHARACTERISTIC_UUID=<uuid>
-  static final Guid bleIpCharacteristicUuid = Guid(
-    const String.fromEnvironment('BLE_IP_CHARACTERISTIC_UUID'),
-  );
+  // Hardcodeados como constantes de protocolo — igual que _immich._tcp y el
+  // puerto 2283. El UUID identifica el tipo de servicio BLE, no es un secreto:
+  // BLE advertising es público y cualquier scanner puede verlo.
+  // Múltiples Immich en la misma red no se interfieren porque cada
+  // dispositivo tiene un MAC address BLE único.
+  static final Guid bleServiceUuid = Guid('494d4d49-0000-1000-8000-000000002283');
+  static final Guid bleIpCharacteristicUuid = Guid('494d4d49-0001-1000-8000-000000002283');
 
   static const Duration scanTimeout = Duration(seconds: 10);
 }

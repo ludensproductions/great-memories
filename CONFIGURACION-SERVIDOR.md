@@ -1,27 +1,51 @@
 # Configuración del servidor Immich (Raspberry Pi / Ubuntu Server)
 
-UUIDs compartidos con la app móvil — **no cambiar**:
-
-| Concepto                      | Valor                                    |
-| ----------------------------- | ---------------------------------------- |
-| Tipo mDNS                     | `_immich._tcp`                         |
-| Hostname mDNS                 | `immich` → `immich.local`           |
-| Puerto                        | `2283`                                 |
-| Service UUID (BLE)            | `494d4d49-0000-1000-8000-000000002283` |
-| Characteristic UUID (BLE, IP) | `494d4d49-0001-1000-8000-000000002283` |
+Ambas opciones se ejecutan **desde dentro de la Pi**.
 
 ---
 
-## 0. Desde cero — instalar todo
+## Opción A — Con script
 
-### 0.1. Sistema base
+Instalar git, clonar el repo y correr el script. Hace todo automáticamente.
+
+### 1. Instalar git
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt install -y git
+```
+
+### 2. Clonar el repo
+
+```bash
+git clone https://github.com/ludensproductions/immich.git
+cd immich
+```
+
+### 3. Correr el script
+
+```bash
+bash deploy.sh
+```
+
+Hostname personalizado (default: `mipi`):
+
+```bash
+SERVER_HOSTNAME=miservidor bash deploy.sh
+```
+
+---
+
+## Opción B — Manual paso a paso
+
+### Sistema base
+
+```bash
+sudo apt update && sudo apt full-upgrade -y
 sudo apt install -y git curl wget nano
 ```
 
-### 0.2. Docker
+### Docker
 
 ```bash
 curl -fsSL https://get.docker.com | sh
@@ -29,91 +53,29 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-Verificar:
-
-```bash
-docker --version
-docker compose version
-```
-
-### 0.3. Clonar el repositorio
+### Clonar e iniciar Immich
 
 ```bash
 git clone https://github.com/ludensproductions/immich.git
 cd immich/docker
-```
-
-### 0.4. Configurar variables de entorno
-
-```bash
 cp example.env .env
-nano .env
-```
-
-Poner las rutas donde guardar fotos y base de datos (usar `/` no `\`):
-
-```env
-UPLOAD_LOCATION=/srv/immich/photos
-DB_DATA_LOCATION=/srv/immich/db
-IMMICH_VERSION=release
-DB_PASSWORD=cambia_esto
-```
-
-Crear las carpetas:
-
-```bash
+nano .env   # ajustar UPLOAD_LOCATION y DB_DATA_LOCATION
 sudo mkdir -p /srv/immich/photos /srv/immich/db
 sudo chown -R $USER:$USER /srv/immich
-```
-
-### 0.5. Arrancar Immich
-
-```bash
 newgrp docker
 docker compose up -d
+curl http://localhost:2283/api/server/ping   # {"res":"pong"}
 ```
 
-Verificar que corre:
-
-```bash
-docker compose ps
-curl http://localhost:2283/api/server/ping
-# respuesta: {"res":"pong"}
-```
-
-Acceder desde el navegador: `http://<ip-de-la-pi>:2283`
-
----
-
-## 1. WiFi — mDNS con Avahi
+### mDNS (WiFi)
 
 ```bash
 sudo apt install -y avahi-daemon avahi-utils
-sudo systemctl enable avahi-daemon
-sudo systemctl start avahi-daemon
-```
-
-Fijar hostname:
-
-```bash
-sudo hostnamectl set-hostname immich
-```
-
-Actualizar `/etc/hosts`:
-
-```bash
+sudo systemctl enable --now avahi-daemon
+sudo hostnamectl set-hostname mipi
 sudo sed -i '/^127\.0\.1\.1/d' /etc/hosts
-echo '127.0.1.1    immich' | sudo tee -a /etc/hosts
-sudo systemctl restart avahi-daemon
-```
-
-Crear servicio mDNS:
-
-```bash
-sudo nano /etc/avahi/services/immich.service
-```
-
-```xml
+echo '127.0.1.1    mipi' | sudo tee -a /etc/hosts
+sudo tee /etc/avahi/services/immich.service > /dev/null << 'EOF'
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
@@ -123,78 +85,40 @@ sudo nano /etc/avahi/services/immich.service
     <port>2283</port>
   </service>
 </service-group>
-```
-
-```bash
+EOF
 sudo systemctl restart avahi-daemon
-```
-
-Abrir puertos en el firewall:
-
-```bash
 sudo ufw allow 5353/udp
 sudo ufw allow 2283/tcp
 sudo ufw reload
 ```
 
----
-
-## 2. Bluetooth — BLE con BlueZ
-
-### 2.1. Instalar dependencias
+### BLE (Bluetooth)
 
 ```bash
-sudo apt update && sudo apt full-upgrade -y
-sudo apt install -y bluetooth bluez python3-venv python3-dbus libdbus-1-dev libglib2.0-dev
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
-```
-
-### 2.2. Entorno Python
-
-```bash
+sudo apt install -y bluetooth bluez python3-venv python3-dbus
+sudo systemctl enable --now bluetooth
 sudo mkdir -p /opt/immich-ble
 sudo python3 -m venv --system-site-packages /opt/immich-ble/venv
 sudo /opt/immich-ble/venv/bin/pip install bluezero
 ```
 
-### 2.3. Archivo de entorno del servidor BLE
+Crear el servidor BLE:
 
 ```bash
-sudo nano /opt/immich-ble/.env
-```
-
-```env
-BLE_SERVICE_UUID=494d4d49-0000-1000-8000-000000002283
-BLE_IP_CHARACTERISTIC_UUID=494d4d49-0001-1000-8000-000000002283
-```
-
-```bash
-sudo chmod 600 /opt/immich-ble/.env
-```
-
-### 2.4. Script del servidor BLE
-
-```bash
-sudo nano /opt/immich-ble/immich_ble_server.py
-```
-
-```python
+sudo tee /opt/immich-ble/immich_ble_server.py > /dev/null << 'EOF'
 #!/usr/bin/env python3
 import logging
-import os
 import socket
 from bluezero import adapter, peripheral
 
-SERVICE_UUID = os.environ.get('BLE_SERVICE_UUID', '494d4d49-0000-1000-8000-000000002283')
-IP_CHARACTERISTIC_UUID = os.environ.get('BLE_IP_CHARACTERISTIC_UUID', '494d4d49-0001-1000-8000-000000002283')
-LOCAL_NAME = 'immich'
+SERVICE_UUID = '494d4d49-0000-1000-8000-000000002283'
+IP_CHARACTERISTIC_UUID = '494d4d49-0001-1000-8000-000000002283'
+LOCAL_NAME = socket.gethostname()
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 log = logging.getLogger('immich-ble')
 
-
-def get_local_ip() -> str:
+def get_local_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
         s.connect(('8.8.8.8', 80))
@@ -204,21 +128,16 @@ def get_local_ip() -> str:
     finally:
         s.close()
 
-
-def read_ip() -> list:
+def read_ip():
     ip = get_local_ip()
     log.info('IP leida: %s', ip)
     return list(ip.encode('utf-8'))
-
 
 def main():
     dongles = list(adapter.Adapter.available())
     if not dongles:
         raise RuntimeError('No se encontro adaptador Bluetooth')
-
     dongle = dongles[0]
-    log.info('Adaptador: %s', dongle.address)
-
     periph = peripheral.Peripheral(dongle.address, local_name=LOCAL_NAME)
     periph.add_service(srv_id=1, uuid=SERVICE_UUID, primary=True)
     periph.add_characteristic(
@@ -228,26 +147,19 @@ def main():
         flags=['read'],
         read_callback=read_ip,
     )
-
-    log.info('Publicando BLE (UUID %s)...', SERVICE_UUID)
+    log.info('Publicando BLE...')
     periph.publish()
-
 
 if __name__ == '__main__':
     main()
-```
-
-```bash
+EOF
 sudo chmod +x /opt/immich-ble/immich_ble_server.py
 ```
 
-### 2.5. Servicio systemd
+Crear el servicio systemd:
 
 ```bash
-sudo nano /etc/systemd/system/immich-ble.service
-```
-
-```ini
+sudo tee /etc/systemd/system/immich-ble.service > /dev/null << 'EOF'
 [Unit]
 Description=Immich BLE discovery
 After=bluetooth.target network-online.target
@@ -256,7 +168,6 @@ Requires=bluetooth.service
 
 [Service]
 Type=simple
-EnvironmentFile=/opt/immich-ble/.env
 ExecStart=/opt/immich-ble/venv/bin/python /opt/immich-ble/immich_ble_server.py
 Restart=always
 RestartSec=5
@@ -264,74 +175,65 @@ User=root
 
 [Install]
 WantedBy=multi-user.target
-```
-
-```bash
+EOF
 sudo systemctl daemon-reload
-sudo systemctl enable immich-ble
-sudo systemctl start immich-ble
+sudo systemctl enable --now immich-ble
 ```
 
 ---
 
-## 3. Compilar la app móvil con UUIDs personalizados
-
-Si cambias los UUIDs del `.env`, hay que pasar los mismos valores al build de Flutter:
+## Verificación
 
 ```bash
-# Desarrollo
-flutter run \
-  --dart-define=BLE_SERVICE_UUID=494d4d49-0000-1000-8000-000000002283 \
-  --dart-define=BLE_IP_CHARACTERISTIC_UUID=494d4d49-0001-1000-8000-000000002283
-
-# Producción
-flutter build apk \
-  --dart-define=BLE_SERVICE_UUID=494d4d49-0000-1000-8000-000000002283 \
-  --dart-define=BLE_IP_CHARACTERISTIC_UUID=494d4d49-0001-1000-8000-000000002283
-```
-
-Si no se pasan los `--dart-define`, la app usa los valores por defecto del código (los mismos que el `.env` por defecto).
-
----
-
-## 4. Verificación post-reinicio
-
-```bash
-sudo reboot
-```
-
-Tras reconectar:
-
-```bash
-# Servicios habilitados
-systemctl is-enabled avahi-daemon bluetooth immich-ble
-
-# Estado
-systemctl status avahi-daemon bluetooth immich-ble --no-pager
-
-# mDNS
+systemctl is-active avahi-daemon bluetooth immich-ble
+curl http://localhost:2283/api/server/ping
 avahi-browse -rt _immich._tcp
-
-# Logs BLE si falla
-journalctl -u immich-ble -n 50 --no-pager
-```
-
-Desde otro equipo en la red:
-
-```bash
-ping immich.local
-curl http://immich.local:2283/api/server/ping
+journalctl -u immich-ble -n 30 --no-pager
 ```
 
 ---
 
-## 5. Problemas comunes
+## Cambiar hostname
 
-| Síntoma                          | Solución                                                                            |
-| --------------------------------- | ------------------------------------------------------------------------------------ |
-| `avahi-browse` vacío           | Verificar`/etc/avahi/services/immich.service` y reiniciar daemon                   |
-| `ping immich.local` no resuelve | `sudo ufw allow 5353/udp`                                                          |
-| App encuentra Pi pero no conecta  | `docker compose ps` + `sudo ufw allow 2283/tcp`                                  |
-| `immich-ble` falla al boot      | Normal —`Restart=always` lo reintenta; esperar 10s y revisar `systemctl status` |
-| BLE devuelve`127.0.0.1`         | Pi sin red al leer IP; verificar con`ip addr`                                      |
-| Error path en`.env` (Windows)   | Usar`/` en vez de `\` en rutas                                                   |
+Default: `mipi` → accesible como `mipi.local`.
+
+```bash
+SERVER_HOSTNAME=otronombre bash deploy.sh
+```
+
+O manualmente:
+
+```bash
+sudo hostnamectl set-hostname otronombre
+sudo sed -i '/^127\.0\.1\.1/d' /etc/hosts
+echo '127.0.1.1    otronombre' | sudo tee -a /etc/hosts
+sudo systemctl restart avahi-daemon
+```
+
+---
+
+## Constantes de protocolo (no configurables)
+
+| Constante | Valor |
+|---|---|
+| mDNS service type | `_immich._tcp` |
+| Puerto Immich | `2283` |
+| BLE service UUID | `494d4d49-0000-1000-8000-000000002283` |
+| BLE IP characteristic UUID | `494d4d49-0001-1000-8000-000000002283` |
+
+Los UUIDs BLE están hardcodeados en la app y en el servidor — igual que `_immich._tcp` y el puerto 2283. Son identificadores de protocolo, no secretos: BLE advertising es público y cualquier scanner puede verlos. Múltiples Raspberry Pi con el mismo UUID no se interfieren porque cada dispositivo tiene un MAC address BLE único.
+
+---
+
+## Problemas comunes
+
+| Síntoma | Solución |
+|---|---|
+| `docker compose up` — permission denied | `newgrp docker` y repetir |
+| `avahi-browse` vacío | `sudo systemctl restart avahi-daemon` |
+| `ping mipi.local` no resuelve | `sudo ufw allow 5353/udp` |
+| App no conecta al servidor | `docker compose ps` + `sudo ufw allow 2283/tcp` |
+| `immich-ble` falla al boot | `journalctl -u immich-ble -n 30 --no-pager` |
+| BLE devuelve `127.0.0.1` | Pi sin red; verificar `ip addr` |
+| Paquetes rotos al instalar bluetooth | `sudo apt full-upgrade -y` antes del install |
+| Path inválido en `.env` (Windows dev) | Usar `/` en vez de `\` en rutas |
