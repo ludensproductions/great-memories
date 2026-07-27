@@ -2,12 +2,12 @@
 
 UUIDs compartidos con la app móvil — **no cambiar**:
 
-| Concepto | Valor |
-|---|---|
-| Tipo mDNS | `_immich._tcp` |
-| Hostname mDNS | `immich` → `immich.local` |
-| Puerto | `2283` |
-| Service UUID (BLE) | `494d4d49-0000-1000-8000-000000002283` |
+| Concepto                      | Valor                                    |
+| ----------------------------- | ---------------------------------------- |
+| Tipo mDNS                     | `_immich._tcp`                         |
+| Hostname mDNS                 | `immich` → `immich.local`           |
+| Puerto                        | `2283`                                 |
+| Service UUID (BLE)            | `494d4d49-0000-1000-8000-000000002283` |
 | Characteristic UUID (BLE, IP) | `494d4d49-0001-1000-8000-000000002283` |
 
 ---
@@ -30,6 +30,7 @@ newgrp docker
 ```
 
 Verificar:
+
 ```bash
 docker --version
 docker compose version
@@ -38,7 +39,7 @@ docker compose version
 ### 0.3. Clonar el repositorio
 
 ```bash
-git clone https://github.com/immich-app/immich.git
+git clone https://github.com/ludensproductions/immich.git
 cd immich/docker
 ```
 
@@ -59,6 +60,7 @@ DB_PASSWORD=cambia_esto
 ```
 
 Crear las carpetas:
+
 ```bash
 sudo mkdir -p /srv/immich/photos /srv/immich/db
 sudo chown -R $USER:$USER /srv/immich
@@ -71,6 +73,7 @@ docker compose up -d
 ```
 
 Verificar que corre:
+
 ```bash
 docker compose ps
 curl http://localhost:2283/api/server/ping
@@ -90,11 +93,13 @@ sudo systemctl start avahi-daemon
 ```
 
 Fijar hostname:
+
 ```bash
 sudo hostnamectl set-hostname immich
 ```
 
 Editar `/etc/hosts` — buscar línea `127.0.1.1` y dejarla:
+
 ```
 127.0.1.1    immich
 ```
@@ -104,6 +109,7 @@ sudo systemctl restart avahi-daemon
 ```
 
 Crear servicio mDNS:
+
 ```bash
 sudo nano /etc/avahi/services/immich.service
 ```
@@ -125,6 +131,7 @@ sudo systemctl restart avahi-daemon
 ```
 
 Si usas `ufw`:
+
 ```bash
 sudo ufw allow 5353/udp
 sudo ufw allow 2283/tcp
@@ -309,6 +316,7 @@ journalctl -u immich-ble -n 50 --no-pager
 ```
 
 Desde otro equipo en la red:
+
 ```bash
 ping immich.local
 curl http://immich.local:2283/api/server/ping
@@ -318,11 +326,11 @@ curl http://immich.local:2283/api/server/ping
 
 ## 5. Problemas comunes
 
-| Síntoma | Solución |
-|---|---|
-| `avahi-browse` vacío | Verificar `/etc/avahi/services/immich.service` y reiniciar daemon |
-| `ping immich.local` no resuelve | `sudo ufw allow 5353/udp` |
-| App encuentra Pi pero no conecta | `docker compose ps` + `sudo ufw allow 2283/tcp` |
-| `immich-ble` falla al boot | Normal — `Restart=always` lo reintenta; esperar 10s y revisar `systemctl status` |
-| BLE devuelve `127.0.0.1` | Pi sin red al leer IP; verificar con `ip addr` |
-| Error path en `.env` (Windows) | Usar `/` en vez de `\` en rutas |
+| Síntoma                          | Solución                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| `avahi-browse` vacío           | Verificar`/etc/avahi/services/immich.service` y reiniciar daemon                   |
+| `ping immich.local` no resuelve | `sudo ufw allow 5353/udp`                                                          |
+| App encuentra Pi pero no conecta  | `docker compose ps` + `sudo ufw allow 2283/tcp`                                  |
+| `immich-ble` falla al boot      | Normal —`Restart=always` lo reintenta; esperar 10s y revisar `systemctl status` |
+| BLE devuelve`127.0.0.1`         | Pi sin red al leer IP; verificar con`ip addr`                                      |
+| Error path en`.env` (Windows)   | Usar`/` en vez de `\` en rutas                                                   |
