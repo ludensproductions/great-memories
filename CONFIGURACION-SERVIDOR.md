@@ -185,6 +185,12 @@ sudo systemctl enable --now immich-ble
 ## Verificación
 
 ```bash
+bash check.sh
+```
+
+O manualmente:
+
+```bash
 systemctl is-active avahi-daemon bluetooth immich-ble
 curl http://localhost:2283/api/server/ping
 avahi-browse -rt _immich._tcp
