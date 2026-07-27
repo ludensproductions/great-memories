@@ -69,6 +69,7 @@ sudo chown -R $USER:$USER /srv/immich
 ### 0.5. Arrancar Immich
 
 ```bash
+newgrp docker
 docker compose up -d
 ```
 
@@ -98,13 +99,11 @@ Fijar hostname:
 sudo hostnamectl set-hostname immich
 ```
 
-Editar `/etc/hosts` — buscar línea `127.0.1.1` y dejarla:
-
-```
-127.0.1.1    immich
-```
+Actualizar `/etc/hosts`:
 
 ```bash
+sudo sed -i '/^127\.0\.1\.1/d' /etc/hosts
+echo '127.0.1.1    immich' | sudo tee -a /etc/hosts
 sudo systemctl restart avahi-daemon
 ```
 
@@ -130,11 +129,12 @@ sudo nano /etc/avahi/services/immich.service
 sudo systemctl restart avahi-daemon
 ```
 
-Si usas `ufw`:
+Abrir puertos en el firewall:
 
 ```bash
 sudo ufw allow 5353/udp
 sudo ufw allow 2283/tcp
+sudo ufw reload
 ```
 
 ---
@@ -144,6 +144,7 @@ sudo ufw allow 2283/tcp
 ### 2.1. Instalar dependencias
 
 ```bash
+sudo apt update && sudo apt full-upgrade -y
 sudo apt install -y bluetooth bluez python3-venv python3-dbus libdbus-1-dev libglib2.0-dev
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth

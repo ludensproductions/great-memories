@@ -101,12 +101,25 @@ class ServerDiscoveryService {
             ResourceRecordQuery.addressIPv4(srv.target),
             timeout: const Duration(seconds: 3),
           )) {
+            // multicast_dns may return a hostname string instead of a numeric IP.
+            // Resolve it via system DNS (which handles .local on mobile) as fallback.
+            String? ip = addr.address.address;
+            if (InternetAddress.tryParse(ip) == null) {
+              try {
+                final resolved = await InternetAddress.lookup(ip, type: InternetAddressType.IPv4);
+                ip = resolved.firstOrNull?.address;
+              } catch (_) {
+                ip = null;
+              }
+            }
+            if (ip == null) continue;
+
             final name = ptr.domainName
                 .replaceAll('.${ServerDiscoveryConstants.mdnsServiceDomain}', '')
                 .replaceAll(ServerDiscoveryConstants.mdnsServiceDomain, '');
-            found[addr.address.address] = DiscoveredServer(
+            found[ip] = DiscoveredServer(
               name: name.isEmpty ? srv.target : name,
-              ip: addr.address.address,
+              ip: ip,
               port: srv.port,
             );
           }
