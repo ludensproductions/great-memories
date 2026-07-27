@@ -23,11 +23,17 @@ class ServerDiscoveryConstants {
   static const int serverPort = 2283;
 
   /// BLE Service UUID present in the server's advertising packet
-  /// ("IMMI" in hex + port 2283).
-  static final Guid bleServiceUuid = Guid('494d4d49-0000-1000-8000-000000002283');
+  /// ("IMMI" in hex + port 2283). Override at build time:
+  ///   flutter run --dart-define=BLE_SERVICE_UUID=<uuid>
+  static final Guid bleServiceUuid = Guid(
+    const String.fromEnvironment('BLE_SERVICE_UUID'),
+  );
 
   /// BLE characteristic (read) that returns the host's local IP as UTF-8.
-  static final Guid bleIpCharacteristicUuid = Guid('494d4d49-0001-1000-8000-000000002283');
+  ///   flutter run --dart-define=BLE_IP_CHARACTERISTIC_UUID=<uuid>
+  static final Guid bleIpCharacteristicUuid = Guid(
+    const String.fromEnvironment('BLE_IP_CHARACTERISTIC_UUID'),
+  );
 
   static const Duration scanTimeout = Duration(seconds: 10);
 }
