@@ -32,7 +32,12 @@ export const requestServerInfo = async () => {
     return;
   }
 
-  const data = await getStorage();
+  const data = await getStorage().catch(() => undefined);
+  if (!data) {
+    userInteraction.serverInfo = undefined;
+    return;
+  }
+
   userInteraction.serverInfo = data;
 };
 

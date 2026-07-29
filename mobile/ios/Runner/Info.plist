@@ -124,7 +124,7 @@
       <true />
     </dict>
     <key>NSBluetoothAlwaysUsageDescription</key>
-    <string>We need Bluetooth access to discover your Immich server automatically via BLE</string>
+    <string>We need Bluetooth access to discover your Great Memories server automatically via BLE</string>
     <key>NSBonjourServices</key>
     <array>
       <string>_googlecast._tcp</string>

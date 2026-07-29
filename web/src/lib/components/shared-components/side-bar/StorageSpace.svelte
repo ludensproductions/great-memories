@@ -26,6 +26,10 @@
   ];
 
   onMount(async () => {
+    if (!authManager.authenticated) {
+      return;
+    }
+
     if (userInteraction.serverInfo && authManager.authenticated) {
       return;
     }

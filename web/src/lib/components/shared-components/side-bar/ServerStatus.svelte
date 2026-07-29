@@ -24,6 +24,10 @@
   let versions: ServerVersionHistoryResponseDto[] = $state([]);
 
   onMount(async () => {
+    if (!authManager.authenticated) {
+      return;
+    }
+
     if (userInteraction.aboutInfo && userInteraction.versions && $serverVersion) {
       info = userInteraction.aboutInfo;
       versions = userInteraction.versions;

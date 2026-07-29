@@ -122,6 +122,11 @@ class MemoryManager {
   }
 
   private initialize() {
+    if (!authManager.authenticated) {
+      this.clearCache();
+      return Promise.resolve();
+    }
+
     if (!this.#loading) {
       this.#loading = this.load();
     }
@@ -130,6 +135,11 @@ class MemoryManager {
   }
 
   private async load() {
+    if (!authManager.authenticated) {
+      this.clearCache();
+      return;
+    }
+
     const memories = await searchMemories({ $for: DateTime.now().toFormat('yyyy-MM-dd') });
     this.memories = memories.filter((memory) => memory.assets.length > 0);
   }
@@ -145,11 +155,20 @@ class MemoryManager {
     const initialDelay = nextEvent.diff(now).as('milliseconds');
 
     setTimeout(() => {
+      if (!authManager.authenticated) {
+        return;
+      }
+
       this.#loading = this.load();
 
       // Schedule subsequent events hourly
       setInterval(
         () => {
+          if (!authManager.authenticated) {
+            this.clearCache();
+            return;
+          }
+
           this.#loading = this.load();
         },
         60 * 60 * 1000,

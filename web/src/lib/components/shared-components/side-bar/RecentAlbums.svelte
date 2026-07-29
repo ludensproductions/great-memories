@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Route } from '$lib/route';
   import { userInteraction } from '$lib/stores/user.svelte';
   import { getAssetMediaUrl } from '$lib/utils';
@@ -9,6 +10,11 @@
   let albums = $state(userInteraction.recentAlbums);
 
   const refreshAlbums = async () => {
+    if (!authManager.authenticated) {
+      albums = [];
+      return;
+    }
+
     try {
       const allAlbums = await getAllAlbums({});
       albums = allAlbums.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()).slice(0, 3);
@@ -19,6 +25,11 @@
   };
 
   $effect(() => {
+    if (!authManager.authenticated) {
+      albums = [];
+      return;
+    }
+
     if (!userInteraction.recentAlbums) {
       void refreshAlbums();
     }

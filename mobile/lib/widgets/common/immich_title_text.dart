@@ -9,11 +9,14 @@ class ImmichTitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage(context.isDarkTheme ? 'assets/immich-text-dark.png' : 'assets/immich-text-light.png'),
-      width: fontSize * 4,
-      filterQuality: FilterQuality.high,
-      color: context.primaryColor,
+    return Text(
+      'Great Memories',
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: FontWeight.w700,
+        color: color ?? context.primaryColor,
+        letterSpacing: -0.8,
+      ),
     );
   }
 }
