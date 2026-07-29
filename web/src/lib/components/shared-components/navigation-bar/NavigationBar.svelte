@@ -15,7 +15,7 @@
   import { mediaQueryManager } from '$lib/stores/media-query-manager.svelte';
   import { notificationManager } from '$lib/stores/notification-manager.svelte';
   import { sidebarStore } from '$lib/stores/sidebar.svelte';
-  import { ActionButton, Button, IconButton, Logo } from '@immich/ui';
+  import { ActionButton, Button, IconButton } from '@immich/ui';
   import { mdiBellBadge, mdiBellOutline, mdiMagnify, mdiMenu, mdiTrayArrowUp } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -76,8 +76,13 @@
         }}
         class="sidebar:hidden"
       />
-      <a data-sveltekit-preload-data="hover" href={Route.photos()}>
-        <Logo variant={mediaQueryManager.isFullSidebar ? 'inline' : 'icon'} class="max-md:h-12" />
+      <a data-sveltekit-preload-data="hover" href={Route.photos()} class="inline-flex items-center gap-3">
+        {#if mediaQueryManager.isFullSidebar}
+          <img src="/manifest-icon-512.maskable.png?v=great-memories-20260729" alt="Great Memories logo" class="h-10 w-10 max-md:h-12 max-md:w-12" />
+          <span class="hidden text-lg font-semibold tracking-tight text-primary sidebar:inline">Great Memories</span>
+        {:else}
+          <img src="/manifest-icon-512.maskable.png?v=great-memories-20260729" alt="Great Memories logo" class="h-10 w-10 max-md:h-12 max-md:w-12" />
+        {/if}
       </a>
     </div>
     <div class="flex justify-between gap-4 pe-6 lg:gap-8">

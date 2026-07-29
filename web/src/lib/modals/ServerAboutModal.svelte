@@ -2,7 +2,8 @@
   import ServerAboutItem from '$lib/components/ServerAboutItem.svelte';
   import { locale } from '$lib/stores/preferences.store';
   import { type ServerAboutResponseDto, type ServerVersionHistoryResponseDto } from '@immich/sdk';
-  import { Alert, Label, Modal, ModalBody } from '@immich/ui';
+  import { mdiClose } from '@mdi/js';
+  import { Alert, IconButton, Label, Modal, ModalBody } from '@immich/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
 
@@ -15,8 +16,27 @@
   let { onClose, info, versions }: Props = $props();
 </script>
 
-<Modal title={$t('about')} {onClose}>
+<Modal {onClose}>
   <ModalBody>
+    <div class="mb-4 flex items-center justify-between gap-3 border-b border-gray-200 pb-3 dark:border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="/manifest-icon-512.maskable.png?v=great-memories-20260729" alt="Great Memories logo" class="h-8 w-8" />
+        <div class="flex flex-col">
+          <p class="text-lg font-semibold tracking-tight text-dark/90 dark:text-white">{$t('about')}</p>
+          <p class="text-sm text-primary">Great Memories</p>
+        </div>
+      </div>
+
+      <IconButton
+        shape="round"
+        color="secondary"
+        variant="ghost"
+        icon={mdiClose}
+        aria-label={$t('close')}
+        onclick={onClose}
+      />
+    </div>
+
     <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
       {#if info.sourceRef === 'main' && info.repository === 'immich-app/immich'}
         <Alert color="warning" title={$t('main_branch_warning')} class="col-span-full" size="small" />
@@ -38,15 +58,6 @@
         version={info.ffmpeg}
         class={(info.ffmpeg?.length || 0) > 10 ? 'col-span-2' : ''}
       />
-
-      {#if info.repository && info.repositoryUrl}
-        <ServerAboutItem
-          id="repository"
-          title={$t('repository')}
-          version={info.repository}
-          versionHref={info.repositoryUrl}
-        />
-      {/if}
 
       {#if info.sourceRef && info.sourceCommit && info.sourceUrl}
         <ServerAboutItem
