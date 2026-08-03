@@ -5,12 +5,14 @@ class ImmichTitleText extends StatelessWidget {
   final double fontSize;
   final Color? color;
 
-  const ImmichTitleText({super.key, this.fontSize = 48, this.color});
+  const ImmichTitleText({super.key, this.fontSize = 40, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       'Great Memories',
+      maxLines: 1,
+      textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: FontWeight.w700,
