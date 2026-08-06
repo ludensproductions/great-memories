@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Immich">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Immich">
 </p>
 <h3 align="center">ഫോട്ടോകളും വീഡിയോകളും കൈകാര്യം ചെയ്യുന്നതിനുള്ള ഉയർന്ന കാര്യക്ഷമതയുള്ള സെൽഫ്-ഹോസ്റ്റഡ് ആപ്ലിക്കേഷൻ</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="പ്രധാന സ്ക്രീൻഷോട്ട്">
+<img src="../design/great-memories-screenshots.png" title="പ്രധാന സ്ക്രീൻഷോട്ട്">
 </a>
 <br/>
 

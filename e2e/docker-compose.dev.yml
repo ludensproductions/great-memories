@@ -39,10 +39,10 @@ services:
       database:
         condition: service_healthy
 
-  immich-web:
+  great-memories-web:
     extends:
       file: ../docker/docker-compose.dev.yml
-      service: immich-web
+      service: great-memories-web
     container_name: immich-e2e-web
     ports: !override
       - 2285:3000

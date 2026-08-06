@@ -1,7 +1,7 @@
 import { Link, Section, Text } from '@react-email/components';
 import * as React from 'react';
 import { ImmichButton } from 'src/emails/components/button.component';
-import ImmichLayout from 'src/emails/components/immich.layout';
+import ImmichLayout from 'src/emails/components/great-memories.layout';
 import { WelcomeEmailProps } from 'src/repositories/email.repository';
 import { replaceTemplateTags } from 'src/utils/replace-template-tags';
 

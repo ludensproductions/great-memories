@@ -14,7 +14,7 @@ import 'package:immich_mobile/services/shared_link.service.dart';
 import 'package:immich_mobile/utils/option.dart';
 import 'package:immich_mobile/utils/url_helper.dart';
 import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
 import 'package:share_plus/share_plus.dart';
 
 @RoutePage()

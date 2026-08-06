@@ -16,7 +16,7 @@ import 'package:immich_mobile/presentation/actions/action.widget.dart';
 import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
 import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
 import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../test_utils.dart';

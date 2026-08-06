@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Quiet mode suppresses informational output (enabled for immich-admin)
+# Quiet mode suppresses informational output (enabled for great-memories-admin)
 QUIET=false
-if [ "$1" = "immich-admin" ]; then
+if [ "$1" = "great-memories-admin" ]; then
   QUIET=true
 fi
 

@@ -85,8 +85,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'Immich Logo',
-          src: 'img/immich-logo-inline-light.png',
-          srcDark: 'img/immich-logo-inline-dark.png',
+          src: 'img/great-memories-logo-inline-light.png',
+          srcDark: 'img/great-memories-logo-inline-dark.png',
           className: 'rounded-none',
         },
         items: [

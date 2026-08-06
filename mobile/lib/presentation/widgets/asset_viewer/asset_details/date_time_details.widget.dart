@@ -12,7 +12,7 @@ import 'package:immich_mobile/presentation/widgets/asset_viewer/sheet_tile.widge
 import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
 import 'package:immich_mobile/providers/user.provider.dart';
 import 'package:immich_mobile/utils/timezone.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
 
 const _kSeparator = '  •  ';
 

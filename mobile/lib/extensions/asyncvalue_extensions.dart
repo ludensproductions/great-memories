@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:immich_mobile/widgets/common/great_memories_loading_indicator.dart';
 import 'package:immich_mobile/widgets/common/scaffold_error_body.dart';
 import 'package:logging/logging.dart';
 

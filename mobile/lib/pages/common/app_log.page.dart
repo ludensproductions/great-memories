@@ -8,7 +8,7 @@ import 'package:immich_mobile/domain/services/log.service.dart';
 import 'package:immich_mobile/extensions/build_context_extensions.dart';
 import 'package:immich_mobile/extensions/theme_extensions.dart';
 import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
+import 'package:immich_mobile/services/great_memories_logger.service.dart';
 
 @RoutePage()
 class AppLogPage extends HookConsumerWidget {

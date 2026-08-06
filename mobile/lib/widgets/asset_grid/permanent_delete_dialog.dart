@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:immich_mobile/extensions/build_context_extensions.dart';
 import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 
 class PermanentDeleteDialog extends StatelessWidget {
   const PermanentDeleteDialog({super.key, required this.count});

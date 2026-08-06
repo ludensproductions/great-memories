@@ -1,7 +1,7 @@
 import { immichAdmin, utils } from 'src/utils';
 import { beforeAll, describe, expect, it } from 'vitest';
 
-describe(`immich-admin`, () => {
+describe(`great-memories-admin`, () => {
   beforeAll(async () => {
     await utils.resetDatabase();
     await utils.adminSetup();

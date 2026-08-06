@@ -9,7 +9,7 @@ import 'package:immich_mobile/presentation/widgets/action_buttons/upload_action_
 import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
 import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
 import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
 
 class LocalAlbumBottomSheet extends ConsumerStatefulWidget {
   const LocalAlbumBottomSheet({super.key});

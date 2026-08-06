@@ -4,8 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:immich_mobile/extensions/build_context_extensions.dart';
 import 'package:immich_mobile/services/server_discovery.service.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 
 enum DiscoveryMethod { mdns, ble }
 

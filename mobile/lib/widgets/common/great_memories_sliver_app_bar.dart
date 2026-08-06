@@ -91,7 +91,7 @@ class _ImmichLogoWithText extends StatelessWidget {
     opacity: IconTheme.of(context).opacity ?? 1,
     duration: kThemeChangeDuration,
     child: SvgPicture.asset(
-      context.isDarkTheme ? 'assets/immich-logo-inline-dark.svg' : 'assets/immich-logo-inline-light.svg',
+      context.isDarkTheme ? 'assets/great-memories-logo-inline-dark.svg' : 'assets/great-memories-logo-inline-light.svg',
       height: 40,
     ),
   );

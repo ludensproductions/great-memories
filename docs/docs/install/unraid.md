@@ -105,21 +105,21 @@ alt="Select Plugins > Compose.Manager > Add New Stack > Label it Immich"
 <img
 src={require('./img/unraid06.webp').default}
 width="80%"
-alt="Go to Docker Tab and visit the address listed next to immich-web"
+alt="Go to Docker Tab and visit the address listed next to great-memories-web"
 />
 
 <details >
     <summary>Using the FolderView plugin for organizing your Docker containers? Click me! Otherwise you're complete!</summary>
-    <p>If you are using the FolderView plugin go the Docker tab and select "<b>New Folder</b>".<br />Label it <i>"Immich"</i> and use this URL as the logo: https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png<br/>Then simply select all the Immich related containers before clicking "<b>Submit</b>"</p>
+    <p>If you are using the FolderView plugin go the Docker tab and select "<b>New Folder</b>".<br />Label it <i>"Immich"</i> and use this URL as the logo: https://raw.githubusercontent.com/immich-app/immich/main/design/great-memories-logo.png<br/>Then simply select all the Immich related containers before clicking "<b>Submit</b>"</p>
     <img
         src={require('./img/unraid07.webp').default}
         width="80%"
-        alt="Go to Docker Tab and visit the address listed next to immich-web"
+        alt="Go to Docker Tab and visit the address listed next to great-memories-web"
     />
     <img
         src={require('./img/unraid08.webp').default}
         width="90%"
-        alt="Go to Docker Tab and visit the address listed next to immich-web"
+        alt="Go to Docker Tab and visit the address listed next to great-memories-web"
     />
 
 </details>

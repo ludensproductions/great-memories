@@ -22,8 +22,8 @@ import 'package:immich_mobile/providers/websocket.provider.dart';
 import 'package:immich_mobile/routing/router.dart';
 import 'package:immich_mobile/theme/color_scheme.dart';
 import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
+import 'package:immich_mobile/widgets/common/great_memories_logo.dart';
+import 'package:immich_mobile/widgets/common/great_memories_title_text.dart';
 import 'package:logging/logging.dart';
 import 'package:url_launcher/url_launcher.dart' show launchUrl, LaunchMode;
 
@@ -380,7 +380,7 @@ class SplashScreenPageState extends ConsumerState<SplashScreenPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Image(image: AssetImage('assets/immich-logo.png'), width: 80, filterQuality: FilterQuality.high),
+        child: Image(image: AssetImage('assets/great-memories-logo.png'), width: 80, filterQuality: FilterQuality.high),
       ),
     );
   }

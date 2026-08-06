@@ -745,7 +745,7 @@ jobs:
           files: |
             mobile/openapi
             packages/sdk
-            open-api/immich-openapi-specs.json
+            open-api/great-memories-openapi-specs.json
 
       - name: Verify files have not changed
         if: steps.verify-changed-files.outputs.files_changed == 'true'

@@ -1,6 +1,6 @@
 import { Link, Row, Text } from '@react-email/components';
 import * as React from 'react';
-import ImmichLayout from 'src/emails/components/immich.layout';
+import ImmichLayout from 'src/emails/components/great-memories.layout';
 import { TestEmailProps } from 'src/repositories/email.repository';
 
 export const TestEmail = ({ baseUrl, displayName }: TestEmailProps) => (

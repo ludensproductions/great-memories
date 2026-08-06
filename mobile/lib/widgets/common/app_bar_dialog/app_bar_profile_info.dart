@@ -11,7 +11,7 @@ import 'package:immich_mobile/providers/backup/backup.provider.dart';
 import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
 import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
 import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:immich_mobile/widgets/common/great_memories_loading_indicator.dart';
 import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
 
 class AppBarProfileInfoBox extends HookConsumerWidget {
@@ -28,7 +28,7 @@ class AppBarProfileInfoBox extends HookConsumerWidget {
       if (user == null) {
         return const CircleAvatar(
           radius: 20,
-          backgroundImage: AssetImage('assets/immich-logo.png'),
+          backgroundImage: AssetImage('assets/great-memories-logo.png'),
           backgroundColor: Colors.transparent,
         );
       }

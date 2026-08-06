@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 import 'package:immich_ui/src/internal.dart';
 
 class ImmichFormController extends ChangeNotifier {

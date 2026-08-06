@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Вход с персонализиран URL">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Вход с персонализиран URL">
 </p>
 <h3 align="center">Високопроизводително самостоятелно хоствано решение за управление на снимки и видеа</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Основна снимка на екрана">
+<img src="../design/great-memories-screenshots.png" title="Основна снимка на екрана">
 </a>
 <br/>
 <p align="center">

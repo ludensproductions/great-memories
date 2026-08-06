@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Accedi con url personalizzato">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Accedi con url personalizzato">
 </p>
 <h3 align="center">Soluzione ad alte prestazioni per la gestione self-hosted di foto e video</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Screenshot Principale">
+<img src="../design/great-memories-screenshots.png" title="Screenshot Principale">
 </a>
 <br/>
 

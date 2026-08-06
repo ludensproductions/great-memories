@@ -27,8 +27,8 @@ jobs:
       - name: Check for breaking API changes
         uses: oasdiff/oasdiff-action/breaking@024f6c399f9a21ada1addb0f9a36ce1bfac995f1 # v0.1.6
         with:
-          base: https://raw.githubusercontent.com/${{ github.repository }}/main/open-api/immich-openapi-specs.json
-          revision: open-api/immich-openapi-specs.json
+          base: https://raw.githubusercontent.com/${{ github.repository }}/main/open-api/great-memories-openapi-specs.json
+          revision: open-api/great-memories-openapi-specs.json
           fail-on: ERR
           review: false
 
@@ -55,12 +55,12 @@ jobs:
       - name: Fetch base spec from main
         run: |
           curl -fsSL \
-            "https://raw.githubusercontent.com/${{ github.repository }}/main/open-api/immich-openapi-specs.json" \
+            "https://raw.githubusercontent.com/${{ github.repository }}/main/open-api/great-memories-openapi-specs.json" \
             -o /tmp/base-spec.json
 
       - name: Check newly-required fields have a backward-compat patch
         working-directory: ./mobile
         env:
           OPENAPI_BASE_SPEC: /tmp/base-spec.json
-          OPENAPI_REVISION_SPEC: ../open-api/immich-openapi-specs.json
+          OPENAPI_REVISION_SPEC: ../open-api/great-memories-openapi-specs.json
         run: flutter test test/openapi_patches_coverage.dart

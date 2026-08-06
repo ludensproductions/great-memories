@@ -17,7 +17,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - build_cache:/buildcache
       - ../packages/plugin-core:/build/plugins/immich-plugin-core
-  immich-web:
+  great-memories-web:
     env_file: !reset []
   immich-machine-learning:
     env_file: !reset []

@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Đăng nhập bằng URL Tuỳ chỉnh">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Đăng nhập bằng URL Tuỳ chỉnh">
 </p>
 <h3 align="center">Giải pháp quản lý ảnh và video tự lưu trữ hiệu suất cao</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Ảnh chụp màn hình chính">
+<img src="../design/great-memories-screenshots.png" title="Ảnh chụp màn hình chính">
 </a>
 <br/>
 <p align="center">

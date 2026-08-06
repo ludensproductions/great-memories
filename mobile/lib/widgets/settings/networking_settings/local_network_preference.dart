@@ -8,7 +8,7 @@ import 'package:immich_mobile/extensions/build_context_extensions.dart';
 import 'package:immich_mobile/extensions/translate_extensions.dart';
 import 'package:immich_mobile/providers/auth.provider.dart';
 import 'package:immich_mobile/providers/network.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 
 class LocalNetworkPreference extends HookConsumerWidget {
   const LocalNetworkPreference({super.key, required this.enabled});

@@ -168,7 +168,7 @@ function main() {
     process.argv.splice(2, 1);
   }
 
-  if (immichApp === 'immich-admin') {
+  if (immichApp === 'great-memories-admin') {
     process.title = 'immich_admin_cli';
     process.env.IMMICH_LOG_LEVEL = LogLevel.Warn;
 

@@ -15,7 +15,7 @@ import 'package:immich_mobile/utils/debug_print.dart';
 import 'package:immich_mobile/utils/image_url_builder.dart';
 import 'package:immich_mobile/utils/url_helper.dart';
 import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
 import 'package:immich_mobile/widgets/search/thumbnail_with_info.dart';
 
 class SharedLinkItem extends ConsumerWidget {

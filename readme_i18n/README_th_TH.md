@@ -9,14 +9,14 @@
 </p>
 
 <p align="center">
-  <img src="../design/immich-logo-stacked-light.svg" width="300" title="การเข้าสู่ระบบด้วย URL แบบกำหนดเอง">
+  <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="การเข้าสู่ระบบด้วย URL แบบกำหนดเอง">
 </p>
 
 <h3 align="center">โซลูชันการจัดการภาพถ่ายและวิดีโอแบบโฮสต์เองที่มีประสิทธิภาพสูง</h3>
 <br/>
 
 <a href="https://immich.app">
-  <img src="../design/immich-screenshots.png" title="ภาพหน้าจอหลัก">
+  <img src="../design/great-memories-screenshots.png" title="ภาพหน้าจอหลัก">
 </a>
 <br/>
 

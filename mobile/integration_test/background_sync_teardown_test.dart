@@ -14,7 +14,7 @@ import 'package:immich_mobile/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:openapi/api.dart';
 
-import 'test_utils/fake_immich_server.dart';
+import 'test_utils/fake_great_memories_server.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();

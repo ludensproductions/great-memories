@@ -307,7 +307,7 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
 
   if (write) {
     // Generate API Documentation only in development mode
-    const outputPath = path.resolve(process.cwd(), '../open-api/immich-openapi-specs.json');
+    const outputPath = path.resolve(process.cwd(), '../open-api/great-memories-openapi-specs.json');
     writeFileSync(outputPath, JSON.stringify(patchOpenAPI(openApiDoc), null, 2), { encoding: 'utf8' });
   }
 };

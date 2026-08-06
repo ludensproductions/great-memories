@@ -45,7 +45,7 @@ const List<FeatureHighlight> featureMessageHighlights = [
 
   FeatureHighlight(image: 'assets/feature_message/ocr.webp', titleKey: 'ocr_title', bodyKey: 'ocr_body'),
   FeatureHighlight(
-    image: 'assets/feature_message/open_in_immich.webp',
+    image: 'assets/feature_message/open_in_great_memories.webp',
     titleKey: 'open_in_immich_title',
     bodyKey: 'open_in_immich_body',
     platform: [.android],

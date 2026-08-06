@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
 <h3 align="center">고성능 자체 호스팅 사진 및 동영상 관리 솔루션</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="메인 스크린샷">
+<img src="../design/great-memories-screenshots.png" title="메인 스크린샷">
 </a>
 <br/>
 <p align="center">

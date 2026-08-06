@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="以自訂 URL 登入">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="以自訂 URL 登入">
 </p>
 <h3 align="center">高效能的自架照片和影片管理解決方案</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="主要螢幕截圖">
+<img src="../design/great-memories-screenshots.png" title="主要螢幕截圖">
 </a>
 <br/>
 

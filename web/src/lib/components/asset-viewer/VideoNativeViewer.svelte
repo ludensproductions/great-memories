@@ -44,7 +44,7 @@
   import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
-  import './immich-time-range';
+  import './great-memories-time-range';
 
   interface Props {
     asset: AssetResponseDto;

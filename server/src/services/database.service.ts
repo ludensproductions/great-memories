@@ -120,7 +120,7 @@ export class DatabaseService extends BaseService {
         if (drift.items.length === 0) {
           this.logger.log('No schema drift detected');
         } else {
-          this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`immich-admin schema-check\``);
+          this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`great-memories-admin schema-check\``);
           for (const warning of drift.asHuman()) {
             this.logger.warn(`  - ${warning}`);
           }

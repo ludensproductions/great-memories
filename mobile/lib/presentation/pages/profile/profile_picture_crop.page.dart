@@ -15,8 +15,8 @@ import 'package:immich_mobile/providers/backup/backup.provider.dart';
 import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
 import 'package:immich_mobile/providers/user.provider.dart';
 import 'package:immich_mobile/utils/image_converter.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 
 @RoutePage()
 class ProfilePictureCropPage extends ConsumerStatefulWidget {

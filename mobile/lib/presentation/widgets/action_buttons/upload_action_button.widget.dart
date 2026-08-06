@@ -14,8 +14,8 @@ import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
 import 'package:immich_mobile/providers/view_intent/view_intent_file_path.provider.dart';
 import 'package:immich_mobile/services/foreground_upload.service.dart';
 import 'package:immich_mobile/services/view_intent.service.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 
 class UploadActionButton extends ConsumerWidget {
   final ActionSource source;

@@ -13,8 +13,8 @@ import 'package:immich_mobile/presentation/pages/edit/editor.provider.dart';
 import 'package:immich_mobile/providers/theme.provider.dart';
 import 'package:immich_mobile/theme/theme_data.dart';
 import 'package:immich_mobile/utils/editor.utils.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
+import 'package:immich_ui/great_memories_ui.dart';
 import 'package:openapi/api.dart' show RotateParameters, MirrorParameters, MirrorAxis;
 
 @RoutePage()
