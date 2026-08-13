@@ -84,9 +84,8 @@ const dbUrl = `postgres://postgres:postgres@${playwrightDbHost}:5435/immich`;
 export const baseUrl = playwriteBaseUrl;
 export const shareUrl = `${baseUrl}/share`;
 export const app = `${baseUrl}/api`;
-// TODO move test assets into e2e/assets
-export const testAssetDir = resolve(import.meta.dirname, '../test-assets');
-export const testAssetDirInternal = '/test-assets';
+export const testAssetDir = resolve(import.meta.dirname, '../assets');
+export const testAssetDirInternal = '/assets';
 export const tempDir = tmpdir();
 export const asBearerAuth = (accessToken: string) => ({ Authorization: `Bearer ${accessToken}` });
 export const asKeyAuth = (key: string) => ({ 'x-api-key': key });
@@ -135,7 +134,6 @@ const countCallbacks: Record<string, { count: number; callback: () => void }> = 
 const execPromise = promisify(exec);
 
 const onEvent = ({ event, id }: { event: EventType; id: string }) => {
-  // console.log(`Received event: ${event} [id=${id}]`);
   const set = events[event];
 
   set.add(id);
@@ -179,7 +177,6 @@ export const utils = {
     client = await utils.connectDatabase();
 
     tables ||= [
-      // TODO e2e test for deleting a stack, since it is quite complex
       'stack',
       'library',
       'shared_link',
@@ -546,7 +543,6 @@ export const utils = {
       {
         headers: asBearerAuth(accessToken),
         fetch: (...args: Parameters<typeof fetch>) =>
-          // eslint-disable-next-line unicorn/no-invalid-argument-count, unicorn/prefer-await
           fetch(...args).then((response) => {
             setCookie = response.headers.getSetCookie();
             return response;
@@ -641,8 +637,7 @@ export const utils = {
     const writeStream = createWriteStream(fn);
     await pipeline(sql, gzip, writeStream);
 
-    await executeCommand('docker', ['cp', fn, `immich-e2e-server:/data/backups/development-${generate}.sql.gz`])
-      .promise;
+    await executeCommand('docker', ['cp', fn, `immich-e2e-server:/data/backups/development-${generate}.sql.gz`]).promise;
   },
 
   resetAdminConfig: async (accessToken: string) => {
@@ -657,7 +652,6 @@ export const utils = {
   },
 
   waitForQueueFinish: (accessToken: string, queue: keyof QueuesResponseLegacyDto, ms?: number) => {
-    // eslint-disable-next-line no-async-promise-executor
     return new Promise<void>(async (resolve, reject) => {
       const timeout = setTimeout(() => reject(new Error('Timed out waiting for queue to empty')), ms || 10_000);
 
@@ -708,11 +702,8 @@ export const utils = {
   },
 };
 
-// eslint-disable-next-line unicorn/no-top-level-side-effects
 utils.initSdk();
 
 if (!existsSync(`${testAssetDir}/albums`)) {
-  throw new Error(
-    `Test assets not found. Please checkout https://github.com/immich-app/test-assets into ${testAssetDir} before testing`,
-  );
+  throw new Error(`Test assets not found under ${testAssetDir}.`);
 }

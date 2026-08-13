@@ -34,7 +34,7 @@ services:
       IMMICH_PORT: '2285'
       IMMICH_IGNORE_MOUNT_CHECK_ERRORS: 'true'
     volumes:
-      - ./test-assets:/test-assets
+      - ./assets:/assets
     depends_on:
       redis:
         condition: service_started
