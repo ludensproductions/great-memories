@@ -15,7 +15,7 @@ class MapService with ErrorLoggerMixin {
   }
 
   Future<void> _setMapUserAgentHeader() async {
-    final userAgent = await getUserAgentString();
+    final userAgent = await getGreatMemoriesUserAgentString();
     await setHttpHeaders({'User-Agent': userAgent});
   }
 

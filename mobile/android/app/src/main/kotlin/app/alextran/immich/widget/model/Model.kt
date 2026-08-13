@@ -3,7 +3,7 @@ package app.alextran.immich.widget.model
 import android.graphics.Bitmap
 import androidx.datastore.preferences.core.*
 
-// MARK: Immich Entities
+// MARK: Great Memories Entities
 
 enum class AssetType {
   IMAGE, VIDEO, AUDIO, OTHER

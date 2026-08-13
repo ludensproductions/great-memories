@@ -22,13 +22,13 @@ describe('StorageCore', () => {
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION and same starts', () => {
-      const nonImmichPath = '/photos_new';
-      expect(StorageCore.isManagedMediaPath(nonImmichPath)).toBe(false);
+      const nonManagedMediaPath = '/photos_new';
+      expect(StorageCore.isManagedMediaPath(nonManagedMediaPath)).toBe(false);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION', () => {
-      const nonImmichPath = '/some/other/path';
-      expect(StorageCore.isManagedMediaPath(nonImmichPath)).toBe(false);
+      const nonManagedMediaPath = '/some/other/path';
+      expect(StorageCore.isManagedMediaPath(nonManagedMediaPath)).toBe(false);
     });
   });
 });
