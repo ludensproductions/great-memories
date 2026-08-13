@@ -5,12 +5,12 @@ import { JobsOptions, Queue, Worker } from 'bullmq';
 import { setTimeout } from 'node:timers/promises';
 import { JobConfig } from 'src/decorators';
 import { QueueJobResponseDto, QueueJobSearchDto } from 'src/dtos/queue.dto';
-import { ImmichWorker, JobName, JobStatus, MetadataKey, QueueCleanType, QueueJobStatus, QueueName } from 'src/enum';
+import { GreatMemoriesWorker, JobName, JobStatus, MetadataKey, QueueCleanType, QueueJobStatus, QueueName } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { EventRepository } from 'src/repositories/event.repository';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { JobCounts, JobItem, JobOf } from 'src/types';
-import { getKeyByValue, getMethodNames, ImmichStartupError } from 'src/utils/misc';
+import { getKeyByValue, getMethodNames, GreatMemoriesStartupError } from 'src/utils/misc';
 
 type JobMapItem = {
   jobName: JobName;
@@ -60,7 +60,7 @@ export class JobRepository {
           this.logger.error(
             `${errorMessage}. JobName.${jobKey} is already handled by ${this.handlers[jobName]!.label}.`,
           );
-          throw new ImmichStartupError(errorMessage);
+          throw new GreatMemoriesStartupError(errorMessage);
         }
 
         this.handlers[jobName] = {
@@ -82,7 +82,7 @@ export class JobRepository {
         this.logger.error(
           `${errorMessage}. Make sure to add the @OnJob({ name: JobName.${jobKey}, queue: QueueName.XYZ }) decorator for the new job.`,
         );
-        throw new ImmichStartupError(errorMessage);
+        throw new GreatMemoriesStartupError(errorMessage);
       }
     }
   }
@@ -94,7 +94,7 @@ export class JobRepository {
       this.workers[queueName] = new Worker(
         queueName,
         (job) => this.eventRepository.emit('JobRun', queueName, job as JobItem),
-        { ...bull.config, concurrency: 1, name: ImmichWorker.Microservices },
+        { ...bull.config, concurrency: 1, name: GreatMemoriesWorker.Microservices },
       );
     }
   }
@@ -115,7 +115,7 @@ export class JobRepository {
   private async checkWorkers() {
     let isPresent: boolean;
     try {
-      const suffix = `:w:${ImmichWorker.Microservices}`;
+      const suffix = `:w:${GreatMemoriesWorker.Microservices}`;
       const workers = await this.getQueue(QueueName.BackgroundTask).getWorkers();
       isPresent = workers.some((worker) => worker.rawname?.endsWith(suffix));
     } catch {

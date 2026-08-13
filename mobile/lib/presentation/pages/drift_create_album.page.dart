@@ -191,7 +191,7 @@ class _DriftCreateAlbumPageState extends ConsumerState<DriftCreateAlbumPage> {
       }
     } catch (_) {
       if (context.mounted) {
-        ImmichToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.t());
+        GreatMemoriesToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.t());
       }
     } finally {
       if (mounted) {

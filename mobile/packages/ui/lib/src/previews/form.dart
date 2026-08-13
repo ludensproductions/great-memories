@@ -5,7 +5,7 @@ import 'package:immich_ui/src/components/text_input.dart';
 import 'package:immich_ui/src/constants.dart';
 import 'package:immich_ui/src/previews.dart';
 
-@ImmichPreview(group: 'Form', name: 'Login Form')
+@GreatMemoriesPreview(group: 'Form', name: 'Login Form')
 Widget previewFormLogin() => const _PreviewLoginForm();
 
 class _PreviewLoginForm extends StatefulWidget {
@@ -32,7 +32,7 @@ class _PreviewLoginFormState extends State<_PreviewLoginForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ImmichForm(
+        GreatMemoriesForm(
           submitText: 'Login',
           submitIcon: Icons.login,
           onSubmit: () async {
@@ -45,15 +45,15 @@ class _PreviewLoginFormState extends State<_PreviewLoginForm> {
             });
           },
           builder: (context, form) => Column(
-            spacing: ImmichSpacing.sm,
+            spacing: GreatMemoriesSpacing.sm,
             children: [
-              ImmichTextInput(
+              GreatMemoriesTextInput(
                 label: 'Email',
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) => value?.isEmpty ?? true ? 'Required' : null,
               ),
-              ImmichPasswordInput(
+              GreatMemoriesPasswordInput(
                 label: 'Password',
                 controller: _passwordController,
                 validator: (value) => value?.isEmpty ?? true ? 'Required' : null,

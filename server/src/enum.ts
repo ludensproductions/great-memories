@@ -6,7 +6,7 @@ export enum AuthType {
   OAuth = 'oauth',
 }
 
-export enum ImmichCookie {
+export enum GreatMemoriesCookie {
   AccessToken = 'immich_access_token',
   MaintenanceToken = 'immich_maintenance_token',
   AuthType = 'immich_auth_type',
@@ -16,7 +16,7 @@ export enum ImmichCookie {
   OAuthCodeVerifier = 'immich_oauth_code_verifier',
 }
 
-export enum ImmichHeader {
+export enum GreatMemoriesHeader {
   ApiKey = 'x-api-key',
   UserToken = 'x-immich-user-token',
   SessionToken = 'x-immich-session-token',
@@ -28,7 +28,7 @@ export enum ImmichHeader {
   HlsPosition = 'x-immich-hls-pos',
 }
 
-export enum ImmichQuery {
+export enum GreatMemoriesQuery {
   SharedLinkKey = 'key',
   SharedLinkSlug = 'slug',
   ApiKey = 'apiKey',
@@ -605,24 +605,24 @@ export enum CacheControl {
   None = 'none',
 }
 
-export enum ImmichEnvironment {
+export enum GreatMemoriesEnvironment {
   Development = 'development',
   Testing = 'testing',
   Production = 'production',
 }
 
-export const ImmichEnvironmentSchema = z
-  .enum(ImmichEnvironment)
+export const GreatMemoriesEnvironmentSchema = z
+  .enum(GreatMemoriesEnvironment)
   .describe('Immich environment')
-  .meta({ id: 'ImmichEnvironment' });
+  .meta({ id: 'GreatMemoriesEnvironment' });
 
-export enum ImmichWorker {
+export enum GreatMemoriesWorker {
   Api = 'api',
   Maintenance = 'maintenance',
   Microservices = 'microservices',
 }
 
-export enum ImmichTelemetry {
+export enum GreatMemoriesTelemetry {
   Host = 'host',
   Api = 'api',
   Io = 'io',

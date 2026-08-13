@@ -13,15 +13,15 @@ import 'package:meta/meta.dart';
 
 import 'login_helper.dart';
 
-class ImmichTestHelper {
+class GreatMemoriesTestHelper {
   final WidgetTester tester;
 
-  ImmichTestHelper(this.tester);
+  GreatMemoriesTestHelper(this.tester);
 
-  ImmichTestLoginHelper? _loginHelper;
+  GreatMemoriesTestLoginHelper? _loginHelper;
 
-  ImmichTestLoginHelper get loginHelper {
-    _loginHelper ??= ImmichTestLoginHelper(tester);
+  GreatMemoriesTestLoginHelper get loginHelper {
+    _loginHelper ??= GreatMemoriesTestLoginHelper(tester);
     return _loginHelper!;
   }
 
@@ -50,10 +50,10 @@ class ImmichTestHelper {
 }
 
 @isTest
-void immichWidgetTest(String description, Future<void> Function(WidgetTester, ImmichTestHelper) test) {
+void greatMemoriesWidgetTest(String description, Future<void> Function(WidgetTester, GreatMemoriesTestHelper) test) {
   testWidgets(description, (widgetTester) async {
-    await ImmichTestHelper.loadApp(widgetTester);
-    await test(widgetTester, ImmichTestHelper(widgetTester));
+    await GreatMemoriesTestHelper.loadApp(widgetTester);
+    await test(widgetTester, GreatMemoriesTestHelper(widgetTester));
   }, semanticsEnabled: false);
 }
 

@@ -13,7 +13,7 @@ import {
   SetMaintenanceModeDto,
 } from 'src/dtos/maintenance.dto';
 import { ServerConfigDto, ServerPingResponse, ServerVersionResponseDto } from 'src/dtos/server.dto';
-import { DatabaseLock, ImmichCookie, MaintenanceAction, SystemMetadataKey } from 'src/enum';
+import { DatabaseLock, GreatMemoriesCookie, MaintenanceAction, SystemMetadataKey } from 'src/enum';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository';
 import { MaintenanceWebsocketRepository } from 'src/maintenance/maintenance-websocket.repository';
 import { AppRepository } from 'src/repositories/app.repository';
@@ -240,7 +240,7 @@ export class MaintenanceWorkerService {
   }
 
   async authenticate(headers: IncomingHttpHeaders): Promise<MaintenanceAuthDto> {
-    const jwtToken = parse(headers.cookie || '')[ImmichCookie.MaintenanceToken];
+    const jwtToken = parse(headers.cookie || '')[GreatMemoriesCookie.MaintenanceToken];
     return this.login(jwtToken);
   }
 

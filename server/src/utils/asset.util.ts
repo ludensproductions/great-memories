@@ -10,7 +10,7 @@ import { AccessRepository } from 'src/repositories/access.repository';
 import { AssetRepository } from 'src/repositories/asset.repository';
 import { EventRepository } from 'src/repositories/event.repository';
 import { PartnerRepository } from 'src/repositories/partner.repository';
-import { IBulkAsset, ImmichFile, UploadFile, UploadRequest } from 'src/types';
+import { IBulkAsset, GreatMemoriesFile, UploadFile, UploadRequest } from 'src/types';
 import { checkAccess } from 'src/utils/access';
 
 export const getAssetFile = (files: AssetFile[], type: AssetFileType, { isEdited }: { isEdited: boolean }) => {
@@ -187,7 +187,7 @@ export const onAfterUnlink = async (
   await eventRepository.emit('AssetShow', { assetId: livePhotoVideoId, userId });
 };
 
-export function mapToUploadFile(file: ImmichFile): UploadFile {
+export function mapToUploadFile(file: GreatMemoriesFile): UploadFile {
   return {
     uuid: file.uuid,
     checksum: file.checksum,
@@ -202,7 +202,7 @@ export const asUploadRequest = (request: AuthRequest, file: Express.Multer.File)
     auth: request.user || null,
     body: request.body,
     fieldName: file.fieldname as UploadFieldName,
-    file: mapToUploadFile(file as ImmichFile),
+    file: mapToUploadFile(file as GreatMemoriesFile),
   };
 };
 

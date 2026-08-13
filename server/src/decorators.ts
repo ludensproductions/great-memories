@@ -2,7 +2,7 @@ import { BeforeUpdateTrigger, Column, ColumnOptions } from '@immich/sql-tools';
 import { SetMetadata, applyDecorators } from '@nestjs/common';
 import { ApiOperation, ApiOperationOptions, ApiTags } from '@nestjs/swagger';
 import _ from 'lodash';
-import { ApiCustomExtension, ApiTag, ImmichWorker, JobName, MetadataKey, QueueName } from 'src/enum';
+import { ApiCustomExtension, ApiTag, GreatMemoriesWorker, JobName, MetadataKey, QueueName } from 'src/enum';
 import { EmitEvent } from 'src/repositories/event.repository';
 import { immich_uuid_v7, updated_at } from 'src/schema/functions';
 import { setUnion } from 'src/utils/set';
@@ -144,7 +144,7 @@ export type EventConfig = {
   /** lower value has higher priority, defaults to 0 */
   priority?: number;
   /** register events for these workers, defaults to all workers */
-  workers?: ImmichWorker[];
+  workers?: GreatMemoriesWorker[];
 };
 export const OnEvent = (config: EventConfig) => SetMetadata(MetadataKey.EventConfig, config);
 

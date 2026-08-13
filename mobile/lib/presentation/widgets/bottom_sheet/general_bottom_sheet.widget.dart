@@ -68,10 +68,10 @@ class _GeneralBottomSheetState extends ConsumerState<GeneralBottomSheet> {
       }
 
       if (!result.success) {
-        ImmichToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
+        GreatMemoriesToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
         return;
       }
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.count == 0
             ? 'add_to_album_bottom_sheet_already_exists'.tr(namedArgs: {'album': album.name})

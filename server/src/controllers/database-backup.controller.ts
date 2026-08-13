@@ -8,7 +8,7 @@ import {
   DatabaseBackupListResponseDto,
   DatabaseBackupUploadDto,
 } from 'src/dtos/database-backup.dto';
-import { ApiTag, ImmichCookie, Permission } from 'src/enum';
+import { ApiTag, GreatMemoriesCookie, Permission } from 'src/enum';
 import { Authenticated, FileResponse, GetLoginDetails } from 'src/middleware/auth.guard';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { LoginDetails } from 'src/services/auth.service';
@@ -78,7 +78,7 @@ export class DatabaseBackupController {
     const { jwt } = await this.maintenanceService.startRestoreFlow();
     return respondWithCookie(res, undefined, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.MaintenanceToken, value: jwt }],
+      values: [{ key: GreatMemoriesCookie.MaintenanceToken, value: jwt }],
     });
   }
 

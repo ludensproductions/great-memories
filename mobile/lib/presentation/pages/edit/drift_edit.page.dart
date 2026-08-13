@@ -59,10 +59,10 @@ class _DriftEditImagePageState extends ConsumerState<DriftEditImagePage> with Ti
 
     try {
       await widget.applyEdits(edits);
-      ImmichToast.show(context: context, msg: 'success'.tr(), toastType: ToastType.success);
+      GreatMemoriesToast.show(context: context, msg: 'success'.tr(), toastType: ToastType.success);
       Navigator.of(context).pop();
     } catch (e) {
-      ImmichToast.show(context: context, msg: 'error_title'.tr(), toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: 'error_title'.tr(), toastType: ToastType.error);
     } finally {
       ref.read(editorStateProvider.notifier).setIsEditing(false);
     }
@@ -104,12 +104,12 @@ class _DriftEditImagePageState extends ConsumerState<DriftEditImagePage> with Ti
         }
       },
       child: Theme(
-        data: getThemeData(colorScheme: ref.watch(immichThemeProvider).dark, locale: context.locale),
+        data: getThemeData(colorScheme: ref.watch(greatMemoriesThemeProvider).dark, locale: context.locale),
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
             title: Text("edit".tr()),
-            leading: ImmichCloseButton(onPressed: () => Navigator.of(context).maybePop()),
+            leading: GreatMemoriesCloseButton(onPressed: () => Navigator.of(context).maybePop()),
             actions: [_SaveEditsButton(onSave: _saveEditedImage)],
           ),
           backgroundColor: Colors.black,
@@ -126,7 +126,7 @@ class _DriftEditImagePageState extends ConsumerState<DriftEditImagePage> with Ti
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: ref.watch(immichThemeProvider).dark.surface,
+                      color: ref.watch(greatMemoriesThemeProvider).dark.surface,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
@@ -249,36 +249,36 @@ class _TransformControls extends ConsumerWidget {
             children: [
               Row(
                 children: [
-                  ImmichIconButton(
+                  GreatMemoriesIconButton(
                     icon: Icons.rotate_left,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: GreatMemoriesVariant.ghost,
+                    color: GreatMemoriesColor.secondary,
                     onPressed: editorNotifier.rotateCCW,
                   ),
                   const SizedBox(width: 8),
-                  ImmichIconButton(
+                  GreatMemoriesIconButton(
                     icon: Icons.rotate_right,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: GreatMemoriesVariant.ghost,
+                    color: GreatMemoriesColor.secondary,
                     onPressed: editorNotifier.rotateCW,
                   ),
                 ],
               ),
               Row(
                 children: [
-                  ImmichIconButton(
+                  GreatMemoriesIconButton(
                     icon: Icons.flip,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: GreatMemoriesVariant.ghost,
+                    color: GreatMemoriesColor.secondary,
                     onPressed: editorNotifier.flipHorizontally,
                   ),
                   const SizedBox(width: 8),
                   Transform.rotate(
                     angle: pi / 2,
-                    child: ImmichIconButton(
+                    child: GreatMemoriesIconButton(
                       icon: Icons.flip,
-                      variant: ImmichVariant.ghost,
-                      color: ImmichColor.secondary,
+                      variant: GreatMemoriesVariant.ghost,
+                      color: GreatMemoriesColor.secondary,
                       onPressed: editorNotifier.flipVertically,
                     ),
                   ),
@@ -309,10 +309,10 @@ class _SaveEditsButton extends ConsumerWidget {
             padding: EdgeInsets.all(8.0),
             child: SizedBox(width: 28, height: 28, child: CircularProgressIndicator(strokeWidth: 2.5)),
           )
-        : ImmichIconButton(
+        : GreatMemoriesIconButton(
             icon: Icons.done_rounded,
-            color: ImmichColor.primary,
-            variant: ImmichVariant.ghost,
+            color: GreatMemoriesColor.primary,
+            variant: GreatMemoriesVariant.ghost,
             disabled: !hasUnsavedEdits,
             onPressed: onSave,
           );
@@ -327,10 +327,10 @@ class _ResetEditsButton extends ConsumerWidget {
     final editorState = ref.watch(editorStateProvider);
     final editorNotifier = ref.read(editorStateProvider.notifier);
 
-    return ImmichTextButton(
+    return GreatMemoriesTextButton(
       labelText: 'reset'.tr(),
       onPressed: editorNotifier.resetEdits,
-      variant: ImmichVariant.ghost,
+      variant: GreatMemoriesVariant.ghost,
       expanded: false,
       disabled: !editorState.hasEdits || editorState.isApplyingEdits,
     );

@@ -111,7 +111,7 @@ class EndpointInputState extends ConsumerState<EndpointInput> {
           status: auxCheckStatus,
           enabled: widget.enabled,
         ),
-        subtitle: ImmichURLInput(
+        subtitle: GreatMemoriesURLInput(
           enabled: widget.enabled,
           autovalidateMode: .onUserInteraction,
           validator: validateUrl,

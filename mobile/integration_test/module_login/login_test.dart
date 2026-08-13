@@ -4,10 +4,10 @@ import '../test_utils/general_helper.dart';
 import '../test_utils/login_helper.dart';
 
 void main() async {
-  await ImmichTestHelper.initialize();
+  await GreatMemoriesTestHelper.initialize();
 
   group("Login tests", () {
-    immichWidgetTest("Test correct credentials", (tester, helper) async {
+    greatMemoriesWidgetTest("Test correct credentials", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
       await helper.loginHelper.enterCredentialsOf(
@@ -17,7 +17,7 @@ void main() async {
       await helper.loginHelper.assertLoginSuccess();
     });
 
-    immichWidgetTest("Test login with wrong password", (tester, helper) async {
+    greatMemoriesWidgetTest("Test login with wrong password", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
       await helper.loginHelper.enterCredentialsOf(
@@ -27,7 +27,7 @@ void main() async {
       await helper.loginHelper.assertLoginFailed();
     });
 
-    immichWidgetTest("Test login with wrong server URL",
+    greatMemoriesWidgetTest("Test login with wrong server URL",
         (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();

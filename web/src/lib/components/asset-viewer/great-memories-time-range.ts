@@ -5,7 +5,7 @@ const COMMIT_DELAY_MS = 750;
 
 /** Custom MediaTimeRange that only seeks after pointer release to avoid hammering the server.
  * Keyboard input uses timed debouncing instead since there's no release event. */
-class ImmichTimeRange extends MediaTimeRange {
+class GreatMemoriesTimeRange extends MediaTimeRange {
   private seeking = false;
   private pending: number | undefined;
   private idleTimer: ReturnType<typeof setTimeout> | undefined;
@@ -50,5 +50,5 @@ class ImmichTimeRange extends MediaTimeRange {
 }
 
 if (!customElements.get('immich-time-range')) {
-  customElements.define('immich-time-range', ImmichTimeRange);
+  customElements.define('immich-time-range', GreatMemoriesTimeRange);
 }

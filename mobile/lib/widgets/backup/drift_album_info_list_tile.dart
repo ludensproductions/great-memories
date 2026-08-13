@@ -57,7 +57,7 @@ class DriftAlbumInfoListTile extends HookConsumerWidget {
           ref.read(backupAlbumProvider.notifier).deselectAlbum(album);
         } else {
           if (album.id == 'isAll' || album.name == 'Recents') {
-            ImmichToast.show(
+            GreatMemoriesToast.show(
               context: context,
               msg: 'Cannot exclude album contains all assets',
               toastType: ToastType.error,

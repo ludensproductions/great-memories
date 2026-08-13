@@ -11,7 +11,7 @@ import app.alextran.immich.background.BackgroundWorkerLockApi
 import app.alextran.immich.connectivity.ConnectivityApi
 import app.alextran.immich.connectivity.ConnectivityApiImpl
 import app.alextran.immich.core.HttpClientManager
-import app.alextran.immich.core.ImmichPlugin
+import app.alextran.immich.core.GreatMemoriesPlugin
 import app.alextran.immich.core.NetworkApiPlugin
 import me.albemala.native_video_player.NativeVideoPlayerPlugin
 import app.alextran.immich.images.LocalImageApi
@@ -70,10 +70,10 @@ class MainActivity : FlutterFragmentActivity() {
 
     fun cancelPlugins(flutterEngine: FlutterEngine) {
       val nativeApi =
-        flutterEngine.plugins.get(NativeSyncApiImpl26::class.java) as ImmichPlugin?
-          ?: flutterEngine.plugins.get(NativeSyncApiImpl30::class.java) as ImmichPlugin?
+        flutterEngine.plugins.get(NativeSyncApiImpl26::class.java) as GreatMemoriesPlugin?
+          ?: flutterEngine.plugins.get(NativeSyncApiImpl30::class.java) as GreatMemoriesPlugin?
       nativeApi?.detachFromEngine()
-      val permissionApi = flutterEngine.plugins.get(PermissionApiImpl::class.java) as ImmichPlugin?
+      val permissionApi = flutterEngine.plugins.get(PermissionApiImpl::class.java) as GreatMemoriesPlugin?
       permissionApi?.detachFromEngine()
     }
   }

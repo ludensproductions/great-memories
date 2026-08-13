@@ -9,7 +9,7 @@ import { serverVersion } from 'src/constants';
 import { StorageCore } from 'src/cores/storage.core';
 import { OnEvent, OnJob } from 'src/decorators';
 import { DatabaseBackupListResponseDto } from 'src/dtos/database-backup.dto';
-import { CacheControl, DatabaseLock, ImmichWorker, JobName, JobStatus, QueueName, StorageFolder } from 'src/enum';
+import { CacheControl, DatabaseLock, GreatMemoriesWorker, JobName, JobStatus, QueueName, StorageFolder } from 'src/enum';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { CronRepository } from 'src/repositories/cron.repository';
@@ -29,7 +29,7 @@ import {
   isValidDatabaseRoutineBackupName,
   UnsupportedPostgresError,
 } from 'src/utils/database-backups';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { handlePromiseError } from 'src/utils/misc';
 
 @Injectable()
@@ -54,7 +54,7 @@ export class DatabaseBackupService {
 
   private backupLock = false;
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [GreatMemoriesWorker.Microservices] })
   async onConfigInit({
     newConfig: {
       backup: { database },
@@ -269,7 +269,7 @@ export class DatabaseBackupService {
     await this.storageRepository.createOrOverwriteFile(filePath, file.buffer);
   }
 
-  downloadBackup(fileName: string): ImmichFileResponse {
+  downloadBackup(fileName: string): GreatMemoriesFileResponse {
     if (!isValidDatabaseBackupName(fileName)) {
       throw new BadRequestException('Invalid backup name!');
     }

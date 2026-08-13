@@ -1,6 +1,6 @@
 import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@immich/sdk';
 import { PUBLIC_IMMICH_BUY_HOST, PUBLIC_IMMICH_PAY_HOST } from '$env/static/public';
-import type { ImmichProduct } from '$lib/constants';
+import type { GreatMemoriesProduct } from '$lib/constants';
 import { authManager } from '$lib/managers/auth-manager.svelte';
 import { serverConfigManager } from '$lib/managers/server-config-manager.svelte';
 
@@ -22,7 +22,7 @@ export const getActivationKey = async (licenseKey: string): Promise<string> => {
   return response.text();
 };
 
-export const getLicenseLink = (license: ImmichProduct) => {
+export const getLicenseLink = (license: GreatMemoriesProduct) => {
   const url = new URL('/', PUBLIC_IMMICH_BUY_HOST);
   url.searchParams.append('productId', license);
   url.searchParams.append('instanceUrl', serverConfigManager.value.externalDomain || globalThis.origin);

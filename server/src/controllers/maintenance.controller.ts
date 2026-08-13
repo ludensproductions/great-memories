@@ -10,7 +10,7 @@ import {
   MaintenanceStatusResponseDto,
   SetMaintenanceModeDto,
 } from 'src/dtos/maintenance.dto';
-import { ApiTag, ImmichCookie, MaintenanceAction, Permission } from 'src/enum';
+import { ApiTag, GreatMemoriesCookie, MaintenanceAction, Permission } from 'src/enum';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard';
 import { LoginDetails } from 'src/services/auth.service';
 import { MaintenanceService } from 'src/services/maintenance.service';
@@ -72,7 +72,7 @@ export class MaintenanceController {
     const { jwt } = await this.service.startMaintenance(dto, auth.user.name);
     return respondWithCookie(res, undefined, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.MaintenanceToken, value: jwt }],
+      values: [{ key: GreatMemoriesCookie.MaintenanceToken, value: jwt }],
     });
   }
 }

@@ -87,7 +87,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
         }
         unawaited(ref.read(backupProvider.notifier).updateDiskInfo());
 
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'profile_picture_set'.tr(),
           gravity: ToastGravity.BOTTOM,
@@ -98,7 +98,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
           unawaited(context.maybePop());
         }
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'errors.unable_to_set_profile_picture'.tr(),
           toastType: ToastType.error,
@@ -110,7 +110,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'errors.unable_to_set_profile_picture'.tr(),
         toastType: ToastType.error,
@@ -134,7 +134,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
       appBar: AppBar(
         backgroundColor: context.scaffoldBackgroundColor,
         title: Text("set_profile_picture".tr()),
-        leading: _isLoading ? null : const ImmichCloseButton(),
+        leading: _isLoading ? null : const GreatMemoriesCloseButton(),
         actions: [
           if (_isLoading)
             const Padding(
@@ -142,10 +142,10 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
               child: SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)),
             )
           else
-            ImmichIconButton(
+            GreatMemoriesIconButton(
               icon: Icons.done_rounded,
-              color: ImmichColor.primary,
-              variant: ImmichVariant.ghost,
+              color: GreatMemoriesColor.primary,
+              variant: GreatMemoriesVariant.ghost,
               onPressed: _handleDone,
             ),
         ],

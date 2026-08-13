@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:immich_ui/great_memories_ui.dart';
 import 'package:immich_ui/src/internal.dart';
 
-class ImmichIconButton extends StatefulWidget {
+class GreatMemoriesIconButton extends StatefulWidget {
   final IconData icon;
   final FutureOr<void> Function() onPressed;
-  final ImmichVariant variant;
-  final ImmichColor color;
+  final GreatMemoriesVariant variant;
+  final GreatMemoriesColor color;
   final bool disabled;
   final bool? loading;
 
-  const ImmichIconButton({
+  const GreatMemoriesIconButton({
     super.key,
     required this.icon,
     required this.onPressed,
@@ -23,10 +23,10 @@ class ImmichIconButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichIconButton> createState() => _ImmichIconButtonState();
+  State<GreatMemoriesIconButton> createState() => _GreatMemoriesIconButtonState();
 }
 
-class _ImmichIconButtonState extends State<ImmichIconButton> {
+class _GreatMemoriesIconButtonState extends State<GreatMemoriesIconButton> {
   bool _loading = false;
   bool get _isLoading => widget.loading ?? _loading;
 
@@ -69,7 +69,7 @@ class _ImmichIconButtonState extends State<ImmichIconButton> {
     return IconButton(
       icon: _isLoading
           ? const SizedBox.square(
-              dimension: ImmichIconSize.sm,
+              dimension: GreatMemoriesIconSize.sm,
               child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.md),
             )
           : Icon(widget.icon),

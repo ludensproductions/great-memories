@@ -22,12 +22,12 @@ class FormattedSpan {
 ///
 /// Bold-only example (no [spanBuilder] needed):
 /// ```dart
-/// ImmichFormattedText('Delete <b>{count}</b> items?')
+/// GreatMemoriesFormattedText('Delete <b>{count}</b> items?')
 /// ```
 ///
 /// Link example:
 /// ```dart
-/// ImmichFormattedText(
+/// GreatMemoriesFormattedText(
 ///   'Refer to <docs-link>docs</docs-link> and <other-link>other</other-link>',
 ///   spanBuilder: (tag) => FormattedSpan(
 ///     onTap: switch (tag) {
@@ -38,7 +38,7 @@ class FormattedSpan {
 ///   ),
 /// )
 /// ```
-class ImmichFormattedText extends StatefulWidget {
+class GreatMemoriesFormattedText extends StatefulWidget {
   final String text;
   final TextStyle? style;
   final TextAlign? textAlign;
@@ -47,7 +47,7 @@ class ImmichFormattedText extends StatefulWidget {
   final bool? softWrap;
   final FormattedSpan Function(String tag)? spanBuilder;
 
-  const ImmichFormattedText(
+  const GreatMemoriesFormattedText(
     this.text, {
     this.spanBuilder,
     super.key,
@@ -59,10 +59,10 @@ class ImmichFormattedText extends StatefulWidget {
   });
 
   @override
-  State<ImmichFormattedText> createState() => _ImmichFormattedTextState();
+  State<GreatMemoriesFormattedText> createState() => _GreatMemoriesFormattedTextState();
 }
 
-class _ImmichFormattedTextState extends State<ImmichFormattedText> {
+class _GreatMemoriesFormattedTextState extends State<GreatMemoriesFormattedText> {
   final _recognizers = <GestureRecognizer>[];
 
   // Matches <b>, <link>, or any *-link tag and its content.

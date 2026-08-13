@@ -52,7 +52,7 @@ class ViewerKebabMenu extends ConsumerWidget {
 
     final menuChildren = ActionButtonBuilder.buildViewerKebabMenu(actionContext, context);
 
-    return ImmichMenu(
+    return GreatMemoriesMenu(
       consumeOutsideTap: true,
       style: MenuStyle(
         backgroundColor: WidgetStatePropertyAll(context.themeData.scaffoldBackgroundColor),

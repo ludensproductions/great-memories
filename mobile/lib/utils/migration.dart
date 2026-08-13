@@ -84,7 +84,7 @@ Future<void> _migrateTo26(Drift drift) async {
   await migrator.migrateEnumIndex(StoreKey.legacyLogLevel, SettingsKey.logLevel, LogLevel.values);
   // Theme
   await migrator.migrateEnumName(StoreKey.legacyThemeMode, SettingsKey.themeMode, ThemeMode.values);
-  await migrator.migrateEnumName(StoreKey.legacyPrimaryColor, SettingsKey.themePrimaryColor, ImmichColorPreset.values);
+  await migrator.migrateEnumName(StoreKey.legacyPrimaryColor, SettingsKey.themePrimaryColor, GreatMemoriesColorPreset.values);
   await migrator.migrateBool(StoreKey.legacyDynamicTheme, SettingsKey.themeDynamic);
   await migrator.migrateBool(StoreKey.legacyColorfulInterface, SettingsKey.themeColorfulInterface);
   // Cleanup

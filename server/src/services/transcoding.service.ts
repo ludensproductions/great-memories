@@ -14,7 +14,7 @@ import {
 } from 'src/constants';
 import { StorageCore } from 'src/cores/storage.core';
 import { OnEvent, OnJob } from 'src/decorators';
-import { DatabaseLock, ImmichWorker, JobName, QueueName, TranscodeTarget } from 'src/enum';
+import { DatabaseLock, GreatMemoriesWorker, JobName, QueueName, TranscodeTarget } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { BaseService } from 'src/services/base.service';
 import { VideoInterfaces } from 'src/types';
@@ -42,13 +42,13 @@ export class TranscodingService extends BaseService {
   private videoInterfaces: VideoInterfaces = { dri: [], mali: false };
   private cleanupInterval: NodeJS.Timeout | null = null;
 
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Microservices] })
   async onBootstrap() {
     const [videoInterfaces] = await Promise.all([this.storageCore.getVideoInterfaces(), this.removeExpiredSessions()]);
     this.videoInterfaces = videoInterfaces;
   }
 
-  @OnEvent({ name: 'AppShutdown', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppShutdown', workers: [GreatMemoriesWorker.Microservices] })
   onShutdown() {
     if (this.cleanupInterval) {
       clearInterval(this.cleanupInterval);
@@ -62,7 +62,7 @@ export class TranscodingService extends BaseService {
     return this.removeExpiredSessions();
   }
 
-  @OnEvent({ name: 'HlsSessionRequest', server: true, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'HlsSessionRequest', server: true, workers: [GreatMemoriesWorker.Microservices] })
   async onSessionRequest({ assetId, sessionId, ownerId }: ArgOf<'HlsSessionRequest'>) {
     try {
       const expiresAt = new Date(Date.now() + HLS_LEASE_DURATION_MS);
@@ -92,7 +92,7 @@ export class TranscodingService extends BaseService {
     }
   }
 
-  @OnEvent({ name: 'HlsSessionEnd', server: true, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'HlsSessionEnd', server: true, workers: [GreatMemoriesWorker.Microservices] })
   async onSessionEnd({ sessionId }: ArgOf<'HlsSessionEnd'>) {
     const session = this.sessions.get(sessionId);
     if (!session) {
@@ -108,7 +108,7 @@ export class TranscodingService extends BaseService {
     await this.videoStreamRepository.deleteSession(sessionId);
   }
 
-  @OnEvent({ name: 'HlsHeartbeat', server: true, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'HlsHeartbeat', server: true, workers: [GreatMemoriesWorker.Microservices] })
   async onHeartbeat({ sessionId, segmentIndex }: ArgOf<'HlsHeartbeat'>) {
     const session = this.sessions.get(sessionId);
     if (!session) {
@@ -129,7 +129,7 @@ export class TranscodingService extends BaseService {
     }
   }
 
-  @OnEvent({ name: 'HlsSegmentRequest', server: true, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'HlsSegmentRequest', server: true, workers: [GreatMemoriesWorker.Microservices] })
   async onSegmentRequest({ sessionId, variantIndex, segmentIndex }: ArgOf<'HlsSegmentRequest'>) {
     const session = this.sessions.get(sessionId);
     if (!session) {

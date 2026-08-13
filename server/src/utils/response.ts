@@ -1,7 +1,7 @@
 import { CookieOptions, Response } from 'express';
 import { Duration } from 'luxon';
 import { CookieResponse } from 'src/dtos/auth.dto';
-import { ImmichCookie } from 'src/enum';
+import { GreatMemoriesCookie } from 'src/enum';
 
 export const respondWithCookie = <T>(res: Response, body: T, { isSecure, values }: CookieResponse) => {
   const defaults: CookieOptions = {
@@ -12,15 +12,15 @@ export const respondWithCookie = <T>(res: Response, body: T, { isSecure, values 
     maxAge: Duration.fromObject({ days: 400 }).toMillis(),
   };
 
-  const cookieOptions: Record<ImmichCookie, CookieOptions> = {
-    [ImmichCookie.AuthType]: defaults,
-    [ImmichCookie.AccessToken]: defaults,
-    [ImmichCookie.MaintenanceToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
-    [ImmichCookie.OAuthState]: defaults,
-    [ImmichCookie.OAuthCodeVerifier]: defaults,
+  const cookieOptions: Record<GreatMemoriesCookie, CookieOptions> = {
+    [GreatMemoriesCookie.AuthType]: defaults,
+    [GreatMemoriesCookie.AccessToken]: defaults,
+    [GreatMemoriesCookie.MaintenanceToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
+    [GreatMemoriesCookie.OAuthState]: defaults,
+    [GreatMemoriesCookie.OAuthCodeVerifier]: defaults,
     // no httpOnly so that the client can know the auth state
-    [ImmichCookie.IsAuthenticated]: { ...defaults, httpOnly: false },
-    [ImmichCookie.SharedLinkToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
+    [GreatMemoriesCookie.IsAuthenticated]: { ...defaults, httpOnly: false },
+    [GreatMemoriesCookie.SharedLinkToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
   };
 
   for (const { key, value } of values) {
@@ -31,7 +31,7 @@ export const respondWithCookie = <T>(res: Response, body: T, { isSecure, values 
   return body;
 };
 
-export const respondWithoutCookie = <T>(res: Response, body: T, cookies: ImmichCookie[]) => {
+export const respondWithoutCookie = <T>(res: Response, body: T, cookies: GreatMemoriesCookie[]) => {
   for (const cookie of cookies) {
     res.clearCookie(cookie);
   }

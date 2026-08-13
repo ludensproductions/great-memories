@@ -5,7 +5,7 @@ import { basename, extname } from 'node:path';
 import { promisify } from 'node:util';
 import { CacheControl } from 'src/enum';
 import { LoggingRepository } from 'src/repositories/logging.repository';
-import { ImmichReadStream } from 'src/repositories/storage.repository';
+import { GreatMemoriesReadStream } from 'src/repositories/storage.repository';
 import { isConnectionAborted } from 'src/utils/misc';
 
 export function getFileNameWithoutExtension(path: string): string {
@@ -24,13 +24,13 @@ export function getLivePhotoMotionFilename(stillName: string, motionName: string
   return getFileNameWithoutExtension(stillName) + getFilenameExtension(motionName);
 }
 
-export class ImmichFileResponse {
+export class GreatMemoriesFileResponse {
   public readonly path!: string;
   public readonly contentType!: string;
   public readonly cacheControl!: CacheControl;
   public readonly fileName?: string;
 
-  constructor(response: ImmichFileResponse) {
+  constructor(response: GreatMemoriesFileResponse) {
     Object.assign(this, response);
   }
 }
@@ -47,7 +47,7 @@ const cacheControlHeaders: Record<CacheControl, string | null> = {
 export const sendFile = async (
   res: Response,
   next: NextFunction,
-  handler: () => Promise<ImmichFileResponse> | ImmichFileResponse,
+  handler: () => Promise<GreatMemoriesFileResponse> | GreatMemoriesFileResponse,
   logger: LoggingRepository,
 ): Promise<void> => {
   // promisified version of 'res.sendFile' for cleaner async handling
@@ -86,6 +86,6 @@ export const sendFile = async (
   }
 };
 
-export const asStreamableFile = ({ stream, type, length }: ImmichReadStream) => {
+export const asStreamableFile = ({ stream, type, length }: GreatMemoriesReadStream) => {
   return new StreamableFile(stream, { type, length });
 };

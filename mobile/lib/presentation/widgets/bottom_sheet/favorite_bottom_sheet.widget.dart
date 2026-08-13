@@ -46,7 +46,7 @@ class FavoriteBottomSheet extends ConsumerWidget {
           .addAssets(album.id, remoteAssets.map((e) => e.id).toList());
 
       if (selectedAssets.length != remoteAssets.length) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_some_local_assets'.t(context: context),
         );
@@ -54,18 +54,18 @@ class FavoriteBottomSheet extends ConsumerWidget {
 
       // Only report the failure when nothing was added; if some succeeded we show "added".
       if (result.added > 0) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_added'.t(args: {"album": album.name}),
         );
       } else if (result.failed > 0) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'assets_cannot_be_added_to_album_count'.t(context: context, args: {'count': result.failed}),
           toastType: ToastType.error,
         );
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_already_exists'.t(args: {"album": album.name}),
         );

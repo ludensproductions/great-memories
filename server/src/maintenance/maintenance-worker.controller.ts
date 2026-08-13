@@ -21,7 +21,7 @@ import {
   SetMaintenanceModeDto,
 } from 'src/dtos/maintenance.dto';
 import { ServerConfigDto, ServerPingResponse, ServerVersionResponseDto } from 'src/dtos/server.dto';
-import { ImmichCookie } from 'src/enum';
+import { GreatMemoriesCookie } from 'src/enum';
 import { MaintenanceRoute } from 'src/maintenance/maintenance-auth.guard';
 import { MaintenanceWorkerService } from 'src/maintenance/maintenance-worker.service';
 import { GetLoginDetails } from 'src/middleware/auth.guard';
@@ -108,7 +108,7 @@ export class MaintenanceWorkerController {
 
   @Get('admin/maintenance/status')
   maintenanceStatus(@Req() request: Request): Promise<MaintenanceStatusResponseDto> {
-    return this.service.status(request.cookies[ImmichCookie.MaintenanceToken]);
+    return this.service.status(request.cookies[GreatMemoriesCookie.MaintenanceToken]);
   }
 
   @Get('admin/maintenance/detect-install')
@@ -123,11 +123,11 @@ export class MaintenanceWorkerController {
     @GetLoginDetails() loginDetails: LoginDetails,
     @Res({ passthrough: true }) res: Response,
   ): Promise<MaintenanceAuthDto> {
-    const token = dto.token ?? request.cookies[ImmichCookie.MaintenanceToken];
+    const token = dto.token ?? request.cookies[GreatMemoriesCookie.MaintenanceToken];
     const auth = await this.service.login(token);
     return respondWithCookie(res, auth, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.MaintenanceToken, value: token }],
+      values: [{ key: GreatMemoriesCookie.MaintenanceToken, value: token }],
     });
   }
 

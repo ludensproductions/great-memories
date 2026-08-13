@@ -404,7 +404,7 @@ Future<File> _databaseFile(String name) async {
 
 SqliteDatabase _openImmichDatabase(File file) {
   return SqliteDatabase.withFactory(
-    ImmichSqliteOpenFactory(
+    GreatMemoriesSqliteOpenFactory(
       path: file.path,
       sqliteOptions: const SqliteOptions(
         journalMode: SqliteJournalMode.wal, // PRAGMA journal_mode (writer only)
@@ -416,8 +416,8 @@ SqliteDatabase _openImmichDatabase(File file) {
 }
 
 @visibleForTesting
-final class ImmichSqliteOpenFactory extends NativeSqliteOpenFactory {
-  ImmichSqliteOpenFactory({required super.path, super.sqliteOptions});
+final class GreatMemoriesSqliteOpenFactory extends NativeSqliteOpenFactory {
+  GreatMemoriesSqliteOpenFactory({required super.path, super.sqliteOptions});
 
   @override
   List<String> pragmaStatements(SqliteOpenOptions options) {

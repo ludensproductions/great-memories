@@ -14,10 +14,10 @@ import { Telemetry } from 'src/decorators';
 import { EnvSchema } from 'src/dtos/env.dto';
 import {
   DatabaseExtension,
-  ImmichEnvironment,
-  ImmichHeader,
-  ImmichTelemetry,
-  ImmichWorker,
+  GreatMemoriesEnvironment,
+  GreatMemoriesHeader,
+  GreatMemoriesTelemetry,
+  GreatMemoriesWorker,
   LogFormat,
   LogLevel,
   QueueName,
@@ -28,7 +28,7 @@ import { setDifference } from 'src/utils/set';
 export interface EnvData {
   host?: string;
   port: number;
-  environment: ImmichEnvironment;
+  environment: GreatMemoriesEnvironment;
   configFile?: string;
   logLevel?: LogLevel;
   logFormat?: LogFormat;
@@ -108,7 +108,7 @@ export interface EnvData {
   telemetry: {
     apiPort: number;
     microservicesPort: number;
-    metrics: Set<ImmichTelemetry>;
+    metrics: Set<GreatMemoriesTelemetry>;
   };
 
   storage: {
@@ -116,7 +116,7 @@ export interface EnvData {
     mediaLocation?: string;
   };
 
-  workers: ImmichWorker[];
+  workers: GreatMemoriesWorker[];
 
   plugins: {
     external: {
@@ -143,8 +143,8 @@ const stagingKeys = {
     'LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUE3Sy8yd3ZLUS9NdU8ydi9MUm5saAoyUy9zTHhDOGJiTEw1UUlKOGowQ3BVZW40YURlY2dYMUpKUmtGNlpUVUtpNTdTbEhtS3RSM2JOTzJmdTBUUVg5Ck5WMEJzVzllZVB0MmlTMWl4VVFmTzRObjdvTjZzbEtac01qd29RNGtGRGFmM3VHTlZJc0dMb3UxVWRLUVhpeDEKUlRHcXVTb3NZVjNWRlk3Q1hGYTVWaENBL3poVXNsNGFuVXp3eEF6M01jUFVlTXBaenYvbVZiQlRKVzBPSytWZgpWQUJvMXdYMkVBanpBekVHVzQ3Vko4czhnMnQrNHNPaHFBNStMQjBKVzlORUg5QUpweGZzWE4zSzVtM00yNUJVClZXcTlRYStIdHRENnJ0bnAvcUFweXVkWUdwZk9HYTRCUlZTR1MxMURZM0xrb2FlRzYwUEU5NHpoYjduOHpMWkgKelFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tDQo=',
 };
 
-const WORKER_TYPES = new Set(Object.values(ImmichWorker));
-const TELEMETRY_TYPES = new Set(Object.values(ImmichTelemetry));
+const WORKER_TYPES = new Set(Object.values(GreatMemoriesWorker));
+const TELEMETRY_TYPES = new Set(Object.values(GreatMemoriesTelemetry));
 
 const asSet = <T>(value: string | undefined, defaults: T[]) => {
   const values = (value || '').replaceAll(/\s/g, '').split(',').filter(Boolean);
@@ -182,7 +182,7 @@ const getEnv = (): EnvData => {
   }
   const dto = parseResult.data;
 
-  const includedWorkers = asSet(dto.IMMICH_WORKERS_INCLUDE, [ImmichWorker.Api, ImmichWorker.Microservices]);
+  const includedWorkers = asSet(dto.IMMICH_WORKERS_INCLUDE, [GreatMemoriesWorker.Api, GreatMemoriesWorker.Microservices]);
   const excludedWorkers = asSet(dto.IMMICH_WORKERS_EXCLUDE, []);
   const workers = [...setDifference(includedWorkers, excludedWorkers)];
   for (const worker of workers) {
@@ -191,8 +191,8 @@ const getEnv = (): EnvData => {
     }
   }
 
-  const environment = dto.IMMICH_ENV || ImmichEnvironment.Production;
-  const isProd = environment === ImmichEnvironment.Production;
+  const environment = dto.IMMICH_ENV || GreatMemoriesEnvironment.Production;
+  const isProd = environment === GreatMemoriesEnvironment.Production;
   const buildFolder = dto.IMMICH_BUILD_DATA || '/build';
   const folders = {
     geodata: join(buildFolder, 'geodata'),
@@ -219,10 +219,10 @@ const getEnv = (): EnvData => {
 
   const includedTelemetries =
     dto.IMMICH_TELEMETRY_INCLUDE === 'all'
-      ? new Set(Object.values(ImmichTelemetry))
-      : asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_INCLUDE, []);
+      ? new Set(Object.values(GreatMemoriesTelemetry))
+      : asSet<GreatMemoriesTelemetry>(dto.IMMICH_TELEMETRY_INCLUDE, []);
 
-  const excludedTelemetries = asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_EXCLUDE, []);
+  const excludedTelemetries = asSet<GreatMemoriesTelemetry>(dto.IMMICH_TELEMETRY_EXCLUDE, []);
   const telemetries = setDifference(includedTelemetries, excludedTelemetries);
   for (const telemetry of telemetries) {
     if (!TELEMETRY_TYPES.has(telemetry)) {
@@ -299,9 +299,9 @@ const getEnv = (): EnvData => {
           mount: true,
           generateId: true,
           setup: (cls, req: Request, res: Response) => {
-            const cid = req.header(ImmichHeader.CorrelationId) || cls.get(CLS_ID);
+            const cid = req.header(GreatMemoriesHeader.CorrelationId) || cls.get(CLS_ID);
             cls.set(CLS_ID, cid);
-            res.header(ImmichHeader.CorrelationId, cid);
+            res.header(GreatMemoriesHeader.CorrelationId, cid);
           },
         },
       },
@@ -329,7 +329,7 @@ const getEnv = (): EnvData => {
 
     otel: {
       metrics: {
-        hostMetrics: telemetries.has(ImmichTelemetry.Host),
+        hostMetrics: telemetries.has(GreatMemoriesTelemetry.Host),
       },
     },
 
@@ -384,7 +384,7 @@ let cached: EnvData | undefined;
 @Injectable()
 @Telemetry({ enabled: false })
 export class ConfigRepository {
-  constructor(@Inject(IWorker) @Optional() private worker?: ImmichWorker) {}
+  constructor(@Inject(IWorker) @Optional() private worker?: GreatMemoriesWorker) {}
 
   getEnv() {
     if (!cached) {
@@ -395,7 +395,7 @@ export class ConfigRepository {
   }
 
   isDev() {
-    return this.getEnv().environment === ImmichEnvironment.Development;
+    return this.getEnv().environment === GreatMemoriesEnvironment.Development;
   }
 
   getWorker() {

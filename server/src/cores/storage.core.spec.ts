@@ -12,13 +12,13 @@ describe('StorageCore', () => {
     });
 
     it('should return true for APP_MEDIA_LOCATION path', () => {
-      const immichPath = '/photos';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const greatMemoriesPath = '/photos';
+      expect(StorageCore.isImmichPath(greatMemoriesPath)).toBe(true);
     });
 
     it('should return true for paths within the APP_MEDIA_LOCATION', () => {
-      const immichPath = '/photos/new/';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const greatMemoriesPath = '/photos/new/';
+      expect(StorageCore.isImmichPath(greatMemoriesPath)).toBe(true);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION and same starts', () => {

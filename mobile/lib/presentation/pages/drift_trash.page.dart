@@ -85,7 +85,7 @@ class _TrashKebabMenu extends ConsumerWidget {
           if (!context.mounted) {
             return;
           }
-          ImmichToast.show(
+          GreatMemoriesToast.show(
             context: context,
             msg: result.success ? successMsg(result.count) : context.t.scaffold_body_error_occurred,
             toastType: result.success ? ToastType.success : ToastType.error,

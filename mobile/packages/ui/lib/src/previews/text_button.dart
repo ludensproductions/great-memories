@@ -5,49 +5,49 @@ import 'package:immich_ui/src/types.dart';
 
 void _previewNoop() {}
 
-@ImmichPreview(group: 'TextButton', name: 'Variants')
+@GreatMemoriesPreview(group: 'TextButton', name: 'Variants')
 Widget previewTextButtonVariants() => const Wrap(
   spacing: 12,
   runSpacing: 12,
   children: [
-    ImmichTextButton(onPressed: _previewNoop, labelText: 'Filled', expanded: false),
-    ImmichTextButton(onPressed: _previewNoop, labelText: 'Ghost', variant: ImmichVariant.ghost, expanded: false),
+    GreatMemoriesTextButton(onPressed: _previewNoop, labelText: 'Filled', expanded: false),
+    GreatMemoriesTextButton(onPressed: _previewNoop, labelText: 'Ghost', variant: GreatMemoriesVariant.ghost, expanded: false),
   ],
 );
 
-@ImmichPreview(group: 'TextButton', name: 'With Icons')
+@GreatMemoriesPreview(group: 'TextButton', name: 'With Icons')
 Widget previewTextButtonWithIcons() => const Wrap(
   spacing: 12,
   runSpacing: 12,
   children: [
-    ImmichTextButton(onPressed: _previewNoop, labelText: 'With Icon', icon: Icons.add, expanded: false),
-    ImmichTextButton(
+    GreatMemoriesTextButton(onPressed: _previewNoop, labelText: 'With Icon', icon: Icons.add, expanded: false),
+    GreatMemoriesTextButton(
       onPressed: _previewNoop,
       labelText: 'Download',
       icon: Icons.download,
-      variant: ImmichVariant.ghost,
+      variant: GreatMemoriesVariant.ghost,
       expanded: false,
     ),
   ],
 );
 
-@ImmichPreview(group: 'TextButton', name: 'Loading')
-Widget previewTextButtonLoading() => ImmichTextButton(
+@GreatMemoriesPreview(group: 'TextButton', name: 'Loading')
+Widget previewTextButtonLoading() => GreatMemoriesTextButton(
   onPressed: () => Future<void>.delayed(const Duration(seconds: 2)),
   labelText: 'Click me',
   expanded: false,
 );
 
-@ImmichPreview(group: 'TextButton', name: 'Disabled')
+@GreatMemoriesPreview(group: 'TextButton', name: 'Disabled')
 Widget previewTextButtonDisabled() => const Wrap(
   spacing: 12,
   runSpacing: 12,
   children: [
-    ImmichTextButton(onPressed: _previewNoop, labelText: 'Disabled', disabled: true, expanded: false),
-    ImmichTextButton(
+    GreatMemoriesTextButton(onPressed: _previewNoop, labelText: 'Disabled', disabled: true, expanded: false),
+    GreatMemoriesTextButton(
       onPressed: _previewNoop,
       labelText: 'Disabled Ghost',
-      variant: ImmichVariant.ghost,
+      variant: GreatMemoriesVariant.ghost,
       disabled: true,
       expanded: false,
     ),

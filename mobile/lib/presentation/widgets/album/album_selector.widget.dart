@@ -756,7 +756,7 @@ class AddToAlbumHeader extends ConsumerWidget {
           .createAlbumWithAssets(title: albumName, assets: selectedAssets);
 
       if (newAlbum == null) {
-        ImmichToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.tr());
+        GreatMemoriesToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.tr());
         return;
       }
 
@@ -805,7 +805,7 @@ class CreateAlbumButton extends ConsumerWidget {
       final asset = ref.read(assetViewerProvider).currentAsset;
 
       if (asset == null) {
-        ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+        GreatMemoriesToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
         return;
       }
 
@@ -814,11 +814,11 @@ class CreateAlbumButton extends ConsumerWidget {
           .createAlbum(title: albumName, assetIds: [asset.remoteId!]);
 
       if (album == null) {
-        ImmichToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.tr());
+        GreatMemoriesToast.show(context: context, toastType: ToastType.error, msg: 'errors.failed_to_create_album'.tr());
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'add_to_album_bottom_sheet_added'.tr(namedArgs: {'album': album.name}),
       );

@@ -4,8 +4,8 @@ import { ChildProcess, fork } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { Worker } from 'node:worker_threads';
 import { PostgresError } from 'postgres';
-import { ImmichAdminModule } from 'src/app.module';
-import { DatabaseLock, ExitCode, ImmichWorker, LogLevel, SystemMetadataKey } from 'src/enum';
+import { GreatMemoriesAdminModule } from 'src/app.module';
+import { DatabaseLock, ExitCode, GreatMemoriesWorker, LogLevel, SystemMetadataKey } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { SystemMetadataRepository } from 'src/repositories/system-metadata.repository';
 import { type DB } from 'src/schema';
@@ -18,7 +18,7 @@ class Workers {
   /**
    * Currently running workers
    */
-  workers: Partial<Record<ImmichWorker, { kill: (signal: NodeJS.Signals) => Promise<void> | void }>> = {};
+  workers: Partial<Record<GreatMemoriesWorker, { kill: (signal: NodeJS.Signals) => Promise<void> | void }>> = {};
 
   /**
    * Fail-safe in case anything dies during restart
@@ -33,7 +33,7 @@ class Workers {
     const { workers } = new ConfigRepository().getEnv();
 
     if (isMaintenanceMode) {
-      this.startWorker(ImmichWorker.Maintenance);
+      this.startWorker(GreatMemoriesWorker.Maintenance);
     } else {
       await this.waitForFreeLock();
 
@@ -94,7 +94,7 @@ class Workers {
    * Start an individual worker
    * @param name Worker
    */
-  private startWorker(name: ImmichWorker) {
+  private startWorker(name: GreatMemoriesWorker) {
     console.log(`Starting ${name} worker`);
 
     // eslint-disable-next-line unicorn/prefer-module
@@ -104,7 +104,7 @@ class Workers {
     let anyWorker: Worker | ChildProcess;
     let kill: (signal?: NodeJS.Signals) => Promise<void> | void;
 
-    if (name === ImmichWorker.Api) {
+    if (name === GreatMemoriesWorker.Api) {
       const worker = fork(workerFile, [], {
         execArgv: process.execArgv.map((arg) => (arg.startsWith('--inspect') ? '--inspect=0.0.0.0:9231' : arg)),
       });
@@ -125,11 +125,11 @@ class Workers {
     this.workers[name] = { kill };
   }
 
-  onError(name: ImmichWorker, error: Error) {
+  onError(name: GreatMemoriesWorker, error: Error) {
     console.error(`${name} worker error: ${error}, stack: ${error.stack}`);
   }
 
-  onExit(name: ImmichWorker, exitCode: number | null) {
+  onExit(name: GreatMemoriesWorker, exitCode: number | null) {
     // restart immich server
     if (exitCode === ExitCode.AppRestart || this.restarting) {
       this.restarting = true;
@@ -152,9 +152,9 @@ class Workers {
     if (exitCode !== 0) {
       console.error(`${name} worker exited with code ${exitCode}`);
 
-      if (Object.hasOwn(this.workers, ImmichWorker.Api) && name !== ImmichWorker.Api) {
+      if (Object.hasOwn(this.workers, GreatMemoriesWorker.Api) && name !== GreatMemoriesWorker.Api) {
         console.error('Killing api process');
-        void this.workers[ImmichWorker.Api]!.kill('SIGTERM');
+        void this.workers[GreatMemoriesWorker.Api]!.kill('SIGTERM');
       }
     }
 
@@ -163,27 +163,27 @@ class Workers {
 }
 
 function main() {
-  const immichApp = process.argv[2];
-  if (immichApp) {
+  const greatMemoriesApp = process.argv[2];
+  if (greatMemoriesApp) {
     process.argv.splice(2, 1);
   }
 
-  if (immichApp === 'great-memories-admin') {
+  if (greatMemoriesApp === 'great-memories-admin') {
     process.title = 'immich_admin_cli';
     process.env.IMMICH_LOG_LEVEL = LogLevel.Warn;
 
-    return CommandFactory.run(ImmichAdminModule);
+    return CommandFactory.run(GreatMemoriesAdminModule);
   }
 
-  if (immichApp === 'immich' || immichApp === 'microservices') {
+  if (greatMemoriesApp === 'immich' || greatMemoriesApp === 'microservices') {
     console.error(
-      `Using "start.sh ${immichApp}" has been deprecated. See https://github.com/immich-app/immich/releases/tag/v1.118.0 for more information.`,
+      `Using "start.sh ${greatMemoriesApp}" has been deprecated. See https://github.com/immich-app/immich/releases/tag/v1.118.0 for more information.`,
     );
     process.exit(1);
   }
 
-  if (immichApp) {
-    console.error(`Unknown command: "${immichApp}"`);
+  if (greatMemoriesApp) {
+    console.error(`Unknown command: "${greatMemoriesApp}"`);
     process.exit(1);
   }
 

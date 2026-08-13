@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ImmichLogo extends StatelessWidget {
+class GreatMemoriesLogo extends StatelessWidget {
   final double size;
   final dynamic heroTag;
 
-  const ImmichLogo({super.key, this.size = 100, this.heroTag});
+  const GreatMemoriesLogo({super.key, this.size = 100, this.heroTag});
 
   @override
   Widget build(BuildContext context) {

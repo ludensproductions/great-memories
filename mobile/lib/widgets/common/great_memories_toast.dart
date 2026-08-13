@@ -4,7 +4,7 @@ import 'package:immich_mobile/extensions/build_context_extensions.dart';
 
 enum ToastType { info, success, error }
 
-class ImmichToast {
+class GreatMemoriesToast {
   static show({
     required BuildContext context,
     required String msg,

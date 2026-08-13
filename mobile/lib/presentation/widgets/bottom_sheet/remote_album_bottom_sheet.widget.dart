@@ -65,7 +65,7 @@ class _RemoteAlbumBottomSheetState extends ConsumerState<RemoteAlbumBottomSheet>
       }
 
       if (!result.success) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'scaffold_body_error_occurred'.t(context: context),
           toastType: ToastType.error,
@@ -73,7 +73,7 @@ class _RemoteAlbumBottomSheetState extends ConsumerState<RemoteAlbumBottomSheet>
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.count == 0
             ? 'add_to_album_bottom_sheet_already_exists'.t(context: context, args: {"album": album.name})

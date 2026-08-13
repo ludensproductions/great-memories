@@ -27,7 +27,7 @@ void main() {
         ActionIconButtonWidget(action: AssetDebugAction(assets: [RemoteAssetFactory.create()])),
       );
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(GreatMemoriesIconButton), findsOneWidget);
     });
 
     testWidgets('hidden for multiple assets', (tester) async {
@@ -38,7 +38,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(GreatMemoriesIconButton), findsNothing);
     });
 
     testWidgets('hidden when advanced troubleshooting is off', (tester) async {
@@ -48,7 +48,7 @@ void main() {
         ActionIconButtonWidget(action: AssetDebugAction(assets: [RemoteAssetFactory.create()])),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(GreatMemoriesIconButton), findsNothing);
     });
   });
 }

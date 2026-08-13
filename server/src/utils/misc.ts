@@ -16,7 +16,7 @@ import parse from 'picomatch/lib/parse';
 import { SystemConfig } from 'src/config';
 import { CLIP_MODEL_INFO, endpointTags, serverVersion } from 'src/constants';
 import { extraModels } from 'src/decorators';
-import { ApiCustomExtension, ImmichCookie, ImmichHeader, MetadataKey } from 'src/enum';
+import { ApiCustomExtension, GreatMemoriesCookie, GreatMemoriesHeader, MetadataKey } from 'src/enum';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 
 type OperationObject = NonNullable<OpenAPIObject['paths'][string]['get']>;
@@ -24,8 +24,8 @@ type ReferenceOrSchemaObject = Extract<ApiBodyOptions, { schema: unknown }>['sch
 type ReferenceObject = Extract<ReferenceOrSchemaObject, { $ref: unknown }>;
 type SchemaObject = Exclude<ReferenceOrSchemaObject, ReferenceObject>;
 
-export class ImmichStartupError extends Error {}
-export const isStartUpError = (error: unknown): error is ImmichStartupError => error instanceof ImmichStartupError;
+export class GreatMemoriesStartupError extends Error {}
+export const isStartUpError = (error: unknown): error is GreatMemoriesStartupError => error instanceof GreatMemoriesStartupError;
 
 export const getKeyByValue = (object: Record<string, unknown>, value: unknown) =>
   Object.keys(object).find((key) => object[key] === value);
@@ -269,12 +269,12 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
       scheme: 'Bearer',
       in: 'header',
     })
-    .addCookieAuth(ImmichCookie.AccessToken)
+    .addCookieAuth(GreatMemoriesCookie.AccessToken)
     .addApiKey(
       {
         type: 'apiKey',
         in: 'header',
-        name: ImmichHeader.ApiKey,
+        name: GreatMemoriesHeader.ApiKey,
       },
       MetadataKey.ApiKeySecurity,
     )

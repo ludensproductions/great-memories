@@ -91,7 +91,7 @@ import { WorkflowTable } from 'src/schema/tables/workflow.table';
 
 @Extensions(['uuid-ossp', 'unaccent', 'cube', 'earthdistance', 'pg_trgm', 'plpgsql'])
 @Database({ name: 'immich' })
-export class ImmichDatabase {
+export class GreatMemoriesDatabase {
   tables = [
     ActivityTable,
     AlbumAssetTable,

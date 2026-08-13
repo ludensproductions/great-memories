@@ -13,7 +13,7 @@ void main() {
   late String path;
 
   Future<(Drift, SqliteDatabase, SqliteConnectionPool)> openDb() async {
-    final sqliteDb = SqliteDatabase.withFactory(ImmichSqliteOpenFactory(path: path));
+    final sqliteDb = SqliteDatabase.withFactory(GreatMemoriesSqliteOpenFactory(path: path));
     await sqliteDb.initialize();
     final pool = SqliteConnectionPool.open(
       name: path,
@@ -62,7 +62,7 @@ Future<void> _writerTask(String path) async {
 }
 
 Future<(Drift, SqliteDatabase, SqliteConnectionPool)> _openDb(String path) async {
-  final sqliteDb = SqliteDatabase.withFactory(ImmichSqliteOpenFactory(path: path));
+  final sqliteDb = SqliteDatabase.withFactory(GreatMemoriesSqliteOpenFactory(path: path));
   await sqliteDb.initialize();
   final pool = SqliteConnectionPool.open(
     name: path,

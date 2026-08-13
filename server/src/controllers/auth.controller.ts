@@ -17,7 +17,7 @@ import {
   ValidateAccessTokenResponseDto,
 } from 'src/dtos/auth.dto';
 import { UserAdminResponseDto } from 'src/dtos/user.dto';
-import { ApiTag, AuthType, ImmichCookie, Permission } from 'src/enum';
+import { ApiTag, AuthType, GreatMemoriesCookie, Permission } from 'src/enum';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard';
 import { AuthService, LoginDetails } from 'src/services/auth.service';
 import { respondWithCookie, respondWithoutCookie } from 'src/utils/response';
@@ -42,9 +42,9 @@ export class AuthController {
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.AccessToken, value: body.accessToken },
-        { key: ImmichCookie.AuthType, value: AuthType.Password },
-        { key: ImmichCookie.IsAuthenticated, value: 'true' },
+        { key: GreatMemoriesCookie.AccessToken, value: body.accessToken },
+        { key: GreatMemoriesCookie.AuthType, value: AuthType.Password },
+        { key: GreatMemoriesCookie.IsAuthenticated, value: 'true' },
       ],
     });
   }
@@ -96,13 +96,13 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
     @Auth() auth: AuthDto,
   ): Promise<LogoutResponseDto> {
-    const authType = (request.cookies || {})[ImmichCookie.AuthType];
+    const authType = (request.cookies || {})[GreatMemoriesCookie.AuthType];
 
     const body = await this.service.logout(auth, authType);
     return respondWithoutCookie(res, body, [
-      ImmichCookie.AccessToken,
-      ImmichCookie.AuthType,
-      ImmichCookie.IsAuthenticated,
+      GreatMemoriesCookie.AccessToken,
+      GreatMemoriesCookie.AuthType,
+      GreatMemoriesCookie.IsAuthenticated,
     ]);
   }
 

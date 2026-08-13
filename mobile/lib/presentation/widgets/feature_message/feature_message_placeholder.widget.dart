@@ -69,7 +69,7 @@ class FeatureMessagePlaceholder extends StatelessWidget {
                         alignment: Alignment.center,
                         children: [
                           Positioned(left: 12, top: 12, child: _dot(12, _SplatColors.warning)),
-                          const ImmichLogo(size: 40),
+                          const GreatMemoriesLogo(size: 40),
                         ],
                       ),
                     ),

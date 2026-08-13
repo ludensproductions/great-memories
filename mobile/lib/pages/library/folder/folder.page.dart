@@ -94,7 +94,7 @@ class FolderPage extends HookConsumerWidget {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) {
-          ImmichToast.show(context: context, msg: "failed_to_load_folder".tr(), toastType: ToastType.error);
+          GreatMemoriesToast.show(context: context, msg: "failed_to_load_folder".tr(), toastType: ToastType.error);
           return Center(child: const Text("failed_to_load_folder").tr());
         },
       ),
@@ -207,7 +207,7 @@ class FolderContent extends HookConsumerWidget {
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (error, stack) {
-              ImmichToast.show(context: context, msg: "failed_to_load_assets".tr(), toastType: ToastType.error);
+              GreatMemoriesToast.show(context: context, msg: "failed_to_load_assets".tr(), toastType: ToastType.error);
               return Center(child: const Text("failed_to_load_assets").tr());
             },
           ),

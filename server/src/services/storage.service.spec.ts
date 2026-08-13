@@ -1,6 +1,6 @@
 import { SystemMetadataKey } from 'src/enum';
 import { StorageService } from 'src/services/storage.service';
-import { ImmichStartupError } from 'src/utils/misc';
+import { GreatMemoriesStartupError } from 'src/utils/misc';
 import { mockEnvData } from 'test/repositories/config.repository.mock';
 import { newTestService, ServiceMocks } from 'test/utils';
 
@@ -157,7 +157,7 @@ describe(StorageService.name, () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: {} });
       mocks.storage.createFile.mockRejectedValue(new Error('Error creating file'));
 
-      await expect(sut.onBootstrap()).rejects.toBeInstanceOf(ImmichStartupError);
+      await expect(sut.onBootstrap()).rejects.toBeInstanceOf(GreatMemoriesStartupError);
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();
     });
 

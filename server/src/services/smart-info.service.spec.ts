@@ -1,5 +1,5 @@
 import { SystemConfig } from 'src/config';
-import { AssetFileType, AssetVisibility, ImmichWorker, JobName, JobStatus } from 'src/enum';
+import { AssetFileType, AssetVisibility, GreatMemoriesWorker, JobName, JobStatus } from 'src/enum';
 import { SmartInfoService } from 'src/services/smart-info.service';
 import { getCLIPModelInfo } from 'src/utils/misc';
 import { AssetFactory } from 'test/factories/asset.factory';
@@ -14,7 +14,7 @@ describe(SmartInfoService.name, () => {
     ({ sut, mocks } = newTestService(SmartInfoService));
 
     mocks.asset.getByIds.mockResolvedValue([AssetFactory.create()]);
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(GreatMemoriesWorker.Microservices);
   });
 
   it('should work', () => {

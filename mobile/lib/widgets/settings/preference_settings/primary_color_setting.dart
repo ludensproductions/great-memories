@@ -14,7 +14,7 @@ class PrimaryColorSetting extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeProvider = ref.read(immichThemeProvider);
+    final themeProvider = ref.read(greatMemoriesThemeProvider);
     final themeConfig = ref.watch(appConfigProvider.select((config) => config.theme));
 
     const tileSize = 55.0;
@@ -30,7 +30,7 @@ class PrimaryColorSetting extends HookConsumerWidget {
       popBottomSheet();
     }
 
-    onPrimaryColorChange(ImmichColorPreset colorPreset) {
+    onPrimaryColorChange(GreatMemoriesColorPreset colorPreset) {
       ref.read(settingsProvider).write(.themePrimaryColor, colorPreset);
 
       //turn off system color setting
@@ -116,7 +116,7 @@ class PrimaryColorSetting extends HookConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
-              children: ImmichColorPreset.values.map((preset) {
+              children: GreatMemoriesColorPreset.values.map((preset) {
                 final theme = preset.themeOfPreset;
 
                 return GestureDetector(

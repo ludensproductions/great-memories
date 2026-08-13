@@ -94,7 +94,7 @@ class _SheetAssetDescriptionState extends ConsumerState<_SheetAssetDescription> 
     if (!editAction.success) {
       _controller.text = previousDescription ?? '';
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'exif_bottom_sheet_description_error'.t(context: context),
         toastType: ToastType.error,

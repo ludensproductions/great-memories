@@ -39,7 +39,7 @@ class _DriftAlbumsPageState extends ConsumerState<DriftAlbumsPage> {
       controller: _scrollController,
       physics: const AlwaysScrollableScrollPhysics(),
       slivers: [
-        ImmichSliverAppBar(
+        GreatMemoriesSliverAppBar(
           snap: false,
           floating: false,
           pinned: true,

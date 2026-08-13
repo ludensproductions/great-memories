@@ -35,7 +35,7 @@ class TrashActionButton extends ConsumerWidget {
     final successMessage = 'trash_action_prompt'.t(context: context, args: {'count': result.count.toString()});
 
     if (context.mounted) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.success ? successMessage : 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,

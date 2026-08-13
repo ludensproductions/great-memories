@@ -49,7 +49,7 @@ import 'package:timezone/data/latest.dart';
 
 void main() async {
   try {
-    ImmichWidgetsBinding();
+    GreatMemoriesWidgetsBinding();
     unawaited(BackgroundWorkerLockService(BackgroundWorkerLockApi()).lock());
     await EasyLocalization.ensureInitialized();
     final (drift, _) = await Bootstrap.initDomain();
@@ -256,7 +256,7 @@ class GreatMemoriesAppState extends ConsumerState<GreatMemoriesApp> with Widgets
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
-    final immichTheme = ref.watch(immichThemeProvider);
+    final greatMemoriesTheme = ref.watch(greatMemoriesThemeProvider);
 
     return ProviderScope(
       overrides: [localeProvider.overrideWithValue(context.locale)],
@@ -268,14 +268,14 @@ class GreatMemoriesAppState extends ConsumerState<GreatMemoriesApp> with Widgets
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         themeMode: ref.watch(appConfigProvider.select((config) => config.theme.mode)),
-        darkTheme: getThemeData(colorScheme: immichTheme.dark, locale: context.locale),
-        theme: getThemeData(colorScheme: immichTheme.light, locale: context.locale),
-        builder: (context, child) => ImmichTranslationProvider(
-          translations: ImmichTranslations(
+        darkTheme: getThemeData(colorScheme: greatMemoriesTheme.dark, locale: context.locale),
+        theme: getThemeData(colorScheme: greatMemoriesTheme.light, locale: context.locale),
+        builder: (context, child) => GreatMemoriesTranslationProvider(
+          translations: GreatMemoriesTranslations(
             submit: "submit".t(context: context),
             password: "password".t(context: context),
           ),
-          child: ImmichThemeProvider(colorScheme: context.colorScheme, child: child!),
+          child: GreatMemoriesThemeProvider(colorScheme: context.colorScheme, child: child!),
         ),
         routerConfig: router.config(
           deepLinkBuilder: _deepLinkBuilder,

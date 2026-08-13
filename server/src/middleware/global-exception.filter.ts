@@ -2,7 +2,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException } from '@nestjs/co
 import { Request, Response } from 'express';
 import { ClsService } from 'nestjs-cls';
 import { ZodSerializationException, ZodValidationException } from 'nestjs-zod';
-import { ImmichHeader } from 'src/enum';
+import { GreatMemoriesHeader } from 'src/enum';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { onRequestError } from 'src/utils/logger';
 import { ZodError } from 'zod';
@@ -26,7 +26,7 @@ export class GlobalExceptionFilter implements ExceptionFilter<Error> {
 
     const { status, body } = this.fromError(error);
     if (!res.headersSent) {
-      res.header(ImmichHeader.CorrelationId, this.cls.getId()).status(status).json(body);
+      res.header(GreatMemoriesHeader.CorrelationId, this.cls.getId()).status(status).json(body);
     }
   }
 

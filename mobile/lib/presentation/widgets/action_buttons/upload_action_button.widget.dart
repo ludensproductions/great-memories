@@ -87,7 +87,7 @@ class UploadActionButton extends ConsumerWidget {
     }
 
     if (context.mounted && !success && !wasUploadCancelled) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,
@@ -137,7 +137,7 @@ class _UploadProgressDialog extends ConsumerWidget {
         ],
       ),
       actions: [
-        ImmichTextButton(
+        GreatMemoriesTextButton(
           onPressed: () {
             ref.read(manualUploadCancelTokenProvider)?.complete();
             ref.read(manualUploadCancelTokenProvider.notifier).state = null;

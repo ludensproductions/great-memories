@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { SystemConfig } from 'src/config';
 import { JOBS_ASSET_PAGINATION_SIZE } from 'src/constants';
 import { OnEvent, OnJob } from 'src/decorators';
-import { AssetVisibility, DatabaseLock, ImmichWorker, JobName, JobStatus, QueueName } from 'src/enum';
+import { AssetVisibility, DatabaseLock, GreatMemoriesWorker, JobName, JobStatus, QueueName } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { BaseService } from 'src/services/base.service';
 import { JobItem, JobOf } from 'src/types';
@@ -10,12 +10,12 @@ import { getCLIPModelInfo, isSmartSearchEnabled } from 'src/utils/misc';
 
 @Injectable()
 export class SmartInfoService extends BaseService {
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [GreatMemoriesWorker.Microservices] })
   async onConfigInit({ newConfig }: ArgOf<'ConfigInit'>) {
     await this.init(newConfig);
   }
 
-  @OnEvent({ name: 'ConfigUpdate', workers: [ImmichWorker.Microservices], server: true })
+  @OnEvent({ name: 'ConfigUpdate', workers: [GreatMemoriesWorker.Microservices], server: true })
   async onConfigUpdate({ oldConfig, newConfig }: ArgOf<'ConfigUpdate'>) {
     await this.init(newConfig, oldConfig);
   }

@@ -21,7 +21,7 @@ import 'package:immich_mobile/widgets/asset_viewer/cast_dialog.dart';
 import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_dialog.dart';
 import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
 
-class ImmichSliverAppBar extends ConsumerWidget {
+class GreatMemoriesSliverAppBar extends ConsumerWidget {
   final List<Widget>? actions;
   final bool showUploadButton;
   final bool floating;
@@ -30,7 +30,7 @@ class ImmichSliverAppBar extends ConsumerWidget {
   final Widget? title;
   final double? expandedHeight;
 
-  const ImmichSliverAppBar({
+  const GreatMemoriesSliverAppBar({
     super.key,
     this.actions,
     this.showUploadButton = true,
@@ -64,7 +64,7 @@ class ImmichSliverAppBar extends ConsumerWidget {
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(5))),
           automaticallyImplyLeading: false,
           centerTitle: false,
-          title: title ?? const _ImmichLogoWithText(),
+          title: title ?? const _GreatMemoriesLogoWithText(),
           actions: [
             const _SyncStatusIndicator(),
             if (isCasting && !isReadonlyModeEnabled)
@@ -83,8 +83,8 @@ class ImmichSliverAppBar extends ConsumerWidget {
   }
 }
 
-class _ImmichLogoWithText extends StatelessWidget {
-  const _ImmichLogoWithText();
+class _GreatMemoriesLogoWithText extends StatelessWidget {
+  const _GreatMemoriesLogoWithText();
 
   @override
   Widget build(BuildContext context) => AnimatedOpacity(

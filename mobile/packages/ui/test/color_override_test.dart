@@ -6,15 +6,15 @@ import 'package:immich_ui/src/components/icon_button.dart';
 import 'test_utils.dart';
 
 void main() {
-  group('ImmichColorOverride', () {
+  group('GreatMemoriesColorOverride', () {
     testWidgets('exposes the override color to descendants', (tester) async {
       Color? captured;
       await tester.pumpTestWidget(
-        ImmichColorOverride(
+        GreatMemoriesColorOverride(
           color: Colors.green,
           child: Builder(
             builder: (context) {
-              captured = ImmichColorOverride.maybeOf(context);
+              captured = GreatMemoriesColorOverride.maybeOf(context);
               return const SizedBox.shrink();
             },
           ),
@@ -29,7 +29,7 @@ void main() {
       await tester.pumpTestWidget(
         Builder(
           builder: (context) {
-            captured = ImmichColorOverride.maybeOf(context);
+            captured = GreatMemoriesColorOverride.maybeOf(context);
             return const SizedBox.shrink();
           },
         ),
@@ -40,9 +40,9 @@ void main() {
 
     testWidgets('a descendant component adopts the override as its foreground', (tester) async {
       await tester.pumpTestWidget(
-        ImmichColorOverride(
+        GreatMemoriesColorOverride(
           color: Colors.green,
-          child: ImmichIconButton(icon: Icons.add, onPressed: () {}),
+          child: GreatMemoriesIconButton(icon: Icons.add, onPressed: () {}),
         ),
       );
 

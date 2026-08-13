@@ -17,7 +17,7 @@ struct AssetWrapper: Hashable, Equatable {
   }
 }
 
-class NativeSyncApiImpl: ImmichPlugin, NativeSyncApi, FlutterPlugin {
+class NativeSyncApiImpl: GreatMemoriesPlugin, NativeSyncApi, FlutterPlugin {
   static let name = "NativeSyncApi"
   
   static func register(with registrar: any FlutterPluginRegistrar) {

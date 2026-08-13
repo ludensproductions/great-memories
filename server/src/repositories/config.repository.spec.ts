@@ -1,4 +1,4 @@
-import { ImmichTelemetry } from 'src/enum';
+import { GreatMemoriesTelemetry } from 'src/enum';
 import { clearEnvCache, ConfigRepository } from 'src/repositories/config.repository';
 
 const getEnv = () => {
@@ -306,7 +306,7 @@ describe('getEnv', () => {
     it('should run with telemetry enabled', () => {
       process.env.IMMICH_TELEMETRY_INCLUDE = 'all';
       const { telemetry } = getEnv();
-      expect(telemetry.metrics).toEqual(new Set(Object.values(ImmichTelemetry)));
+      expect(telemetry.metrics).toEqual(new Set(Object.values(GreatMemoriesTelemetry)));
     });
 
     it('should run with telemetry enabled and jobs disabled', () => {
@@ -314,14 +314,14 @@ describe('getEnv', () => {
       process.env.IMMICH_TELEMETRY_EXCLUDE = 'job';
       const { telemetry } = getEnv();
       expect(telemetry.metrics).toEqual(
-        new Set([ImmichTelemetry.Api, ImmichTelemetry.Host, ImmichTelemetry.Io, ImmichTelemetry.Repo]),
+        new Set([GreatMemoriesTelemetry.Api, GreatMemoriesTelemetry.Host, GreatMemoriesTelemetry.Io, GreatMemoriesTelemetry.Repo]),
       );
     });
 
     it('should run with specific telemetry metrics', () => {
       process.env.IMMICH_TELEMETRY_INCLUDE = 'io, host, api';
       const { telemetry } = getEnv();
-      expect(telemetry.metrics).toEqual(new Set([ImmichTelemetry.Api, ImmichTelemetry.Host, ImmichTelemetry.Io]));
+      expect(telemetry.metrics).toEqual(new Set([GreatMemoriesTelemetry.Api, GreatMemoriesTelemetry.Host, GreatMemoriesTelemetry.Io]));
     });
   });
 });

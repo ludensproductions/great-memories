@@ -3,7 +3,7 @@ import 'package:immich_mobile/constants/colors.dart';
 
 class ThemeConfig {
   final ThemeMode mode;
-  final ImmichColorPreset primaryColor;
+  final GreatMemoriesColorPreset primaryColor;
   final bool dynamicTheme;
   final bool colorfulInterface;
 
@@ -16,7 +16,7 @@ class ThemeConfig {
 
   ThemeConfig copyWith({
     ThemeMode? mode,
-    ImmichColorPreset? primaryColor,
+    GreatMemoriesColorPreset? primaryColor,
     bool? dynamicTheme,
     bool? colorfulInterface,
   }) => .new(

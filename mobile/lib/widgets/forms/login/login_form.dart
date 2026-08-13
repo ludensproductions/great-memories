@@ -107,7 +107,7 @@ class LoginForm extends HookConsumerWidget {
 
       // Guard empty URL
       if (serverUrl.isEmpty) {
-        ImmichToast.show(context: context, msg: "login_form_server_empty".tr(), toastType: ToastType.error);
+        GreatMemoriesToast.show(context: context, msg: "login_form_server_empty".tr(), toastType: ToastType.error);
       }
 
       try {
@@ -126,7 +126,7 @@ class LoginForm extends HookConsumerWidget {
 
         serverEndpoint.value = endpoint;
       } on ApiException catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: e.message ?? 'login_form_api_exception'.tr(),
           toastType: ToastType.error,
@@ -135,7 +135,7 @@ class LoginForm extends HookConsumerWidget {
         isOauthEnable.value = false;
         isPasswordLoginEnable.value = true;
       } on HandshakeException {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'login_form_handshake_exception'.tr(),
           toastType: ToastType.error,
@@ -144,7 +144,7 @@ class LoginForm extends HookConsumerWidget {
         isOauthEnable.value = false;
         isPasswordLoginEnable.value = true;
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'login_form_server_error'.tr(),
           toastType: ToastType.error,
@@ -261,7 +261,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
       } catch (error) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_login".tr(),
           toastType: ToastType.error,
@@ -315,7 +315,7 @@ class LoginForm extends HookConsumerWidget {
       } catch (error, stack) {
         log.severe('Error getting OAuth server Url: $error', stack);
 
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_config".tr(),
           toastType: ToastType.error,
@@ -351,7 +351,7 @@ class LoginForm extends HookConsumerWidget {
         } catch (error, stack) {
           log.severe('Error logging in with OAuth: $error', stack);
 
-          ImmichToast.show(
+          GreatMemoriesToast.show(
             context: context,
             msg: error.toString(),
             toastType: ToastType.error,
@@ -359,7 +359,7 @@ class LoginForm extends HookConsumerWidget {
           );
         } finally {}
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_disable".tr(),
           toastType: ToastType.info,
@@ -402,15 +402,15 @@ class LoginForm extends HookConsumerWidget {
 
     final serverSelectionOrLogin = serverEndpoint.value == null
         ? Padding(
-            padding: const EdgeInsets.only(top: ImmichSpacing.md),
+            padding: const EdgeInsets.only(top: GreatMemoriesSpacing.md),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                ImmichForm(
+                GreatMemoriesForm(
                   onSubmit: getServerAuthSettings,
                   submitText: 'next'.t(context: context),
                   submitIcon: Icons.arrow_forward_rounded,
-                  builder: (_, form) => ImmichURLInput(
+                  builder: (_, form) => GreatMemoriesURLInput(
                     controller: serverEndpointController,
                     label: 'login_form_endpoint_url'.t(context: context),
                     hintText: 'login_form_endpoint_hint'.t(context: context),
@@ -420,10 +420,10 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 ),
                 ServerDiscovery(onServerFound: (url) => serverEndpointController.text = url),
-                ImmichTextButton(
+                GreatMemoriesTextButton(
                   labelText: 'settings'.t(context: context),
                   icon: Icons.settings,
-                  variant: ImmichVariant.ghost,
+                  variant: GreatMemoriesVariant.ghost,
                   onPressed: () => context.pushRoute(const SettingsRoute()),
                 ),
               ],
@@ -436,7 +436,7 @@ class LoginForm extends HookConsumerWidget {
               children: [
                 buildVersionCompatWarning(),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: ImmichSpacing.md),
+                  padding: const EdgeInsets.only(bottom: GreatMemoriesSpacing.md),
                   child: Text(
                     sanitizeUrl(serverEndpointController.text),
                     style: context.textTheme.displaySmall,
@@ -444,14 +444,14 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 ),
                 if (isPasswordLoginEnable.value)
-                  ImmichForm(
+                  GreatMemoriesForm(
                     onSubmit: login,
                     submitText: 'login'.t(context: context),
                     submitIcon: Icons.login_rounded,
                     builder: (context, form) => Column(
-                      spacing: ImmichSpacing.md,
+                      spacing: GreatMemoriesSpacing.md,
                       children: [
-                        ImmichTextInput(
+                        GreatMemoriesTextInput(
                           controller: emailController,
                           label: 'email'.t(context: context),
                           hintText: 'login_form_email_hint'.t(context: context),
@@ -461,7 +461,7 @@ class LoginForm extends HookConsumerWidget {
                           autofillHints: const [AutofillHints.email],
                           onSubmit: (_) => passwordFocusNode.requestFocus(),
                         ),
-                        ImmichPasswordInput(
+                        GreatMemoriesPasswordInput(
                           controller: passwordController,
                           focusNode: passwordFocusNode,
                           label: 'password'.t(context: context),
@@ -473,7 +473,7 @@ class LoginForm extends HookConsumerWidget {
                     ),
                   ),
                 if (isOauthEnable.value)
-                  ImmichForm(
+                  GreatMemoriesForm(
                     onSubmit: oAuthLogin,
                     submitText: oAuthButtonLabel.value,
                     submitIcon: Icons.pin_outlined,
@@ -486,10 +486,10 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 if (!isOauthEnable.value && !isPasswordLoginEnable.value)
                   Center(child: const Text('login_disabled').tr()),
-                ImmichTextButton(
+                GreatMemoriesTextButton(
                   labelText: 'back'.t(context: context),
                   icon: Icons.arrow_back,
-                  variant: ImmichVariant.ghost,
+                  variant: GreatMemoriesVariant.ghost,
                   onPressed: () => serverEndpoint.value = null,
                 ),
               ],
@@ -516,7 +516,7 @@ class LoginForm extends HookConsumerWidget {
                         onLongPress: () => populateTestLoginInfo1(),
                         child: RotationTransition(
                           turns: logoAnimationController,
-                          child: const ImmichLogo(heroTag: 'logo'),
+                          child: const GreatMemoriesLogo(heroTag: 'logo'),
                         ),
                       ),
                       const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: GreatMemoriesTitleText()),

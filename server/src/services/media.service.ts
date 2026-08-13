@@ -13,7 +13,7 @@ import {
   AudioCodec,
   Colorspace,
   ImageFormat,
-  ImmichWorker,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -61,7 +61,7 @@ type ThumbnailAsset = NonNullable<Awaited<ReturnType<AssetJobRepository['getForG
 export class MediaService extends BaseService {
   videoInterfaces: VideoInterfaces = { dri: [], mali: false };
 
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Microservices] })
   async onBootstrap() {
     this.videoInterfaces = await this.storageCore.getVideoInterfaces();
   }

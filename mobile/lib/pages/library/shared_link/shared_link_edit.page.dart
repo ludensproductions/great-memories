@@ -353,7 +353,7 @@ class SharedLinkEditPage extends HookConsumerWidget {
         newShareLink.value = buildSharedLinkUrl(baseUrl: serverUrl, slug: newLink.slug, key: newLink.key) ?? '';
         await copyToClipboard(newShareLink.value);
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

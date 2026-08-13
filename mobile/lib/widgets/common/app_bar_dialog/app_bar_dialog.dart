@@ -201,7 +201,7 @@ class GreatMemoriesAppBarDialog extends HookConsumerWidget {
                   context: context,
                   applicationIcon: const Padding(
                     padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                    child: ImmichLogo(size: 40),
+                    child: GreatMemoriesLogo(size: 40),
                   ),
                   applicationVersion: packageInfo.version,
                 );

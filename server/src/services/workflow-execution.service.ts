@@ -16,8 +16,8 @@ import { PluginManifestDto } from 'src/dtos/plugin-manifest.dto';
 import {
   BootstrapEventPriority,
   DatabaseLock,
-  ImmichEnvironment,
-  ImmichWorker,
+  GreatMemoriesEnvironment,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -49,14 +49,14 @@ type HostContext = {
 export class WorkflowExecutionService extends BaseService {
   private jwtSecret!: string;
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [GreatMemoriesWorker.Microservices] })
   async onPluginSync() {
     await this.databaseRepository.withLock(DatabaseLock.PluginImport, async () => {
       // TODO avoid importing plugins in each worker
       // Can this use system metadata similar to geocoding?
 
       const { environment, resourcePaths, plugins } = this.configRepository.getEnv();
-      await this.importFolder(resourcePaths.corePlugin, { force: environment === ImmichEnvironment.Development });
+      await this.importFolder(resourcePaths.corePlugin, { force: environment === GreatMemoriesEnvironment.Development });
 
       if (plugins.external.allow && plugins.external.installFolder) {
         await this.importFolders(plugins.external.installFolder);
@@ -64,7 +64,7 @@ export class WorkflowExecutionService extends BaseService {
     });
   }
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [GreatMemoriesWorker.Microservices] })
   async onPluginLoad() {
     this.jwtSecret = this.cryptoRepository.randomBytesAsText(32);
 

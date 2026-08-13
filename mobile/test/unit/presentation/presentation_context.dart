@@ -102,7 +102,7 @@ extension PumpPresentationWidget on WidgetTester {
     List<Override> overrides = const [],
   }) async {
     await pumpTestWidget(context, ActionIconButtonWidget(action: action), overrides: overrides);
-    await tap(find.byType(ImmichIconButton));
+    await tap(find.byType(GreatMemoriesIconButton));
     await pump();
   }
 

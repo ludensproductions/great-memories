@@ -66,7 +66,7 @@ class _MapThemeOverrideState extends ConsumerState<MapThemeOverride> with Widget
   @override
   Widget build(BuildContext context) {
     _theme = widget.themeMode ?? ref.watch(mapStateNotifierProvider.select((v) => v.themeMode));
-    var appTheme = ref.watch(immichThemeProvider);
+    var appTheme = ref.watch(greatMemoriesThemeProvider);
     final locale = ref.watch(localeProvider);
 
     useValueChanged<ThemeMode, void>(_theme, (_, __) {

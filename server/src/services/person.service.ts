@@ -41,7 +41,7 @@ import { FaceSearchTable } from 'src/schema/tables/face-search.table';
 import { BaseService } from 'src/services/base.service';
 import { JobItem, JobOf } from 'src/types';
 import { getDimensions } from 'src/utils/asset.util';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { mimeTypes } from 'src/utils/mime-types';
 import { isFacialRecognitionEnabled } from 'src/utils/misc';
 import { Point, transformPoints } from 'src/utils/transform';
@@ -160,14 +160,14 @@ export class PersonService extends BaseService {
     return this.personRepository.getStatistics(id);
   }
 
-  async getThumbnail(auth: AuthDto, id: string): Promise<ImmichFileResponse> {
+  async getThumbnail(auth: AuthDto, id: string): Promise<GreatMemoriesFileResponse> {
     await this.requireAccess({ auth, permission: Permission.PersonRead, ids: [id] });
     const person = await this.personRepository.getById(id);
     if (!person || !person.thumbnailPath) {
       throw new NotFoundException();
     }
 
-    return new ImmichFileResponse({
+    return new GreatMemoriesFileResponse({
       path: person.thumbnailPath,
       contentType: mimeTypes.lookup(person.thumbnailPath),
       cacheControl: CacheControl.PrivateWithoutCache,

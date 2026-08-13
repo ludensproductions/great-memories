@@ -1,4 +1,4 @@
-class ImmichPlugin: NSObject {
+class GreatMemoriesPlugin: NSObject {
   var detached: Bool
   
   override init() {

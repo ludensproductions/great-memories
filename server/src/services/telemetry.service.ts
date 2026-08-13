@@ -1,11 +1,11 @@
 import { snakeCase } from 'lodash';
 import { OnEvent } from 'src/decorators';
-import { ImmichWorker, JobStatus } from 'src/enum';
+import { GreatMemoriesWorker, JobStatus } from 'src/enum';
 import { ArgOf, ArgsOf } from 'src/repositories/event.repository';
 import { BaseService } from 'src/services/base.service';
 
 export class TelemetryService extends BaseService {
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Api] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Api] })
   async onBootstrap(): Promise<void> {
     const userCount = await this.userRepository.getCount();
     this.telemetryRepository.api.addToGauge('immich.users.total', userCount);

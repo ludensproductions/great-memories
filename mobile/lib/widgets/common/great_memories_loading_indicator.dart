@@ -35,7 +35,7 @@ class GreatMemoriesLoadingIndicator extends HookWidget {
           padding: const EdgeInsets.all(15),
           child: RotationTransition(
             turns: logoAnimationController,
-            child: const ImmichLogo(heroTag: 'logo'),
+            child: const GreatMemoriesLogo(heroTag: 'logo'),
           ),
         ),
       ),

@@ -65,14 +65,14 @@ class ChangePasswordForm extends HookConsumerWidget {
 
                             AutoRouter.of(context).back();
 
-                            ImmichToast.show(
+                            GreatMemoriesToast.show(
                               context: context,
                               msg: "login_password_changed_success".tr(),
                               toastType: ToastType.success,
                               gravity: ToastGravity.TOP,
                             );
                           } else {
-                            ImmichToast.show(
+                            GreatMemoriesToast.show(
                               context: context,
                               msg: "login_password_changed_error".tr(),
                               toastType: ToastType.error,

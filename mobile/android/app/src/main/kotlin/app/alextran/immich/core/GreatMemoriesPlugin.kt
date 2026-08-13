@@ -3,7 +3,7 @@ package app.alextran.immich.core
 import androidx.annotation.CallSuper
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 
-abstract class ImmichPlugin : FlutterPlugin {
+abstract class GreatMemoriesPlugin : FlutterPlugin {
   private var detached: Boolean = false;
 
   @CallSuper

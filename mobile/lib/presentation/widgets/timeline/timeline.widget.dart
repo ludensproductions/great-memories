@@ -37,7 +37,7 @@ class Timeline extends ConsumerWidget {
     this.bottomSliverWidget,
     this.showStorageIndicator = false,
     this.withStack = false,
-    this.appBar = const ImmichSliverAppBar(floating: true, pinned: false, snap: false),
+    this.appBar = const GreatMemoriesSliverAppBar(floating: true, pinned: false, snap: false),
     this.bottomSheet = const GeneralBottomSheet(minChildSize: 0.23),
     this.groupBy,
     this.withScrubber = true,

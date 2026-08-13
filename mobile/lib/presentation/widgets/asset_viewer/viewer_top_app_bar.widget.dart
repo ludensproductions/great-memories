@@ -63,7 +63,7 @@ class ViewerTopAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
       ActionIconButtonWidget(action: FavoriteAction(assets: assetForAction)),
 
-      ImmichColorOverride(color: null, child: ViewerKebabMenu(originalTheme: originalTheme)),
+      GreatMemoriesColorOverride(color: null, child: ViewerKebabMenu(originalTheme: originalTheme)),
     ];
 
     final lockedViewActions = <Widget>[ViewerKebabMenu(originalTheme: originalTheme)];
@@ -102,7 +102,7 @@ class ViewerTopAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     leading: const _AppBarBackButton(),
                     middle: showingDetails ? null : _AssetInfoTitle(asset: asset),
                     trailing: !showingDetails && !isReadonlyModeEnabled
-                        ? ImmichColorOverride(
+                        ? GreatMemoriesColorOverride(
                             color: Colors.white,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,

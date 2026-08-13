@@ -16,9 +16,9 @@ class AppLogPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final immichLogger = LogService.I;
+    final greatMemoriesLogger = LogService.I;
     final shouldReload = useState(false);
-    final logMessages = useFuture(useMemoized(() => immichLogger.getMessages(), [shouldReload.value]));
+    final logMessages = useFuture(useMemoized(() => greatMemoriesLogger.getMessages(), [shouldReload.value]));
 
     Widget colorStatusIndicator(Color color) {
       return Column(
@@ -61,7 +61,7 @@ class AppLogPage extends HookConsumerWidget {
               size: 20.0,
             ),
             onPressed: () {
-              immichLogger.clearLogs();
+              greatMemoriesLogger.clearLogs();
               shouldReload.value = !shouldReload.value;
             },
           ),

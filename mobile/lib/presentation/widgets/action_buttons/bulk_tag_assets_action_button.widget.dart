@@ -25,7 +25,7 @@ class BulkTagAssetsActionButton extends ConsumerWidget {
       return;
     }
 
-    ImmichToast.show(
+    GreatMemoriesToast.show(
       context: context,
       msg: result.success
           ? 'tagged_assets'.t(context: context, args: {'count': result.count.toString()})

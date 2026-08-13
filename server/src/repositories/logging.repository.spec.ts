@@ -1,5 +1,5 @@
 import { ClsService } from 'nestjs-cls';
-import { ImmichWorker } from 'src/enum';
+import { GreatMemoriesWorker } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { LoggingRepository, MyConsoleLogger } from 'src/repositories/logging.repository';
 import { newConfigRepositoryMock } from 'test/repositories/config.repository.mock';
@@ -22,7 +22,7 @@ describe(LoggingRepository.name, () => {
     describe('formatContext', () => {
       it('should use colors', () => {
         sut = new LoggingRepository(clsMock, configMock);
-        sut.setAppName(ImmichWorker.Api);
+        sut.setAppName(GreatMemoriesWorker.Api);
 
         const logger = new MyConsoleLogger(clsMock, { color: true });
 
@@ -31,7 +31,7 @@ describe(LoggingRepository.name, () => {
 
       it('should not use colors when color is false', () => {
         sut = new LoggingRepository(clsMock, configMock);
-        sut.setAppName(ImmichWorker.Api);
+        sut.setAppName(GreatMemoriesWorker.Api);
 
         const logger = new MyConsoleLogger(clsMock, { color: false });
 

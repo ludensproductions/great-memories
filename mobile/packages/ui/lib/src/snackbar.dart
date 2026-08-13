@@ -19,7 +19,7 @@ class SnackbarManager {
 
   SnackBar _build(BuildContext context, String message, SnackbarType type) {
     final theme = Theme.of(context);
-    final colors = theme.extension<ImmichColors>() ?? ImmichColors.harmonized(theme.colorScheme);
+    final colors = theme.extension<GreatMemoriesColors>() ?? GreatMemoriesColors.harmonized(theme.colorScheme);
     final (IconData icon, Color background, Color foreground) = switch (type) {
       .info => (Icons.info_rounded, colors.info, colors.onInfo),
       .success => (Icons.check_circle_rounded, colors.success, colors.onSuccess),
@@ -30,17 +30,17 @@ class SnackbarManager {
       behavior: .floating,
       backgroundColor: background,
       duration: const .new(seconds: 4),
-      shape: const RoundedRectangleBorder(borderRadius: .all(.circular(ImmichRadius.sm))),
+      shape: const RoundedRectangleBorder(borderRadius: .all(.circular(GreatMemoriesRadius.sm))),
       content: Row(
         children: [
-          Icon(icon, color: foreground, size: ImmichIconSize.sm),
-          const SizedBox(width: ImmichSpacing.md),
+          Icon(icon, color: foreground, size: GreatMemoriesIconSize.sm),
+          const SizedBox(width: GreatMemoriesSpacing.md),
           Expanded(
             child: Text(
               message,
               maxLines: 2,
               overflow: .ellipsis,
-              style: .new(color: foreground, fontWeight: .w600, fontSize: ImmichTextSize.body),
+              style: .new(color: foreground, fontWeight: .w600, fontSize: GreatMemoriesTextSize.body),
             ),
           ),
         ],

@@ -13,7 +13,7 @@ class PermanentDeleteDialog extends StatelessWidget {
     return AlertDialog(
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
       title: Text(context.t.permanently_delete),
-      content: ImmichFormattedText(context.t.permanently_delete_assets_prompt(count: count)),
+      content: GreatMemoriesFormattedText(context.t.permanently_delete_assets_prompt(count: count)),
       actions: [
         SizedBox(
           width: double.infinity,

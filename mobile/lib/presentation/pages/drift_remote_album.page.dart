@@ -54,7 +54,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
     final added = await notifier.addAssetsToAlbum(_album.id, newAssets);
 
     if (added > 0 && context.mounted) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "assets_added_to_album_count".t(context: context, args: {'count': added.toString()}),
         toastType: ToastType.success,
@@ -73,7 +73,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
       await ref.read(remoteAlbumProvider.notifier).addUsers(_album.id, newUsers);
 
       if (newUsers.isNotEmpty) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "users_added_to_album_count".t(context: context, args: {'count': newUsers.length}),
           toastType: ToastType.success,
@@ -82,7 +82,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
 
       ref.invalidate(remoteAlbumSharedUsersProvider(_album.id));
     } catch (e) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "Failed to add users to album: ${e.toString()}",
         toastType: ToastType.error,
@@ -129,7 +129,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
       try {
         await ref.read(remoteAlbumProvider.notifier).deleteAlbum(_album.id);
 
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_deleted'.t(context: context),
           toastType: ToastType.success,
@@ -137,7 +137,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
 
         unawaited(context.pushRoute(const DriftAlbumsRoute()));
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_viewer_appbar_share_err_delete'.t(context: context),
           toastType: ToastType.error,
@@ -259,7 +259,7 @@ class _EditAlbumDialogState extends ConsumerState<_EditAlbumDialog> {
       }
     } catch (e) {
       if (mounted) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_update_error'.t(context: context),
           toastType: ToastType.error,

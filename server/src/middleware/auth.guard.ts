@@ -10,7 +10,7 @@ import { Reflector } from '@nestjs/core';
 import { ApiBearerAuth, ApiCookieAuth, ApiExtension, ApiOkResponse, ApiQuery, ApiSecurity } from '@nestjs/swagger';
 import { Request } from 'express';
 import { AuthDto } from 'src/dtos/auth.dto';
-import { ApiCustomExtension, ImmichQuery, MetadataKey, Permission } from 'src/enum';
+import { ApiCustomExtension, GreatMemoriesQuery, MetadataKey, Permission } from 'src/enum';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { AuthService, LoginDetails } from 'src/services/auth.service';
 import { getUserAgentDetails } from 'src/utils/request';
@@ -37,8 +37,8 @@ export const Authenticated = (options: AuthenticatedOptions = {}): MethodDecorat
 
   if ((options as SharedLinkRoute)?.sharedLink) {
     decorators.push(
-      ApiQuery({ name: ImmichQuery.SharedLinkKey, type: String, required: false }),
-      ApiQuery({ name: ImmichQuery.SharedLinkSlug, type: String, required: false }),
+      ApiQuery({ name: GreatMemoriesQuery.SharedLinkKey, type: String, required: false }),
+      ApiQuery({ name: GreatMemoriesQuery.SharedLinkSlug, type: String, required: false }),
     );
   }
 

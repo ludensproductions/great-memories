@@ -153,7 +153,7 @@ class ShareActionButton extends ConsumerWidget {
               }
 
               if (!result.success) {
-                ImmichToast.show(
+                GreatMemoriesToast.show(
                   context: context,
                   msg: context.t.scaffold_body_error_occurred,
                   gravity: ToastGravity.BOTTOM,

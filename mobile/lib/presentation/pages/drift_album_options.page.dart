@@ -35,7 +35,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
 
     void showErrorMessage() {
       ContextHelper(context).pop();
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "shared_album_section_people_action_error".t(context: context),
         toastType: ToastType.error,
@@ -74,7 +74,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
         await ref.read(remoteAlbumProvider.notifier).addUsers(album.id, newUsers);
 
         if (newUsers.isNotEmpty) {
-          ImmichToast.show(
+          GreatMemoriesToast.show(
             context: context,
             msg: "users_added_to_album_count".t(context: context, args: {'count': newUsers.length}),
             toastType: ToastType.success,
@@ -83,7 +83,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
 
         ref.invalidate(remoteAlbumSharedUsersProvider(album.id));
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "Failed to add users to album: ${e.toString()}",
           toastType: ToastType.error,

@@ -1,4 +1,4 @@
-import { AssetType, ImmichWorker, JobName, JobStatus, QueueName } from 'src/enum';
+import { AssetType, GreatMemoriesWorker, JobName, JobStatus, QueueName } from 'src/enum';
 import { JobService } from 'src/services/job.service';
 import { JobItem } from 'src/types';
 import { AssetFactory } from 'test/factories/asset.factory';
@@ -12,7 +12,7 @@ describe(JobService.name, () => {
   beforeEach(() => {
     ({ sut, mocks } = newTestService(JobService));
 
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(GreatMemoriesWorker.Microservices);
   });
 
   it('should work', () => {

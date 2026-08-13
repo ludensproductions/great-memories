@@ -76,7 +76,7 @@ class SharedLinkItem extends ConsumerWidget {
       final shareUrl = buildSharedLinkUrl(baseUrl: serverUrl, slug: sharedLink.slug, key: sharedLink.key);
 
       if (shareUrl == null) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

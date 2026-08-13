@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import '../test_utils/general_helper.dart';
 
 void main() async {
-  await ImmichTestHelper.initialize();
+  await GreatMemoriesTestHelper.initialize();
 
   group("Login input validation test", () {
-    immichWidgetTest("Test leading/trailing whitespace",
+    greatMemoriesWidgetTest("Test leading/trailing whitespace",
         (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
@@ -35,7 +35,7 @@ void main() async {
       );
     });
 
-    immichWidgetTest("Test invalid email", (tester, helper) async {
+    greatMemoriesWidgetTest("Test invalid email", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
 

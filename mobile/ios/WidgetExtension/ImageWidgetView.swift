@@ -63,7 +63,7 @@ struct GreatMemoriesWidgetView: View {
     let date = Date()
     ImageEntry(
       date: date,
-      image: UIImage(named: "ImmichLogo"),
+      image: UIImage(named: "GreatMemoriesLogo"),
       metadata: EntryMetadata(
         subtitle: "1 year ago"
       )

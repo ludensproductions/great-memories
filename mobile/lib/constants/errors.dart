@@ -1,9 +1,9 @@
 /// Base class which is used to check if an Exception is a custom exception
-sealed class ImmichErrors {
-  const ImmichErrors();
+sealed class GreatMemoriesErrors {
+  const GreatMemoriesErrors();
 }
 
-class NoResponseDtoError extends ImmichErrors implements Exception {
+class NoResponseDtoError extends GreatMemoriesErrors implements Exception {
   const NoResponseDtoError();
 
   @override

@@ -176,7 +176,7 @@ class AppConfig {
   AppConfig write<T, U extends T>(SettingsKey<T> key, U value) {
     return switch (key) {
       .logLevel => copyWith(logLevel: value as LogLevel),
-      .themePrimaryColor => copyWith(theme: theme.copyWith(primaryColor: value as ImmichColorPreset)),
+      .themePrimaryColor => copyWith(theme: theme.copyWith(primaryColor: value as GreatMemoriesColorPreset)),
       .themeMode => copyWith(theme: theme.copyWith(mode: value as ThemeMode)),
       .themeDynamic => copyWith(theme: theme.copyWith(dynamicTheme: value as bool)),
       .themeColorfulInterface => copyWith(theme: theme.copyWith(colorfulInterface: value as bool)),

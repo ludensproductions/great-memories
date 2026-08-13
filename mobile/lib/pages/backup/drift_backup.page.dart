@@ -213,13 +213,13 @@ class _BackupFooterState extends ConsumerState<_BackupFooter> with WidgetsBindin
       builder: (ctx) => AlertDialog(
         content: Text(context.t.notification_permission_dialog_content),
         actions: [
-          ImmichTextButton(
+          GreatMemoriesTextButton(
             labelText: context.t.cancel,
             variant: .ghost,
             expanded: false,
             onPressed: () => ContextHelper(ctx).pop(),
           ),
-          ImmichTextButton(
+          GreatMemoriesTextButton(
             labelText: context.t.settings,
             variant: .ghost,
             expanded: false,
@@ -242,13 +242,13 @@ class _BackupFooterState extends ConsumerState<_BackupFooter> with WidgetsBindin
           title: Text(context.t.backup_controller_page_background_battery_info_title),
           content: SingleChildScrollView(child: Text(context.t.backup_controller_page_background_battery_info_message)),
           actions: [
-            ImmichTextButton(
+            GreatMemoriesTextButton(
               labelText: context.t.backup_controller_page_background_battery_info_link,
               variant: .ghost,
               expanded: false,
               onPressed: () => launchUrl(Uri.parse('https://dontkillmyapp.com'), mode: LaunchMode.externalApplication),
             ),
-            ImmichTextButton(
+            GreatMemoriesTextButton(
               labelText: context.t.backup_controller_page_background_battery_info_ok,
               variant: .ghost,
               expanded: false,

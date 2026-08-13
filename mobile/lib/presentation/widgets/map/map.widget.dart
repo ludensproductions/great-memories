@@ -160,7 +160,7 @@ class _DriftMapState extends ConsumerState<DriftMap> {
     final (location, error) = await MapUtils.checkPermAndGetLocation(context: context);
     if (error != null) {
       if (error == LocationPermission.unableToDetermine && context.mounted) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

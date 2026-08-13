@@ -44,7 +44,7 @@ class DeleteTrashActionButton extends ConsumerWidget {
     );
 
     if (context.mounted) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.success ? successMessage : 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,

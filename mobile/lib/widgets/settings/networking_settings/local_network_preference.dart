@@ -29,8 +29,8 @@ class LocalNetworkPreference extends HookConsumerWidget {
       builder: (context) => AlertDialog(
         title: Text(title),
         content: isUrlField
-            ? ImmichURLInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText)
-            : ImmichTextInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText),
+            ? GreatMemoriesURLInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText)
+            : GreatMemoriesTextInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),

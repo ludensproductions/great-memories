@@ -28,13 +28,13 @@ export interface WatchEvents {
   onError(error: Error): void;
 }
 
-export interface ImmichReadStream {
+export interface GreatMemoriesReadStream {
   stream: Readable;
   type?: string;
   length?: number;
 }
 
-export interface ImmichZipStream extends ImmichReadStream {
+export interface GreatMemoriesZipStream extends GreatMemoriesReadStream {
   addFile: (inputPath: string, filename: string) => void;
   finalize: () => Promise<void>;
 }
@@ -95,7 +95,7 @@ export class StorageRepository {
     return fs.utimes(filepath, atime, mtime);
   }
 
-  createZipStream(): ImmichZipStream {
+  createZipStream(): GreatMemoriesZipStream {
     const archive = archiver('zip', { store: true });
 
     const addFile = (input: string, filename: string) => {
@@ -119,7 +119,7 @@ export class StorageRepository {
     return createReadStream(filepath);
   }
 
-  async createReadStream(filepath: string, mimeType?: string | null): Promise<ImmichReadStream> {
+  async createReadStream(filepath: string, mimeType?: string | null): Promise<GreatMemoriesReadStream> {
     const { size } = await fs.stat(filepath);
     await fs.access(filepath, constants.R_OK);
     return {

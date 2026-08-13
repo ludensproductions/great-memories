@@ -9,7 +9,7 @@ import { ZodSerializerInterceptor, ZodValidationPipe } from 'nestjs-zod';
 import { commandsAndQuestions } from 'src/commands';
 import { IWorker } from 'src/constants';
 import { controllers } from 'src/controllers';
-import { ImmichWorker } from 'src/enum';
+import { GreatMemoriesWorker } from 'src/enum';
 import { MaintenanceAuthGuard } from 'src/maintenance/maintenance-auth.guard';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository';
 import { MaintenanceWebsocketRepository } from 'src/maintenance/maintenance-websocket.repository';
@@ -68,7 +68,7 @@ configureUserAgent();
 
 export class BaseModule implements OnModuleInit, OnModuleDestroy {
   constructor(
-    @Inject(IWorker) private worker: ImmichWorker,
+    @Inject(IWorker) private worker: GreatMemoriesWorker,
     logger: LoggingRepository,
     private authService: AuthService,
     private eventRepository: EventRepository,
@@ -105,7 +105,7 @@ export class BaseModule implements OnModuleInit, OnModuleDestroy {
 @Module({
   imports: [...bullImports, ...commonImports, ScheduleModule.forRoot()],
   controllers: [...controllers],
-  providers: [...common, ...apiMiddleware, { provide: IWorker, useValue: ImmichWorker.Api }],
+  providers: [...common, ...apiMiddleware, { provide: IWorker, useValue: GreatMemoriesWorker.Api }],
 })
 export class ApiModule extends BaseModule {}
 
@@ -127,12 +127,12 @@ export class ApiModule extends BaseModule {}
     MaintenanceWorkerService,
     ...commonMiddleware,
     { provide: APP_GUARD, useClass: MaintenanceAuthGuard },
-    { provide: IWorker, useValue: ImmichWorker.Maintenance },
+    { provide: IWorker, useValue: GreatMemoriesWorker.Maintenance },
   ],
 })
 export class MaintenanceModule {
   constructor(
-    @Inject(IWorker) private worker: ImmichWorker,
+    @Inject(IWorker) private worker: GreatMemoriesWorker,
     logger: LoggingRepository,
     private maintenanceWorkerService: MaintenanceWorkerService,
   ) {
@@ -146,7 +146,7 @@ export class MaintenanceModule {
 
 @Module({
   imports: [...bullImports, ...commonImports],
-  providers: [...common, { provide: IWorker, useValue: ImmichWorker.Microservices }, SchedulerRegistry],
+  providers: [...common, { provide: IWorker, useValue: GreatMemoriesWorker.Microservices }, SchedulerRegistry],
 })
 export class MicroservicesModule extends BaseModule {}
 
@@ -154,7 +154,7 @@ export class MicroservicesModule extends BaseModule {}
   imports: [...bullImports, ...commonImports],
   providers: [...common, ...commandsAndQuestions, SchedulerRegistry],
 })
-export class ImmichAdminModule implements OnModuleDestroy {
+export class GreatMemoriesAdminModule implements OnModuleDestroy {
   constructor(private service: CliService) {}
 
   async onModuleDestroy() {

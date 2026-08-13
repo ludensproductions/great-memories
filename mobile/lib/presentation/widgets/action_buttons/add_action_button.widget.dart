@@ -109,7 +109,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
   void _openAlbumSelector() {
     final currentAsset = ref.read(assetViewerProvider).currentAsset;
     if (currentAsset == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -140,7 +140,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     final latest = ref.read(assetViewerProvider).currentAsset;
 
     if (latest == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -151,13 +151,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     }
 
     if (!result.success) {
-      ImmichToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
       return;
     }
 
     // Only report the failure when nothing was added; if some succeeded we show "added".
     if (result.count > 0) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'add_to_album_bottom_sheet_added'.tr(namedArgs: {'album': album.name}),
       );
@@ -165,13 +165,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
       // Refresh the "Appears in" list on the asset's info panel.
       ref.invalidate(albumsContainingAssetProvider(latest.remoteId!));
     } else if (result.failedCount > 0) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'assets_cannot_be_added_to_album_count'.t(context: context, args: {'count': result.failedCount}),
         toastType: ToastType.error,
       );
     } else {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'add_to_album_bottom_sheet_already_exists'.tr(namedArgs: {'album': album.name}),
       );

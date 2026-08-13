@@ -22,7 +22,7 @@ type TagsWithWrongTypes =
   | 'HierarchicalSubject'
   | 'ISO';
 
-export interface ImmichTags extends Omit<Tags, TagsWithWrongTypes> {
+export interface GreatMemoriesTags extends Omit<Tags, TagsWithWrongTypes> {
   ContentIdentifier?: string;
   MotionPhoto?: number;
   MotionPhotoVersion?: number;
@@ -106,13 +106,13 @@ export class MetadataRepository {
     await this.exiftool.end();
   }
 
-  readTags(path: string): Promise<ImmichTags> {
+  readTags(path: string): Promise<GreatMemoriesTags> {
     const options: ReadTaskOptions | undefined = mimeTypes.isVideo(path) ? { readArgs: ['-ee'] } : undefined;
 
     return this.exiftool.read(path, options).catch((error) => {
       this.logger.warn(`Error reading exif data (${path}): ${error}\n${error?.stack}`);
       return {};
-    }) as Promise<ImmichTags>;
+    }) as Promise<GreatMemoriesTags>;
   }
 
   extractBinaryTag(path: string, tagName: string): Promise<Buffer> {

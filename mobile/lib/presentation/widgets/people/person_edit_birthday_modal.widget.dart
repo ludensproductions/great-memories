@@ -43,7 +43,7 @@ class _DriftPersonNameEditFormState extends ConsumerState<DriftPersonBirthdayEdi
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,

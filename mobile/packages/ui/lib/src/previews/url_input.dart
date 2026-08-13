@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:immich_ui/src/components/url_input.dart';
 import 'package:immich_ui/src/previews.dart';
 
-@ImmichPreview(group: 'URLInput', name: 'Basic')
+@GreatMemoriesPreview(group: 'URLInput', name: 'Basic')
 Widget previewUrlInput() => const _PreviewUrlInput();
 
 class _PreviewUrlInput extends StatefulWidget {
@@ -23,6 +23,6 @@ class _PreviewUrlInputState extends State<_PreviewUrlInput> {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichURLInput(label: 'Server URL', hintText: 'https://demo.immich.com', controller: _controller);
+    return GreatMemoriesURLInput(label: 'Server URL', hintText: 'https://demo.immich.com', controller: _controller);
   }
 }

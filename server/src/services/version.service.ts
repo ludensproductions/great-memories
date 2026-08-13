@@ -5,7 +5,7 @@ import { serverVersion } from 'src/constants';
 import { OnEvent, OnJob } from 'src/decorators';
 import { ReleaseEventV1, ReleaseType, ServerVersionResponseDto } from 'src/dtos/server.dto';
 import { ReleaseChannel } from 'src/dtos/system-config.dto';
-import { CronJob, DatabaseLock, ImmichWorker, JobName, JobStatus, QueueName, SystemMetadataKey } from 'src/enum';
+import { CronJob, DatabaseLock, GreatMemoriesWorker, JobName, JobStatus, QueueName, SystemMetadataKey } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { BaseService } from 'src/services/base.service';
 import { VersionCheckMetadata } from 'src/types';
@@ -29,7 +29,7 @@ const asNotification = (
 
 @Injectable()
 export class VersionService extends BaseService {
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Microservices] })
   async onBootstrap(): Promise<void> {
     const hasLock = await this.databaseRepository.tryLock(DatabaseLock.VersionCheck);
     if (hasLock) {

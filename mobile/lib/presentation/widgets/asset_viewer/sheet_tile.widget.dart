@@ -27,7 +27,7 @@ class SheetTile extends ConsumerWidget {
 
   void copyTitle(BuildContext context, WidgetRef ref) {
     Clipboard.setData(ClipboardData(text: title));
-    ImmichToast.show(
+    GreatMemoriesToast.show(
       context: context,
       msg: 'copied_to_clipboard'.t(context: context),
       toastType: ToastType.info,

@@ -24,12 +24,12 @@ class ServerDiscovery extends HookConsumerWidget {
     final isSearching = useState(false);
 
     void showError(String message) {
-      ImmichToast.show(context: context, msg: message, toastType: ToastType.error, gravity: ToastGravity.TOP);
+      GreatMemoriesToast.show(context: context, msg: message, toastType: ToastType.error, gravity: ToastGravity.TOP);
     }
 
     void applyServer(DiscoveredServer server) {
       onServerFound(server.url);
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'Servidor encontrado: ${server.url}',
         toastType: ToastType.success,
@@ -143,7 +143,7 @@ class ServerDiscovery extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: ImmichSpacing.md),
+        const SizedBox(height: GreatMemoriesSpacing.md),
         SegmentedButton<DiscoveryMethod>(
           segments: const [
             ButtonSegment(
@@ -160,7 +160,7 @@ class ServerDiscovery extends HookConsumerWidget {
           selected: {method.value},
           onSelectionChanged: isSearching.value ? null : (selection) => method.value = selection.first,
         ),
-        const SizedBox(height: ImmichSpacing.sm),
+        const SizedBox(height: GreatMemoriesSpacing.sm),
         FilledButton.tonalIcon(
           onPressed: isSearching.value ? null : search,
           icon: isSearching.value

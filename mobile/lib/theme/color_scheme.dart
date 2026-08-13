@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:immich_mobile/constants/colors.dart';
 import 'package:immich_mobile/theme/theme_data.dart';
 
-final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
-  ImmichColorPreset.indigo: ImmichTheme(
+final Map<GreatMemoriesColorPreset, GreatMemoriesTheme> _themePresets = {
+  GreatMemoriesColorPreset.indigo: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(
-      seedColor: immichBrandColorLight,
-    ).copyWith(primary: immichBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
+      seedColor: greatMemoriesBrandColorLight,
+    ).copyWith(primary: greatMemoriesBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
     dark: ColorScheme.fromSeed(
-      seedColor: immichBrandColorDark,
+      seedColor: greatMemoriesBrandColorDark,
       brightness: Brightness.dark,
-    ).copyWith(primary: immichBrandColorDark),
+    ).copyWith(primary: greatMemoriesBrandColorDark),
   ),
-  ImmichColorPreset.deepPurple: ImmichTheme(
+  GreatMemoriesColorPreset.deepPurple: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF6F43C0)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFD3BBFF), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.pink: ImmichTheme(
+  GreatMemoriesColorPreset.pink: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFED79B5)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFED79B5), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.red: ImmichTheme(
+  GreatMemoriesColorPreset.red: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFC51C16)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFD3302F), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.orange: ImmichTheme(
+  GreatMemoriesColorPreset.orange: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(
       seedColor: const Color(0xffff5b01),
       dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
@@ -35,23 +35,23 @@ final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
       dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
     ),
   ),
-  ImmichColorPreset.yellow: ImmichTheme(
+  GreatMemoriesColorPreset.yellow: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFFFB400)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFFFB400), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.lime: ImmichTheme(
+  GreatMemoriesColorPreset.lime: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFCDDC39)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFCDDC39), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.green: ImmichTheme(
+  GreatMemoriesColorPreset.green: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF18C249)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFF18C249), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.cyan: ImmichTheme(
+  GreatMemoriesColorPreset.cyan: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF00BCD4)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFF00BCD4), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.slateGray: ImmichTheme(
+  GreatMemoriesColorPreset.slateGray: GreatMemoriesTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF696969), dynamicSchemeVariant: DynamicSchemeVariant.neutral),
     dark: ColorScheme.fromSeed(
       seedColor: const Color(0xff696969),
@@ -61,6 +61,6 @@ final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
   ),
 };
 
-extension ImmichColorModeExtension on ImmichColorPreset {
-  ImmichTheme get themeOfPreset => _themePresets[this]!;
+extension GreatMemoriesColorModeExtension on GreatMemoriesColorPreset {
+  GreatMemoriesTheme get themeOfPreset => _themePresets[this]!;
 }

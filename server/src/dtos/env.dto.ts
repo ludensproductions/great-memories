@@ -1,4 +1,4 @@
-import { ImmichEnvironmentSchema, LogFormatSchema, LogLevelSchema } from 'src/enum';
+import { GreatMemoriesEnvironmentSchema, LogFormatSchema, LogLevelSchema } from 'src/enum';
 import { IsIPRange } from 'src/validation';
 import z from 'zod';
 
@@ -44,7 +44,7 @@ export const EnvSchema = z
     IMMICH_BUILD_IMAGE_URL: z.string().optional(),
     IMMICH_CONFIG_FILE: z.string().optional(),
     IMMICH_HELMET_FILE: z.string().optional(),
-    IMMICH_ENV: ImmichEnvironmentSchema.optional(),
+    IMMICH_ENV: GreatMemoriesEnvironmentSchema.optional(),
     IMMICH_HOST: z.string().optional(),
     IMMICH_IGNORE_MOUNT_CHECK_ERRORS: stringBool.optional(),
     IMMICH_LOG_LEVEL: LogLevelSchema.optional(),

@@ -35,7 +35,7 @@ class BootstrapErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext _) {
-    final immichTheme = defaultConfig.theme.primaryColor.themeOfPreset;
+    final greatMemoriesTheme = defaultConfig.theme.primaryColor.themeOfPreset;
 
     return EasyLocalization(
       supportedLocales: locales.values.toList(),
@@ -51,8 +51,8 @@ class BootstrapErrorWidget extends StatelessWidget {
           supportedLocales: lCtx.supportedLocales,
           locale: lCtx.locale,
           themeMode: ThemeMode.system,
-          darkTheme: getThemeData(colorScheme: immichTheme.dark, locale: lCtx.locale),
-          theme: getThemeData(colorScheme: immichTheme.light, locale: lCtx.locale),
+          darkTheme: getThemeData(colorScheme: greatMemoriesTheme.dark, locale: lCtx.locale),
+          theme: getThemeData(colorScheme: greatMemoriesTheme.light, locale: lCtx.locale),
           home: Builder(
             builder: (ctx) => Scaffold(
               body: Column(
@@ -63,7 +63,7 @@ class BootstrapErrorWidget extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [ImmichLogo(size: 48), SizedBox(width: 12), GreatMemoriesTitleText(fontSize: 24)],
+                        children: [GreatMemoriesLogo(size: 48), SizedBox(width: 12), GreatMemoriesTitleText(fontSize: 24)],
                       ),
                     ),
                   ),

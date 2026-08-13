@@ -15,7 +15,7 @@ import { snakeCase, startCase } from 'lodash';
 import { MetricService } from 'nestjs-otel';
 import { copyMetadataFromFunctionToFunction } from 'nestjs-otel/lib/opentelemetry.utils';
 import { excludePaths, serverVersion } from 'src/constants';
-import { ImmichTelemetry, MetadataKey } from 'src/enum';
+import { GreatMemoriesTelemetry, MetadataKey } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 
@@ -72,7 +72,7 @@ export const bootstrapTelemetry = (port: number) => {
     contextManager: new AsyncLocalStorageContextManager(),
     instrumentations: [
       new HttpInstrumentation({
-        enabled: telemetry.metrics.has(ImmichTelemetry.Api),
+        enabled: telemetry.metrics.has(GreatMemoriesTelemetry.Api),
         ignoreIncomingRequestHook: (request) => excludePaths.some((item) => request.url?.startsWith(item)),
       }),
       new IORedisInstrumentation(),
@@ -119,16 +119,16 @@ export class TelemetryRepository {
     const { telemetry } = this.configRepository.getEnv();
     const { metrics } = telemetry;
 
-    this.api = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Api) });
-    this.host = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Host) });
-    this.jobs = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Job) });
-    this.repo = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Repo) });
+    this.api = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(GreatMemoriesTelemetry.Api) });
+    this.host = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(GreatMemoriesTelemetry.Host) });
+    this.jobs = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(GreatMemoriesTelemetry.Job) });
+    this.repo = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(GreatMemoriesTelemetry.Repo) });
   }
 
   setup({ repositories }: { repositories: (new (...args: any[]) => unknown)[] }) {
     const { telemetry } = this.configRepository.getEnv();
     const { metrics } = telemetry;
-    if (!metrics.has(ImmichTelemetry.Repo)) {
+    if (!metrics.has(GreatMemoriesTelemetry.Repo)) {
       return;
     }
 

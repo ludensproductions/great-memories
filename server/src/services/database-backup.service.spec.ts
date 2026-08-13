@@ -3,7 +3,7 @@ import { DateTime } from 'luxon';
 import { PassThrough, Readable } from 'node:stream';
 import { defaults, SystemConfig } from 'src/config';
 import { StorageCore } from 'src/cores/storage.core';
-import { ImmichWorker, JobStatus, StorageFolder } from 'src/enum';
+import { GreatMemoriesWorker, JobStatus, StorageFolder } from 'src/enum';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository';
 import { DatabaseBackupService } from 'src/services/database-backup.service';
 import { systemConfigStub } from 'test/fixtures/system-config.stub';
@@ -57,7 +57,7 @@ describe(DatabaseBackupService.name, () => {
     });
 
     it('should not initialise backup database job when running on microservices', async () => {
-      mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+      mocks.config.getWorker.mockReturnValue(GreatMemoriesWorker.Microservices);
       await sut.onConfigInit({ newConfig: systemConfigStub.backupEnabled as SystemConfig });
 
       expect(mocks.cron.create).not.toHaveBeenCalled();
@@ -177,7 +177,7 @@ describe(DatabaseBackupService.name, () => {
       const dbUrl = 'postgresql://postgres:pwd@host:5432/immich?sslmode=require&uselibpqcompat=true';
       const configMock = {
         getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
-        getWorker: () => ImmichWorker.Api,
+        getWorker: () => GreatMemoriesWorker.Api,
         isDev: () => false,
       } as unknown as any;
 
@@ -391,7 +391,7 @@ describe(DatabaseBackupService.name, () => {
               skipMigrations: false,
             },
           }),
-          getWorker: () => ImmichWorker.Api,
+          getWorker: () => GreatMemoriesWorker.Api,
           isDev: () => false,
         } as unknown as any;
 
@@ -466,7 +466,7 @@ describe(DatabaseBackupService.name, () => {
         const dbUrl = 'postgresql://mypg:mypwd@myhost:1234/myimmich?sslmode=require&uselibpqcompat=true';
         const configMock = {
           getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
-          getWorker: () => ImmichWorker.Api,
+          getWorker: () => GreatMemoriesWorker.Api,
           isDev: () => false,
         } as unknown as any;
 
@@ -529,7 +529,7 @@ describe(DatabaseBackupService.name, () => {
         const dbUrl = 'post://gresql://mypg:myp@wd@myhos:t:1234/myimmich?sslmode=require&uselibpqcompat=true';
         const configMock = {
           getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
-          getWorker: () => ImmichWorker.Api,
+          getWorker: () => GreatMemoriesWorker.Api,
           isDev: () => false,
         } as unknown as any;
 
@@ -657,7 +657,7 @@ describe(DatabaseBackupService.name, () => {
             skipMigrations: false,
           },
         }),
-        getWorker: () => ImmichWorker.Api,
+        getWorker: () => GreatMemoriesWorker.Api,
         isDev: () => false,
       } as unknown as any;
 

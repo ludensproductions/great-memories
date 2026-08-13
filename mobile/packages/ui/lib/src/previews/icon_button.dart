@@ -5,37 +5,37 @@ import 'package:immich_ui/src/types.dart';
 
 void _previewNoop() {}
 
-@ImmichPreview(group: 'IconButton', name: 'Variants')
+@GreatMemoriesPreview(group: 'IconButton', name: 'Variants')
 Widget previewIconButtonVariants() => const Wrap(
       spacing: 12,
       runSpacing: 12,
       children: [
-        ImmichIconButton(icon: Icons.add, onPressed: _previewNoop),
-        ImmichIconButton(icon: Icons.edit, onPressed: _previewNoop, variant: ImmichVariant.ghost),
+        GreatMemoriesIconButton(icon: Icons.add, onPressed: _previewNoop),
+        GreatMemoriesIconButton(icon: Icons.edit, onPressed: _previewNoop, variant: GreatMemoriesVariant.ghost),
       ],
     );
 
-@ImmichPreview(group: 'IconButton', name: 'Colors')
+@GreatMemoriesPreview(group: 'IconButton', name: 'Colors')
 Widget previewIconButtonColors() => const Wrap(
       spacing: 12,
       runSpacing: 12,
       children: [
-        ImmichIconButton(icon: Icons.favorite, onPressed: _previewNoop),
-        ImmichIconButton(icon: Icons.delete, onPressed: _previewNoop, color: ImmichColor.secondary),
+        GreatMemoriesIconButton(icon: Icons.favorite, onPressed: _previewNoop),
+        GreatMemoriesIconButton(icon: Icons.delete, onPressed: _previewNoop, color: GreatMemoriesColor.secondary),
       ],
     );
 
-@ImmichPreview(group: 'IconButton', name: 'Disabled')
+@GreatMemoriesPreview(group: 'IconButton', name: 'Disabled')
 Widget previewIconButtonDisabled() => const Wrap(
       spacing: 12,
       runSpacing: 12,
       children: [
-        ImmichIconButton(icon: Icons.settings, onPressed: _previewNoop, disabled: true),
-        ImmichIconButton(
+        GreatMemoriesIconButton(icon: Icons.settings, onPressed: _previewNoop, disabled: true),
+        GreatMemoriesIconButton(
           icon: Icons.settings,
           onPressed: _previewNoop,
           disabled: true,
-          variant: ImmichVariant.ghost,
+          variant: GreatMemoriesVariant.ghost,
         ),
       ],
     );

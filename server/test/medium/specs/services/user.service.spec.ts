@@ -1,6 +1,6 @@
 import { Kysely } from 'kysely';
 import { DateTime } from 'luxon';
-import { ImmichEnvironment, JobName, JobStatus } from 'src/enum';
+import { GreatMemoriesEnvironment, JobName, JobStatus } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { CryptoRepository } from 'src/repositories/crypto.repository';
 import { EventRepository } from 'src/repositories/event.repository';
@@ -17,7 +17,7 @@ import { getKyselyDB } from 'test/utils';
 let defaultDatabase: Kysely<DB>;
 
 const setup = (db?: Kysely<DB>) => {
-  process.env.IMMICH_ENV = ImmichEnvironment.Testing;
+  process.env.IMMICH_ENV = GreatMemoriesEnvironment.Testing;
 
   return newMediumService(UserService, {
     database: db || defaultDatabase,

@@ -9,7 +9,7 @@ import 'package:immich_mobile/utils/semver.dart';
 
 enum SettingsKey<T> {
   // Theme
-  themePrimaryColor<ImmichColorPreset>(codec: EnumCodec(ImmichColorPreset.values)),
+  themePrimaryColor<GreatMemoriesColorPreset>(codec: EnumCodec(GreatMemoriesColorPreset.values)),
   themeMode<ThemeMode>(codec: EnumCodec(ThemeMode.values)),
   themeDynamic<bool>(),
   themeColorfulInterface<bool>(),
