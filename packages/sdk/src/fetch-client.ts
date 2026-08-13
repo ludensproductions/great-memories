@@ -1,5 +1,5 @@
 /**
- * Immich
+ * Great Memories
  * 3.0.3
  * DO NOT MODIFY - This file has been generated using oazapfts.
  * See https://www.npmjs.com/package/oazapfts
@@ -875,7 +875,7 @@ export type TagResponseDto = {
 export type AssetResponseDto = {
     /** Base64 encoded SHA1 hash */
     checksum: string;
-    /** The UTC timestamp when the asset was originally uploaded to Immich. */
+    /** The UTC timestamp when the asset was originally uploaded to Great Memories. */
     createdAt: string;
     /** Duplicate group ID */
     duplicateId?: string | null;
@@ -2698,7 +2698,7 @@ export type TimeBucketAssetResponseDto = {
     city?: (string | null)[];
     /** Array of country names extracted from EXIF GPS data */
     country?: (string | null)[];
-    /** Array of UTC timestamps when each asset was originally uploaded to Immich */
+    /** Array of UTC timestamps when each asset was originally uploaded to Great Memories */
     createdAt: string[];
     /** Array of video/gif durations in milliseconds (null for static images) */
     duration: (number | null)[];
@@ -3107,7 +3107,7 @@ export type SyncAssetOcrV1 = {
 export type SyncAssetV1 = {
     /** Checksum */
     checksum: string;
-    /** Uploaded to Immich at */
+    /** Uploaded to Great Memories at */
     createdAt: string | null;
     /** Deleted at */
     deletedAt: string | null;
@@ -3147,7 +3147,7 @@ export type SyncAssetV1 = {
 export type SyncAssetV2 = {
     /** Checksum */
     checksum: string;
-    /** Uploaded to Immich at */
+    /** Uploaded to Great Memories at */
     createdAt: string | null;
     /** Deleted at */
     deletedAt: string | null;

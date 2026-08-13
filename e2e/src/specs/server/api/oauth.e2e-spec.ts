@@ -75,7 +75,7 @@ const setupOAuth = async (token: string, dto: Partial<SystemConfigOAuthDto>) => 
   const defaults = await getConfigDefaults(options);
   const merged = {
     ...defaults.oauth,
-    buttonText: 'Login with Immich',
+    buttonText: 'Login with Great Memories',
     issuerUrl: `${authServer.internal}/.well-known/openid-configuration`,
     allowInsecureRequests: true,
     ...dto,
@@ -97,7 +97,7 @@ describe(`/oauth`, () => {
         enabled: true,
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         storageLabelClaim: 'immich_username',
       });
     });
@@ -160,7 +160,7 @@ describe(`/oauth`, () => {
         enabled: true,
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         storageLabelClaim: 'immich_username',
       });
     });
@@ -296,7 +296,7 @@ describe(`/oauth`, () => {
         clientId: OAuthClient.RS256_TOKENS,
         clientSecret: OAuthClient.RS256_TOKENS,
         autoRegister: true,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         signingAlgorithm: 'RS256',
       });
       const callbackParams = await loginWithOAuth('oauth-RS256-token');
@@ -316,7 +316,7 @@ describe(`/oauth`, () => {
         enabled: true,
         clientId: OAuthClient.RS256_PROFILE,
         clientSecret: OAuthClient.RS256_PROFILE,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         profileSigningAlgorithm: 'RS256',
       });
       const callbackParams = await loginWithOAuth('oauth-signed-profile');
@@ -333,7 +333,7 @@ describe(`/oauth`, () => {
         enabled: true,
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         signingAlgorithm: 'something-that-does-not-work',
       });
       const callbackParams = await loginWithOAuth('oauth-signed-bad');
@@ -351,7 +351,7 @@ describe(`/oauth`, () => {
           clientId: OAuthClient.DEFAULT,
           clientSecret: OAuthClient.DEFAULT,
           autoRegister: false,
-          buttonText: 'Login with Immich',
+          buttonText: 'Login with Great Memories',
         });
       });
 
@@ -405,7 +405,7 @@ describe(`/oauth`, () => {
         clientSecret: OAuthClient.DEFAULT,
         autoRegister: true,
         signingAlgorithm: 'RS256',
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
       });
 
       const callbackParams = await loginWithOAuth('backchannel-logout-user');
@@ -433,7 +433,7 @@ describe(`/oauth`, () => {
         enabled: true,
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
-        buttonText: 'Login with Immich',
+        buttonText: 'Login with Great Memories',
         storageLabelClaim: 'immich_username',
         mobileOverrideEnabled: true,
         mobileRedirectUri: mobileOverrideRedirectUri,

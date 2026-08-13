@@ -465,7 +465,7 @@ class MaintenanceAdminApi {
 
   /// Set maintenance mode
   ///
-  /// Put Immich into or take it out of maintenance mode
+  /// Put Great Memories into or take it out of maintenance mode
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -500,7 +500,7 @@ class MaintenanceAdminApi {
 
   /// Set maintenance mode
   ///
-  /// Put Immich into or take it out of maintenance mode
+  /// Put Great Memories into or take it out of maintenance mode
   ///
   /// Parameters:
   ///

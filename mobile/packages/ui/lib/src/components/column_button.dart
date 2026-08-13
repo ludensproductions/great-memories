@@ -59,7 +59,7 @@ class _GreatMemoriesColumnButtonState extends State<GreatMemoriesColumnButton> {
             _isLoading
                 ? const SizedBox.square(
                     dimension: GreatMemoriesIconSize.md,
-                    child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+                    child: CircularProgressIndicator(strokeWidth: GreatMemoriesBorderWidth.lg),
                   )
                 : Icon(widget.icon, size: GreatMemoriesIconSize.md),
             const SizedBox(height: GreatMemoriesSpacing.sm),

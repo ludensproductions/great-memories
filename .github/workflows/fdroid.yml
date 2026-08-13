@@ -50,7 +50,7 @@ jobs:
             .apks = [env(NEW_ENTRY)] + .apks
           ' apps/Immich/index.yml
 
-          git config user.name "Immich Release Bot"
+          git config user.name "Great Memories Release Bot"
           git config user.email "bot@immich.app"
-          git commit -am "Immich: add version-code ${VERSION_CODE} (${TAG})"
+          git commit -am "Great Memories: add version-code ${VERSION_CODE} (${TAG})"
           git push

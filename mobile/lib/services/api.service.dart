@@ -98,7 +98,7 @@ class ApiService {
   Future<String> resolveEndpoint(String serverUrl) async {
     String url = sanitizeUrl(serverUrl);
 
-    // Check for /.well-known/immich
+    // Check for a well-known endpoint, preferring the rebranded route and falling back to the legacy one.
     final wellKnownEndpoint = await _getWellKnownEndpoint(url);
     if (wellKnownEndpoint.isNotEmpty) {
       url = sanitizeUrl(wellKnownEndpoint);
@@ -132,23 +132,30 @@ class ApiService {
   }
 
   Future<String> _getWellKnownEndpoint(String baseUrl) async {
-    try {
-      final res = await NetworkRepository.client
-          .get(Uri.parse("$baseUrl/.well-known/immich"))
-          .timeout(const Duration(seconds: 5));
+    const wellKnownPaths = [
+      '/.well-known/great-memories',
+      '/.well-known/immich',
+    ];
 
-      if (res.statusCode == 200) {
-        final data = jsonDecode(res.body);
-        final endpoint = data['api']['endpoint'].toString();
+    for (final path in wellKnownPaths) {
+      try {
+        final res = await NetworkRepository.client
+            .get(Uri.parse("$baseUrl$path"))
+            .timeout(const Duration(seconds: 5));
 
-        if (endpoint.startsWith('/')) {
-          // Full URL is relative to base
-          return "$baseUrl$endpoint";
+        if (res.statusCode == 200) {
+          final data = jsonDecode(res.body);
+          final endpoint = data['api']['endpoint'].toString();
+
+          if (endpoint.startsWith('/')) {
+            // Full URL is relative to base
+            return "$baseUrl$endpoint";
+          }
+          return endpoint;
         }
-        return endpoint;
+      } catch (e) {
+        dPrint(() => "Could not locate $path at $baseUrl");
       }
-    } catch (e) {
-      dPrint(() => "Could not locate /.well-known/immich at $baseUrl");
     }
 
     return "";

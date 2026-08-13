@@ -137,7 +137,7 @@ class _OcrBoxes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Use the actual decoded image size from PhotoView's scaleBoundaries when
-    // available. The image provider may serve a downscaled preview (e.g. Immich
+    // available. The image provider may serve a downscaled preview (e.g. Great Memories
     // serves a ~1440px preview for large originals), so the decoded dimensions
     // can differ significantly from the stored asset dimensions. Using the wrong
     // size would scale every coordinate by the ratio between the two resolutions.

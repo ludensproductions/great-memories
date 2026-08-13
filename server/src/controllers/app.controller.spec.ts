@@ -34,6 +34,23 @@ describe(AppController.name, () => {
     });
   });
 
+  describe('GET /.well-known/great-memories', () => {
+    it('should not be an authenticated route', async () => {
+      await request(ctx.getHttpServer()).post('/.well-known/great-memories');
+      expect(ctx.authenticate).not.toHaveBeenCalled();
+    });
+
+    it('should return a 200 status code', async () => {
+      const { status, body } = await request(ctx.getHttpServer()).get('/.well-known/great-memories');
+      expect(status).toBe(200);
+      expect(body).toEqual({
+        api: {
+          endpoint: '/api',
+        },
+      });
+    });
+  });
+
   describe('GET /custom.css', () => {
     it('should not be an authenticated route', async () => {
       await request(ctx.getHttpServer()).post('/custom.css');

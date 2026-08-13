@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 
 /// A dummy localhost server that implements only the endpoints that remote-sync touches.
-class FakeImmichServer {
-  FakeImmichServer._(this._server, this.version);
+class FakeGreatMemoriesServer {
+  FakeGreatMemoriesServer._(this._server, this.version);
 
   final HttpServer _server;
   final (int, int, int) version;
@@ -18,9 +18,9 @@ class FakeImmichServer {
   /// Resolves when the sync isolate opens `POST /sync/stream`.
   Future<SyncStream> get streamOpened => _streamOpened.future;
 
-  static Future<FakeImmichServer> start({(int, int, int) version = (3, 0, 0)}) async {
+  static Future<FakeGreatMemoriesServer> start({(int, int, int) version = (3, 0, 0)}) async {
     final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
-    final fake = FakeImmichServer._(server, version);
+    final fake = FakeGreatMemoriesServer._(server, version);
     fake._listen();
     return fake;
   }

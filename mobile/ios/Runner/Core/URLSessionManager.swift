@@ -53,7 +53,7 @@ class URLSessionManager: NSObject {
   )
   static let userAgent: String = {
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown"
-    return "immich-ios/\(version)"
+    return "great-memories-ios/\(version)"
   }()
   static let cookieStorage = HTTPCookieStorage.sharedCookieStorage(forGroupContainerIdentifier: APP_GROUP)
   private static var serverUrls: [String] = []

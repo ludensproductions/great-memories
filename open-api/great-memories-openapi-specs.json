@@ -430,7 +430,7 @@
     },
     "/admin/database-backups/start-restore": {
       "post": {
-        "description": "Put Immich into maintenance mode to restore a backup (Immich must not be configured)",
+        "description": "Put Great Memories into maintenance mode to restore a backup (Great Memories must not be configured)",
         "operationId": "startDatabaseRestoreFlow",
         "parameters": [],
         "responses": {
@@ -858,7 +858,7 @@
     },
     "/admin/maintenance": {
       "post": {
-        "description": "Put Immich into or take it out of maintenance mode",
+        "description": "Put Great Memories into or take it out of maintenance mode",
         "operationId": "setMaintenanceMode",
         "parameters": [],
         "requestBody": {
@@ -11497,7 +11497,7 @@
     },
     "/server/statistics": {
       "get": {
-        "description": "Retrieve statistics about the entire Immich instance such as asset counts.",
+        "description": "Retrieve statistics about the entire Great Memories instance such as asset counts.",
         "operationId": "getServerStatistics",
         "parameters": [],
         "responses": {
@@ -14351,7 +14351,7 @@
             "name": "orderBy",
             "required": false,
             "in": "query",
-            "description": "Date to group and order assets by (takenAt for date taken, createdAt for date added to Immich)",
+            "description": "Date to group and order assets by (takenAt for date taken, createdAt for date added to Great Memories)",
             "schema": {
               "$ref": "#/components/schemas/AssetOrderBy"
             }
@@ -14550,7 +14550,7 @@
             "name": "orderBy",
             "required": false,
             "in": "query",
-            "description": "Date to group and order assets by (takenAt for date taken, createdAt for date added to Immich)",
+            "description": "Date to group and order assets by (takenAt for date taken, createdAt for date added to Great Memories)",
             "schema": {
               "$ref": "#/components/schemas/AssetOrderBy"
             }
@@ -16239,8 +16239,8 @@
     }
   },
   "info": {
-    "title": "Immich",
-    "description": "Immich API",
+    "title": "Great Memories",
+    "description": "Great Memories API",
     "version": "3.0.3",
     "contact": {}
   },
@@ -16255,11 +16255,11 @@
     },
     {
       "name": "API keys",
-      "description": "An api key can be used to programmatically access the Immich API."
+      "description": "An API key can be used to programmatically access the Great Memories API."
     },
     {
       "name": "Assets",
-      "description": "An asset is an image or video that has been uploaded to Immich."
+      "description": "An asset is an image or video that has been uploaded to Great Memories."
     },
     {
       "name": "Authentication",
@@ -16271,7 +16271,7 @@
     },
     {
       "name": "Database Backups (admin)",
-      "description": "Manage backups of the Immich database."
+      "description": "Manage backups of the Great Memories database."
     },
     {
       "name": "Deprecated",
@@ -16303,7 +16303,7 @@
     },
     {
       "name": "Maintenance (admin)",
-      "description": "Maintenance mode allows you to put Immich in a read-only state to perform various operations."
+      "description": "Maintenance mode allows you to put Great Memories in a read-only state to perform various operations."
     },
     {
       "name": "Map",
@@ -16315,7 +16315,7 @@
     },
     {
       "name": "Notifications",
-      "description": "A notification is a specialized message sent to users to inform them of important events. Currently, these notifications are only shown in the Immich web application."
+      "description": "A notification is a specialized message sent to users to inform them of important events. Currently, these notifications are only shown in the Great Memories web application."
     },
     {
       "name": "Notifications (admin)",
@@ -17861,7 +17861,7 @@
             "type": "string"
           },
           "createdAt": {
-            "description": "The UTC timestamp when the asset was originally uploaded to Immich.",
+            "description": "The UTC timestamp when the asset was originally uploaded to Great Memories.",
             "format": "date-time",
             "type": "string"
           },
@@ -24614,7 +24614,7 @@
             "type": "string"
           },
           "createdAt": {
-            "description": "Uploaded to Immich at",
+            "description": "Uploaded to Great Memories at",
             "example": "2024-01-01T00:00:00.000Z",
             "format": "date-time",
             "nullable": true,
@@ -24754,7 +24754,7 @@
             "type": "string"
           },
           "createdAt": {
-            "description": "Uploaded to Immich at",
+            "description": "Uploaded to Great Memories at",
             "example": "2024-01-01T00:00:00.000Z",
             "format": "date-time",
             "nullable": true,
@@ -26882,7 +26882,7 @@
             "type": "array"
           },
           "createdAt": {
-            "description": "Array of UTC timestamps when each asset was originally uploaded to Immich",
+            "description": "Array of UTC timestamps when each asset was originally uploaded to Great Memories",
             "items": {
               "type": "string"
             },

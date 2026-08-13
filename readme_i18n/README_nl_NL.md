@@ -11,7 +11,7 @@
 <p align="center">
 <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login met aangepaste URL">
 </p>
-<h3 align="center">Immich - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
+<h3 align="center">Great Memories - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
 <br/>
 <a href="https://immich.app">
 <img src="../design/great-memories-screenshots.png" title="Main Screenshot">

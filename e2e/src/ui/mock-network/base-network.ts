@@ -17,7 +17,7 @@ export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserI
       json: {
         id: adminUserId,
         email: 'admin@immich.cloud',
-        name: 'Immich Admin',
+        name: 'Great Memories Admin',
         profileImagePath: '',
         avatarColor: 'orange',
         profileChangedAt: '2025-01-22T21:31:23.996Z',

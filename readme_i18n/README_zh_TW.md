@@ -62,7 +62,7 @@
 
 ## 線上體驗
 
-請前往 [Demoo 網站](https://demo.immich.app) 立即體驗 Immich。若要在手機 App 試用，請在 `伺服器端點 URL` 欄位輸入 `https://demo.immich.app`。
+請前往 [Demoo 網站](https://demo.immich.app) 立即體驗 Great Memories。若要在手機 App 試用，請在 `伺服器端點 URL` 欄位輸入 `https://demo.immich.app`。
 
 ### 登入資訊
 

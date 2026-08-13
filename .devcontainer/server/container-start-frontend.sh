@@ -4,7 +4,7 @@
 source /immich-devcontainer/container-common.sh
 
 export CI=1
-log "Preparing Immich Web Frontend"
+log "Preparing Great Memories Web Frontend"
 log ""
 run_cmd pnpm --filter @immich/sdk install
 run_cmd pnpm --filter @immich/sdk build
@@ -12,10 +12,10 @@ run_cmd pnpm --filter @immich/plugin-sdk install
 run_cmd pnpm --filter @immich/plugin-sdk build
 run_cmd pnpm --filter great-memories-web install
 
-log "Starting Immich Web Frontend"
+log "Starting Great Memories Web Frontend"
 log ""
 cd "${IMMICH_WORKSPACE}/web" || (
-    log "Immich Workspace not found"
+    log "Great Memories workspace not found"
     exit 1
 )
 

@@ -209,7 +209,7 @@ export const getPagesProvider = ($t: MessageFormatter) => {
   return defaultProvider({ name: $t('page'), actions: [...userPages, ...utilityPages, ...adminPages] });
 };
 
-const getMyImmichLink = () => {
+const getMyGreatMemoriesLink = () => {
   return new URL(page.url.pathname + page.url.search, 'https://my.immich.app');
 };
 
@@ -239,7 +239,7 @@ export const getSettingsProvider = ($t: MessageFormatter) => {
     {
       title: $t('my_immich_title'),
       description: $t('my_immich_description'),
-      onAction: () => copyToClipboard(getMyImmichLink().href),
+      onAction: () => copyToClipboard(getMyGreatMemoriesLink().href),
       shortcuts: { ctrl: true, shift: true, key: 'm' },
     },
   ];

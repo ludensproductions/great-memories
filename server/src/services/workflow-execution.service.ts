@@ -22,6 +22,7 @@ import {
   JobStatus,
   QueueName,
   WorkflowType,
+  AssetVisibility,
 } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { AlbumService } from 'src/services/album.service';
@@ -334,8 +335,8 @@ export class WorkflowExecutionService extends BaseService {
                 authUserId: asset.ownerId,
               };
             },
-            write: async (auth, changes) => {
-              const asset = changes.asset;
+            write: async (auth: AuthDto, changes: WorkflowChanges<WorkflowType.AssetV1>) => {
+              const asset = (changes as { asset?: { isFavorite?: boolean; visibility?: AssetVisibility; exifInfo?: { dateTimeOriginal?: string | null; longitude?: number | null; latitude?: number | null; description?: string | null; rating?: number | null } | null } }).asset;
               if (!asset) {
                 return;
               }

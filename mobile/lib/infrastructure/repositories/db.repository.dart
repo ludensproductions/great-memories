@@ -383,12 +383,12 @@ Future<void> deleteSqliteDatabase({required String name}) async {
 }
 
 Future<SqliteConnection> openSqliteConnection({required String name}) async {
-  return _openImmichDatabase(await _databaseFile(name));
+  return _openGreatMemoriesDatabase(await _databaseFile(name));
 }
 
 Future<(SqliteConnection, SqliteConnectionPool)> openSqliteConnectionWithUpdatePool({required String name}) async {
   final file = await _databaseFile(name);
-  final db = _openImmichDatabase(file);
+  final db = _openGreatMemoriesDatabase(file);
   await db.initialize();
   final updatePool = SqliteConnectionPool.open(
     name: file.path,
@@ -402,7 +402,7 @@ Future<File> _databaseFile(String name) async {
   return File(p.join(dbFolder.path, '$name.sqlite'));
 }
 
-SqliteDatabase _openImmichDatabase(File file) {
+SqliteDatabase _openGreatMemoriesDatabase(File file) {
   return SqliteDatabase.withFactory(
     GreatMemoriesSqliteOpenFactory(
       path: file.path,

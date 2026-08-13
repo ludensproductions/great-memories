@@ -613,7 +613,7 @@ export enum GreatMemoriesEnvironment {
 
 export const GreatMemoriesEnvironmentSchema = z
   .enum(GreatMemoriesEnvironment)
-  .describe('Immich environment')
+  .describe('Great Memories environment')
   .meta({ id: 'GreatMemoriesEnvironment' });
 
 export enum GreatMemoriesWorker {

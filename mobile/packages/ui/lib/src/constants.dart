@@ -77,8 +77,8 @@ abstract class GreatMemoriesIconSize {
 }
 
 /// Animation duration constants for consistent timing
-abstract class ImmichDuration {
-  const ImmichDuration._();
+abstract class GreatMemoriesDuration {
+  const GreatMemoriesDuration._();
 
   /// Extra fast: 100ms
   static const Duration extraFast = Duration(milliseconds: 100);
@@ -100,8 +100,8 @@ abstract class ImmichDuration {
 }
 
 /// Elevation constants for consistent shadows and depth
-abstract class ImmichElevation {
-  const ImmichElevation._();
+abstract class GreatMemoriesElevation {
+  const GreatMemoriesElevation._();
 
   /// No elevation: 0.0
   static const double none = 0.0;
@@ -126,8 +126,8 @@ abstract class ImmichElevation {
 }
 
 /// Border width constants (similar to Tailwind's border-* scale)
-abstract class ImmichBorderWidth {
-  const ImmichBorderWidth._();
+abstract class GreatMemoriesBorderWidth {
+  const GreatMemoriesBorderWidth._();
 
   /// No border: 0.0
   static const double none = 0.0;

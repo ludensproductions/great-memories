@@ -10,7 +10,7 @@ npm i --save @immich/sdk
 
 ## Usage
 
-For a more detailed example, check out the [`@immich/cli`](https://github.com/immich-app/immich/tree/main/cli).
+For a more detailed example, check out the Great Memories CLI source in this repository.
 
 ```typescript
 import { getAllAlbums, getMyUser, init } from "@immich/sdk";

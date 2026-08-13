@@ -1,4 +1,4 @@
-# Immich Apprentissage machine
+# Great Memories Apprentissage machine
 
 - Classification d'images
 - Embarquement de CLIP

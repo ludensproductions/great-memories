@@ -8,7 +8,17 @@ export class AppController {
 
   @ApiExcludeEndpoint()
   @Get('.well-known/immich')
-  getImmichWellKnown() {
+  getLegacyWellKnown() {
+    return this.getWellKnown();
+  }
+
+  @ApiExcludeEndpoint()
+  @Get('.well-known/great-memories')
+  getGreatMemoriesWellKnown() {
+    return this.getWellKnown();
+  }
+
+  private getWellKnown() {
     return {
       api: {
         endpoint: '/api',

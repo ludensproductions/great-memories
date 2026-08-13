@@ -38,7 +38,7 @@ class SyncAssetV2 {
   /// Checksum
   String checksum;
 
-  /// Uploaded to Immich at
+  /// Uploaded to Great Memories at
   DateTime? createdAt;
 
   /// Deleted at

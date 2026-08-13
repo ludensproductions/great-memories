@@ -10,7 +10,7 @@ const adminLoginDto = {
   email: 'admin@immich.cloud',
   password: 'password',
 };
-const adminSignupDto = { ...adminLoginDto, name: 'Immich Admin' };
+const adminSignupDto = { ...adminLoginDto, name: 'Great Memories Admin' };
 
 export const loginDto = {
   admin: adminLoginDto,

@@ -11,7 +11,7 @@
 <p align="center">
 <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - Yüksek performanslı, kendine ait barındırılan fotoğraf ve video yedekleme çözümü</h3>
+<h3 align="center">Great Memories - Yüksek performanslı, kendine ait barındırılan fotoğraf ve video yedekleme çözümü</h3>
 <br/>
 <a href="https://immich.app">
 <img src="../design/great-memories-screenshots.png" title="Main Screenshot">

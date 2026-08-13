@@ -1,7 +1,7 @@
 {
   "name": "immich-monorepo",
   "version": "3.0.3",
-  "description": "Monorepo for Immich",
+  "description": "Monorepo for Great Memories",
   "type": "module",
   "private": true,
   "scripts": {

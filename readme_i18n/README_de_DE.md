@@ -11,7 +11,7 @@
 <p align="center">
 <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login mit eigener URL">
 </p>
-<h3 align="center">Immich - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
+<h3 align="center">Great Memories - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
 <br/>
 <a href="https://immich.app">
 <img src="../design/great-memories-screenshots.png" title="Haupt-Screenshot">
@@ -51,7 +51,7 @@
 ## Inhalt
 
 - [Offizielle Dokumentation](https://docs.immich.app)
-- [Über Immich](https://docs.immich.app/overview/introduction)
+- [Über Great Memories](https://docs.immich.app/overview/introduction)
 - [Installation](https://docs.immich.app/install/requirements)
 - [Roadmap](https://immich.app/roadmap)
 - [Demo](#demo)

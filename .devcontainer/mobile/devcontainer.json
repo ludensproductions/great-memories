@@ -1,5 +1,5 @@
 {
-  "name": "Immich - Mobile",
+  "name": "Great Memories - Mobile",
   "service": "immich-server",
   "runServices": [
     "immich-init",

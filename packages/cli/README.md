@@ -4,7 +4,7 @@ Please see the [Great Memories CLI documentation](https://docs.immich.app/featur
 
 # For developers
 
-Before building the CLI, you must build the immich server and the open-api client. You can use the following command:
+Before building the CLI, you must build the Great Memories server and the OpenAPI client. You can use the following command:
 
     $ mise //:open-api
 

@@ -297,7 +297,7 @@ export class LibraryService extends BaseService {
     validation.importPath = importPath;
     validation.isValid = false;
 
-    if (StorageCore.isImmichPath(importPath)) {
+    if (StorageCore.isManagedMediaPath(importPath)) {
       validation.message = 'Cannot use media upload folder for external libraries';
       return validation;
     }

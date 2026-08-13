@@ -1,6 +1,6 @@
 # Domain Layer
 
-This directory contains the domain layer of Immich. The domain layer is responsible for the business logic of the app. It includes interfaces for repositories, models, services and utilities. This layer should never depend on anything from the presentation layer or from the infrastructure layer.
+This directory contains the domain layer of Great Memories. The domain layer is responsible for the business logic of the app. It includes interfaces for repositories, models, services and utilities. This layer should never depend on anything from the presentation layer or from the infrastructure layer.
 
 ## Structure
 

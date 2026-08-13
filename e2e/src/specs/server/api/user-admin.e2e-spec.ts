@@ -132,7 +132,7 @@ describe('/admin/users', () => {
           isAdmin: true,
           email: 'user5@immich.cloud',
           password: 'password123',
-          name: 'Immich',
+          name: 'Great Memories',
         })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(body).toMatchObject({

@@ -70,7 +70,7 @@ class _GreatMemoriesIconButtonState extends State<GreatMemoriesIconButton> {
       icon: _isLoading
           ? const SizedBox.square(
               dimension: GreatMemoriesIconSize.sm,
-              child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.md),
+              child: CircularProgressIndicator(strokeWidth: GreatMemoriesBorderWidth.md),
             )
           : Icon(widget.icon),
       onPressed: widget.disabled || _isLoading ? null : _onPressed,

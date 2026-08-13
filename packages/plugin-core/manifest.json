@@ -1,9 +1,9 @@
 {
   "name": "immich-plugin-core",
   "version": "2.0.1",
-  "title": "Immich Core Plugin",
-  "description": "Core workflow capabilities for Immich",
-  "author": "Immich Team",
+  "title": "Great Memories Core Plugin",
+  "description": "Core workflow capabilities for Great Memories",
+  "author": "Great Memories Team",
   "wasmPath": "dist/plugin.wasm",
   "templates": [
     {

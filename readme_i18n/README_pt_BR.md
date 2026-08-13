@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-<img src="../design/great-memories-logo-stacked-light.svg" width="150" title="Immich Logo">
+<img src="../design/great-memories-logo-stacked-light.svg" width="150" title="Great Memories Logo">
 </p>
 <h3 align="center">Solução self-hosted de alta performance para backup de fotos e vídeos</h3>
 <br/>

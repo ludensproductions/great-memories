@@ -3,7 +3,7 @@
 # shellcheck disable=SC1091
 source /immich-devcontainer/container-common.sh
 
-log "Preparing Immich Nest API Server"
+log "Preparing Great Memories Nest API Server"
 log ""
 export CI=1
 run_cmd pnpm --filter immich install
@@ -11,7 +11,7 @@ run_cmd pnpm --filter immich install
 log "Starting Nest API Server"
 log ""
 cd "${IMMICH_WORKSPACE}/server" || (
-    log "Immich workspace not found"
+    log "Great Memories workspace not found"
     exit 1
 )
 

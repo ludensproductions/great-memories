@@ -16,7 +16,7 @@ describe('Route', () => {
     });
 
     it('should work', () => {
-      expect(Route.search({ make: undefined, model: 'Immich' })).toBe('/search?query=%7B%22model%22%3A%22Immich%22%7D');
+      expect(Route.search({ make: undefined, model: 'Great Memories' })).toBe('/search?query=%7B%22model%22%3A%22Great%20Memories%22%7D');
     });
 
     it('should support query parameters', () => {

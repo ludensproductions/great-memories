@@ -11,7 +11,7 @@ import {
   VideoCodec,
 } from 'src/enum';
 
-export const IMMICH_SERVER_START = 'Immich Server is listening';
+export const IMMICH_SERVER_START = 'Great Memories Server is listening';
 
 export const ErrorMessages = {
   InconsistentMediaLocation:
@@ -61,7 +61,7 @@ export const reverseGeocodeMaxDistance = 25_000;
 export const MOBILE_REDIRECT = 'app.immich:///oauth-callback';
 export const LOGIN_URL = '/auth/login?autoLaunch=0';
 
-export const excludePaths = ['/.well-known/immich', '/custom.css', '/favicon.ico'];
+export const excludePaths = ['/.well-known/immich', '/.well-known/great-memories', '/custom.css', '/favicon.ico'];
 
 export const FACE_THUMBNAIL_SIZE = 250;
 
@@ -146,11 +146,11 @@ export const ORIENTATION_TO_SHARP_ROTATION: Record<ExifOrientation, SharpRotatio
 export const endpointTags: Record<ApiTag, string> = {
   [ApiTag.Activities]: 'An activity is a like or a comment made by a user on an asset or album.',
   [ApiTag.Albums]: 'An album is a collection of assets that can be shared with other users or via shared links.',
-  [ApiTag.ApiKeys]: 'An api key can be used to programmatically access the Immich API.',
-  [ApiTag.Assets]: 'An asset is an image or video that has been uploaded to Immich.',
+  [ApiTag.ApiKeys]: 'An API key can be used to programmatically access the Great Memories API.',
+  [ApiTag.Assets]: 'An asset is an image or video that has been uploaded to Great Memories.',
   [ApiTag.Authentication]: 'Endpoints related to user authentication, including OAuth.',
   [ApiTag.AuthenticationAdmin]: 'Administrative endpoints related to authentication.',
-  [ApiTag.DatabaseBackups]: 'Manage backups of the Immich database.',
+  [ApiTag.DatabaseBackups]: 'Manage backups of the Great Memories database.',
   [ApiTag.Deprecated]: 'Deprecated endpoints that are planned for removal in the next major release.',
   [ApiTag.Download]: 'Endpoints for downloading assets or collections of assets.',
   [ApiTag.Duplicates]: 'Endpoints for managing and identifying duplicate assets.',
@@ -161,13 +161,13 @@ export const endpointTags: Record<ApiTag, string> = {
     'Queues and background jobs are used for processing tasks asynchronously. Queues can be paused and resumed as needed.',
   [ApiTag.Libraries]:
     'An external library is made up of input file paths or expressions that are scanned for asset files. Discovered files are automatically imported. Assets much be unique within a library, but can be duplicated across libraries. Each user has a default upload library, and can have one or more external libraries.',
-  [ApiTag.Maintenance]: 'Maintenance mode allows you to put Immich in a read-only state to perform various operations.',
+  [ApiTag.Maintenance]: 'Maintenance mode allows you to put Great Memories in a read-only state to perform various operations.',
   [ApiTag.Map]:
     'Map endpoints include supplemental functionality related to geolocation, such as reverse geocoding and retrieving map markers for assets with geolocation data.',
   [ApiTag.Memories]:
     'A memory is a specialized collection of assets with dedicated viewing implementations in the web and mobile clients. A memory includes fields related to visibility and are automatically generated per user via a background job.',
   [ApiTag.Notifications]:
-    'A notification is a specialized message sent to users to inform them of important events. Currently, these notifications are only shown in the Immich web application.',
+    'A notification is a specialized message sent to users to inform them of important events. Currently, these notifications are only shown in the Great Memories web application.',
   [ApiTag.NotificationsAdmin]: 'Notification administrative endpoints.',
   [ApiTag.Partners]: 'A partner is a link with another user that allows sharing of assets between two users.',
   [ApiTag.People]:
@@ -270,7 +270,7 @@ export const H264_LEVELS: CodecLevel[] = [
   { maxFrame: 139_264, maxRate: 16_711_680, token: '3e' }, // 6.2
 ];
 
-// HEVC Main profile, Main tier: token is `L` + level_idc (level × 30).
+// HEVC Main profile, Main tier: token is `L` + level_idc (level Ã— 30).
 export const HEVC_LEVELS: CodecLevel[] = [
   { maxFrame: 552_960, maxRate: 16_588_800, token: 'L90' }, // 3.0
   { maxFrame: 983_040, maxRate: 33_177_600, token: 'L93' }, // 3.1

@@ -45,7 +45,7 @@ final class CustomImageCache implements ImageCache {
 
   @override
   bool containsKey(Object key) {
-    // [ImmichLocalImageProvider] and [ImmichRemoteImageProvider] are both
+    // [GreatMemoriesLocalImageProvider] and [GreatMemoriesRemoteImageProvider] are both
     // large size images while the other thumbnail providers are small
     return _cacheForKey(key).containsKey(key);
   }

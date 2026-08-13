@@ -40,7 +40,7 @@ class TimeBucketAssetResponseDto {
   /// Array of country names extracted from EXIF GPS data
   Optional<List<String?>?> country;
 
-  /// Array of UTC timestamps when each asset was originally uploaded to Immich
+  /// Array of UTC timestamps when each asset was originally uploaded to Great Memories
   List<String> createdAt;
 
   /// Array of video/gif durations in milliseconds (null for static images)

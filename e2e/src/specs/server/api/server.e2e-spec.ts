@@ -180,7 +180,7 @@ describe('/server', () => {
             usage: 0,
             usagePhotos: 0,
             usageVideos: 0,
-            userName: 'Immich Admin',
+            userName: 'Great Memories Admin',
             userId: admin.userId,
             videos: 0,
           },

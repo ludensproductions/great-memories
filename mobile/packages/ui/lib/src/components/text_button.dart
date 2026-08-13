@@ -48,7 +48,7 @@ class _GreatMemoriesTextButtonState extends State<GreatMemoriesTextButton> {
     final Widget? icon = _isLoading
         ? const SizedBox.square(
             dimension: GreatMemoriesIconSize.md,
-            child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+            child: CircularProgressIndicator(strokeWidth: GreatMemoriesBorderWidth.lg),
           )
         : widget.icon != null
         ? Icon(widget.icon, fontWeight: .w600)

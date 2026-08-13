@@ -47,7 +47,7 @@ export const signupResponseDto = {
   admin: {
     avatarColor: expect.any(String),
     id: expect.any(String),
-    name: 'Immich Admin',
+    name: 'Great Memories Admin',
     email: 'admin@immich.cloud',
     storageLabel: 'admin',
     profileImagePath: '',
@@ -69,7 +69,7 @@ export const signupResponseDto = {
 export const loginResponseDto = {
   admin: {
     accessToken: expect.any(String),
-    name: 'Immich Admin',
+    name: 'Great Memories Admin',
     isAdmin: true,
     isOnboarded: false,
     profileImagePath: '',

@@ -50,7 +50,7 @@ class AssetResponseDto {
   /// Base64 encoded SHA1 hash
   String checksum;
 
-  /// The UTC timestamp when the asset was originally uploaded to Immich.
+  /// The UTC timestamp when the asset was originally uploaded to Great Memories.
   DateTime createdAt;
 
   /// Duplicate group ID

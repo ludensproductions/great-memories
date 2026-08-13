@@ -146,7 +146,7 @@ export class StorageCore {
     return originalPath.startsWith(StorageCore.getBaseFolder(StorageFolder.EncodedVideo));
   }
 
-  static isImmichPath(path: string) {
+  static isManagedMediaPath(path: string) {
     const resolvedPath = resolve(path);
     const resolvedAppMediaLocation = StorageCore.getMediaLocation();
     const normalizedPath = resolvedPath.endsWith('/') ? resolvedPath : resolvedPath + '/';
@@ -154,6 +154,10 @@ export class StorageCore {
       ? resolvedAppMediaLocation
       : resolvedAppMediaLocation + '/';
     return normalizedPath.startsWith(normalizedAppMediaLocation);
+  }
+
+  static isImmichPath(path: string) {
+    return StorageCore.isManagedMediaPath(path);
   }
 
   async moveAssetImage(asset: StorageAsset, fileType: AssetFileType, format: ImageFormat) {
@@ -260,7 +264,7 @@ export class StorageCore {
         try {
           await this.storageRepository.unlink(move.oldPath);
         } catch (error: any) {
-          this.logger.warn(`Unable to delete old file, it will now no longer be tracked by Immich: ${error.message}`);
+          this.logger.warn(`Unable to delete old file, it will now no longer be tracked by Great Memories: ${error.message}`);
         }
       }
     }

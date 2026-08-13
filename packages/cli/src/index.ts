@@ -8,11 +8,11 @@ import { login, logout } from 'src/commands/auth';
 import { serverInfo } from 'src/commands/server-info';
 import { version } from '../package.json';
 
-const defaultConfigDirectory = path.join(os.homedir(), '.config/immich/');
+const defaultConfigDirectory = path.join(os.homedir(), '.config/great-memories/');
 const defaultConcurrency = Math.max(1, os.cpus().length - 1);
 
 const program = new Command()
-  .name('immich')
+  .name('great-memories')
   .version(version)
   .description('Command line interface for Great Memories')
   .addOption(

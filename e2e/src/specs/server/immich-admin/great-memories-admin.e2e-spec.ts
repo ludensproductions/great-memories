@@ -53,7 +53,7 @@ describe(`great-memories-admin`, () => {
       // TODO: Vitest needs upgrade to Node 22.x to fix the failed check
       // expect(stderr).toBe('');
       expect(stdout).toContain("email: 'admin@immich.cloud'");
-      expect(stdout).toContain("name: 'Immich Admin'");
+      expect(stdout).toContain("name: 'Great Memories Admin'");
     });
   });
 

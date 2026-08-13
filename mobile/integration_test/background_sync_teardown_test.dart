@@ -22,7 +22,7 @@ void main() {
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
   late Drift drift;
-  late FakeImmichServer server;
+  late FakeGreatMemoriesServer server;
 
   setUpAll(() async {
     await app.initApp();
@@ -31,7 +31,7 @@ void main() {
 
   setUp(() async {
     await workerManagerPatch.init(dynamicSpawning: true);
-    server = await FakeImmichServer.start();
+    server = await FakeGreatMemoriesServer.start();
     await ApiService().resolveAndSetEndpoint(server.endpoint);
     await drift.delete(drift.userEntity).go();
     await Store.delete(StoreKey.syncMigrationStatus);
@@ -104,7 +104,7 @@ void main() {
     final sw = Stopwatch()..start();
     await workerManagerPatch.dispose().timeout(
       const Duration(seconds: 15),
-      onTimeout: () => fail('dispose() hung — worker did not drain and exit'),
+      onTimeout: () => fail('dispose() hung Ã¢â‚¬â€ worker did not drain and exit'),
     );
     expect(sw.elapsed, lessThan(const Duration(seconds: 10)), reason: 'abort-driven, not socket-timeout bound');
 
@@ -137,7 +137,7 @@ void main() {
     await stream.close();
 
     // dispose() can only finish once the worker unwinds, which is blocked on the
-    // lock — so start it, release the lock, then await completion.
+    // lock Ã¢â‚¬â€ so start it, release the lock, then await completion.
     final disposed = workerManagerPatch.dispose();
     releaseTxn.complete();
     await txn;

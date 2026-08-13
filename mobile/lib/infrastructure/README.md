@@ -1,6 +1,6 @@
 # Infrastructure Layer
 
-This directory contains the infrastructure layer of Immich. The infrastructure layer is responsible for the implementation details of the app. It includes data sources, APIs, and other external dependencies.
+This directory contains the infrastructure layer of Great Memories. The infrastructure layer is responsible for the implementation details of the app. It includes data sources, APIs, and other external dependencies.
 
 ## Structure
 

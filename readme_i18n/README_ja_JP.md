@@ -11,7 +11,7 @@
 <p align="center">
 <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
+<h3 align="center">Great Memories - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
 <br/>
 <a href="https://immich.app">
 <img src="../design/great-memories-screenshots.png" title="Main Screenshot">

@@ -140,7 +140,7 @@ describe('/admin/maintenance', () => {
         expect(status).toBe(201);
         expect(body).toEqual(
           expect.objectContaining({
-            username: 'Immich Admin',
+            username: 'Great Memories Admin',
           }),
         );
       });
@@ -154,7 +154,7 @@ describe('/admin/maintenance', () => {
         expect(status).toBe(201);
         expect(body).toEqual(
           expect.objectContaining({
-            username: 'Immich Admin',
+            username: 'Great Memories Admin',
           }),
         );
       });
