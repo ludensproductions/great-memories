@@ -1,6 +1,6 @@
 import { Link, Section, Text } from '@react-email/components';
 import * as React from 'react';
-import { ImmichButton } from 'src/emails/components/button.component';
+import { GreatMemoriesButton } from 'src/emails/components/button.component';
 import FutoLayout from 'src/emails/components/futo.layout';
 
 /**
@@ -8,11 +8,11 @@ import FutoLayout from 'src/emails/components/futo.layout';
  * Variable is {{LICENSEKEY}}
  * */
 export const LicenseEmail = () => (
-  <FutoLayout preview="Your Immich Server License">
-    <Text>Thank you for supporting Immich and open-source software</Text>
+  <FutoLayout preview="Your Great Memories Server License">
+    <Text>Thank you for supporting Great Memories and open-source software</Text>
 
     <Text>
-      Your <strong>Immich</strong> key is
+      Your <strong>Great Memories</strong> key is
     </Text>
 
     <Section className="my-2 bg-gray-200 rounded-2xl text-center p-4">
@@ -24,11 +24,11 @@ export const LicenseEmail = () => (
     </Text>
 
     <Section className="flex justify-center my-6">
-      <ImmichButton
+      <GreatMemoriesButton
         href={`https://my.immich.app/link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
       >
         Activate
-      </ImmichButton>
+      </GreatMemoriesButton>
     </Section>
 
     <Text className="text-center">

@@ -13,7 +13,7 @@ import {
   Text,
 } from '@react-email/components';
 import * as React from 'react';
-import { ImmichFooter } from './footer.template';
+import { GreatMemoriesFooter } from './footer.template';
 
 interface FutoLayoutProps {
   children: React.ReactNode;
@@ -63,7 +63,7 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
               <Img
                 src="https://immich.app/img/great-memories-logo-inline-light.png"
                 className="h-12 antialiased rounded-none"
-                alt="Immich"
+                alt="Great Memories"
               />
             </Section>
 
@@ -78,7 +78,7 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
 
           <Hr className="my-2 text-futo-gray" />
 
-          <ImmichFooter />
+          <GreatMemoriesFooter />
         </Container>
       </Body>
     </Tailwind>

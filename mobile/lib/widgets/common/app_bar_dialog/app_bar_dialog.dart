@@ -23,8 +23,8 @@ import 'package:immich_mobile/widgets/common/great_memories_logo.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ImmichAppBarDialog extends HookConsumerWidget {
-  const ImmichAppBarDialog({super.key});
+class GreatMemoriesAppBarDialog extends HookConsumerWidget {
+  const GreatMemoriesAppBarDialog({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

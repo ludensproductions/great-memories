@@ -13,7 +13,7 @@ extension Image {
   }
 }
 
-struct ImmichWidgetView: View {
+struct GreatMemoriesWidgetView: View {
   var entry: ImageEntry
 
   var body: some View {
@@ -57,7 +57,7 @@ struct ImmichWidgetView: View {
 #Preview(
   as: .systemMedium,
   widget: {
-    ImmichRandomWidget()
+    GreatMemoriesRandomWidget()
   },
   timeline: {
     let date = Date()

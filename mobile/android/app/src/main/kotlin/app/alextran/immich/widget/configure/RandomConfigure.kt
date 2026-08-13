@@ -25,7 +25,7 @@ import androidx.glance.appwidget.state.getAppWidgetState
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.state.PreferencesGlanceStateDefinition
 import app.alextran.immich.widget.ImageDownloadWorker
-import app.alextran.immich.widget.ImmichAPI
+import app.alextran.immich.widget.GreatMemoriesAPI
 import app.alextran.immich.widget.model.*
 import kotlinx.coroutines.launch
 import java.io.FileNotFoundException
@@ -71,14 +71,14 @@ fun RandomConfiguration(context: Context, appWidgetId: Int, glanceId: GlanceId, 
 
   LaunchedEffect(Unit) {
     // get albums from server
-    val serverCfg = ImmichAPI.getServerConfig(context)
+    val serverCfg = GreatMemoriesAPI.getServerConfig(context)
 
     if (serverCfg == null) {
       state = WidgetConfigState.LOG_IN
       return@LaunchedEffect
     }
 
-    val api = ImmichAPI(serverCfg)
+    val api = GreatMemoriesAPI(serverCfg)
 
     val currentState = getAppWidgetState(context, PreferencesGlanceStateDefinition, glanceId)
     val currentAlbumId = currentState[kSelectedAlbum] ?: "NONE"

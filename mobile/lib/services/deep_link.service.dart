@@ -60,7 +60,7 @@ class DeepLinkService {
     };
   }
 
-  Future<PageRouteInfo?> handleMyImmichApp(PlatformDeepLink link, WidgetRef ref) async {
+  Future<PageRouteInfo?> handleMyGreatMemoriesApp(PlatformDeepLink link, WidgetRef ref) async {
     final path = link.uri.path;
 
     const uuidRegex = r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}';

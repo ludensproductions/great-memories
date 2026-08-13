@@ -1,5 +1,5 @@
 #!/bin/bash
-# Setup completo de Immich en la Pi. Ejecutar desde la raiz del repo.
+# Setup completo de Great Memories en la Pi. Ejecutar desde la raiz del repo.
 #
 # Uso:
 #   bash deploy.sh
@@ -33,7 +33,7 @@ sed -i "s|DB_DATA_LOCATION=.*|DB_DATA_LOCATION=$DB_DIR|" .env
 sudo mkdir -p "$PHOTOS_DIR" "$DB_DIR"
 sudo chown -R "$USER:$USER" /srv/immich
 
-echo ">>> 0.4 Arrancar Immich"
+echo ">>> 0.4 Arrancar Great Memories"
 sg docker -c "docker compose up -d"
 
 echo ">>> 1. mDNS con Avahi"
@@ -47,7 +47,7 @@ sudo tee /etc/avahi/services/immich.service > /dev/null << EOF
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">Immich en %h</name>
+  <name replace-wildcards="yes">Great Memories en %h</name>
   <service>
     <type>_immich._tcp</type>
     <port>${SERVER_PORT}</port>
@@ -125,7 +125,7 @@ sudo chmod +x "$BLE_DIR/immich_ble_server.py"
 
 sudo tee /etc/systemd/system/immich-ble.service > /dev/null << EOF
 [Unit]
-Description=Immich BLE discovery
+Description=Great Memories BLE discovery
 After=bluetooth.target network-online.target
 Wants=network-online.target
 Requires=bluetooth.service

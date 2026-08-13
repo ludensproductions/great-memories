@@ -5,16 +5,16 @@ sidebar_position: 85
 # Synology [Community]
 
 :::note
-This is a community contribution and not officially supported by the Immich team, but included here for convenience.
+This is a community contribution and not officially supported by the Great Memories team, but included here for convenience.
 
 Community support should be directed to Synology-specific support platforms.
 :::
 
-Immich can easily be installed on a Synology NAS using Container Manager within DSM. If you have not installed Container Manager already, you can install it in the Packages Center. Refer to the [Container Manager docs](https://kb.synology.com/en-us/DSM/help/ContainerManager/docker_desc?version=7) for more information on using Container Manager.
+Great Memories can easily be installed on a Synology NAS using Container Manager within DSM. If you have not installed Container Manager already, you can install it in the Packages Center. Refer to the [Container Manager docs](https://kb.synology.com/en-us/DSM/help/ContainerManager/docker_desc?version=7) for more information on using Container Manager.
 
 ## Step 1 - Download the required files
 
-Create a directory of your choice (e.g. `./immich-app`) to house Immich. In general, it's best practice to have all Docker-based applications running under the `./docker` directory, so in this case, your directory structure will look like `./docker/immich-app`.
+Create a directory of your choice (e.g. `./immich-app`) to house Great Memories. In general, it's best practice to have all Docker-based applications running under the `./docker` directory, so in this case, your directory structure will look like `./docker/immich-app`.
 
 Now create a `./postgres` and `./library` directory as sub-directories of the `./docker/immich-app`.
 
@@ -52,7 +52,7 @@ Scroll to the bottom of the "**Details**" section and find the `IP Address` list
 
 ## Step 4 - Configure Firewall Settings
 
-Once your project completes the build process, your containers will start. In order to be able to access Immich from your browser, you need to configure the firewall settings for your Synology NAS to allow communication between the Immich containers.
+Once your project completes the build process, your containers will start. In order to be able to access Great Memories from your browser, you need to configure the firewall settings for your Synology NAS to allow communication between the Great Memories containers.
 
 Open "**Control Panel**" on your Synology NAS, and select "**Security**". Navigate to "**Firewall**"
 
@@ -73,7 +73,7 @@ Click "**Edit Rules**" and add the following firewall rules:
 Read the [Post Installation](/install/post-install.mdx) steps and [upgrade instructions](/install/upgrading.md).
 
 <details>
-  <summary>Updating Immich using Container Manager</summary>
+  <summary>Updating Great Memories using Container Manager</summary>
 
 Check the post installation and upgrade instructions at the links above before proceeding with this section.
 
@@ -87,7 +87,7 @@ Always check the [release notes](https://github.com/immich-app/immich/releases) 
 
 ## Step 3. Stop containers & clean up
 
-Open **Container Manager**. Select **Project** then your Immich app
+Open **Container Manager**. Select **Project** then your Great Memories app
 
 ![Select project](../../static/img/synology-select-proj.png)
 

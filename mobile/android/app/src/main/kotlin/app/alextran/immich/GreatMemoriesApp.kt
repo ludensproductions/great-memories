@@ -8,7 +8,7 @@ import androidx.work.WorkManager
 import app.alextran.immich.background.BackgroundEngineLock
 import app.alextran.immich.background.BackgroundWorkerApiImpl
 
-class ImmichApp : Application() {
+class GreatMemoriesApp : Application() {
   override fun onCreate() {
     super.onCreate()
     val config = Configuration.Builder().build()

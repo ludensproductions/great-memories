@@ -343,7 +343,7 @@ class _AssetPageState extends ConsumerState<AssetPage> {
         index: widget.index,
         imageProvider: imageProvider,
         heroAttributes: heroAttributes,
-        loadingBuilder: (context, progress, index) => const Center(child: ImmichLoadingIndicator()),
+        loadingBuilder: (context, progress, index) => const Center(child: GreatMemoriesLoadingIndicator()),
         gaplessPlayback: true,
         filterQuality: FilterQuality.high,
         tightMode: true,
@@ -406,7 +406,7 @@ class _AssetPageState extends ConsumerState<AssetPage> {
 
     final asset = _asset;
     if (asset == null) {
-      return const Center(child: ImmichLoadingIndicator());
+      return const Center(child: GreatMemoriesLoadingIndicator());
     }
 
     BaseAsset displayAsset = asset;

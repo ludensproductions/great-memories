@@ -9,7 +9,7 @@ import 'package:immich_ui/great_memories_ui.dart';
 
 enum DiscoveryMethod { mdns, ble }
 
-/// Selector shown on the login screen to automatically discover the Immich
+/// Selector shown on the login screen to automatically discover the Great Memories
 /// server on the local network, either via mDNS (WiFi) or BLE (Bluetooth).
 ///
 /// On success, [onServerFound] receives the URL as `http://<ip>:2283`.

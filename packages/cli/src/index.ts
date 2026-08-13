@@ -14,21 +14,21 @@ const defaultConcurrency = Math.max(1, os.cpus().length - 1);
 const program = new Command()
   .name('immich')
   .version(version)
-  .description('Command line interface for Immich')
+  .description('Command line interface for Great Memories')
   .addOption(
     new Option('-d, --config-directory <directory>', 'Configuration directory where auth.yml will be stored')
       .env('IMMICH_CONFIG_DIR')
       .default(defaultConfigDirectory),
   )
-  .addOption(new Option('-u, --url [url]', 'Immich server URL').env('IMMICH_INSTANCE_URL'))
-  .addOption(new Option('-k, --key [key]', 'Immich API key').env('IMMICH_API_KEY'));
+  .addOption(new Option('-u, --url [url]', 'Great Memories server URL').env('IMMICH_INSTANCE_URL'))
+  .addOption(new Option('-k, --key [key]', 'Great Memories API key').env('IMMICH_API_KEY'));
 
 program
   .command('login')
   .alias('login-key')
   .description('Login using an API key')
-  .argument('url', 'Immich server URL')
-  .argument('key', 'Immich API key')
+  .argument('url', 'Great Memories server URL')
+  .argument('key', 'Great Memories API key')
   .action((url, key) => login(url, key, program.opts()));
 
 program

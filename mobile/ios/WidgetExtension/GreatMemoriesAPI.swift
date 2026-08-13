@@ -103,7 +103,7 @@ struct Album: Codable, Equatable {
 
 // MARK: API
 
-class ImmichAPI {
+class GreatMemoriesAPI {
   typealias CustomHeaders = [String:String]
   struct ServerConfig {
     let serverEndpoint: String
@@ -291,7 +291,7 @@ class ImmichAPI {
 actor AlbumCache {
   static let shared = AlbumCache()
 
-  private var api: ImmichAPI? = nil
+  private var api: GreatMemoriesAPI? = nil
   private var albums: [Album]? = nil
 
   func getAlbums(refresh: Bool = false) async throws -> [Album] {
@@ -299,7 +299,7 @@ actor AlbumCache {
     // Sometimes iOS caches this object and keeps it around
     // even after nuking the timeline
 
-    api = try? await ImmichAPI()
+    api = try? await GreatMemoriesAPI()
 
     guard api != nil else {
       throw WidgetError.noLogin

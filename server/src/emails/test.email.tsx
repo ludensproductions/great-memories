@@ -1,20 +1,20 @@
 import { Link, Row, Text } from '@react-email/components';
 import * as React from 'react';
-import ImmichLayout from 'src/emails/components/great-memories.layout';
+import GreatMemoriesLayout from 'src/emails/components/great-memories.layout';
 import { TestEmailProps } from 'src/repositories/email.repository';
 
 export const TestEmail = ({ baseUrl, displayName }: TestEmailProps) => (
-  <ImmichLayout preview="This is a test email from Immich.">
+  <GreatMemoriesLayout preview="This is a test email from Great Memories.">
     <Text className="m-0">
       Hey <strong>{displayName}</strong>!
     </Text>
 
-    <Text>This is a test email from your Immich Instance!</Text>
+    <Text>This is a test email from your Great Memories instance!</Text>
 
     <Row>
       <Link href={baseUrl}>{baseUrl}</Link>
     </Row>
-  </ImmichLayout>
+  </GreatMemoriesLayout>
 );
 
 TestEmail.PreviewProps = {

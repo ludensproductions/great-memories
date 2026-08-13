@@ -1,7 +1,7 @@
 {
   "name": "@immich/cli",
   "version": "3.0.3",
-  "description": "Command Line Interface (CLI) for Immich",
+  "description": "Command Line Interface (CLI) for Great Memories",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/immich-app/immich.git",

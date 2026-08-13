@@ -1,6 +1,6 @@
 # API
 
-Immich uses the [OpenAPI](https://swagger.io/specification/) standard to generate API documentation. To view the published docs see [here](https://api.immich.app/).
+Great Memories uses the [OpenAPI](https://swagger.io/specification/) standard to generate API documentation. To view the published docs see [here](https://api.immich.app/).
 
 ## Generator
 

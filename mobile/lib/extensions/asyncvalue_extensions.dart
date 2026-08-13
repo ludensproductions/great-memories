@@ -7,7 +7,7 @@ import 'package:logging/logging.dart';
 extension LogOnError<T> on AsyncValue<T> {
   static final Logger _asyncErrorLogger = Logger("AsyncValue");
 
-  /// Used to return the [ImmichLoadingIndicator] and [ScaffoldErrorBody] widgets by default on loading
+  /// Used to return the [GreatMemoriesLoadingIndicator] and [ScaffoldErrorBody] widgets by default on loading
   /// and error cases respectively
   Widget widgetWhen({
     bool skipLoadingOnRefresh = true,
@@ -22,7 +22,7 @@ extension LogOnError<T> on AsyncValue<T> {
       }
 
       if (!skip) {
-        return onLoading?.call() ?? const Center(child: ImmichLoadingIndicator());
+        return onLoading?.call() ?? const Center(child: GreatMemoriesLoadingIndicator());
       }
     }
 

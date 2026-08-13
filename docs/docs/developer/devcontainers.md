@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Development with Dev Containers
 
-Dev Containers provide a consistent, reproducible development environment using Docker containers. With a single click, you can get started with an Immich development environment on Mac, Linux, Windows, or in the cloud using GitHub Codespaces.
+Dev Containers provide a consistent, reproducible development environment using Docker containers. With a single click, you can get started with an Great Memories development environment on Mac, Linux, Windows, or in the cloud using GitHub Codespaces.
 
 Get started fast!
 
@@ -56,7 +56,7 @@ The Dev Container environment consists of the following services:
 | Server & Web     | `immich-server`           | Runs both API server and web frontend in development mode | 2283 (API)<br/>3000 (Web)<br/>9230 (Workers Debug)<br/>9231 (API Debug) |
 | Database         | `database`                | PostgreSQL database                                       | 5432                                                                    |
 | Cache            | `redis`                   | Valkey cache server                                       | 6379                                                                    |
-| Machine Learning | `immich-machine-learning` | Immich ML model inference server                          | 3003                                                                    |
+| Machine Learning | `immich-machine-learning` | Great Memories ML model inference server                          | 3003                                                                    |
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ source ~/.bashrc
 ### Step 3: Launch the Dev Container
 
 :::tip
-Immich development makes extensive use of specialized [base images](https://github.com/immich-app/base-images) for its docker-compose based development. For this reason, you won't be able to use VSCode's **_Clone Repository in a Container Volume_** command.
+Great Memories development makes extensive use of specialized [base images](https://github.com/immich-app/base-images) for its docker-compose based development. For this reason, you won't be able to use VSCode's **_Clone Repository in a Container Volume_** command.
 :::
 
 #### Using VS Code UI:
@@ -97,7 +97,7 @@ Immich development makes extensive use of specialized [base images](https://gith
 1. Open the cloned repository in VS Code
 2. Press `F1` or `Ctrl/Cmd+Shift+P` to open the command palette
 3. Type and select "Dev Containers: Rebuild and Reopen in Container"
-4. Select "Immich - Backend, Frontend and ML" from the list
+4. Select "Great Memories - Backend, Frontend and ML" from the list
 5. Wait for the container to build and start (this may take several minutes on first run)
 
 #### Using VS Code Quick Actions:
@@ -117,7 +117,7 @@ devcontainer up --workspace-folder .
 
 ### How Dev Containers Handle Environment Variables
 
-Unlike the Immich developer setup based on Docker Compose which uses `.env` files, Immich Dev Containers read environment variables from your shell environment. This is configured in `.devcontainer/devcontainer.json`:
+Unlike the Great Memories developer setup based on Docker Compose which uses `.env` files, Great Memories Dev Containers read environment variables from your shell environment. This is configured in `.devcontainer/devcontainer.json`:
 
 ```json
 "remoteEnv": {
@@ -208,8 +208,8 @@ When the Dev Container starts, it automatically:
    - Builds TypeScript SDK: `pnpm --filter @immich/sdk build`
 
 2. **Starts development servers** via VS Code tasks:
-   - `Immich API Server (Nest)` - API server with hot-reloading on port 2283
-   - `Immich Web Server (Vite)` - Web frontend with hot-reloading on port 3000
+   - `Great Memories API Server (Nest)` - API server with hot-reloading on port 2283
+   - `Great Memories Web Server (Vite)` - Web frontend with hot-reloading on port 3000
    - Both servers watch for file changes and recompile automatically
 
 3. **Configures port forwarding**:

@@ -51,7 +51,7 @@ struct RandomConfigurationAppIntent: WidgetConfigurationIntent {
 
 // MARK: Provider
 
-struct ImmichRandomProvider: AppIntentTimelineProvider {
+struct GreatMemoriesRandomProvider: AppIntentTimelineProvider {
   func placeholder(in context: Context) -> ImageEntry {
     ImageEntry(date: Date())
   }
@@ -64,7 +64,7 @@ struct ImmichRandomProvider: AppIntentTimelineProvider {
   {
     let cacheKey = "random_none_\(context.family.rawValue)"
 
-    guard let api = try? await ImmichAPI() else {
+    guard let api = try? await GreatMemoriesAPI() else {
       return ImageEntry.handleError(for: cacheKey, error: .noLogin).entries
         .first!
     }
@@ -101,7 +101,7 @@ struct ImmichRandomProvider: AppIntentTimelineProvider {
     let cacheKey = "random_\(album.id)_\(context.family.rawValue)"
 
     // If we don't have a server config, return an entry with an error
-    guard let api = try? await ImmichAPI() else {
+    guard let api = try? await GreatMemoriesAPI() else {
       return ImageEntry.handleError(for: cacheKey, error: .noLogin)
     }
 
@@ -134,16 +134,16 @@ struct ImmichRandomProvider: AppIntentTimelineProvider {
   }
 }
 
-struct ImmichRandomWidget: Widget {
+struct GreatMemoriesRandomWidget: Widget {
   let kind: String = "com.immich.widget.random"
 
   var body: some WidgetConfiguration {
     AppIntentConfiguration(
       kind: kind,
       intent: RandomConfigurationAppIntent.self,
-      provider: ImmichRandomProvider()
+      provider: GreatMemoriesRandomProvider()
     ) { entry in
-      ImmichWidgetView(entry: entry)
+      GreatMemoriesWidgetView(entry: entry)
         .containerBackground(.regularMaterial, for: .widget)
     }
     // allow image to take up entire widget

@@ -63,7 +63,7 @@ class BootstrapErrorWidget extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [ImmichLogo(size: 48), SizedBox(width: 12), ImmichTitleText(fontSize: 24)],
+                        children: [ImmichLogo(size: 48), SizedBox(width: 12), GreatMemoriesTitleText(fontSize: 24)],
                       ),
                     ),
                   ),

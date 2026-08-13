@@ -15,7 +15,7 @@ struct ImageEntry: TimelineEntry {
   }
 
   static func build(
-    api: ImmichAPI,
+    api: GreatMemoriesAPI,
     asset: Asset,
     dateOffset: Int,
     subtitle: String? = nil
@@ -112,7 +112,7 @@ struct ImageEntry: TimelineEntry {
 }
 
 func generateRandomEntries(
-  api: ImmichAPI,
+  api: GreatMemoriesAPI,
   now: Date,
   count: Int,
   filter: SearchFilter = Album.NONE.filter,

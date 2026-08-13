@@ -6,7 +6,7 @@ import 'package:immich_mobile/domain/services/log.service.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-/// [ImmichLogger] is a custom logger that is built on top of the [logging] package.
+/// [GreatMemoriesLogger] is a custom logger that is built on top of the [logging] package.
 /// The logs are written to the database and onto console, using `debugPrint` method.
 ///
 /// The logs are deleted when exceeding the `maxLogEntries` (default 500) property
@@ -14,8 +14,8 @@ import 'package:share_plus/share_plus.dart';
 ///
 /// Logs can be shared by calling the `shareLogs` method, which will open a share dialog
 /// and generate a csv file.
-abstract final class ImmichLogger {
-  const ImmichLogger();
+abstract final class GreatMemoriesLogger {
+  const GreatMemoriesLogger();
 
   static Future<void> shareLogs(BuildContext context) async {
     final tempDir = await getTemporaryDirectory();

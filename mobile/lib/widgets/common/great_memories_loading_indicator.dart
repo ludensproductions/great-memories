@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:immich_mobile/widgets/common/great_memories_logo.dart';
 
-class ImmichLoadingIndicator extends HookWidget {
+class GreatMemoriesLoadingIndicator extends HookWidget {
   final double? borderRadius;
 
-  const ImmichLoadingIndicator({super.key, this.borderRadius});
+  const GreatMemoriesLoadingIndicator({super.key, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {

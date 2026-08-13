@@ -11,7 +11,7 @@ Make sure to read the [`CONTRIBUTING.md`](https://github.com/immich-app/immich/b
 :::note
 If there's a feature you're planning to work on, just give us a heads up in [#contributing](https://discord.com/channels/979116623879368755/1071165397228855327) on [our Discord](https://discord.immich.app) so we can:
 
-1. Let you know if it's something we would accept into Immich
+1. Let you know if it's something we would accept into Great Memories
 2. Provide any guidance on how something like that would ideally be implemented
 3. Ensure nobody is already working on that issue/feature so we don't duplicate effort
 
@@ -81,7 +81,7 @@ mise //web:start
 
 #### `@immich/ui`
 
-To see local changes to `@immich/ui` in Immich, do the following:
+To see local changes to `@immich/ui` in Great Memories, do the following:
 
 1. Install `@immich/ui` as a sibling to `immich/`, for example `/home/user/immich` and `/home/user/ui`
 2. Build the `@immich/ui` project via `pnpm run build`
@@ -101,9 +101,9 @@ To see local changes to `@immich/ui` in Immich, do the following:
 
 ##### iOS Code Signing
 
-The Immich Apple Team ID and bundle IDs are specified in `mobile/ios/Signing.xcconfig`. For local development, we provide an override mechanism.
+The Great Memories Apple Team ID and bundle IDs are specified in `mobile/ios/Signing.xcconfig`. For local development, we provide an override mechanism.
 
-Create `mobile/ios/Signing.local.xcconfig` and populate it with the necessary values needed to build and sign Immich yourself. This local override file is gitignored.
+Create `mobile/ios/Signing.local.xcconfig` and populate it with the necessary values needed to build and sign Great Memories yourself. This local override file is gitignored.
 
 ```
 IMMICH_TEAM_ID = ABCDE12345
@@ -112,7 +112,7 @@ IMMICH_BUNDLE_ID_DEV = com.customuniqueid.immichdev
 IMMICH_GROUP_ID = group.com.customuniqueid.immich
 ```
 
-The environment values are used across Immich's targets and schemes to prevent redundant edits by contributors.
+The environment values are used across Great Memories's targets and schemes to prevent redundant edits by contributors.
 
 #### Translation
 

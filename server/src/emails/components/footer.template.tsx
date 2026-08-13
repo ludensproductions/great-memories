@@ -1,7 +1,7 @@
 import { Column, Img, Link, Row, Text } from '@react-email/components';
 import * as React from 'react';
 
-export const ImmichFooter = () => (
+export const GreatMemoriesFooter = () => (
   <>
     <Row className="h-18 w-full">
       <Column align="center" className="w-6/12 sm:w-full">
@@ -29,7 +29,7 @@ export const ImmichFooter = () => (
     </Row>
 
     <Text className="text-center text-sm text-immich-footer">
-      <Link href="https://immich.app">Immich</Link> project is available under GNU AGPL v3 license.
+      <Link href="https://immich.app">Great Memories</Link> project is available under GNU AGPL v3 license.
     </Text>
   </>
 );

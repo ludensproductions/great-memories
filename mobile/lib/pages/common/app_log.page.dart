@@ -70,7 +70,7 @@ class AppLogPage extends HookConsumerWidget {
               return IconButton(
                 icon: Icon(Icons.share_rounded, color: context.primaryColor, semanticLabel: "Share logs", size: 20.0),
                 onPressed: () {
-                  ImmichLogger.shareLogs(iconContext);
+                  GreatMemoriesLogger.shareLogs(iconContext);
                 },
               );
             },

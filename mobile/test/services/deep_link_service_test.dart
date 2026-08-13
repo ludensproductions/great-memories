@@ -112,7 +112,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => _album);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, _album);
@@ -122,7 +122,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => null);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, isNull);
@@ -131,7 +131,7 @@ void main() {
   test('plain photo link has no album', () async {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
 
-    final route = await sut.handleMyImmichApp(link('/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, isNull);

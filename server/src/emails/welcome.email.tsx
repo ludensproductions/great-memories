@@ -1,7 +1,7 @@
 import { Link, Section, Text } from '@react-email/components';
 import * as React from 'react';
-import { ImmichButton } from 'src/emails/components/button.component';
-import ImmichLayout from 'src/emails/components/great-memories.layout';
+import { GreatMemoriesButton } from 'src/emails/components/button.component';
+import GreatMemoriesLayout from 'src/emails/components/great-memories.layout';
 import { WelcomeEmailProps } from 'src/repositories/email.repository';
 import { replaceTemplateTags } from 'src/utils/replace-template-tags';
 
@@ -36,8 +36,8 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
   );
 
   return (
-    <ImmichLayout
-      preview={customTemplate ? emailContent.toString() : 'You have been invited to a new Immich instance.'}
+    <GreatMemoriesLayout
+      preview={customTemplate ? emailContent.toString() : 'You have been invited to a new Great Memories instance.'}
     >
       {customTemplate && (
         <Text className="m-0">
@@ -48,7 +48,7 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
       {!customTemplate && emailContent}
 
       <Section className="flex justify-center my-6">
-        <ImmichButton href={`${baseUrl}/auth/login`}>Login</ImmichButton>
+        <GreatMemoriesButton href={`${baseUrl}/auth/login`}>Login</GreatMemoriesButton>
       </Section>
 
       <Text className="text-xs">
@@ -56,7 +56,7 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
         <br />
         <Link href={baseUrl}>{baseUrl}</Link>
       </Text>
-    </ImmichLayout>
+    </GreatMemoriesLayout>
   );
 };
 

@@ -4,7 +4,7 @@ set -o pipefail
 
 create_immich_directory() {
   local -r Tgt='./immich-app'
-  echo "Creating Immich directory..."
+  echo "Creating Great Memories directory..."
   if [[ -e $Tgt ]]; then
     echo "Found existing directory $Tgt, will overwrite YAML files"
   else
@@ -34,7 +34,7 @@ generate_random_password() {
 }
 
 start_docker_compose() {
-  echo "Starting Immich's docker containers"
+  echo "Starting Great Memories docker containers"
 
   if ! docker compose >/dev/null 2>&1; then
     echo "failed to find 'docker compose'"
@@ -56,7 +56,7 @@ show_friendly_message() {
     ip_address=$(ipconfig getifaddr en0)
   fi
   cat <<EOF
-Successfully deployed Immich!
+Successfully deployed Great Memories!
 You can access the website or the mobile app at http://$ip_address:2283
 ---------------------------------------------------
 If you want to configure custom information of the server, including the database, Redis information, or the backup (or upload) location, etc.
@@ -71,7 +71,7 @@ EOF
 
 # MAIN
 main() {
-  echo "Starting Immich installation..."
+  echo "Starting Great Memories installation..."
   local -r RepoUrl='https://github.com/immich-app/immich/releases/latest/download'
   local -a Curl
   if command -v curl >/dev/null; then
@@ -82,7 +82,7 @@ main() {
   fi
 
   create_immich_directory || {
-    echo 'error creating Immich directory'
+    echo 'error creating Great Memories directory'
     return 10
   }
   download_docker_compose_file || {
@@ -103,5 +103,5 @@ main() {
 
 main
 Exit=$?
-[[ $Exit == 0 ]] || echo "There was an error installing Immich. Exit code: $Exit. Please provide these logs when asking for assistance."
+[[ $Exit == 0 ]] || echo "There was an error installing Great Memories. Exit code: $Exit. Please provide these logs when asking for assistance."
 exit "$Exit"

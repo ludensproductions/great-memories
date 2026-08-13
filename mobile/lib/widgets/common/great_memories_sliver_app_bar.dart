@@ -131,7 +131,7 @@ class _ProfileIndicator extends ConsumerWidget {
         context: context,
         useRootNavigator: false,
         barrierDismissible: !isIpad,
-        builder: (ctx) => const ImmichAppBarDialog(),
+        builder: (ctx) => const GreatMemoriesAppBarDialog(),
       ),
       onLongPress: () => toggleReadonlyMode(),
       icon: Badge(

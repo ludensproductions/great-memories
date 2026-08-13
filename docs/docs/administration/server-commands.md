@@ -12,10 +12,10 @@ The `immich-server` docker image comes preinstalled with an administrative CLI (
 | `enable-maintenance-mode`  | Enable maintenance mode                                       |
 | `enable-oauth-login`       | Enable OAuth login                                            |
 | `disable-oauth-login`      | Disable OAuth login                                           |
-| `list-users`               | List Immich users                                             |
+| `list-users`               | List Great Memories users                                             |
 | `grant-admin`              | Grant admin privileges to a user (by email)                   |
 | `revoke-admin`             | Revoke admin privileges from a user (by email)                |
-| `version`                  | Print Immich version                                          |
+| `version`                  | Print Great Memories version                                          |
 | `change-media-location`    | Change database file paths to align with a new media location |
 | `schema-check`             | Verify database migrations and check for schema drift         |
 
@@ -33,7 +33,7 @@ Found Admin:
 - ID=e65e6f88-2a30-4dbe-8dd9-1885f4889b53
 - OAuth ID=
 - Email=admin@example.com
-- Name=Immich Admin
+- Name=Great Memories Admin
 ? Please choose a new password (optional) immich-is-cool
 ? Invalidate existing sessions? Yes
 The admin password has been updated.
@@ -92,7 +92,7 @@ great-memories-admin list-users
   {
     id: 'e65e6f88-2a30-4dbe-8dd9-1885f4889b53',
     email: 'immich@example.com',
-    name: 'Immich Admin',
+    name: 'Great Memories Admin',
     storageLabel: 'admin',
     externalPath: null,
     profileImagePath: 'upload/profile/e65e6f88-2a30-4dbe-8dd9-1885f4889b53/e65e6f88-2a30-4dbe-8dd9-1885f4889b53.jpg',
@@ -122,7 +122,7 @@ great-memories-admin revoke-admin
 Admin access has been revoked from user@example.com
 ```
 
-Print Immich Version
+Print Great Memories Version
 
 ```
 great-memories-admin version

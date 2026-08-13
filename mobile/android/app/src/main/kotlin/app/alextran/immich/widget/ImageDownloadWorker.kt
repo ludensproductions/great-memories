@@ -98,7 +98,7 @@ class ImageDownloadWorker(
       val widgetConfig = getAppWidgetState(context, PreferencesGlanceStateDefinition, glanceId)
       val currentImgUUID = widgetConfig[kImageUUID]
 
-      val serverConfig = ImmichAPI.getServerConfig(context)
+      val serverConfig = GreatMemoriesAPI.getServerConfig(context)
 
       // clear any image caches and go to "login" state if no credentials
       if (serverConfig == null) {
@@ -167,7 +167,7 @@ class ImageDownloadWorker(
     serverConfig: ServerConfig,
     widgetConfig: Preferences
   ): WidgetEntry {
-    val api = ImmichAPI(serverConfig)
+    val api = GreatMemoriesAPI(serverConfig)
 
     val filters = SearchFilters()
     val albumId = widgetConfig[kSelectedAlbum]
@@ -203,7 +203,7 @@ class ImageDownloadWorker(
   private suspend fun fetchMemory(
     serverConfig: ServerConfig
   ): WidgetEntry {
-    val api = ImmichAPI(serverConfig)
+    val api = GreatMemoriesAPI(serverConfig)
 
     val today = LocalDate.now()
     val memories = api.fetchMemory(today)

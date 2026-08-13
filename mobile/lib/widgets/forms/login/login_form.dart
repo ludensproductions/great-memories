@@ -519,7 +519,7 @@ class LoginForm extends HookConsumerWidget {
                           child: const ImmichLogo(heroTag: 'logo'),
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: ImmichTitleText()),
+                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: GreatMemoriesTitleText()),
                     ],
                   ),
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:immich_mobile/extensions/build_context_extensions.dart';
 
-class ImmichTitleText extends StatelessWidget {
+class GreatMemoriesTitleText extends StatelessWidget {
   final double fontSize;
   final Color? color;
 
-  const ImmichTitleText({super.key, this.fontSize = 40, this.color});
+  const GreatMemoriesTitleText({super.key, this.fontSize = 40, this.color});
 
   @override
   Widget build(BuildContext context) {

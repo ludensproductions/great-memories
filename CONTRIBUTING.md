@@ -1,11 +1,11 @@
-# Contributing to Immich
+# Contributing to Great Memories
 
-We appreciate every contribution, and we're happy about every new contributor. So please feel invited to help make Immich a better product!
+We appreciate every contribution, and we're happy about every new contributor. So please feel invited to help make Great Memories a better product!
 
 ## Getting started
 
 To get you started quickly we have detailed guides for the dev setup on our [website](https://docs.immich.app/developer/setup). If you prefer, you can also use [Devcontainers](https://docs.immich.app/developer/devcontainers).
-There are also additional resources about Immich's architecture, database migrations, the use of OpenAPI, and more in our [developer documentation](https://docs.immich.app/developer/architecture).
+There are also additional resources about Great Memories architecture, database migrations, the use of OpenAPI, and more in our [developer documentation](https://docs.immich.app/developer/architecture).
 
 ## General
 
@@ -30,7 +30,7 @@ From time to time, we put a feature freeze on parts of the codebase. For us, thi
 
 ## Non-code contributions
 
-If you want to contribute to Immich but you don't feel comfortable programming in our tech stack, there are other ways you can help the team.
+If you want to contribute to Great Memories but you don't feel comfortable programming in our tech stack, there are other ways you can help the team.
 
 ### Translations
 
@@ -38,7 +38,7 @@ All our translations are done through [Weblate](https://hosted.weblate.org/proje
 
 ### Datasets
 
-Help us improve our [Immich Datasets](https://datasets.immich.app) by submitting photos and videos taken from a variety of devices, including smartphones, DSLRs, and action cameras, as well as photos with unique features, such as panoramas, burst photos, and photo spheres. These datasets will be publically available for anyone to use, do not submit private/sensitive photos.
+Help us improve our [Great Memories Datasets](https://datasets.immich.app) by submitting photos and videos taken from a variety of devices, including smartphones, DSLRs, and action cameras, as well as photos with unique features, such as panoramas, burst photos, and photo spheres. These datasets will be publically available for anyone to use, do not submit private/sensitive photos.
 
 ### Community support
 

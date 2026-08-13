@@ -4,7 +4,7 @@ sidebar_position: 50
 
 # Portainer
 
-Install Immich using Portainer's Stack feature.
+Install Great Memories using Portainer's Stack feature.
 
 1. Go to "**Stacks**" in the left sidebar.
 2. Click on "**Add stack**".

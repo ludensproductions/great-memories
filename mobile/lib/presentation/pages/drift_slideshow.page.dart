@@ -329,7 +329,7 @@ class _DriftSlideshowPageState extends ConsumerState<DriftSlideshowPage> with Si
     final asset = widget.timeline.getAssetSafe(index);
 
     if (asset == null) {
-      return const Center(child: ImmichLoadingIndicator());
+      return const Center(child: GreatMemoriesLoadingIndicator());
     }
 
     final scale = _config.look == SlideshowLook.cover

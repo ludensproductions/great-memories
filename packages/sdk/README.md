@@ -1,6 +1,6 @@
 # @immich/sdk
 
-A TypeScript SDK for interfacing with the [Immich](https://immich.app/) API.
+A TypeScript SDK for interfacing with the [Great Memories](https://immich.app/) API.
 
 ## Install
 

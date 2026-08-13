@@ -16,7 +16,7 @@ import java.net.URLEncoder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class ImmichAPI(cfg: ServerConfig) {
+class GreatMemoriesAPI(cfg: ServerConfig) {
 
   companion object {
     fun getServerConfig(context: Context): ServerConfig? {

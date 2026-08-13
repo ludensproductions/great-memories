@@ -2,7 +2,7 @@
 
 ## Overview
 
-Immich provides a variety of performance metrics to allow for local monitoring and insights. This integration is primarily in the form of Prometheus metrics. However, exporting traces is also possible due to the use of OpenTelemetry instrumentation.
+Great Memories provides a variety of performance metrics to allow for local monitoring and insights. This integration is primarily in the form of Prometheus metrics. However, exporting traces is also possible due to the use of OpenTelemetry instrumentation.
 
 :::note
 This is an opt-in feature intended for you to monitor immich's performance. This data isn't sent anywhere beyond what you've configured.
@@ -25,7 +25,7 @@ The metrics in immich are grouped into API (endpoint calls and response times), 
 
 ### Configuration
 
-Immich will not expose an endpoint for metrics by default. To enable this endpoint, you can add the `IMMICH_TELEMETRY_INCLUDE=all` environmental variable to your `.env` file. Note that only the server container currently use this variable.
+Great Memories will not expose an endpoint for metrics by default. To enable this endpoint, you can add the `IMMICH_TELEMETRY_INCLUDE=all` environmental variable to your `.env` file. Note that only the server container currently use this variable.
 
 :::tip
 `IMMICH_TELEMETRY_INCLUDE=all` enables all metrics. For a more granular configuration you can enumerate the telemetry metrics that should be included as a comma separated list (e.g. `IMMICH_TELEMETRY_INCLUDE=repo,api`). Alternatively, you can also exclude specific metrics with `IMMICH_TELEMETRY_EXCLUDE`. For more information refer to the [environment section](/install/environment-variables.md#prometheus).
@@ -114,11 +114,11 @@ You can then make a new panel, specifying Prometheus as the data source for it.
 
 ## Structured Logging
 
-In addition to Prometheus metrics, Immich supports structured JSON logging which is ideal for log aggregation systems like Grafana Loki, ELK Stack, Datadog, Splunk, and others.
+In addition to Prometheus metrics, Great Memories supports structured JSON logging which is ideal for log aggregation systems like Grafana Loki, ELK Stack, Datadog, Splunk, and others.
 
 ### Configuration
 
-By default, Immich outputs human-readable console logs. To enable JSON logging, set the `IMMICH_LOG_FORMAT` environment variable:
+By default, Great Memories outputs human-readable console logs. To enable JSON logging, set the `IMMICH_LOG_FORMAT` environment variable:
 
 ```bash
 IMMICH_LOG_FORMAT=json

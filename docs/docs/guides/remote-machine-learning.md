@@ -1,6 +1,6 @@
 # Remote Machine Learning
 
-To alleviate [performance issues on low-memory systems](/FAQ.mdx#why-is-immich-slow-on-low-memory-systems-like-the-raspberry-pi) like the Raspberry Pi, you may also host Immich's machine learning container on a more powerful system, such as your laptop or desktop computer. The server container will send requests containing the image preview to the remote machine learning container for processing. The machine learning container does not persist this data or associate it with a particular user.
+To alleviate [performance issues on low-memory systems](/FAQ.mdx#why-is-immich-slow-on-low-memory-systems-like-the-raspberry-pi) like the Raspberry Pi, you may also host Great Memories's machine learning container on a more powerful system, such as your laptop or desktop computer. The server container will send requests containing the image preview to the remote machine learning container for processing. The machine learning container does not persist this data or associate it with a particular user.
 
 :::info
 Smart Search and Face Detection will use this feature, but Facial Recognition will not. This is because Facial Recognition uses the _outputs_ of these models that have already been saved to the database. As such, its processing is between the server container and the database.
@@ -42,7 +42,7 @@ volumes:
 3. Start the remote machine learning container by running `docker compose up -d`
 
 :::info
-Version mismatches between both hosts may cause bugs and instability, so remember to update this container as well when updating the local Immich instance.
+Version mismatches between both hosts may cause bugs and instability, so remember to update this container as well when updating the local Great Memories instance.
 :::
 
 4. Navigate to the [Machine Learning Settings](https://my.immich.app/admin/system-settings?isOpen=machine-learning)
@@ -60,5 +60,5 @@ Do note that this will mean that Smart Search and Face Detection jobs will fail 
 While several URLs can be provided in the settings, they are tried sequentially; there is no attempt to distribute load across multiple containers. It is recommended to use a dedicated load balancer for such use-cases and specify it as the only URL. Among other things, it may enable the use of different APIs on the same server by running multiple containers with different configurations. For example, one might run an OpenVINO container in addition to a CUDA container, or run a standard release container to maximize both CPU and GPU utilization.
 
 :::tip
-The machine learning container can be shared among several Immich instances regardless of the models a particular instance uses. However, using different models will lead to higher peak memory usage.
+The machine learning container can be shared among several Great Memories instances regardless of the models a particular instance uses. However, using different models will lead to higher peak memory usage.
 :::

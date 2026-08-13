@@ -13,7 +13,7 @@ for svc in immich-ble avahi-daemon; do
   systemctl is-enabled "$svc" &>/dev/null && sudo systemctl disable "$svc" || true
 done
 
-echo ">>> Bajando contenedores Immich..."
+echo ">>> Bajando contenedores Great Memories..."
 if [ -f "$IMMICH_DIR/docker/docker-compose.yml" ] || [ -f "$IMMICH_DIR/docker/compose.yml" ]; then
   (cd "$IMMICH_DIR/docker" && sg docker -c "docker compose down -v" 2>/dev/null) || true
 fi

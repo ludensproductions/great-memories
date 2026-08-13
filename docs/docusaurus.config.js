@@ -5,7 +5,7 @@ const prism = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Immich',
+  title: 'Great Memories',
   tagline: 'Self-hosted photo and video management solution',
   url: 'https://docs.immich.app',
   baseUrl: '/',
@@ -84,7 +84,7 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'Immich Logo',
+          alt: 'Great Memories Logo',
           src: 'img/great-memories-logo-inline-light.png',
           srcDark: 'img/great-memories-logo-inline-dark.png',
           className: 'rounded-none',
@@ -108,7 +108,7 @@ const config = {
             type: 'html',
             position: 'right',
             value:
-              '<a href="https://buy.immich.app" target="_blank" class="no-underline hover:no-underline"><button class="buy-button bg-immich-primary dark:bg-immich-dark-primary text-white dark:text-black rounded-xl">Buy Immich</button></a>',
+              '<a href="https://buy.immich.app" target="_blank" class="no-underline hover:no-underline"><button class="buy-button bg-immich-primary dark:bg-immich-dark-primary text-white dark:text-black rounded-xl">Buy Great Memories</button></a>',
           },
         ],
       },
@@ -157,23 +157,23 @@ const config = {
                 href: 'https://immich.app',
               },
               {
-                label: 'My Immich',
+                label: 'My Great Memories',
                 href: 'https://my.immich.app/',
               },
               {
-                label: 'Awesome Immich',
+                label: 'Awesome Great Memories',
                 href: 'https://awesome.immich.app/',
               },
               {
-                label: 'Immich API',
+                label: 'Great Memories API',
                 href: 'https://api.immich.app/',
               },
               {
-                label: 'Immich Data',
+                label: 'Great Memories Data',
                 href: 'https://data.immich.app/',
               },
               {
-                label: 'Immich Datasets',
+                label: 'Great Memories Datasets',
                 href: 'https://datasets.immich.app/',
               },
             ],
@@ -217,7 +217,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Immich is available as open source under the terms of the GNU AGPL v3 License.`,
+        copyright: `Great Memories is available as open source under the terms of the GNU AGPL v3 License.`,
       },
       prism: {
         theme: prism.themes.github,

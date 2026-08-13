@@ -1,12 +1,12 @@
-# Configuración del servidor Immich (Raspberry Pi / Ubuntu Server)
+# Configuracion del servidor Great Memories (Raspberry Pi / Ubuntu Server)
 
 Ambas opciones se ejecutan **desde dentro de la Pi**.
 
 ---
 
-## Opción A — Con script
+## OpciÃ³n A â€” Con script
 
-Instalar git, clonar el repo y correr el script. Hace todo automáticamente.
+Instalar git, clonar el repo y correr el script. Hace todo automÃ¡ticamente.
 
 ### 1. Instalar git
 
@@ -36,7 +36,7 @@ SERVER_HOSTNAME=miservidor bash deploy.sh
 
 ---
 
-## Opción B — Manual paso a paso
+## OpciÃ³n B â€” Manual paso a paso
 
 ### Sistema base
 
@@ -53,7 +53,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-### Clonar e iniciar Immich
+### Clonar e iniciar Great Memories
 
 ```bash
 git clone https://github.com/ludensproductions/immich.git
@@ -79,7 +79,7 @@ sudo tee /etc/avahi/services/immich.service > /dev/null << 'EOF'
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">Immich en %h</name>
+  <name replace-wildcards="yes">Great Memories en %h</name>
   <service>
     <type>_immich._tcp</type>
     <port>2283</port>
@@ -161,7 +161,7 @@ Crear el servicio systemd:
 ```bash
 sudo tee /etc/systemd/system/immich-ble.service > /dev/null << 'EOF'
 [Unit]
-Description=Immich BLE discovery
+Description=Great Memories BLE discovery
 After=bluetooth.target network-online.target
 Wants=network-online.target
 Requires=bluetooth.service
@@ -182,7 +182,7 @@ sudo systemctl enable --now immich-ble
 
 ---
 
-## Verificación
+## VerificaciÃ³n
 
 ```bash
 systemctl is-active avahi-daemon bluetooth immich-ble
@@ -195,7 +195,7 @@ journalctl -u immich-ble -n 30 --no-pager
 
 ## Cambiar hostname
 
-Default: `mipi` → accesible como `mipi.local`.
+Default: `mipi` â†’ accesible como `mipi.local`.
 
 ```bash
 SERVER_HOSTNAME=otronombre bash deploy.sh
@@ -217,23 +217,23 @@ sudo systemctl restart avahi-daemon
 | Constante | Valor |
 |---|---|
 | mDNS service type | `_immich._tcp` |
-| Puerto Immich | `2283` |
+| Puerto Great Memories | `2283` |
 | BLE service UUID | `494d4d49-0000-1000-8000-000000002283` |
 | BLE IP characteristic UUID | `494d4d49-0001-1000-8000-000000002283` |
 
-Los UUIDs BLE están hardcodeados en la app y en el servidor — igual que `_immich._tcp` y el puerto 2283. Son identificadores de protocolo, no secretos: BLE advertising es público y cualquier scanner puede verlos. Múltiples Raspberry Pi con el mismo UUID no se interfieren porque cada dispositivo tiene un MAC address BLE único.
+Los UUIDs BLE estÃ¡n hardcodeados en la app y en el servidor â€” igual que `_immich._tcp` y el puerto 2283. Son identificadores de protocolo, no secretos: BLE advertising es pÃºblico y cualquier scanner puede verlos. MÃºltiples Raspberry Pi con el mismo UUID no se interfieren porque cada dispositivo tiene un MAC address BLE Ãºnico.
 
 ---
 
 ## Problemas comunes
 
-| Síntoma | Solución |
+| SÃ­ntoma | SoluciÃ³n |
 |---|---|
-| `docker compose up` — permission denied | `newgrp docker` y repetir |
-| `avahi-browse` vacío | `sudo systemctl restart avahi-daemon` |
+| `docker compose up` â€” permission denied | `newgrp docker` y repetir |
+| `avahi-browse` vacÃ­o | `sudo systemctl restart avahi-daemon` |
 | `ping mipi.local` no resuelve | `sudo ufw allow 5353/udp` |
 | App no conecta al servidor | `docker compose ps` + `sudo ufw allow 2283/tcp` |
 | `immich-ble` falla al boot | `journalctl -u immich-ble -n 30 --no-pager` |
 | BLE devuelve `127.0.0.1` | Pi sin red; verificar `ip addr` |
 | Paquetes rotos al instalar bluetooth | `sudo apt full-upgrade -y` antes del install |
-| Path inválido en `.env` (Windows dev) | Usar `/` en vez de `\` en rutas |
+| Path invÃ¡lido en `.env` (Windows dev) | Usar `/` en vez de `\` en rutas |

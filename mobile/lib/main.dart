@@ -115,14 +115,14 @@ Future<void> initApp() async {
   });
 }
 
-class ImmichApp extends ConsumerStatefulWidget {
-  const ImmichApp({super.key});
+class GreatMemoriesApp extends ConsumerStatefulWidget {
+  const GreatMemoriesApp({super.key});
 
   @override
-  ImmichAppState createState() => ImmichAppState();
+  GreatMemoriesAppState createState() => GreatMemoriesAppState();
 }
 
-class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserver {
+class GreatMemoriesAppState extends ConsumerState<GreatMemoriesApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
@@ -185,7 +185,7 @@ class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserve
     if (deepLink.uri.scheme == "immich") {
       route = await deepLinkHandler.handleScheme(deepLink, ref);
     } else if (deepLink.uri.host == "my.immich.app") {
-      route = await deepLinkHandler.handleMyImmichApp(deepLink, ref);
+      route = await deepLinkHandler.handleMyGreatMemoriesApp(deepLink, ref);
     } else {
       return DeepLink.path(deepLink.path);
     }
@@ -297,7 +297,7 @@ class MainWidget extends StatelessWidget {
       useFallbackTranslations: true,
       fallbackLocale: locales.values.first,
       assetLoader: const CodegenLoader(),
-      child: const ImmichApp(),
+      child: const GreatMemoriesApp(),
     );
   }
 }

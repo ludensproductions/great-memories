@@ -1,13 +1,13 @@
 import { Body, Container, Font, Head, Hr, Html, Img, Preview, Section, Tailwind, Text } from '@react-email/components';
 import * as React from 'react';
-import { ImmichFooter } from 'src/emails/components/footer.template';
+import { GreatMemoriesFooter } from 'src/emails/components/footer.template';
 
-interface ImmichLayoutProps {
+interface GreatMemoriesLayoutProps {
   children: React.ReactNode;
   preview: string;
 }
 
-export const ImmichLayout = ({ children, preview }: ImmichLayoutProps) => (
+export const GreatMemoriesLayout = ({ children, preview }: GreatMemoriesLayoutProps) => (
   <Html>
     <Tailwind
       config={{
@@ -51,7 +51,7 @@ export const ImmichLayout = ({ children, preview }: ImmichLayoutProps) => (
               <Img
                 src="https://immich.app/img/great-memories-logo-inline-light.png"
                 className="h-12 antialiased rounded-none w-full"
-                alt="Immich"
+                alt="Great Memories"
               />
             </Section>
 
@@ -60,16 +60,16 @@ export const ImmichLayout = ({ children, preview }: ImmichLayoutProps) => (
 
           <Hr className="my-2 text-immich-gray" />
 
-          <ImmichFooter />
+          <GreatMemoriesFooter />
         </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
-ImmichLayout.PreviewProps = {
+GreatMemoriesLayout.PreviewProps = {
   preview: 'This is the preview shown on some mail clients',
   children: <Text>Email body goes here.</Text>,
-} as ImmichLayoutProps;
+} as GreatMemoriesLayoutProps;
 
-export default ImmichLayout;
+export default GreatMemoriesLayout;
