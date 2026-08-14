@@ -15,7 +15,7 @@
   let width = $derived(fullWidth ? 'w-full' : 'w-1/2');
 
   const hoverClasses = onClick
-    ? `border dark:border-immich-dark-gray hover:bg-immich-primary/5 dark:hover:bg-immich-dark-primary/25`
+    ? `border dark:border-great-memories-dark-gray hover:bg-great-memories-primary/5 dark:hover:bg-great-memories-dark-primary/25`
     : '';
 </script>
 
@@ -23,12 +23,12 @@
 <svelte:element
   this={onClick ? 'button' : 'div'}
   onclick={onClick}
-  class="{width} {className} flex flex-col place-content-center place-items-center rounded-3xl bg-gray-50 p-5 dark:bg-immich-dark-gray {hoverClasses}"
+  class="{width} {className} flex flex-col place-content-center place-items-center rounded-3xl bg-gray-50 p-5 dark:bg-great-memories-dark-gray {hoverClasses}"
 >
   <img {src} alt="" width="500" draggable="false" />
 
   {#if title}
     <h2 class="my-4 text-xl font-medium">{title}</h2>
   {/if}
-  <p class="text-immich-text-gray-500 text-center font-light dark:text-immich-dark-fg">{text}</p>
+  <p class="text-great-memories-text-gray-500 text-center font-light dark:text-great-memories-dark-fg">{text}</p>
 </svelte:element>

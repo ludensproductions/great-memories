@@ -28,7 +28,7 @@ test.describe('Detail Panel', () => {
       assetIds: [asset.id],
     });
     await page.goto(`/share/${sharedLink.key}/photos/${asset.id}`);
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
 
     await expect(page.getByRole('button', { name: 'Info' })).toBeVisible();
     await page.keyboard.press('i');
@@ -44,7 +44,7 @@ test.describe('Detail Panel', () => {
       showMetadata: false,
     });
     await page.goto(`/share/${sharedLink.key}/photos/${asset.id}`);
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
 
     await expect(page.getByRole('button', { name: 'Info' })).toHaveCount(0);
     await page.keyboard.press('i');
@@ -70,7 +70,7 @@ test.describe('Detail Panel', () => {
   test('description changes are visible after reopening', async ({ context, page }) => {
     await utils.setAuthCookies(context, admin.accessToken);
     await page.goto(`/photos/${asset.id}`);
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
 
     await page.getByRole('button', { name: 'Info' }).click();
     const textarea = page.getByRole('textbox', { name: 'Add a description' });
@@ -111,7 +111,7 @@ test.describe('Detail Panel', () => {
       // asset viewer -> detail panel -> date editor
       await utils.setAuthCookies(context, admin.accessToken);
       await page.goto(`/photos/${asset.id}`);
-      await page.waitForSelector('#immich-asset-viewer');
+      await page.waitForSelector('#great-memories-asset-viewer');
 
       await page.getByRole('button', { name: 'Info' }).click();
       await page.getByTestId('detail-panel-edit-date-button').click();

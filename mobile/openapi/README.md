@@ -732,7 +732,7 @@ Authentication schemes defined for the API:
 ### cookie
 
 - **Type**: API key
-- **API key parameter name**: immich_access_token
+- **API key parameter name**: great_memories_access_token
 - **Location**: 
 
 ### api_key

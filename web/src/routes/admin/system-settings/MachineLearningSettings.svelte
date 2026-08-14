@@ -133,7 +133,7 @@
             isEdited={configToEdit.machineLearning.clip.modelName !== config.machineLearning.clip.modelName}
           >
             {#snippet descriptionSnippet()}
-              <p class="pb-2 text-sm immich-form-label">
+              <p class="pb-2 text-sm great-memories-form-label">
                 <FormatMessage key="admin.machine_learning_clip_model_description">
                   {#snippet children({ message })}
                     <a target="_blank" href="https://huggingface.co/immich-app"><u>{message}</u></a>

@@ -15,7 +15,7 @@ test.describe('Slideshow', () => {
 
   const openSlideshow = async (page: Page) => {
     await page.goto(`/photos/${asset.id}`);
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
     await page.getByRole('button', { name: 'More' }).click();
     await page.getByRole('menuitem', { name: 'Slideshow' }).click();
   };

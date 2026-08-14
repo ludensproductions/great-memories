@@ -87,7 +87,7 @@ describe('/admin/maintenance', () => {
 
       cookie = headers['set-cookie'][0].split(';', 1)[0];
       expect(cookie).toEqual(
-        expect.stringMatching(/^immich_maintenance_token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/),
+        expect.stringMatching(/^great_memories_maintenance_token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/),
       );
 
       await expect

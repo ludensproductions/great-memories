@@ -4,7 +4,7 @@ import { playwrightHost } from 'src/../playwright.config';
 export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserId: string) => {
   await context.addCookies([
     {
-      name: 'immich_is_authenticated',
+      name: 'great_memories_is_authenticated',
       value: 'true',
       domain: playwrightHost,
       path: '/',
@@ -99,7 +99,7 @@ export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserI
         build: '1234567890',
         buildUrl: 'https://github.com/immich-app/immich/actions/runs/1234567890',
         buildImage: 'e2e',
-        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/immich-server',
+        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/great-memories-server',
         repository: 'immich-app/immich',
         repositoryUrl: 'https://github.com/immich-app/immich',
         sourceRef: 'e2e',

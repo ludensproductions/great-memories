@@ -6,7 +6,7 @@ export const GreatMemoriesFooter = () => (
     <Row className="h-18 w-full">
       <Column align="center" className="w-6/12 sm:w-full">
         <div>
-          <Link href="https://play.google.com/store/apps/details?id=app.alextran.immich" className="object-contain">
+          <Link href="https://play.google.com/store/apps/details?id=com.greatmemories.app" className="object-contain">
             <Img
               alt="Get it on Google Play"
               className="max-w-full"
@@ -17,7 +17,7 @@ export const GreatMemoriesFooter = () => (
       </Column>
       <Column align="center" className="w-6/12 sm:w-full">
         <div className="h-full p-6">
-          <Link href="https://apps.apple.com/sg/app/immich/id1613945652">
+          <Link href="https://apps.apple.com/sg/app/great-memories/id1613945652">
             <Img
               alt="Download on the App Store"
               className="max-w-full"
@@ -28,7 +28,7 @@ export const GreatMemoriesFooter = () => (
       </Column>
     </Row>
 
-    <Text className="text-center text-sm text-immich-footer">
+    <Text className="text-center text-sm text-great-memories-footer">
       <Link href="https://immich.app">Great Memories</Link> project is available under GNU AGPL v3 license.
     </Text>
   </>

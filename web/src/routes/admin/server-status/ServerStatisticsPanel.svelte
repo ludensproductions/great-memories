@@ -72,7 +72,7 @@
     </div>
 
     <div class="mt-5 flex lg:hidden">
-      <div class="flex flex-col justify-between rounded-3xl bg-subtle p-5 dark:bg-immich-dark-gray">
+      <div class="flex flex-col justify-between rounded-3xl bg-subtle p-5 dark:bg-great-memories-dark-gray">
         <div class="flex flex-wrap gap-x-12">
           <div class="flex flex-1 place-items-center gap-4 text-primary">
             <Icon icon={mdiCameraIris} size="25" />

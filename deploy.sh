@@ -9,10 +9,10 @@ set -e
 
 SERVER_HOSTNAME="${SERVER_HOSTNAME:-mipi}"
 SERVER_PORT="2283"
-IMMICH_DIR="$(cd "$(dirname "$0")" && pwd)"
-PHOTOS_DIR="/srv/immich/photos"
-DB_DIR="/srv/immich/db"
-BLE_DIR="/opt/immich-ble"
+GREAT_MEMORIES_DIR="$(cd "$(dirname "$0")" && pwd)"
+PHOTOS_DIR="/srv/great-memories/photos"
+DB_DIR="/srv/great-memories/db"
+BLE_DIR="/opt/great-memories-ble"
 
 echo ">>> 0.1 Sistema base"
 sudo apt update && sudo apt full-upgrade -y
@@ -25,13 +25,13 @@ fi
 sudo usermod -aG docker "$USER"
 
 echo ">>> 0.3 Configurar .env"
-cd "$IMMICH_DIR/docker"
+cd "$GREAT_MEMORIES_DIR/docker"
 [ ! -f .env ] && cp example.env .env
 sed -i "s|UPLOAD_LOCATION=.*|UPLOAD_LOCATION=$PHOTOS_DIR|" .env
 sed -i "s|DB_DATA_LOCATION=.*|DB_DATA_LOCATION=$DB_DIR|" .env
 
 sudo mkdir -p "$PHOTOS_DIR" "$DB_DIR"
-sudo chown -R "$USER:$USER" /srv/immich
+sudo chown -R "$USER:$USER" /srv/great-memories
 
 echo ">>> 0.4 Arrancar Great Memories"
 sg docker -c "docker compose up -d"
@@ -43,13 +43,13 @@ sudo hostnamectl set-hostname "$SERVER_HOSTNAME"
 sudo sed -i '/^127\.0\.1\.1/d' /etc/hosts
 echo "127.0.1.1    $SERVER_HOSTNAME" | sudo tee -a /etc/hosts
 
-sudo tee /etc/avahi/services/immich.service > /dev/null << EOF
+sudo tee /etc/avahi/services/great-memories.service > /dev/null << EOF
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
   <name replace-wildcards="yes">Great Memories en %h</name>
   <service>
-    <type>_immich._tcp</type>
+    <type>_great_memories._tcp</type>
     <port>${SERVER_PORT}</port>
   </service>
 </service-group>
@@ -68,7 +68,7 @@ sudo mkdir -p "$BLE_DIR"
 [ ! -d "$BLE_DIR/venv" ] && sudo python3 -m venv --system-site-packages "$BLE_DIR/venv"
 sudo "$BLE_DIR/venv/bin/pip" install -q bluezero
 
-sudo tee "$BLE_DIR/immich_ble_server.py" > /dev/null << 'PYEOF'
+sudo tee "$BLE_DIR/great_memories_ble_server.py" > /dev/null << 'PYEOF'
 #!/usr/bin/env python3
 import logging
 import socket
@@ -79,7 +79,7 @@ IP_CHARACTERISTIC_UUID = '494d4d49-0001-1000-8000-000000002283'
 LOCAL_NAME = socket.gethostname()
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
-log = logging.getLogger('immich-ble')
+log = logging.getLogger('great-memories-ble')
 
 
 def get_local_ip():
@@ -121,9 +121,9 @@ if __name__ == '__main__':
     main()
 PYEOF
 
-sudo chmod +x "$BLE_DIR/immich_ble_server.py"
+sudo chmod +x "$BLE_DIR/great_memories_ble_server.py"
 
-sudo tee /etc/systemd/system/immich-ble.service > /dev/null << EOF
+sudo tee /etc/systemd/system/great-memories-ble.service > /dev/null << EOF
 [Unit]
 Description=Great Memories BLE discovery
 After=bluetooth.target network-online.target
@@ -132,7 +132,7 @@ Requires=bluetooth.service
 
 [Service]
 Type=simple
-ExecStart=${BLE_DIR}/venv/bin/python ${BLE_DIR}/immich_ble_server.py
+ExecStart=${BLE_DIR}/venv/bin/python ${BLE_DIR}/great_memories_ble_server.py
 Restart=always
 RestartSec=5
 User=root
@@ -142,15 +142,15 @@ WantedBy=multi-user.target
 EOF
 
 sudo systemctl daemon-reload
-sudo systemctl enable --now immich-ble
+sudo systemctl enable --now great-memories-ble
 
 echo ""
 echo "=== Verificacion ==="
 sleep 4
-for svc in avahi-daemon bluetooth immich-ble; do
+for svc in avahi-daemon bluetooth great-memories-ble; do
   systemctl is-active "$svc" &>/dev/null && echo "$svc: OK" || echo "$svc: FALLO"
 done
-curl -sf "http://localhost:${SERVER_PORT}/api/server/ping" && echo "immich http: OK" || echo "immich http: aun iniciando (esperar 30s)"
+curl -sf "http://localhost:${SERVER_PORT}/api/server/ping" && echo "great-memories http: OK" || echo "great-memories http: aun iniciando (esperar 30s)"
 
 echo ""
 echo "============================================================"

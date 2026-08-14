@@ -31,7 +31,7 @@ class NativeSyncApiImpl: GreatMemoriesPlugin, NativeSyncApi, FlutterPlugin {
   }
   
   private let defaults: UserDefaults
-  private let changeTokenKey = "immich:changeToken"
+  private let changeTokenKey = "great-memories:changeToken"
   private let albumTypes: [PHAssetCollectionType] = [.album, .smartAlbum]
   private let recoveredAlbumSubType = 1000000219
   

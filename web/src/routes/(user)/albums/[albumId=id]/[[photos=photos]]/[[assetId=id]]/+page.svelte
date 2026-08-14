@@ -425,11 +425,11 @@
           {#if album.assetCount === 0}
             <section id="empty-album" class="mt-50 flex place-content-center place-items-center">
               <div class="w-75">
-                <p class="text-xs uppercase dark:text-immich-dark-fg">{$t('add_photos')}</p>
+                <p class="text-xs uppercase dark:text-great-memories-dark-fg">{$t('add_photos')}</p>
                 <button
                   type="button"
                   onclick={() => (viewMode = AlbumPageViewMode.SELECT_ASSETS)}
-                  class="mt-5 flex w-full place-items-center gap-6 rounded-2xl border bg-subtle p-8 text-immich-fg transition-all hover:bg-gray-100 hover:text-immich-primary dark:border-none dark:text-immich-dark-fg dark:hover:bg-gray-500/20 dark:hover:text-immich-dark-primary"
+                  class="mt-5 flex w-full place-items-center gap-6 rounded-2xl border bg-subtle p-8 text-great-memories-fg transition-all hover:bg-gray-100 hover:text-great-memories-primary dark:border-none dark:text-great-memories-dark-fg dark:hover:bg-gray-500/20 dark:hover:text-great-memories-dark-primary"
                 >
                   <span class="text-primary">
                     <Icon icon={mdiPlus} size="24" />
@@ -594,7 +594,7 @@
       {#if viewMode === AlbumPageViewMode.SELECT_ASSETS}
         <ControlAppBar onClose={handleCloseSelectAssets}>
           {#snippet leading()}
-            <p class="text-lg dark:text-immich-dark-fg">
+            <p class="text-lg dark:text-great-memories-dark-fg">
               {#if !timelineMultiSelectManager.selectionActive}
                 {$t('add_to_album')}
               {:else}
@@ -624,7 +624,7 @@
       <div
         transition:fly={{ duration: 150 }}
         id="activity-panel"
-        class="z-2 w-90 overflow-y-auto transition-all md:w-115 dark:border-l dark:border-s-immich-dark-gray"
+        class="z-2 w-90 overflow-y-auto transition-all md:w-115 dark:border-l dark:border-s-great-memories-dark-gray"
         translate="yes"
       >
         <ActivityViewer disabled={!album.isActivityEnabled} albumUsers={album.albumUsers} albumId={album.id} />

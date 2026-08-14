@@ -5,9 +5,9 @@
 At a [customizable interval](https://my.immich.app/admin/system-settings?isOpen=integrity-checks), Great Memories runs integrity checks to ensure that your library is still intact and there are no corrupt files.
 There are three kind of issues Great Memories checks for:
 
-- Untracked files: the path was found in Great Memories's directories but it is not referenced in Great Memories's database
+- Untracked files: the path was found in Great Memories' directories but it is not referenced in Great Memories' database
 - Missing files: the path is found in the Great Memories internal database, but does not actually exist on disk
-- Checksum mismatches: the checksum of the file stored in Great Memories's database does not match the actual file's checksum anymore
+- Checksum mismatches: the checksum of the file stored in Great Memories' database does not match the actual file's checksum anymore
 
 All three run nightly at 3am by default. For the "Checksum files" check, there are additional time and progress limits, as those are the most taxing checks. With these additional limits, Great Memories can slowly check checksums of your files over the course of a couple of days.
 
@@ -33,35 +33,35 @@ The folders considered for these checks include: `upload/`, `library/`, `thumbs/
 
 When Great Memories starts, it performs a series of checks in order to validate that it can read and write files to the volume mounts used by the storage system. If it cannot perform all the required operations, it will fail to start. The checks include:
 
-- Creating an initial hidden file (`.immich`) in each folder
-- Reading a hidden file (`.immich`) in each folder
-- Overwriting a hidden file (`.immich`) in each folder
+- Creating an initial hidden file (`.great-memories`) in each folder
+- Reading a hidden file (`.great-memories`) in each folder
+- Overwriting a hidden file (`.great-memories`) in each folder
 
 The checks are designed to catch the following situations:
 
 - Incorrect permissions (cannot read/write files)
-- Missing volume mount (`.immich` files should exist, but are missing)
+- Missing volume mount (`.great-memories` files should exist, but are missing)
 
 ### Common issues
 
 :::note
-`.immich` files serve as markers and help keep track of volume mounts being used by Great Memories. Except for the situations listed below, they should never be manually created or deleted.
+`.great-memories` files serve as markers and help keep track of volume mounts being used by Great Memories. Except for the situations listed below, they should never be manually created or deleted.
 :::
 
-#### Missing `.immich` files
+#### Missing `.great-memories` files
 
 ```
 Verifying system mount folder checks (enabled=true)
 ...
-ENOENT: no such file or directory, open 'upload/encoded-video/.immich'
+ENOENT: no such file or directory, open 'upload/encoded-video/.great-memories'
 ```
 
-The above error messages show that the server has previously (successfully) written `.immich` files to each folder, but now does not detect them. This could be because any of the following:
+The above error messages show that the server has previously (successfully) written `.great-memories` files to each folder, but now does not detect them. This could be because any of the following:
 
 - Permission error - unable to read the file, but it exists
 - File does not exist - volume mount has changed and should be corrected
-- File does not exist - user manually deleted it and should be manually re-created (`touch .immich`)
-- File does not exist - user restored from a backup, but did not restore each folder (user should restore all folders or manually create `.immich` in any missing folders)
+- File does not exist - user manually deleted it and should be manually re-created (`touch .great-memories`)
+- File does not exist - user restored from a backup, but did not restore each folder (user should restore all folders or manually create `.great-memories` in any missing folders)
 
 ### Ignoring the checks
 
@@ -70,5 +70,5 @@ The checks are designed to catch common problems that we have seen users have in
 :::
 
 ```
-IMMICH_IGNORE_MOUNT_CHECK_ERRORS=true
+GREAT_MEMORIES_IGNORE_MOUNT_CHECK_ERRORS=true
 ```

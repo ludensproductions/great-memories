@@ -36,7 +36,7 @@ test.describe('Duplicates Utility', () => {
   test('navigates with arrow keys between duplicate preview assets', async ({ page }) => {
     await page.goto('/utilities/duplicates');
     await page.getByRole('button', { name: 'View' }).first().click();
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
 
     const getViewedAssetId = () => new URL(page.url()).pathname.split('/').at(-1) ?? '';
     const initialAssetId = getViewedAssetId();

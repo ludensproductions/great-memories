@@ -30,18 +30,18 @@ The current accepted range for VectorChord is `>= 0.3, < 2.0`.
 You can connect to your pre-existing Postgres server by setting the `DB_URL` environment variable in the `.env` file.
 
 ```
-DB_URL='postgresql://immichdbusername:immichdbpassword@postgreshost:postgresport/immichdatabasename'
+DB_URL='postgresql://greatmemoriesdbusername:greatmemoriesdbpassword@postgreshost:postgresport/greatmemoriesdatabasename'
 
 # require a SSL connection to Postgres
-# DB_URL='postgresql://immichdbusername:immichdbpassword@postgreshost:postgresport/immichdatabasename?sslmode=require'
+# DB_URL='postgresql://greatmemoriesdbusername:greatmemoriesdbpassword@postgreshost:postgresport/greatmemoriesdatabasename?sslmode=require'
 
 # require a SSL connection, but don't enforce checking the certificate name
-# DB_URL='postgresql://immichdbusername:immichdbpassword@postgreshost:postgresport/immichdatabasename?sslmode=require&sslmode=no-verify'
+# DB_URL='postgresql://greatmemoriesdbusername:greatmemoriesdbpassword@postgreshost:postgresport/greatmemoriesdatabasename?sslmode=require&sslmode=no-verify'
 ```
 
 ## With superuser permission
 
-Typically Great Memories expects superuser permission in the database, which you can grant by running `ALTER USER <immichdbusername> WITH SUPERUSER;` at the `psql` console. If you prefer not to grant superuser permissions, follow the instructions in the next section.
+Typically Great Memories expects superuser permission in the database, which you can grant by running `ALTER USER <greatmemoriesdbusername> WITH SUPERUSER;` at the `psql` console. If you prefer not to grant superuser permissions, follow the instructions in the next section.
 
 ## Without superuser permission
 
@@ -56,10 +56,10 @@ Currently, automated backups require superuser permission due to the usage of `p
 Great Memories can run without superuser permissions by following the below instructions at the `psql` prompt to prepare the database.
 
 ```sql title="Set up Postgres for Great Memories"
-CREATE DATABASE <immichdatabasename>;
-\c <immichdatabasename>
+CREATE DATABASE <greatmemoriesdatabasename>;
+\c <greatmemoriesdatabasename>
 BEGIN;
-ALTER DATABASE <immichdatabasename> OWNER TO <immichdbusername>;
+ALTER DATABASE <greatmemoriesdatabasename> OWNER TO <greatmemoriesdbusername>;
 CREATE EXTENSION vchord CASCADE;
 CREATE EXTENSION earthdistance CASCADE;
 COMMIT;

@@ -12,7 +12,7 @@ This is a community contribution and not officially supported by the Great Memor
 
 Community support can be found in the dedicated channel on the [Discord Server](https://discord.immich.app/).
 
-**Please report app issues to the corresponding [GitHub Repository](https://github.com/truenas/apps/tree/master/trains/community/immich).**
+**Please report app issues to the corresponding [GitHub Repository](https://github.com/truenas/apps/tree/master/trains/community/great-memories).**
 :::
 
 :::warning
@@ -33,7 +33,7 @@ Consider reviewing the TrueNAS [Apps resources](https://apps.truenas.com/getting
 Before beginning app installation, [create the datasets](https://www.truenas.com/docs/scale/scaletutorials/storage/datasets/datasetsscale/) to use in the **Storage Configuration** section during installation.
 
 In TrueNAS, Great Memories requires 2 datasets for the application to function correctly: `data` and `pgData`. You can set the datasets to any names to match your naming conventions or preferences.
-You can organize these as one parent with two child datasets, for example `/mnt/tank/immich/data` and `/mnt/tank/immich/pgData`.
+You can organize these as one parent with two child datasets, for example `/mnt/tank/great-memories/data` and `/mnt/tank/great-memories/pgData`.
 
 <img
 src={require('./img/truenas/truenas00.webp').default}
@@ -52,7 +52,7 @@ Since TrueNAS Community Edition 24.10.2.2 and later, Great Memories can be run a
 
 For an easy setup:
 
-- Create the parent dataset `immich` keeping the default **Generic** preset.
+- Create the parent dataset `great-memories` keeping the default **Generic** preset.
 - Select `Dataset Preset` **Apps** instead of **Generic** when creating the `data` dataset. This will automatically give the correct permissions to the dataset. If you want to use another user for Great Memories, you can keep the **Generic** preset, but you will need to give the **_modify_** permission to that other user.
 - For the `pgData` dataset, you can keep the default preset **Generic** as permissions can be set during the installation of the Great Memories app (See [Storage Configuration](#storage-configuration) section).
   :::
@@ -161,7 +161,7 @@ More information on available environment variables can be found in the **[envir
 :::info
 Some environment variables are not available for the TrueNAS Community Edition app as they can be configured through GUI options in the [Edit Great Memories screen](#edit-app-settings).
 
-Some examples are: `IMMICH_VERSION`, `UPLOAD_LOCATION`, `DB_DATA_LOCATION`, `TZ`, `IMMICH_LOG_LEVEL`, `DB_PASSWORD`, `REDIS_PASSWORD`.
+Some examples are: `GREAT_MEMORIES_VERSION`, `UPLOAD_LOCATION`, `DB_DATA_LOCATION`, `TZ`, `GREAT_MEMORIES_LOG_LEVEL`, `DB_PASSWORD`, `REDIS_PASSWORD`.
 :::
 
 </details>
@@ -203,7 +203,7 @@ className="border rounded-xl"
 ### Storage Configuration
 
 :::danger Default Settings (Not recommended)
-The default setting for datasets is **ixVolume (dataset created automatically by the system)**. This is not recommended as this results in your data being harder to access manually and can result in data loss if you delete the immich app. It is also harder to manage snapshots and replication tasks. It is recommended to use the **Host Path (Path that already exists on the system)** option instead.
+The default setting for datasets is **ixVolume (dataset created automatically by the system)**. This is not recommended as this results in your data being harder to access manually and can result in data loss if you delete the great-memories app. It is also harder to manage snapshots and replication tasks. It is recommended to use the **Host Path (Path that already exists on the system)** option instead.
 :::
 
 The storage configuration section allows you to set up the storage locations for Great Memories data. You can select the datasets created in the previous step.
@@ -282,7 +282,7 @@ To mount these datasets:
    You have to write the full path, including `/data/`, as Great Memories expects the data to be in that location.
    If you do not include this path, Great Memories will not be able to find the data and will not write the data to the location you specified.
    :::
-4. Select the **Host Path** as the dataset you created for that folder, for example, `/mnt/tank/immich/library`, `/mnt/tank/immich/upload`, etc.
+4. Select the **Host Path** as the dataset you created for that folder, for example, `/mnt/tank/great-memories/library`, `/mnt/tank/great-memories/upload`, etc.
 
 <img
 src={require('./img/truenas/truenas10.webp').default}
@@ -387,27 +387,27 @@ To migrate from the old storage configuration to the new one, you will need to c
 3. **Copy the data** from the old datasets to the new dataset. We advise using the `rsync` command to copy the data, as it will preserve the permissions and ownership of the files. The following commands are examples:
 
 ```bash
-sudo rsync -av /mnt/tank/immich/library/ /mnt/tank/immich/data/library/
-sudo rsync -av /mnt/tank/immich/upload/ /mnt/tank/immich/data/upload/
-sudo rsync -av /mnt/tank/immich/thumbs/ /mnt/tank/immich/data/thumbs/
-sudo rsync -av /mnt/tank/immich/profile/ /mnt/tank/immich/data/profile/
-sudo rsync -av /mnt/tank/immich/video/ /mnt/tank/immich/data/encoded-video/
-sudo rsync -av /mnt/tank/immich/backups/ /mnt/tank/immich/data/backups/
+sudo rsync -av /mnt/tank/great-memories/library/ /mnt/tank/great-memories/data/library/
+sudo rsync -av /mnt/tank/great-memories/upload/ /mnt/tank/great-memories/data/upload/
+sudo rsync -av /mnt/tank/great-memories/thumbs/ /mnt/tank/great-memories/data/thumbs/
+sudo rsync -av /mnt/tank/great-memories/profile/ /mnt/tank/great-memories/data/profile/
+sudo rsync -av /mnt/tank/great-memories/video/ /mnt/tank/great-memories/data/encoded-video/
+sudo rsync -av /mnt/tank/great-memories/backups/ /mnt/tank/great-memories/data/backups/
 ```
 
-Make sure to replace `/mnt/tank/immich/` with the correct path to your old datasets and `/mnt/tank/immich/data/` with the correct path to your new dataset.
+Make sure to replace `/mnt/tank/great-memories/` with the correct path to your old datasets and `/mnt/tank/great-memories/data/` with the correct path to your new dataset.
 
 :::tip
-If you were using **ixVolume (dataset created automatically by the system)** for some of Great Memories data storage, the path to the data should be `/mnt/.ix-apps/app_mounts/immich/`. You have to use this path instead of `/mnt/tank/immich/` in the `rsync` command above, for example:
+If you were using **ixVolume (dataset created automatically by the system)** for some of Great Memories data storage, the path to the data should be `/mnt/.ix-apps/app_mounts/great-memories/`. You have to use this path instead of `/mnt/tank/great-memories/` in the `rsync` command above, for example:
 
 ```bash
-sudo rsync -av /mnt/.ix-apps/app_mounts/immich/library/ /mnt/tank/immich/data/library/
+sudo rsync -av /mnt/.ix-apps/app_mounts/great-memories/library/ /mnt/tank/great-memories/data/library/
 ```
 
 If you also were storing your files in the **ixVolume**, the **_upload_** folder is named `uploads` instead of `upload`, so the command to run should be:
 
 ```bash
-sudo rsync -av /mnt/.ix-apps/app_mounts/immich/uploads/ /mnt/tank/immich/data/upload/
+sudo rsync -av /mnt/.ix-apps/app_mounts/great-memories/uploads/ /mnt/tank/great-memories/data/upload/
 ```
 
 This means that depending on your old storage configuration, you might have to use a mix of paths in the `rsync` commands above.
@@ -415,16 +415,16 @@ This means that depending on your old storage configuration, you might have to u
 If you were also using an ixVolume for Postgres data storage, you also should, first create the pgData dataset, as described in the [Setting up Storage Datasets](#setting-up-storage-datasets) section above, and then you can use the following command to copy the Postgres data:
 
 ```bash
-sudo rsync -av /mnt/.ix-apps/app_mounts/immich/pgData/ /mnt/tank/immich/pgData/
+sudo rsync -av /mnt/.ix-apps/app_mounts/great-memories/pgData/ /mnt/tank/great-memories/pgData/
 ```
 
 :::
 
 :::warning
-Make sure that for each folder, the `.immich` file is copied as well, as it contains important metadata for Great Memories. If for some reason the `.immich` file is not copied, you can copy it manually with the `rsync` command, for example:
+Make sure that for each folder, the `.great-memories` file is copied as well, as it contains important metadata for Great Memories. If for some reason the `.great-memories` file is not copied, you can copy it manually with the `rsync` command, for example:
 
 ```bash
-sudo rsync -av /mnt/tank/immich/library/.immich /mnt/tank/immich/data/library/
+sudo rsync -av /mnt/tank/great-memories/library/.great-memories /mnt/tank/great-memories/data/library/
 ```
 
 Replace `library` with the name of the folder where you are copying the file.
@@ -449,7 +449,7 @@ If everything went well, you should now be able to access Great Memories with th
 If you were using **ixVolume (dataset created automatically by the system)** or folders for Great Memories data storage, you can delete the old datasets using the following commands:
 
 ```bash
-sudo rm -r /mnt/.ix-apps/app_mounts/immich/*
+sudo rm -r /mnt/.ix-apps/app_mounts/great-memories/*
 ```
 
 :::
@@ -470,7 +470,7 @@ To migrate from the old storage configuration to the new one without creating ne
    - Following the instructions in the [Multiple Datasets for Great Memories Storage](#additional-storage-advanced-users) section, you can add, **for each old dataset**, a new Additional Storage with the following settings:
      - **Type**: `Host Path (Path that already exists on the system)`
      - **Mount Path**: `/data/<folder-name>` (e.g. `/data/library`)
-     - **Host Path**: `/mnt/<your-pool-name>/<dataset-name>` (e.g. `/mnt/tank/immich/library`)
+     - **Host Path**: `/mnt/<your-pool-name>/<dataset-name>` (e.g. `/mnt/tank/great-memories/library`)
        :::danger Ensure using the correct paths names
        Make sure to replace `<folder-name>` with the actual name of the folder used by Great Memories: `library`, `upload`, `thumbs`, `profile`, `encoded-video`, and `backups`. Also, replace `<your-pool-name>` and `<dataset-name>` with the actual names of your pool and dataset.
        :::

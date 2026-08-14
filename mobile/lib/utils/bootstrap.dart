@@ -47,7 +47,7 @@ void configureFileDownloaderNotifications() {
 abstract final class Bootstrap {
   static Future<(Drift, DriftLogger)> initDomain({bool listenStoreUpdates = true, bool shouldBufferLogs = true}) async {
     await configureSqliteCache();
-    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'immich');
+    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'great-memories');
     final drift = Drift.sqlite(db, updatePool);
     final DriftStoreRepository storeRepo = DriftStoreRepository(drift);
 
@@ -64,7 +64,7 @@ abstract final class Bootstrap {
 }
 
 Future<DriftLogger> _initLogger({required SettingsRepository settingsRepository, bool shouldBufferLogs = true}) async {
-  Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'immich_logs'));
+  Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'great_memories_logs'));
 
   DriftLogger logDb = await open();
   bool wasCorrupt = false;
@@ -77,7 +77,7 @@ Future<DriftLogger> _initLogger({required SettingsRepository settingsRepository,
     }
     dPrint(() => 'Logs database is corrupt, recreating it');
     await logDb.close();
-    await deleteSqliteDatabase(name: 'immich_logs');
+    await deleteSqliteDatabase(name: 'great_memories_logs');
     logDb = await open();
     wasCorrupt = true;
   }

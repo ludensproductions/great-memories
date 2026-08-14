@@ -377,7 +377,7 @@
     "theme_custom_css_settings": "Brugerdefineret CSS",
     "theme_custom_css_settings_description": "Cascading Style Sheets tillader at give Great Memories et brugerdefineret look.",
     "theme_settings": "Temaindstillinger",
-    "theme_settings_description": "Administrér brugertilpasningen af Great Memories's webinterface",
+    "theme_settings_description": "Administrér brugertilpasningen af Great Memories' webinterface",
     "thumbnail_generation_job": "Generér miniaturebilleder",
     "thumbnail_generation_job_description": "Generér store, små og slørede miniaturebilleder for hver mediefil, såvel som miniaturebilleder for hver person",
     "transcoding_acceleration_api": "Accelerations-API",

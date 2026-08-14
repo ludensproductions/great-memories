@@ -231,7 +231,7 @@ export class MaintenanceWorkerService {
     const url = await createMaintenanceLoginUrl(
       baseUrl,
       {
-        username: 'immich-admin',
+        username: 'great-memories-admin',
       },
       this.secret,
     );

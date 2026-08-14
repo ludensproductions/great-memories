@@ -134,7 +134,7 @@ class ApiService {
   Future<String> _getWellKnownEndpoint(String baseUrl) async {
     const wellKnownPaths = [
       '/.well-known/great-memories',
-      '/.well-known/immich',
+      '/.well-known/great-memories',
     ];
 
     for (final path in wellKnownPaths) {

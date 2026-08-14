@@ -130,7 +130,7 @@ class Workers {
   }
 
   onExit(name: GreatMemoriesWorker, exitCode: number | null) {
-    // restart immich server
+    // restart great-memories server
     if (exitCode === ExitCode.AppRestart || this.restarting) {
       this.restarting = true;
 
@@ -169,13 +169,13 @@ function main() {
   }
 
   if (greatMemoriesApp === 'great-memories-admin') {
-    process.title = 'immich_admin_cli';
-    process.env.IMMICH_LOG_LEVEL = LogLevel.Warn;
+    process.title = 'great_memories_admin_cli';
+    process.env.GREAT_MEMORIES_LOG_LEVEL = LogLevel.Warn;
 
     return CommandFactory.run(GreatMemoriesAdminModule);
   }
 
-  if (greatMemoriesApp === 'immich' || greatMemoriesApp === 'microservices') {
+  if (greatMemoriesApp === 'great-memories' || greatMemoriesApp === 'microservices') {
     console.error(
       `Using "start.sh ${greatMemoriesApp}" has been deprecated. See https://github.com/immich-app/immich/releases/tag/v1.118.0 for more information.`,
     );
@@ -187,7 +187,7 @@ function main() {
     process.exit(1);
   }
 
-  process.title = 'immich';
+  process.title = 'great-memories';
   void new Workers().bootstrap();
 }
 

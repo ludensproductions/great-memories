@@ -76,12 +76,12 @@
       <!-- EXTERNAL LIBRARY / STACK COUNT CHIP -->
       <div class="absolute inset-e-3 top-2">
         {#if isFromExternalLibrary}
-          <div class="rounded-xl bg-immich-primary/90 px-2 py-1 text-xs text-white">
+          <div class="rounded-xl bg-great-memories-primary/90 px-2 py-1 text-xs text-white">
             {$t('external')}
           </div>
         {/if}
         {#if asset.stack?.assetCount}
-          <div class="my-0.5 rounded-xl bg-immich-primary/90 px-2 py-1 text-xs text-white">
+          <div class="my-0.5 rounded-xl bg-great-memories-primary/90 px-2 py-1 text-xs text-white">
             <div class="flex items-center justify-center">
               <div class="me-1">{asset.stack.assetCount}</div>
               <Icon icon={mdiImageMultipleOutline} size="18" />

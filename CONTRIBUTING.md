@@ -4,12 +4,12 @@ We appreciate every contribution, and we're happy about every new contributor. S
 
 ## Getting started
 
-To get you started quickly we have detailed guides for the dev setup on our [website](https://docs.immich.app/developer/setup). If you prefer, you can also use [Devcontainers](https://docs.immich.app/developer/devcontainers).
-There are also additional resources about Great Memories architecture, database migrations, the use of OpenAPI, and more in our [developer documentation](https://docs.immich.app/developer/architecture).
+To get you started quickly we have detailed guides for the dev setup in our developer documentation. If you prefer, you can also use Devcontainers.
+There are also additional resources about Great Memories architecture, database migrations, the use of OpenAPI, and more in our developer documentation.
 
 ## General
 
-Please try to keep pull requests as focused as possible. A PR should do exactly one thing and not bleed into other, unrelated areas. The smaller a PR, the fewer changes are likely needed, and the quicker it will likely be merged. For larger/more impactful PRs, please reach out to us first to discuss your plans. The best way to do this is through our [Discord](https://discord.immich.app). We have a dedicated `#contributing` channel there. Additionally, please fill out the entire template when opening a PR.
+Please try to keep pull requests as focused as possible. A PR should do exactly one thing and not bleed into other, unrelated areas. The smaller a PR, the fewer changes are likely needed, and the quicker it will likely be merged. For larger/more impactful PRs, please reach out to us first to discuss your plans. The best way to do this is through our Discord. We have a dedicated `#contributing` channel there. Additionally, please fill out the entire template when opening a PR.
 
 ## Finding work
 
@@ -38,7 +38,7 @@ All our translations are done through [Weblate](https://hosted.weblate.org/proje
 
 ### Datasets
 
-Help us improve our [Great Memories Datasets](https://datasets.immich.app) by submitting photos and videos taken from a variety of devices, including smartphones, DSLRs, and action cameras, as well as photos with unique features, such as panoramas, burst photos, and photo spheres. These datasets will be publically available for anyone to use, do not submit private/sensitive photos.
+Help us improve our Great Memories Datasets by submitting photos and videos taken from a variety of devices, including smartphones, DSLRs, and action cameras, as well as photos with unique features, such as panoramas, burst photos, and photo spheres. These datasets will be publically available for anyone to use, do not submit private/sensitive photos.
 
 ### Community support
 

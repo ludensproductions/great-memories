@@ -12,7 +12,7 @@ export const envData: EnvData = {
   bull: {
     config: {
       connection: {},
-      prefix: 'immich_bull',
+      prefix: 'great_memories_bull',
     },
     queues: [{ name: 'queue-1' }],
   },
@@ -24,7 +24,7 @@ export const envData: EnvData = {
   database: {
     config: {
       connectionType: 'parts',
-      database: 'immich',
+      database: 'great-memories',
       host: 'database',
       port: 5432,
       username: 'postgres',
@@ -76,7 +76,7 @@ export const envData: EnvData = {
       root: '/build/www',
       indexHtml: '/build/www/index.html',
     },
-    corePlugin: '/build/plugins/immich-plugin-core',
+    corePlugin: '/build/plugins/great-memories-plugin-core',
   },
 
   setup: {

@@ -365,7 +365,7 @@
 
 <section
   id="memory-viewer"
-  class="dark w-full bg-immich-dark-gray text-white"
+  class="dark w-full bg-great-memories-dark-gray text-white"
   bind:this={memoryWrapper}
   bind:clientHeight={viewport.height}
   bind:clientWidth={viewport.width}
@@ -662,7 +662,7 @@
 
 {#if current}
   <!-- GALLERY VIEWER -->
-  <section class="bg-immich-dark-gray p-4">
+  <section class="bg-great-memories-dark-gray p-4">
     <div
       class="dark sticky mb-10 flex place-content-center place-items-center transition-all"
       class:opacity-0={galleryInView}

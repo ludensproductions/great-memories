@@ -1,7 +1,7 @@
 import { LoginResponseDto, getAllAlbums, getAssetStatistics } from '@immich/sdk';
 import { cpSync, readFileSync } from 'node:fs';
 import { mkdir, readdir, rm, symlink } from 'node:fs/promises';
-import { asKeyAuth, immichCli, specialCharStrings, testAssetDir, utils } from 'src/utils';
+import { asKeyAuth, greatMemoriesCli, specialCharStrings, testAssetDir, utils } from 'src/utils';
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
 interface Test {
@@ -85,7 +85,7 @@ const tests: Test[] = [
   },
 ];
 
-describe(`immich upload`, () => {
+describe(`great-memories upload`, () => {
   let admin: LoginResponseDto;
   let key: string;
 
@@ -100,9 +100,9 @@ describe(`immich upload`, () => {
     await utils.resetDatabase(['asset', 'album']);
   });
 
-  describe(`immich upload /path/to/file.jpg`, () => {
+  describe(`great-memories upload /path/to/file.jpg`, () => {
     it('should upload a single file', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(stderr).toContain('{message}');
       expect(stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -127,7 +127,7 @@ describe(`immich upload`, () => {
 
           const expectedCount = Object.entries(files).filter((entry) => entry[1]).length;
 
-          const { stderr, stdout, exitCode } = await immichCli(['upload', ...commandLine]);
+          const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', ...commandLine]);
           expect(stderr).toContain('{message}');
           expect(stdout.split('\n')).toEqual(
             expect.arrayContaining([expect.stringContaining(`Successfully uploaded ${expectedCount} new asset`)]),
@@ -157,7 +157,7 @@ describe(`immich upload`, () => {
       cpSync(`${testAssetDir}/albums/nature/tanners_ridge.jpg`, testPaths[0]);
       cpSync(`${testAssetDir}/albums/nature/silver_fir.jpg`, testPaths[1]);
 
-      const { stderr, stdout, exitCode } = await immichCli(['upload', ...testPaths]);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', ...testPaths]);
       expect(stderr).toContain('{message}');
       expect(stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 2 new assets')]),
@@ -172,7 +172,7 @@ describe(`immich upload`, () => {
     });
 
     it('should skip a duplicate file', async () => {
-      const first = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const first = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(first.stderr).toContain('{message}');
       expect(first.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -182,7 +182,7 @@ describe(`immich upload`, () => {
       const assets = await getAssetStatistics({}, { headers: asKeyAuth(key) });
       expect(assets.total).toBe(1);
 
-      const second = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const second = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(second.stderr).toContain('{message}');
       expect(second.stdout.split('\n')).toEqual(
         expect.arrayContaining([
@@ -194,7 +194,7 @@ describe(`immich upload`, () => {
     });
 
     it('should skip files that do not exist', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/path/to/file`]);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `/path/to/file`]);
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(expect.arrayContaining([expect.stringContaining('No files found, exiting')]));
       expect(exitCode).toBe(0);
@@ -204,7 +204,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/silver_fir.jpg`,
         '--dry-run',
@@ -220,7 +220,7 @@ describe(`immich upload`, () => {
     });
 
     it('dry run should handle duplicates', async () => {
-      const first = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      const first = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(first.stderr).toContain('{message}');
       expect(first.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -230,7 +230,7 @@ describe(`immich upload`, () => {
       const assets = await getAssetStatistics({}, { headers: asKeyAuth(key) });
       expect(assets.total).toBe(1);
 
-      const second = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--dry-run']);
+      const second = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/`, '--dry-run']);
       expect(second.stderr).toContain('{message}');
       expect(second.stdout.split('\n')).toEqual(
         expect.arrayContaining([
@@ -242,9 +242,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive', () => {
+  describe('great-memories upload --recursive', () => {
     it('should upload a folder recursively', async () => {
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
       expect(stderr).toContain('{message}');
       expect(stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 9 new assets')]),
@@ -256,9 +256,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive --album', () => {
+  describe('great-memories upload --recursive --album', () => {
     it('should create albums from folder names', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -283,7 +283,7 @@ describe(`immich upload`, () => {
     });
 
     it('should add existing assets to albums', async () => {
-      const response1 = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
+      const response1 = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive']);
       expect(response1.stdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 9 new assets')]),
       );
@@ -296,7 +296,7 @@ describe(`immich upload`, () => {
       const albums1 = await getAllAlbums({}, { headers: asKeyAuth(key) });
       expect(albums1.length).toBe(0);
 
-      const response2 = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive', '--album']);
+      const response2 = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/`, '--recursive', '--album']);
       expect(response2.stdout.split('\n')).toEqual(
         expect.arrayContaining([
           expect.stringContaining('All assets were already uploaded, nothing to do.'),
@@ -315,7 +315,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -340,9 +340,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --recursive --album-name=e2e', () => {
+  describe('great-memories upload --recursive --album-name=e2e', () => {
     it('should create a named album', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -367,7 +367,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--recursive',
@@ -392,7 +392,7 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --delete', () => {
+  describe('great-memories upload --delete', () => {
     it('should delete local files if specified', async () => {
       await mkdir(`/tmp/albums/nature`, { recursive: true });
       const filesToLink = await readdir(`${testAssetDir}/albums/nature`);
@@ -400,7 +400,7 @@ describe(`immich upload`, () => {
         await symlink(`${testAssetDir}/albums/nature/${file}`, `/tmp/albums/nature/${file}`);
       }
 
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/tmp/albums/nature`, '--delete']);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `/tmp/albums/nature`, '--delete']);
 
       const files = await readdir(`/tmp/albums/nature`);
       await rm(`/tmp/albums/nature`, { recursive: true });
@@ -426,7 +426,7 @@ describe(`immich upload`, () => {
         await symlink(`${testAssetDir}/albums/nature/${file}`, `/tmp/albums/nature/${file}`);
       }
 
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/tmp/albums/nature`, '--delete', '--dry-run']);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `/tmp/albums/nature`, '--delete', '--dry-run']);
 
       const files = await readdir(`/tmp/albums/nature`);
       await rm(`/tmp/albums/nature`, { recursive: true });
@@ -446,13 +446,13 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --delete-duplicates', () => {
+  describe('great-memories upload --delete-duplicates', () => {
     it('should delete local duplicate files', async () => {
       const {
         stderr: firstStderr,
         stdout: firstStdout,
         exitCode: firstExitCode,
-      } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(firstStderr).toContain('{message}');
       expect(firstStdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -463,7 +463,7 @@ describe(`immich upload`, () => {
       await symlink(`${testAssetDir}/albums/nature/silver_fir.jpg`, `/tmp/albums/nature/silver_fir.jpg`);
 
       // Upload with --delete-duplicates flag
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `/tmp/albums/nature/silver_fir.jpg`,
         '--delete-duplicates',
@@ -493,7 +493,7 @@ describe(`immich upload`, () => {
         stderr: firstStderr,
         stdout: firstStdout,
         exitCode: firstExitCode,
-      } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(firstStderr).toContain('{message}');
       expect(firstStdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -504,7 +504,7 @@ describe(`immich upload`, () => {
       await symlink(`${testAssetDir}/albums/nature/silver_fir.jpg`, `/tmp/albums/nature/silver_fir.jpg`);
 
       // Upload with --delete-duplicates and --dry-run flags
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `/tmp/albums/nature/silver_fir.jpg`,
         '--delete-duplicates',
@@ -536,7 +536,7 @@ describe(`immich upload`, () => {
         stderr: firstStderr,
         stdout: firstStdout,
         exitCode: firstExitCode,
-      } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(firstStderr).toContain('{message}');
       expect(firstStdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -549,7 +549,7 @@ describe(`immich upload`, () => {
       await symlink(`${testAssetDir}/albums/nature/el_torcal_rocks.jpg`, `/tmp/albums/nature/el_torcal_rocks.jpg`); // new
 
       // Upload with both --delete and --delete-duplicates flags
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `/tmp/albums/nature`,
         '--delete',
@@ -581,7 +581,7 @@ describe(`immich upload`, () => {
         stderr: firstStderr,
         stdout: firstStdout,
         exitCode: firstExitCode,
-      } = await immichCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
+      } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/silver_fir.jpg`]);
       expect(firstStderr).toContain('{message}');
       expect(firstStdout.split('\n')).toEqual(
         expect.arrayContaining([expect.stringContaining('Successfully uploaded 1 new asset')]),
@@ -594,7 +594,7 @@ describe(`immich upload`, () => {
       await symlink(`${testAssetDir}/albums/nature/el_torcal_rocks.jpg`, `/tmp/albums/nature/el_torcal_rocks.jpg`); // new
 
       // Upload with only --delete-duplicates flag
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `/tmp/albums/nature`, '--delete-duplicates']);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `/tmp/albums/nature`, '--delete-duplicates']);
 
       // Check that only the duplicate was deleted, new file should remain
       const files = await readdir(`/tmp/albums/nature`);
@@ -616,7 +616,7 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --skip-hash', () => {
+  describe('great-memories upload --skip-hash', () => {
     it('should skip hashing', async () => {
       const filename = `albums/nature/silver_fir.jpg`;
       await utils.createAsset(admin.accessToken, {
@@ -625,7 +625,7 @@ describe(`immich upload`, () => {
           filename: 'silver_fit.jpg',
         },
       });
-      const { stderr, stdout, exitCode } = await immichCli(['upload', `${testAssetDir}/${filename}`, '--skip-hash']);
+      const { stderr, stdout, exitCode } = await greatMemoriesCli(['upload', `${testAssetDir}/${filename}`, '--skip-hash']);
 
       expect(stderr).toBe('');
       expect(stdout.split('\n')).toEqual(
@@ -642,7 +642,7 @@ describe(`immich upload`, () => {
     });
 
     it('should throw an error if attempting dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--skip-hash',
@@ -658,9 +658,9 @@ describe(`immich upload`, () => {
     });
   });
 
-  describe('immich upload --concurrency <number>', () => {
+  describe('great-memories upload --concurrency <number>', () => {
     it('should work', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--concurrency',
@@ -681,7 +681,7 @@ describe(`immich upload`, () => {
     });
 
     it('should reject string argument', async () => {
-      const { stderr, exitCode } = await immichCli([
+      const { stderr, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--concurrency string',
@@ -692,16 +692,16 @@ describe(`immich upload`, () => {
     });
 
     it('should reject command without number', async () => {
-      const { stderr, exitCode } = await immichCli(['upload', `${testAssetDir}/albums/nature/`, '--concurrency']);
+      const { stderr, exitCode } = await greatMemoriesCli(['upload', `${testAssetDir}/albums/nature/`, '--concurrency']);
 
       expect(stderr).toContain('argument missing');
       expect(exitCode).not.toBe(0);
     });
   });
 
-  describe('immich upload --ignore <pattern>', () => {
+  describe('great-memories upload --ignore <pattern>', () => {
     it('should work', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',
@@ -722,7 +722,7 @@ describe(`immich upload`, () => {
     });
 
     it('should ignore assets matching glob pattern', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',
@@ -743,7 +743,7 @@ describe(`immich upload`, () => {
     });
 
     it('should have accurate dry run', async () => {
-      const { stderr, stdout, exitCode } = await immichCli([
+      const { stderr, stdout, exitCode } = await greatMemoriesCli([
         'upload',
         `${testAssetDir}/albums/nature/`,
         '--ignore',

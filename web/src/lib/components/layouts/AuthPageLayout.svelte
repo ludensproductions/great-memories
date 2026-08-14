@@ -20,7 +20,7 @@
         alt="Great Memories logo"
       />
       <div
-        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-immich-dark-bg/20"
+        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-great-memories-dark-bg/20"
       ></div>
     </div>
   {/if}

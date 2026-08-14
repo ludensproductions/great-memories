@@ -64,7 +64,7 @@
     <div class="flex flex-col gap-4">
       <SearchBar bind:name={searchName} placeholder={$t('search_people')} showLoadingSpinner={false} />
 
-      <div class="max-h-96 immich-scrollbar overflow-y-auto">
+      <div class="max-h-96 great-memories-scrollbar overflow-y-auto">
         {#if loading}
           <div class="flex justify-center p-8">
             <LoadingSpinner />

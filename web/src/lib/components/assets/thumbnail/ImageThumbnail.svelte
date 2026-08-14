@@ -61,9 +61,9 @@
     circle && 'rounded-full',
     shadow && 'shadow-lg',
     (circle || !heightStyle) && 'aspect-square',
-    border && 'border-3 border-immich-dark-primary/80 hover:border-immich-primary',
+    border && 'border-3 border-great-memories-dark-primary/80 hover:border-great-memories-primary',
     'transition-shadow duration-150',
-    highlighted && 'ring-4 ring-immich-primary dark:ring-immich-dark-primary',
+    highlighted && 'ring-4 ring-great-memories-primary dark:ring-great-memories-dark-primary',
   ]);
 
   let style = $derived(

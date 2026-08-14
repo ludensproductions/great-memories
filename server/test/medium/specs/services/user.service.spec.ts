@@ -17,7 +17,7 @@ import { getKyselyDB } from 'test/utils';
 let defaultDatabase: Kysely<DB>;
 
 const setup = (db?: Kysely<DB>) => {
-  process.env.IMMICH_ENV = GreatMemoriesEnvironment.Testing;
+  process.env.GREAT_MEMORIES_ENV = GreatMemoriesEnvironment.Testing;
 
   return newMediumService(UserService, {
     database: db || defaultDatabase,

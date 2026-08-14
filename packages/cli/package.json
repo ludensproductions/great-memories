@@ -10,11 +10,11 @@
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "immich": "./bin/great-memories"
+    "great-memories": "./bin/great-memories"
   },
   "license": "GNU Affero General Public License version 3",
   "keywords": [
-    "immich",
+    "great-memories",
     "cli"
   ],
   "devDependencies": {

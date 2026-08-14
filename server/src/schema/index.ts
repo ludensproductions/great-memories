@@ -90,7 +90,7 @@ import { WorkflowStepTable } from 'src/schema/tables/workflow-step.table';
 import { WorkflowTable } from 'src/schema/tables/workflow.table';
 
 @Extensions(['uuid-ossp', 'unaccent', 'cube', 'earthdistance', 'pg_trgm', 'plpgsql'])
-@Database({ name: 'immich' })
+@Database({ name: 'great-memories' })
 export class GreatMemoriesDatabase {
   tables = [
     ActivityTable,

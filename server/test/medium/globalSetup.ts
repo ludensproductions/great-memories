@@ -38,7 +38,7 @@ const globalSetup = async () => {
   const postgresPort = postgresContainer.getMappedPort(5432);
   const postgresUrl = `postgres://postgres:postgres@localhost:${postgresPort}/${templateName}`;
 
-  process.env.IMMICH_TEST_POSTGRES_URL = postgresUrl;
+  process.env.GREAT_MEMORIES_TEST_POSTGRES_URL = postgresUrl;
 
   const db = new Kysely<DB>(getKyselyConfig({ connectionType: 'url', url: postgresUrl }));
 

@@ -419,7 +419,7 @@
             <div class="absolute z-1 w-64 sm:w-96">
               {#if isSearchingPeople}
                 <div
-                  class="flex h-14 place-items-center rounded-b-lg border border-gray-400 bg-gray-200 p-2 dark:border-immich-dark-gray dark:bg-gray-700"
+                  class="flex h-14 place-items-center rounded-b-lg border border-gray-400 bg-gray-200 p-2 dark:border-great-memories-dark-gray dark:bg-gray-700"
                 >
                   <div class="flex w-full place-items-center">
                     <LoadingSpinner />
@@ -430,7 +430,7 @@
                   {#each suggestedPeople as person, index (person.id)}
                     <button
                       type="button"
-                      class="flex h-14 w-full place-items-center border border-gray-200 bg-gray-100 p-2 hover:bg-gray-300 focus:bg-gray-300 dark:border-immich-dark-gray dark:bg-gray-700 hover:dark:bg-[#232932] focus:dark:bg-[#232932] {index ===
+                      class="flex h-14 w-full place-items-center border border-gray-200 bg-gray-100 p-2 hover:bg-gray-300 focus:bg-gray-300 dark:border-great-memories-dark-gray dark:bg-gray-700 hover:dark:bg-[#232932] focus:dark:bg-[#232932] {index ===
                       suggestedPeople.length - 1
                         ? 'rounded-b-lg border-b'
                         : ''}"
@@ -470,7 +470,7 @@
         onFavorite={(ids, isFavorite) => timelineManager.update(ids, (asset) => (asset.isFavorite = isFavorite))}
       />
       <ButtonContextMenu icon={mdiDotsVertical} title={$t('menu')}>
-        <DownloadAction menuItem filename="{person.name || 'immich'}.zip" />
+        <DownloadAction menuItem filename="{person.name || 'great-memories'}.zip" />
         <MenuOption
           icon={mdiAccountMultipleCheckOutline}
           text={$t('fix_incorrect_match')}

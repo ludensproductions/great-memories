@@ -77,10 +77,10 @@
   </Field>
   {#if showRelative}
     <Label for="relativedatetime" class="mb-1 block">{$t('offset')}</Label>
-    <DurationInput class="mb-2 immich-form-input w-full" id="relativedatetime" bind:value={selectedDuration} />
+    <DurationInput class="mb-2 great-memories-form-input w-full" id="relativedatetime" bind:value={selectedDuration} />
   {:else}
     <Label for="datetime" class="mb-1 block">{$t('date_and_time')}</Label>
-    <DateInput class="mb-2 immich-form-input w-full" id="datetime" type="datetime-local" bind:value={selectedDate} />
+    <DateInput class="mb-2 great-memories-form-input w-full" id="datetime" type="datetime-local" bind:value={selectedDate} />
   {/if}
   <div class="w-full">
     <Combobox
@@ -94,11 +94,11 @@
   <!-- <Card color="secondary" class={!showRelative || !currentInterval ? 'invisible' : ''}>
       <CardBody class="p-2">
         <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-center">
-          <div class="col-span-2 immich-form-label" data-testid="interval-preview">Preview</div>
-          <Text size="small" class="-mt-2 immich-form-label col-span-2"
+          <div class="col-span-2 great-memories-form-label" data-testid="interval-preview">Preview</div>
+          <Text size="small" class="-mt-2 great-memories-form-label col-span-2"
             >Showing changes for first selected asset only</Text
           >
-          <label class="immich-form-label" for="from">Before</label>
+          <label class="great-memories-form-label" for="from">Before</label>
           <DateInput
             class="dark:text-gray-300 text-gray-700 text-base"
             id="from"
@@ -106,7 +106,7 @@
             readonly
             bind:value={before}
           />
-          <label class="immich-form-label" for="to">After</label>
+          <label class="great-memories-form-label" for="to">After</label>
           <DateInput
             class="dark:text-gray-300 text-gray-700 text-base"
             id="to"

@@ -17,11 +17,11 @@ export const GreatMemoriesLayout = ({ children, preview }: GreatMemoriesLayoutPr
           extend: {
             colors: {
               // Light Theme
-              'immich-primary': '#4250AF',
-              'immich-bg': 'white',
-              'immich-fg': 'black',
-              'immich-gray': '#F6F6F4',
-              'immich-footer': '#6A737D',
+              'great-memories-primary': '#4250AF',
+              'great-memories-bg': 'white',
+              'great-memories-fg': 'black',
+              'great-memories-gray': '#F6F6F4',
+              'great-memories-footer': '#6A737D',
             },
             fontFamily: {
               sans: ['Overpass', 'sans-serif'],
@@ -58,7 +58,7 @@ export const GreatMemoriesLayout = ({ children, preview }: GreatMemoriesLayoutPr
             {children}
           </Section>
 
-          <Hr className="my-2 text-immich-gray" />
+          <Hr className="my-2 text-great-memories-gray" />
 
           <GreatMemoriesFooter />
         </Container>

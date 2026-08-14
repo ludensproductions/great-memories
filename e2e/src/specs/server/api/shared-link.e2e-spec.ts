@@ -252,7 +252,7 @@ describe('/shared-links', () => {
 
       const cookies = response.get('Set-Cookie') ?? [];
       expect(cookies).toHaveLength(1);
-      expect(cookies[0]).toContain('immich_shared_link_token');
+      expect(cookies[0]).toContain('great_memories_shared_link_token');
 
       const { status, body } = await request(app)
         .get('/shared-links/me')

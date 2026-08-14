@@ -69,7 +69,7 @@
         subtitle={$t('admin.template_settings_description')}
       >
         <div class="ms-4 mt-4 flex flex-col gap-4">
-          <p class="text-sm dark:text-immich-dark-fg">
+          <p class="text-sm dark:text-great-memories-dark-fg">
             <FormatMessage key="admin.template_email_if_empty">
               {$t('admin.template_email_if_empty')}
             </FormatMessage>

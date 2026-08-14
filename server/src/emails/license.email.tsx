@@ -16,7 +16,7 @@ export const LicenseEmail = () => (
     </Text>
 
     <Section className="my-2 bg-gray-200 rounded-2xl text-center p-4">
-      <Text className="m-0 text-monospace font-bold text-immich-primary">{'{{LICENSEKEY}}'}</Text>
+      <Text className="m-0 text-monospace font-bold text-great-memories-primary">{'{{LICENSEKEY}}'}</Text>
     </Section>
 
     <Text>
@@ -33,7 +33,7 @@ export const LicenseEmail = () => (
 
     <Text className="text-center">
       <Link
-        className="text-immich-primary text-sm"
+        className="text-great-memories-primary text-sm"
         // style={{ marginTop: '50px', color: 'rgb(66, 80, 175)', fontSize: '0.9rem' }}
         href={`https://my.immich.app/link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
       >

@@ -73,7 +73,7 @@ test.describe('broken-asset responsiveness', () => {
     );
 
     await page.goto(`/photos/${fixture.primaryAsset.id}`);
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
 
     const viewerBrokenAsset = page.locator('[data-viewer-content] [data-broken-asset]').first();
     await expect(viewerBrokenAsset).toBeVisible();

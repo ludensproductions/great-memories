@@ -1351,7 +1351,7 @@ def test_root_endpoint(deployed_app: TestClient) -> None:
 
     body = response.json()
     assert response.status_code == 200
-    assert body == {"message": "Immich ML"}
+    assert body == {"message": "Great Memories ML"}
 
 
 def test_ping_endpoint(deployed_app: TestClient) -> None:

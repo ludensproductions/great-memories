@@ -182,7 +182,7 @@ class GreatMemoriesAppState extends ConsumerState<GreatMemoriesApp> with Widgets
     final isColdStart = currentRouteName == null || currentRouteName == SplashScreenRoute.name;
 
     PageRouteInfo? route;
-    if (deepLink.uri.scheme == "immich") {
+    if (deepLink.uri.scheme == "great-memories") {
       route = await deepLinkHandler.handleScheme(deepLink, ref);
     } else if (deepLink.uri.host == "my.immich.app") {
       route = await deepLinkHandler.handleMyGreatMemoriesApp(deepLink, ref);

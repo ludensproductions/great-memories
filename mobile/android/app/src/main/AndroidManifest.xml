@@ -111,12 +111,12 @@
         <data android:scheme="content" android:mimeType="video/*" />
       </intent-filter>
 
-      <!-- immich:// URL scheme handling -->
+      <!-- great-memories:// URL scheme handling -->
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="immich" />
+        <data android:scheme="great-memories" />
       </intent-filter>
 
       <!-- my.immich.app deep link -->
@@ -153,7 +153,7 @@
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="app.immich" android:pathPrefix="/oauth-callback" />
+        <data android:scheme="app.great-memories" android:pathPrefix="/oauth-callback" />
       </intent-filter>
     </activity>
     <!-- Don't delete the meta-data below.

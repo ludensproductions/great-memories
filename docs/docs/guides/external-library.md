@@ -6,11 +6,11 @@ in a directory on the same machine.
 
 # Mount the directory into the containers.
 
-Edit `docker-compose.yml` to add one or more new mount points in the section `immich-server:` under `volumes:`.
+Edit `docker-compose.yml` to add one or more new mount points in the section `great-memories-server:` under `volumes:`.
 If you want Great Memories to be able to delete the images in the external library or add metadata ([XMP sidecars](/features/xmp-sidecars)), remove `:ro` from the end of the mount point.
 
 ```diff
-immich-server:
+great-memories-server:
     volumes:
         - ${UPLOAD_LOCATION}:/data
 +       - /home/user/photos1:/home/user/photos1:ro

@@ -80,7 +80,7 @@ type WaitOptions = { event: EventType; id?: string; total?: number; timeout?: nu
 type AdminSetupOptions = { onboarding?: boolean };
 type FileData = { bytes?: Buffer; filename: string };
 
-const dbUrl = `postgres://postgres:postgres@${playwrightDbHost}:5435/immich`;
+const dbUrl = `postgres://postgres:postgres@${playwrightDbHost}:5435/great-memories`;
 export const baseUrl = playwriteBaseUrl;
 export const shareUrl = `${baseUrl}/share`;
 export const app = `${baseUrl}/api`;
@@ -89,11 +89,11 @@ export const testAssetDirInternal = '/assets';
 export const tempDir = tmpdir();
 export const asBearerAuth = (accessToken: string) => ({ Authorization: `Bearer ${accessToken}` });
 export const asKeyAuth = (key: string) => ({ 'x-api-key': key });
-export const immichCli = (args: string[]) =>
-  executeCommand('pnpm', ['exec', 'immich', '-d', `/${tempDir}/immich/`, ...args], { cwd: '../packages/cli' }).promise;
+export const greatMemoriesCli = (args: string[]) =>
+  executeCommand('pnpm', ['exec', 'great-memories', '-d', `/${tempDir}/great-memories/`, ...args], { cwd: '../packages/cli' }).promise;
 export const dockerExec = (args: string[]) =>
-  executeCommand('docker', ['exec', '-i', 'immich-e2e-server', '/bin/bash', '-c', args.join(' ')]);
-export const immichAdmin = (args: string[]) => dockerExec([`great-memories-admin ${args.join(' ')}`]);
+  executeCommand('docker', ['exec', '-i', 'great-memories-e2e-server', '/bin/bash', '-c', args.join(' ')]);
+export const greatMemoriesAdmin = (args: string[]) => dockerExec([`great-memories-admin ${args.join(' ')}`]);
 export const specialCharStrings = ["'", '"', ',', '{', '}', '*'];
 export const TEN_TIMES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -486,7 +486,7 @@ export const utils = {
   setAuthCookies: async (context: BrowserContext, accessToken: string, domain = playwrightHost) =>
     await context.addCookies([
       {
-        name: 'immich_access_token',
+        name: 'great_memories_access_token',
         value: accessToken,
         domain,
         path: '/',
@@ -496,7 +496,7 @@ export const utils = {
         sameSite: 'Lax',
       },
       {
-        name: 'immich_auth_type',
+        name: 'great_memories_auth_type',
         value: 'password',
         domain,
         path: '/',
@@ -506,7 +506,7 @@ export const utils = {
         sameSite: 'Lax',
       },
       {
-        name: 'immich_is_authenticated',
+        name: 'great_memories_is_authenticated',
         value: 'true',
         domain,
         path: '/',
@@ -520,7 +520,7 @@ export const utils = {
   setMaintenanceAuthCookie: async (context: BrowserContext, token: string, domain = '127.0.0.1') =>
     await context.addCookies([
       {
-        name: 'immich_maintenance_token',
+        name: 'great_memories_maintenance_token',
         value: token,
         domain,
         path: '/',
@@ -559,36 +559,36 @@ export const utils = {
   },
 
   putFile(source: string, dest: string) {
-    return executeCommand('docker', ['cp', source, `immich-e2e-server:${dest}`]).promise;
+    return executeCommand('docker', ['cp', source, `great-memories-e2e-server:${dest}`]).promise;
   },
 
   async putTextFile(contents: string, dest: string) {
     const dir = await mkdtemp(join(tmpdir(), 'test-'));
     const fn = join(dir, 'file');
     await pipeline(Readable.from(contents), createWriteStream(fn));
-    return executeCommand('docker', ['cp', fn, `immich-e2e-server:${dest}`]).promise;
+    return executeCommand('docker', ['cp', fn, `great-memories-e2e-server:${dest}`]).promise;
   },
 
   async move(source: string, dest: string) {
-    return executeCommand('docker', ['exec', 'immich-e2e-server', 'mv', source, dest]).promise;
+    return executeCommand('docker', ['exec', 'great-memories-e2e-server', 'mv', source, dest]).promise;
   },
 
   async copyFolder(source: string, dest: string) {
-    return executeCommand('docker', ['exec', 'immich-e2e-server', 'cp', '-r', source, dest]).promise;
+    return executeCommand('docker', ['exec', 'great-memories-e2e-server', 'cp', '-r', source, dest]).promise;
   },
 
   async deleteFile(path: string) {
-    return executeCommand('docker', ['exec', 'immich-e2e-server', 'rm', path]).promise;
+    return executeCommand('docker', ['exec', 'great-memories-e2e-server', 'rm', path]).promise;
   },
 
   async deleteFolder(path: string) {
-    return executeCommand('docker', ['exec', 'immich-e2e-server', 'rm', '-r', path]).promise;
+    return executeCommand('docker', ['exec', 'great-memories-e2e-server', 'rm', '-r', path]).promise;
   },
 
   async truncateFolder(path: string) {
     return executeCommand('docker', [
       'exec',
-      'immich-e2e-server',
+      'great-memories-e2e-server',
       'find',
       path,
       '-type',
@@ -603,7 +603,7 @@ export const utils = {
   },
 
   async mkFolder(path: string) {
-    return executeCommand('docker', ['exec', 'immich-e2e-server', 'mkdir', '-p', path]).promise;
+    return executeCommand('docker', ['exec', 'great-memories-e2e-server', 'mkdir', '-p', path]).promise;
   },
 
   createBackup: async (accessToken: string) => {
@@ -637,7 +637,7 @@ export const utils = {
     const writeStream = createWriteStream(fn);
     await pipeline(sql, gzip, writeStream);
 
-    await executeCommand('docker', ['cp', fn, `immich-e2e-server:/data/backups/development-${generate}.sql.gz`]).promise;
+    await executeCommand('docker', ['cp', fn, `great-memories-e2e-server:/data/backups/development-${generate}.sql.gz`]).promise;
   },
 
   resetAdminConfig: async (accessToken: string) => {
@@ -670,7 +670,7 @@ export const utils = {
 
   cliLogin: async (accessToken: string) => {
     const key = await utils.createApiKey(accessToken, [Permission.All]);
-    await immichCli(['login', app, key.secret]);
+    await greatMemoriesCli(['login', app, key.secret]);
     return key.secret;
   },
 

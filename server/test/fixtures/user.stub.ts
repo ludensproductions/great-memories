@@ -25,7 +25,7 @@ export const userStub = {
     ...authStub.user1.user,
     status: UserStatus.Active,
     profileChangedAt: new Date('2021-01-01'),
-    name: 'immich_name',
+    name: 'great_memories_name',
     storageLabel: null,
     oauthId: '',
     shouldChangePassword: false,

@@ -71,7 +71,7 @@
               isEdited={configToEdit.library.scan.cronExpression !== config.library.scan.cronExpression}
             >
               {#snippet descriptionSnippet()}
-                <p class="text-sm dark:text-immich-dark-fg">
+                <p class="text-sm dark:text-great-memories-dark-fg">
                   <FormatMessage key="admin.cron_expression_description">
                     {#snippet children({ message })}
                       <Link

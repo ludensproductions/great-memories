@@ -1,22 +1,22 @@
 import { readFileSync } from 'node:fs';
-import { immichCli } from 'src/utils';
+import { greatMemoriesCli } from 'src/utils';
 import { describe, expect, it } from 'vitest';
 
 const pkg = JSON.parse(readFileSync('../packages/cli/package.json', 'utf8'));
 
-describe(`immich --version`, () => {
-  describe('immich --version', () => {
+describe(`great-memories --version`, () => {
+  describe('great-memories --version', () => {
     it('should print the cli version', async () => {
-      const { stdout, stderr, exitCode } = await immichCli(['--version']);
+      const { stdout, stderr, exitCode } = await greatMemoriesCli(['--version']);
       expect(stdout).toEqual(pkg.version);
       expect(stderr).toEqual('');
       expect(exitCode).toBe(0);
     });
   });
 
-  describe('immich -V', () => {
+  describe('great-memories -V', () => {
     it('should print the cli version', async () => {
-      const { stdout, stderr, exitCode } = await immichCli(['-V']);
+      const { stdout, stderr, exitCode } = await greatMemoriesCli(['-V']);
       expect(stdout).toEqual(pkg.version);
       expect(stderr).toEqual('');
       expect(exitCode).toBe(0);

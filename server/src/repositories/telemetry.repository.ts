@@ -65,7 +65,7 @@ export const bootstrapTelemetry = (port: number) => {
 
   instance = new NodeSDK({
     resource: resourceFromAttributes({
-      [ATTR_SERVICE_NAME]: `immich`,
+      [ATTR_SERVICE_NAME]: `great-memories`,
       [ATTR_SERVICE_VERSION]: serverVersion.toString(),
     }),
     metricReader: new PrometheusExporter({ port }),
@@ -159,7 +159,7 @@ export class TelemetryRepository {
       const metricName = `${snakeCase(className).replaceAll(/_(?=(repository)|(controller)|(provider)|(service)|(module))/g, '.')}.${propertyName}.duration`;
 
       const histogram = this.metricService.getHistogram(metricName, {
-        prefix: 'immich',
+        prefix: 'great-memories',
         description: `The elapsed time in ${unit} for the ${startCase(className)} to ${propertyName.toLowerCase()}`,
         unit,
         valueType: contextBase.ValueType.DOUBLE,

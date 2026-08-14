@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { fork } from 'node:child_process';
 import { dirname, join } from 'node:path';
-import { IMMICH_SERVER_START } from 'src/constants';
+import { GREAT_MEMORIES_SERVER_START } from 'src/constants';
 
 @Injectable()
 export class MaintenanceHealthRepository {
@@ -15,8 +15,8 @@ export class MaintenanceHealthRepository {
         execArgv: process.execArgv.filter((arg) => !arg.startsWith('--inspect')),
         env: {
           ...process.env,
-          IMMICH_HOST: '127.0.0.1',
-          IMMICH_PORT: '33001',
+          GREAT_MEMORIES_HOST: '127.0.0.1',
+          GREAT_MEMORIES_PORT: '33001',
         },
         stdio: ['ignore', 'pipe', 'ignore', 'ipc'],
       });
@@ -30,7 +30,7 @@ export class MaintenanceHealthRepository {
 
         output += data;
 
-        if (output.includes(IMMICH_SERVER_START)) {
+        if (output.includes(GREAT_MEMORIES_SERVER_START)) {
           resolve();
           worker.kill('SIGTERM');
         }

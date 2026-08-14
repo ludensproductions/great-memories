@@ -62,7 +62,7 @@
       {thresholds}
     />
   {:else}
-    <p class="mb-4 font-medium text-immich-dark-gray dark:text-white">{$t('storage')}</p>
+    <p class="mb-4 font-medium text-great-memories-dark-gray dark:text-white">{$t('storage')}</p>
     <LoadingSpinner />
   {/if}
 </div>

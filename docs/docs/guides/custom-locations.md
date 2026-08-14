@@ -13,19 +13,19 @@ In our `.env` file, we will define the paths we want to use. Note that you don't
 
 # Custom location where your uploaded, thumbnails, and transcoded video files are stored
 - UPLOAD_LOCATION=./library
-+ UPLOAD_LOCATION=/custom/path/immich/immich_files
-+ THUMB_LOCATION=/custom/path/immich/thumbs
-+ ENCODED_VIDEO_LOCATION=/custom/path/immich/encoded-video
-+ PROFILE_LOCATION=/custom/path/immich/profile
-+ BACKUP_LOCATION=/custom/path/immich/backups
++ UPLOAD_LOCATION=/custom/path/great-memories/great_memories_files
++ THUMB_LOCATION=/custom/path/great-memories/thumbs
++ ENCODED_VIDEO_LOCATION=/custom/path/great-memories/encoded-video
++ PROFILE_LOCATION=/custom/path/great-memories/profile
++ BACKUP_LOCATION=/custom/path/great-memories/backups
 ...
 ```
 
-After defining the locations of these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `immich-server` container. These paths are where the mount attaches inside of the container, so don't change those.
+After defining the locations of these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `great-memories-server` container. These paths are where the mount attaches inside of the container, so don't change those.
 
 ```diff title="docker-compose.yml"
 services:
-  immich-server:
+  great-memories-server:
       volumes:
       - ${UPLOAD_LOCATION}:/data
 +     - ${THUMB_LOCATION}:/data/thumbs

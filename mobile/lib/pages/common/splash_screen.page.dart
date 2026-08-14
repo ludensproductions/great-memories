@@ -130,7 +130,7 @@ class _BottomPanelState extends State<_BottomPanel> {
     }
 
     try {
-      await deleteSqliteDatabase(name: 'immich');
+      await deleteSqliteDatabase(name: 'great-memories');
     } catch (_) {
       return;
     }

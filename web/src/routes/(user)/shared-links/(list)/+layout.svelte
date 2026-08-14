@@ -85,7 +85,7 @@
   <Container center size="medium">
     {#if sharedLinks.length === 0}
       <div
-        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-immich-dark-gray dark:text-immich-gray"
+        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-great-memories-dark-gray dark:text-great-memories-gray"
       >
         <p>{$t('you_dont_have_any_shared_links')}</p>
       </div>

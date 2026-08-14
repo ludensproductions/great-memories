@@ -150,7 +150,7 @@ struct GreatMemoriesMemoryProvider: TimelineProvider {
 }
 
 struct GreatMemoriesMemoryWidget: Widget {
-  let kind: String = "com.immich.widget.memory"
+  let kind: String = "com.greatmemories.app.widget.memory"
 
   var body: some WidgetConfiguration {
     StaticConfiguration(

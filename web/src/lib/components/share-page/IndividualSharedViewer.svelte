@@ -44,7 +44,7 @@
   });
 
   const downloadAssets = async () => {
-    await downloadArchive(`immich-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
+    await downloadArchive(`great-memories-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
   };
 
   const handleUploadAssets = async (files: File[] = []) => {
@@ -93,7 +93,7 @@
           onclick={handleSelectAll}
         />
         {#if sharedLink?.allowDownload}
-          <DownloadAction filename="immich-shared.zip" />
+          <DownloadAction filename="great-memories-shared.zip" />
         {/if}
         {#if isOwned}
           <RemoveFromSharedLink bind:sharedLink />

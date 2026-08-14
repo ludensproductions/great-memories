@@ -156,7 +156,7 @@ export class StorageCore {
     return normalizedPath.startsWith(normalizedAppMediaLocation);
   }
 
-  static isImmichPath(path: string) {
+  static isGreatMemoriesPath(path: string) {
     return StorageCore.isManagedMediaPath(path);
   }
 

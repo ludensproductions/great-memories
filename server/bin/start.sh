@@ -13,7 +13,7 @@ log_message() {
   fi
 }
 
-log_message "Initializing Great Memories $IMMICH_SOURCE_REF"
+log_message "Initializing Great Memories $GREAT_MEMORIES_SOURCE_REF"
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.3"
 if [ -f "$lib_path" ]; then
@@ -59,7 +59,7 @@ if [ -f "${SERVER_HOME}/dist/main.js" ]; then
   fi
 else
   echo "Error: ${SERVER_HOME}/dist/main.js not found"
-  if [ "$IMMICH_ENV" = "development" ]; then
+  if [ "$GREAT_MEMORIES_ENV" = "development" ]; then
     echo "You may need to build the server first."
   fi
   exit 1

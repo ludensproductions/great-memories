@@ -56,7 +56,7 @@ describe('/admin/database-backups', () => {
           expect.objectContaining({
             backups: [
               expect.objectContaining({
-                filename: expect.stringMatching(/immich-db-backup-\d{8}T\d{6}-v.*-pg.*\.sql\.gz$/),
+                filename: expect.stringMatching(/great-memories-db-backup-\d{8}T\d{6}-v.*-pg.*\.sql\.gz$/),
                 filesize: expect.any(Number),
               }),
             ],
@@ -160,9 +160,9 @@ describe('/admin/database-backups', () => {
       // work-around until test is running on released version
       await utils.move(
         `/data/backups/${filename}`,
-        '/data/backups/immich-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
+        '/data/backups/great-memories-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
       );
-      filename = 'immich-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz';
+      filename = 'great-memories-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz';
 
       const { status } = await request(app)
         .post('/admin/maintenance')

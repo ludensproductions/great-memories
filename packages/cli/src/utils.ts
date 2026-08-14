@@ -16,7 +16,7 @@ export interface BaseOptions {
 export type AuthDto = { url: string; key: string };
 type OldAuthDto = { instanceUrl: string; apiKey: string };
 
-const legacyConfigDirectory = join(homedir(), '.config', 'immich');
+const legacyConfigDirectory = join(homedir(), '.config', 'great-memories');
 const isDefaultConfigDirectory = (dir: string) => resolve(dir) === resolve(join(homedir(), '.config', 'great-memories'));
 
 export const authenticate = async (options: BaseOptions): Promise<AuthDto> => {
@@ -69,7 +69,7 @@ Please make sure your API key has the correct permissions.`,
 };
 
 export const connect = async (url: string, key: string) => {
-  const wellKnownPaths = ['.well-known/great-memories', '.well-known/immich'];
+  const wellKnownPaths = ['.well-known/great-memories', '.well-known/great-memories'];
   for (const path of wellKnownPaths) {
     try {
       const wellKnownUrl = new URL(path, url);

@@ -15,7 +15,7 @@ For a more detailed example, check out the Great Memories CLI source in this rep
 ```typescript
 import { getAllAlbums, getMyUser, init } from "@immich/sdk";
 
-const API_KEY = "<API_KEY>"; // process.env.IMMICH_API_KEY
+const API_KEY = "<API_KEY>"; // process.env.GREAT_MEMORIES_API_KEY
 
 init({ baseUrl: "https://demo.immich.app/api", apiKey: API_KEY });
 

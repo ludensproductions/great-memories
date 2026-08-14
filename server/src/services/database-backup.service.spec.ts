@@ -102,61 +102,61 @@ describe(DatabaseBackupService.name, () => {
   describe('cleanupDatabaseBackups', () => {
     it('should do nothing if not reached keepLastAmount', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.backupEnabled);
-      mocks.storage.readdir.mockResolvedValue(['immich-db-backup-1.sql.gz']);
+      mocks.storage.readdir.mockResolvedValue(['great-memories-db-backup-1.sql.gz']);
       await sut.cleanupDatabaseBackups();
       expect(mocks.storage.unlink).not.toHaveBeenCalled();
     });
 
     it('should remove failed backup files', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.backupEnabled);
-      //`immich-db-backup-${DateTime.now().toFormat("yyyyLLdd'T'HHmmss")}-v${serverVersion.toString()}-pg${databaseVersion.split(' ')[0]}.sql.gz.tmp`,
+      //`great-memories-db-backup-${DateTime.now().toFormat("yyyyLLdd'T'HHmmss")}-v${serverVersion.toString()}-pg${databaseVersion.split(' ')[0]}.sql.gz.tmp`,
       mocks.storage.readdir.mockResolvedValue([
-        'immich-db-backup-123.sql.gz.tmp',
-        `immich-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
-        `immich-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
-        `immich-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
+        'great-memories-db-backup-123.sql.gz.tmp',
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
       ]);
       await sut.cleanupDatabaseBackups();
       expect(mocks.storage.unlink).toHaveBeenCalledTimes(3);
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-123.sql.gz.tmp`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-123.sql.gz.tmp`,
       );
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-20250725T110216-v1.234.5-pg14.5.sql.gz.tmp`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-20250725T110216-v1.234.5-pg14.5.sql.gz.tmp`,
       );
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-20250729T110116-v1.234.5-pg14.5.sql.gz.tmp`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-20250729T110116-v1.234.5-pg14.5.sql.gz.tmp`,
       );
     });
 
     it('should remove old backup files over keepLastAmount', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.backupEnabled);
-      mocks.storage.readdir.mockResolvedValue(['immich-db-backup-1.sql.gz', 'immich-db-backup-2.sql.gz']);
+      mocks.storage.readdir.mockResolvedValue(['great-memories-db-backup-1.sql.gz', 'great-memories-db-backup-2.sql.gz']);
       await sut.cleanupDatabaseBackups();
       expect(mocks.storage.unlink).toHaveBeenCalledTimes(1);
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-1.sql.gz`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-1.sql.gz`,
       );
     });
 
     it('should remove old backup files over keepLastAmount and failed backups', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.backupEnabled);
       mocks.storage.readdir.mockResolvedValue([
-        `immich-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
-        `immich-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
-        'immich-db-backup-1753789649000.sql.gz',
-        `immich-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
+        'great-memories-db-backup-1753789649000.sql.gz',
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
       ]);
       await sut.cleanupDatabaseBackups();
       expect(mocks.storage.unlink).toHaveBeenCalledTimes(3);
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-1753789649000.sql.gz`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-1753789649000.sql.gz`,
       );
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-20250725T110216-v1.234.5-pg14.5.sql.gz.tmp`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-20250725T110216-v1.234.5-pg14.5.sql.gz.tmp`,
       );
       expect(mocks.storage.unlink).toHaveBeenCalledWith(
-        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/immich-db-backup-20250727T110116-v1.234.5-pg14.5.sql.gz`,
+        `${StorageCore.getBaseFolder(StorageFolder.Backups)}/great-memories-db-backup-20250727T110116-v1.234.5-pg14.5.sql.gz`,
       );
     });
   });
@@ -174,7 +174,7 @@ describe(DatabaseBackupService.name, () => {
 
     it('should sanitize DB_URL (remove uselibpqcompat) before calling pg_dumpall', async () => {
       // create a service instance with a URL connection that includes libpqcompat
-      const dbUrl = 'postgresql://postgres:pwd@host:5432/immich?sslmode=require&uselibpqcompat=true';
+      const dbUrl = 'postgresql://postgres:pwd@host:5432/great-memories?sslmode=require&uselibpqcompat=true';
       const configMock = {
         getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
         getWorker: () => GreatMemoriesWorker.Api,
@@ -209,7 +209,7 @@ describe(DatabaseBackupService.name, () => {
       const args = call[1] as string[];
       expect(args).toMatchInlineSnapshot(`
         [
-          "postgresql://postgres:pwd@host:5432/immich?sslmode=require",
+          "postgresql://postgres:pwd@host:5432/great-memories?sslmode=require",
           "--clean",
           "--if-exists",
         ]
@@ -309,7 +309,7 @@ describe(DatabaseBackupService.name, () => {
             "database",
             "--port",
             "5432",
-            "immich",
+            "great-memories",
             "--clean",
             "--if-exists",
           ],
@@ -333,7 +333,7 @@ describe(DatabaseBackupService.name, () => {
             "--port",
             "5432",
             "--dbname",
-            "immich",
+            "great-memories",
             "--echo-all",
             "--output=/dev/null",
           ],
@@ -358,7 +358,7 @@ describe(DatabaseBackupService.name, () => {
             "--port",
             "5432",
             "--dbname",
-            "immich",
+            "great-memories",
             "--single-transaction",
             "--set",
             "ON_ERROR_STOP=on",
@@ -597,18 +597,18 @@ describe(DatabaseBackupService.name, () => {
   describe('listBackups', () => {
     it('should give us all backups', async () => {
       mocks.storage.readdir.mockResolvedValue([
-        `immich-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
-        `immich-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
-        'immich-db-backup-1753789649000.sql.gz',
-        `immich-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-25T11:02:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz.tmp`,
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-27T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
+        'great-memories-db-backup-1753789649000.sql.gz',
+        `great-memories-db-backup-${DateTime.fromISO('2025-07-29T11:01:16Z').toFormat("yyyyLLdd'T'HHmmss")}-v1.234.5-pg14.5.sql.gz`,
       ]);
       mocks.storage.stat.mockResolvedValue({ size: 1024 } as any);
 
       await expect(sut.listBackups()).resolves.toMatchObject({
         backups: [
-          { filename: 'immich-db-backup-20250729T110116-v1.234.5-pg14.5.sql.gz', filesize: 1024 },
-          { filename: 'immich-db-backup-20250727T110116-v1.234.5-pg14.5.sql.gz', filesize: 1024 },
-          { filename: 'immich-db-backup-1753789649000.sql.gz', filesize: 1024 },
+          { filename: 'great-memories-db-backup-20250729T110116-v1.234.5-pg14.5.sql.gz', filesize: 1024 },
+          { filename: 'great-memories-db-backup-20250727T110116-v1.234.5-pg14.5.sql.gz', filesize: 1024 },
+          { filename: 'great-memories-db-backup-1753789649000.sql.gz', filesize: 1024 },
         ],
       });
     });

@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-let IMMICH_SHARE_GROUP = Bundle.main.object(forInfoDictionaryKey: "AppGroupId") as! String
+let GREAT_MEMORIES_SHARE_GROUP = Bundle.main.object(forInfoDictionaryKey: "AppGroupId") as! String
 
 enum WidgetError: Error, Codable {
   case noLogin
@@ -48,7 +48,7 @@ struct Asset: Codable {
   let type: AssetType
 
   var deepLink: URL? {
-    return URL(string: "immich://asset?id=\(id)")
+    return URL(string: "great-memories://asset?id=\(id)")
   }
 }
 
@@ -115,7 +115,7 @@ class GreatMemoriesAPI {
 
   init() async throws {
     // fetch the credentials from the UserDefaults store that dart placed here
-    guard let defaults = UserDefaults(suiteName: IMMICH_SHARE_GROUP),
+    guard let defaults = UserDefaults(suiteName: GREAT_MEMORIES_SHARE_GROUP),
       let serverURL = defaults.string(forKey: "widget_server_url"),
       let sessionKey = defaults.string(forKey: "widget_auth_token")
     else {

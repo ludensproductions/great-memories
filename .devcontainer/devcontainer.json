@@ -1,12 +1,12 @@
 {
   "name": "Great Memories - Backend, Frontend and ML",
-  "service": "immich-server",
+  "service": "great-memories-server",
   "runServices": [
-    "immich-init",
-    "immich-server",
+    "great-memories-init",
+    "great-memories-server",
     "redis",
     "database",
-    "immich-machine-learning"
+    "great-memories-machine-learning"
   ],
   "dockerComposeFile": [
     "../docker/docker-compose.dev.yml",
@@ -35,7 +35,7 @@
             {
               "label": "Great Memories API Server (Nest)",
               "type": "shell",
-              "command": "[ -f /immich-devcontainer/container-start-backend.sh ] && /immich-devcontainer/container-start-backend.sh || exit 0",
+              "command": "[ -f /great-memories-devcontainer/container-start-backend.sh ] && /great-memories-devcontainer/container-start-backend.sh || exit 0",
               "isBackground": true,
               "presentation": {
                 "echo": true,
@@ -55,7 +55,7 @@
             {
               "label": "Great Memories Web Server (Vite)",
               "type": "shell",
-              "command": "[ -f /immich-devcontainer/container-start-frontend.sh ] && /immich-devcontainer/container-start-frontend.sh || exit 0",
+              "command": "[ -f /great-memories-devcontainer/container-start-frontend.sh ] && /great-memories-devcontainer/container-start-frontend.sh || exit 0",
               "isBackground": true,
               "presentation": {
                 "echo": true,
@@ -121,6 +121,6 @@
     //  The database username
     "DB_USERNAME": "${localEnv:DB_USERNAME:postgres}",
     //  The database name
-    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:immich}"
+    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:great-memories}"
   }
 }

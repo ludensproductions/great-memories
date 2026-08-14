@@ -24,7 +24,7 @@ void main() {
 
   setUp(() async {
     dir = await Directory.systemTemp.createTemp('drift_pool_stream');
-    path = '${dir.path}/immich.sqlite';
+    path = '${dir.path}/great-memories.sqlite';
   });
 
   tearDown(() async {

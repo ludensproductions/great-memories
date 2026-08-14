@@ -128,6 +128,6 @@ Truy cập bản demo [tại đây](https://demo.immich.app). Đối với ứng
 
 ## Người đóng góp
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

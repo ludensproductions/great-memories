@@ -47,7 +47,7 @@
   </div>
 
   {#if description}
-    <p class="pb-2 text-sm immich-form-label" id="{label}-desc">
+    <p class="pb-2 text-sm great-memories-form-label" id="{label}-desc">
       {description}
     </p>
   {:else}
@@ -55,7 +55,7 @@
   {/if}
 
   <textarea
-    class="immich-form-input w-full pb-2"
+    class="great-memories-form-input w-full pb-2"
     aria-describedby={description ? `${label}-desc` : undefined}
     aria-labelledby="{label}-label"
     id={label}

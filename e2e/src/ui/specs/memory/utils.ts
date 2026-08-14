@@ -61,7 +61,7 @@ export const memoryGalleryUtils = {
 
 export const memoryAssetViewerUtils = {
   locator(page: Page) {
-    return page.locator('#immich-asset-viewer');
+    return page.locator('#great-memories-asset-viewer');
   },
 
   async waitForViewerOpen(page: Page) {

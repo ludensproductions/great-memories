@@ -8,7 +8,7 @@ You will need to generate an app password to use your Microsoft email in Great M
 
 ## Entering the SMTP credential in Great Memories
 
-Entering your credential in Great Memories's email notification settings at `Administration -> Settings -> Notification Settings`
+Entering your credential in Great Memories' email notification settings at `Administration -> Settings -> Notification Settings`
 
 Host: smtp-mail.outlook.com
 Port: 587

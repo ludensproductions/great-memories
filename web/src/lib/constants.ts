@@ -245,8 +245,8 @@ export interface Lang {
 export const defaultLang: Lang = { name: 'English', code: 'en', loader: () => import('$i18n/en.json') };
 
 export enum GreatMemoriesProduct {
-  Client = 'immich-client',
-  Server = 'immich-server',
+  Client = 'great-memories-client',
+  Server = 'great-memories-server',
 }
 
 export enum SettingInputFieldType {

@@ -52,7 +52,7 @@
 
         <SettingAccordion key="reverse-geocoding" title={$t('admin.map_reverse_geocoding_settings')}>
           {#snippet subtitleSnippet()}
-            <p class="text-sm dark:text-immich-dark-fg">
+            <p class="text-sm dark:text-great-memories-dark-fg">
               <FormatMessage key="admin.map_manage_reverse_geocoding_settings">
                 {#snippet children({ message })}
                   <Link href="https://docs.immich.app/features/reverse-geocoding">{message}</Link>

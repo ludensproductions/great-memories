@@ -37,7 +37,7 @@ Sometimes, an external library will not scan correctly. This can happen if Great
 - Are the permissions set correctly?
 - Make sure you are using forward slashes (`/`) and not backward slashes.
 
-To validate that Great Memories can reach your external library, start a shell inside the container. Run `docker exec -it immich_server bash` to a bash shell. If your import path is `/mnt/photos`, check it with `ls /mnt/photos`. If you are using a dedicated microservices container, make sure to add the same mount point and check for availability within the microservices container as well.
+To validate that Great Memories can reach your external library, start a shell inside the container. Run `docker exec -it great_memories_server bash` to a bash shell. If your import path is `/mnt/photos`, check it with `ls /mnt/photos`. If you are using a dedicated microservices container, make sure to add the same mount point and check for availability within the microservices container as well.
 
 ### Exclusion Patterns
 
@@ -98,10 +98,10 @@ First, we need to plan how we want to organize the libraries. The christmas trip
 
 ### Mount Docker Volumes
 
-The `immich-server` container will need access to the gallery. Modify your docker compose file as follows
+The `great-memories-server` container will need access to the gallery. Modify your docker compose file as follows
 
 ```diff title="docker-compose.yml"
-  immich-server:
+  great-memories-server:
     volumes:
       - ${UPLOAD_LOCATION}:/data
 +     - /mnt/nas/christmas-trip:/mnt/media/christmas-trip:ro

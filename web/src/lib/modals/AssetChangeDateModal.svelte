@@ -63,7 +63,7 @@
 >
   <Label for="datetime" class="mb-1 block">{$t('date_and_time')}</Label>
   <DateInput
-    class="mb-2 immich-form-input w-full"
+    class="mb-2 great-memories-form-input w-full"
     id="datetime"
     type="datetime-local"
     bind:value={() => selectedDate, updateSelectedDate}

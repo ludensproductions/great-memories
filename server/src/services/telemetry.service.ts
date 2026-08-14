@@ -8,27 +8,27 @@ export class TelemetryService extends BaseService {
   @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Api] })
   async onBootstrap(): Promise<void> {
     const userCount = await this.userRepository.getCount();
-    this.telemetryRepository.api.addToGauge('immich.users.total', userCount);
+    this.telemetryRepository.api.addToGauge('great-memories.users.total', userCount);
   }
 
   @OnEvent({ name: 'UserCreate' })
   onUserCreate() {
-    this.telemetryRepository.api.addToGauge(`immich.users.total`, 1);
+    this.telemetryRepository.api.addToGauge(`great-memories.users.total`, 1);
   }
 
   @OnEvent({ name: 'UserTrash' })
   onUserTrash() {
-    this.telemetryRepository.api.addToGauge(`immich.users.total`, -1);
+    this.telemetryRepository.api.addToGauge(`great-memories.users.total`, -1);
   }
 
   @OnEvent({ name: 'UserRestore' })
   onUserRestore() {
-    this.telemetryRepository.api.addToGauge(`immich.users.total`, 1);
+    this.telemetryRepository.api.addToGauge(`great-memories.users.total`, 1);
   }
 
   @OnEvent({ name: 'JobStart' })
   onJobStart(...[queueName]: ArgsOf<'JobStart'>) {
-    const queueMetric = `immich.queues.${snakeCase(queueName)}.active`;
+    const queueMetric = `great-memories.queues.${snakeCase(queueName)}.active`;
     this.telemetryRepository.jobs.addToGauge(queueMetric, 1);
   }
 
@@ -38,24 +38,24 @@ export class TelemetryService extends BaseService {
       return;
     }
 
-    const jobMetric = `immich.jobs.${snakeCase(job.name)}.${response}`;
+    const jobMetric = `great-memories.jobs.${snakeCase(job.name)}.${response}`;
     this.telemetryRepository.jobs.addToCounter(jobMetric, 1);
   }
 
   @OnEvent({ name: 'JobError' })
   onJobError({ job }: ArgOf<'JobError'>) {
-    const jobMetric = `immich.jobs.${snakeCase(job.name)}.${JobStatus.Failed}`;
+    const jobMetric = `great-memories.jobs.${snakeCase(job.name)}.${JobStatus.Failed}`;
     this.telemetryRepository.jobs.addToCounter(jobMetric, 1);
   }
 
   @OnEvent({ name: 'JobComplete' })
   onJobComplete(...[queueName]: ArgsOf<'JobComplete'>) {
-    const queueMetric = `immich.queues.${snakeCase(queueName)}.active`;
+    const queueMetric = `great-memories.queues.${snakeCase(queueName)}.active`;
     this.telemetryRepository.jobs.addToGauge(queueMetric, -1);
   }
 
   @OnEvent({ name: 'QueueStart' })
   onQueueStart({ name }: ArgOf<'QueueStart'>) {
-    this.telemetryRepository.jobs.addToCounter(`immich.queues.${snakeCase(name)}.started`, 1);
+    this.telemetryRepository.jobs.addToCounter(`great-memories.queues.${snakeCase(name)}.started`, 1);
   }
 }

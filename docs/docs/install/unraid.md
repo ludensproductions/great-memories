@@ -21,7 +21,7 @@ In order to install Great Memories from the Unraid CA, you will need an existing
 
 Once you have Redis and PostgreSQL running, search for Great Memories on the Unraid CA, choose either of the templates listed and fill out the example variables.
 
-For more information about setting up the community image see [here](https://github.com/imagegenius/docker-immich#application-setup)
+For more information about setting up the community image see [here](https://github.com/imagegenius/docker-great-memories#application-setup)
 
 ## Docker-Compose Method (Official)
 
@@ -75,13 +75,13 @@ alt="Select Plugins > Compose.Manager > Add New Stack > Label it Great Memories"
 5.  Click "**Save Changes**", you will be prompted to edit stack UI labels, just leave this blank and click "**Ok**"
 6.  Select the cog ⚙️ next to Great Memories, click "**Edit Stack**", then click "**Env File**"
 7.  Paste the entire contents of the [Great Memories example.env](https://github.com/immich-app/immich/releases/latest/download/example.env) file into the Unraid editor, then **before saving** edit the following:
-    - `UPLOAD_LOCATION`: Create a folder in your Images Unraid share and place the **absolute** location here > For example my _"images"_ share has a folder within it called _"immich"_. If I browse to this directory in the terminal and type `pwd` the output is `/mnt/user/images/immich`. This is the exact value I need to enter as my `UPLOAD_LOCATION`
+    - `UPLOAD_LOCATION`: Create a folder in your Images Unraid share and place the **absolute** location here > For example my _"images"_ share has a folder within it called _"great-memories"_. If I browse to this directory in the terminal and type `pwd` the output is `/mnt/user/images/great-memories`. This is the exact value I need to enter as my `UPLOAD_LOCATION`
     - `DB_DATA_LOCATION`: Change this to use an Unraid share (preferably a cache pool, e.g. `/mnt/user/appdata/postgresql/data`). This uses the `appdata` share. Do also create the `postgresql` folder, by running `mkdir /mnt/user/{share_location}/postgresql/data`. If left at default it will try to use Unraid's `/boot/config/plugins/compose.manager/projects/[stack_name]/postgres` folder which it doesn't have permissions to, resulting in this container continuously restarting.
 
       <img
       src={require('./img/unraid05.webp').default}
       width="70%"
-      alt="Absolute location of where you want immich images stored"
+      alt="Absolute location of where you want great-memories images stored"
       />
 
     <details >
@@ -100,7 +100,7 @@ alt="Select Plugins > Compose.Manager > Add New Stack > Label it Great Memories"
 
     > Note: This can take several minutes depending on your Internet speed and Unraid hardware
 
-9.  Once on the Docker page you will see several Great Memories containers, one of them will be labelled `immich_server` and will have a port mapping. Visit the `IP:PORT` displayed in your web browser and you should see the Great Memories admin setup page.
+9.  Once on the Docker page you will see several Great Memories containers, one of them will be labelled `great_memories_server` and will have a port mapping. Visit the `IP:PORT` displayed in your web browser and you should see the Great Memories admin setup page.
 
 <img
 src={require('./img/unraid06.webp').default}

@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 log_container_verbose() {
-  if [[ $IMMICH_LOG_LEVEL == verbose ]]; then
+  if [[ $GREAT_MEMORIES_LOG_LEVEL == verbose ]]; then
     echo "$1" > /proc/1/fd/2
   fi
 }
 
-if [[ ( $IMMICH_WORKERS_INCLUDE != '' && $IMMICH_WORKERS_INCLUDE != *api* ) || $IMMICH_WORKERS_EXCLUDE == *api* ]]; then
+if [[ ( $GREAT_MEMORIES_WORKERS_INCLUDE != '' && $GREAT_MEMORIES_WORKERS_INCLUDE != *api* ) || $GREAT_MEMORIES_WORKERS_EXCLUDE == *api* ]]; then
   echo "API worker excluded, skipping"
   exit 0
 fi
 
-IMMICH_HOST="${IMMICH_HOST:-localhost}"
-IMMICH_PORT="${IMMICH_PORT:-2283}"
+GREAT_MEMORIES_HOST="${GREAT_MEMORIES_HOST:-localhost}"
+GREAT_MEMORIES_PORT="${GREAT_MEMORIES_PORT:-2283}"
 
-result=$(curl -fsS -m 2 http://"$IMMICH_HOST":"$IMMICH_PORT"/api/server/ping)
+result=$(curl -fsS -m 2 http://"$GREAT_MEMORIES_HOST":"$GREAT_MEMORIES_PORT"/api/server/ping)
 result_exit=$?
 
 if [ $result_exit != 0 ]; then

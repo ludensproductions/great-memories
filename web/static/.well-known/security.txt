@@ -1,5 +1,5 @@
-# This site is running an Immich instance.
-# Immich-related security problems should be reported to the Immich security team.
+# This site is running an Great Memories instance.
+# Great Memories-related security problems should be reported to the Great Memories security team.
 # Security problems related to this instance should be reported to its administration.
 Policy: https://github.com/immich-app/immich?tab=security-ov-file
 Contact: https://github.com/immich-app/immich/security/advisories/new

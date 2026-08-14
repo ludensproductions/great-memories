@@ -162,7 +162,7 @@ export const timelineUtils = {
 
 export const assetViewerUtils = {
   locator(page: Page) {
-    return page.locator('#immich-asset-viewer');
+    return page.locator('#great-memories-asset-viewer');
   },
   async waitForViewerLoad(page: Page, asset: TimelineAssetConfig) {
     await page

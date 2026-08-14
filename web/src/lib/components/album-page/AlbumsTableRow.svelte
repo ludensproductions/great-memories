@@ -32,7 +32,7 @@
 </script>
 
 <tr
-  class="flex w-full place-items-center border-3 border-transparent p-2 text-center odd:bg-subtle/80 even:bg-subtle/20 hover:cursor-pointer hover:border-immich-primary/75 md:px-5 md:py-2 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75"
+  class="flex w-full place-items-center border-3 border-transparent p-2 text-center odd:bg-subtle/80 even:bg-subtle/20 hover:cursor-pointer hover:border-great-memories-primary/75 md:px-5 md:py-2 odd:dark:bg-great-memories-dark-gray/75 even:dark:bg-great-memories-dark-gray/50 dark:hover:border-great-memories-dark-primary/75"
   onclick={() => goto(Route.viewAlbum(album))}
   {oncontextmenu}
 >

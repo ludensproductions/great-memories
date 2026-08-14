@@ -135,7 +135,7 @@ struct GreatMemoriesRandomProvider: AppIntentTimelineProvider {
 }
 
 struct GreatMemoriesRandomWidget: Widget {
-  let kind: String = "com.immich.widget.random"
+  let kind: String = "com.greatmemories.app.widget.random"
 
   var body: some WidgetConfiguration {
     AppIntentConfiguration(

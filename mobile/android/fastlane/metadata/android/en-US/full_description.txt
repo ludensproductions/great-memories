@@ -14,7 +14,7 @@ Once set up, this app can be used as photo and video backup solution directly fr
 * Image Tagging/Classification based on ImageNet dataset
 * Object detection based on COCO SSD.
 * Search assets based on tags and exif data (lens, make, model, orientation)
-* Upload assets from your local computer/server using <a href='https://www.npmjs.com/package/immich' target='_blank' rel='nofollow'>Great Memories CLI tools</a>
+* Upload assets from your local computer/server using <a href='https://www.npmjs.com/package/great-memories' target='_blank' rel='nofollow'>Great Memories CLI tools</a>
 * Reverse geocoding from image exif data
 * Show asset's location information on map (OpenStreetMap).
 * Show curated places on the search page

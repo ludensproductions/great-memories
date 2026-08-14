@@ -41,7 +41,7 @@ describe('/server', () => {
         build: '1234567890',
         buildUrl: 'https://github.com/immich-app/immich/actions/runs/1234567890',
         buildImage: 'e2e',
-        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/immich-server',
+        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/great-memories-server',
         sourceRef: 'e2e',
         sourceCommit: 'e2eeeeeeeeeeeeeeeeee',
         sourceUrl: 'https://github.com/immich-app/immich/commit/e2eeeeeeeeeeeeeeeeee',

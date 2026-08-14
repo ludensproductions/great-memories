@@ -45,11 +45,11 @@
 </script>
 
 <div>
-  <label class="immich-form-label" for="latitude-input-{id}">{$t('latitude')}</label>
+  <label class="great-memories-form-label" for="latitude-input-{id}">{$t('latitude')}</label>
   <NumberRangeInput id="latitude-input-{id}" min={-90} max={90} {onKeyDown} {onInput} {onPaste} bind:value={lat} />
 </div>
 
 <div>
-  <label class="immich-form-label" for="longitude-input-{id}">{$t('longitude')}</label>
+  <label class="great-memories-form-label" for="longitude-input-{id}">{$t('longitude')}</label>
   <NumberRangeInput id="longitude-input-{id}" min={-180} max={180} {onKeyDown} {onInput} {onPaste} bind:value={lng} />
 </div>

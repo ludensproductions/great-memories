@@ -24,7 +24,7 @@ test.describe('Asset Viewer Navbar', () => {
         showMetadata: false,
       });
       await page.goto(`/share/${sharedLink.key}/photos/${asset.id}`);
-      await page.waitForSelector('#immich-asset-viewer');
+      await page.waitForSelector('#great-memories-asset-viewer');
 
       const expected = ['Zoom Image', 'Copy Image', 'Download'];
       const buttons = await page.getByTestId('asset-viewer-navbar-actions').getByRole('button').all();
@@ -42,7 +42,7 @@ test.describe('Asset Viewer Navbar', () => {
       });
       await utils.setAuthCookies(context, admin.accessToken);
       await page.goto(`/share/${sharedLink.key}/photos/${asset.id}`);
-      await page.waitForSelector('#immich-asset-viewer');
+      await page.waitForSelector('#great-memories-asset-viewer');
 
       const expected = ['Share', 'Zoom Image', 'Copy Image', 'Download'];
       const buttons = await page.getByTestId('asset-viewer-navbar-actions').getByRole('button').all();
@@ -57,7 +57,7 @@ test.describe('Asset Viewer Navbar', () => {
     test('favorite asset with shortcut', async ({ context, page }) => {
       await utils.setAuthCookies(context, admin.accessToken);
       await page.goto(`/photos/${asset.id}`);
-      await page.waitForSelector('#immich-asset-viewer');
+      await page.waitForSelector('#great-memories-asset-viewer');
       await page.keyboard.press('f');
       await expect(page.getByText('Added to favorites')).toBeVisible();
     });

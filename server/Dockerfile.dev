@@ -17,7 +17,7 @@ ENV PNPM_HOME=/buildcache/pnpm-store
 ENV MISE_DATA_DIR=/buildcache/mise
 ENV MISE_TRUSTED_CONFIG_PATHS=/usr/src/app/mise.toml
 ENV PATH="${MISE_DATA_DIR}/shims:${PATH}:/usr/src/app/server/bin:/usr/src/app/web/bin"
-ENV IMMICH_ENV=development
+ENV GREAT_MEMORIES_ENV=development
 ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV NVIDIA_VISIBLE_DEVICES=all
 
@@ -33,11 +33,11 @@ RUN apt-get update --allow-releaseinfo-change && \
   -y --no-install-recommends --fix-missing
 
 RUN mkdir -p /workspaces && \
-  ln -s /usr/src/app /workspaces/immich
+  ln -s /usr/src/app /workspaces/great-memories
 
-COPY --chmod=755 ../.devcontainer/server/*.sh /immich-devcontainer/
+COPY --chmod=755 ../.devcontainer/server/*.sh /great-memories-devcontainer/
 
-WORKDIR /workspaces/immich
+WORKDIR /workspaces/great-memories
 
 FROM dev-container-server AS dev-container-mobile
 USER root

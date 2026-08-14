@@ -12,8 +12,8 @@ The details of how to scale across multiple machines will vary widely between di
 
 ## Workers
 
-By default, each running `immich-server` container comes with multiple internal workers. If you're scaling up only to handle more background tasks, you can choose to disable the worker responsible for the API. See [workers](../administration/jobs-workers.md) for more detail.
+By default, each running `great-memories-server` container comes with multiple internal workers. If you're scaling up only to handle more background tasks, you can choose to disable the worker responsible for the API. See [workers](../administration/jobs-workers.md) for more detail.
 
 ## Scaling down
 
-In the same way you can scale up to multiple containers, you can also choose to scale down. All state is stored in Postgres, Redis, and the filesystem so there is no risk in stopping a running immich-server container, for example if you want to use your GPU to play some games. As long as there is an API worker running you will still be able to browse Great Memories, and jobs will wait to be processed until there is a worker available for them.
+In the same way you can scale up to multiple containers, you can also choose to scale down. All state is stored in Postgres, Redis, and the filesystem so there is no risk in stopping a running great-memories-server container, for example if you want to use your GPU to play some games. As long as there is an API worker running you will still be able to browse Great Memories, and jobs will wait to be processed until there is a worker available for them.

@@ -15,7 +15,7 @@ depends = [":install", "//:sdk:install", "//:sdk:build"]
 run = "pnpm run dev"
 
 [tasks."start-demo"]
-env.IMMICH_SERVER_URL = "https://demo.immich.app"
+env.GREAT_MEMORIES_SERVER_URL = "https://demo.immich.app"
 run = { task = ":start" }
 
 [tasks.test]

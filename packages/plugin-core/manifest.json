@@ -1,5 +1,5 @@
 {
-  "name": "immich-plugin-core",
+  "name": "great-memories-plugin-core",
   "version": "2.0.1",
   "title": "Great Memories Core Plugin",
   "description": "Core workflow capabilities for Great Memories",
@@ -13,7 +13,7 @@
       "trigger": "AssetCreate",
       "steps": [
         {
-          "method": "immich-plugin-core#assetFileFilter",
+          "method": "great-memories-plugin-core#assetFileFilter",
           "config": {
             "pattern": "screenshot",
             "matchType": "contains",
@@ -21,20 +21,22 @@
           }
         },
         {
-          "method": "immich-plugin-core#assetArchive",
+          "method": "great-memories-plugin-core#assetArchive",
           "config": {
             "inverse": false
           }
         },
         {
-          "method": "immich-plugin-core#assetAddToAlbums",
+          "method": "great-memories-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Screenshots",
             "albumIds": []
           }
         }
       ],
-      "uiHints": ["SmartAlbum"]
+      "uiHints": [
+        "SmartAlbum"
+      ]
     },
     {
       "name": "missing-timezone-smart-album",
@@ -43,18 +45,20 @@
       "trigger": "AssetMetadataExtraction",
       "steps": [
         {
-          "method": "immich-plugin-core#assetMissingTimeZoneFilter",
+          "method": "great-memories-plugin-core#assetMissingTimeZoneFilter",
           "config": {}
         },
         {
-          "method": "immich-plugin-core#assetAddToAlbums",
+          "method": "great-memories-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Missing time zone",
             "albumIds": []
           }
         }
       ],
-      "uiHints": ["SmartAlbum"]
+      "uiHints": [
+        "SmartAlbum"
+      ]
     },
     {
       "name": "location-smart-album",
@@ -63,18 +67,26 @@
       "trigger": "AssetMetadataExtraction",
       "steps": [
         {
-          "method": "immich-plugin-core#assetLocationFilter",
-          "config": { "region": { "city": "Vancouver", "state": "British Columbia", "country": "Canada" } }
+          "method": "great-memories-plugin-core#assetLocationFilter",
+          "config": {
+            "region": {
+              "city": "Vancouver",
+              "state": "British Columbia",
+              "country": "Canada"
+            }
+          }
         },
         {
-          "method": "immich-plugin-core#assetAddToAlbums",
+          "method": "great-memories-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Vancouver photos & videos",
             "albumIds": []
           }
         }
       ],
-      "uiHints": ["SmartAlbum"]
+      "uiHints": [
+        "SmartAlbum"
+      ]
     }
   ],
   "methods": [
@@ -82,7 +94,9 @@
       "name": "assetFileFilter",
       "title": "Filter by filename",
       "description": "Filter assets by filename pattern using text matching or regular expressions",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -94,7 +108,12 @@
           "matchType": {
             "type": "string",
             "title": "Match type",
-            "enum": ["contains", "startsWith", "exact", "regex"],
+            "enum": [
+              "contains",
+              "startsWith",
+              "exact",
+              "regex"
+            ],
             "default": "contains",
             "description": "Type of pattern matching to perform"
           },
@@ -111,15 +130,21 @@
             "description": "Match the full path on the server instead of the original filename"
           }
         },
-        "required": ["pattern"]
+        "required": [
+          "pattern"
+        ]
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetMissingTimeZoneFilter",
       "title": "Filter by missing time zone",
       "description": "Filter assets that have no time zone information",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -131,13 +156,17 @@
           }
         }
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetLocationFilter",
       "title": "Filter assets by geolocation",
       "description": "Filter assets by where they were taken",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -194,13 +223,17 @@
           }
         }
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetDateFilter",
       "title": "Filter by date",
       "description": "Filter assets by date taken",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -237,7 +270,11 @@
             "uiHint": {
               "order": 1
             },
-            "required": ["day", "month", "year"]
+            "required": [
+              "day",
+              "month",
+              "year"
+            ]
           },
           "endDate": {
             "type": "object",
@@ -272,7 +309,11 @@
             "uiHint": {
               "order": 2
             },
-            "required": ["day", "month", "year"]
+            "required": [
+              "day",
+              "month",
+              "year"
+            ]
           },
           "recurring": {
             "type": "boolean",
@@ -284,15 +325,23 @@
             }
           }
         },
-        "required": ["recurring", "startDate", "endDate"]
+        "required": [
+          "recurring",
+          "startDate",
+          "endDate"
+        ]
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetTypeFilter",
       "title": "Filter by asset type",
       "description": "Filter assets by type",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -301,18 +350,29 @@
             "description": "Allowed asset types",
             "type": "string",
             "array": true,
-            "enum": ["IMAGE", "VIDEO", "AUDIO", "OTHER"]
+            "enum": [
+              "IMAGE",
+              "VIDEO",
+              "AUDIO",
+              "OTHER"
+            ]
           }
         },
-        "required": ["allowedTypes"]
+        "required": [
+          "allowedTypes"
+        ]
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetExifFilter",
       "title": "Filter by EXIF metadata",
       "description": "Filter assets by their EXIF properties",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -357,7 +417,12 @@
           "matchType": {
             "type": "string",
             "title": "Match type",
-            "enum": ["contains", "startsWith", "exact", "regex"],
+            "enum": [
+              "contains",
+              "startsWith",
+              "exact",
+              "regex"
+            ],
             "default": "contains",
             "description": "Type of pattern matching to perform",
             "uiHint": {
@@ -374,15 +439,22 @@
             }
           }
         },
-        "required": ["property", "pattern"]
+        "required": [
+          "property",
+          "pattern"
+        ]
       },
-      "uiHints": ["Filter"]
+      "uiHints": [
+        "Filter"
+      ]
     },
     {
       "name": "assetArchive",
       "title": "Archive asset",
       "description": "Change asset visibility to archive",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "properties": {
           "inverse": {
@@ -397,7 +469,9 @@
       "name": "assetLock",
       "title": "Move to locked folder",
       "description": "Change visibility to locked",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "properties": {
           "inverse": {
@@ -412,24 +486,34 @@
       "name": "assetVisibility",
       "title": "Update visibility",
       "description": "Change visibility to selected option",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "properties": {
           "visibility": {
             "title": "Visibility",
             "description": "Asset visibility",
             "type": "string",
-            "enum": ["archive", "timeline", "locked"]
+            "enum": [
+              "archive",
+              "timeline",
+              "locked"
+            ]
           }
         },
-        "required": ["visibility"]
+        "required": [
+          "visibility"
+        ]
       }
     },
     {
       "name": "assetFavorite",
       "title": "Favorite",
       "description": "Favorite an asset",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -446,7 +530,9 @@
       "name": "assetAddToAlbums",
       "title": "Add to Album(s)",
       "description": "Add asset to selected albums",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "hostFunctions": true,
       "schema": {
         "type": "object",
@@ -466,16 +552,22 @@
             "description": "Use an album with this name if one exists, otherwise create a new one"
           }
         },
-        "required": ["albumIds"]
+        "required": [
+          "albumIds"
+        ]
       }
     },
     {
       "name": "webhook",
       "title": "Trigger Webhook",
       "description": "POST/PUT event data to any URL",
-      "types": ["AssetV1"],
+      "types": [
+        "AssetV1"
+      ],
       "hostFunctions": true,
-      "allowedHosts": ["*"],
+      "allowedHosts": [
+        "*"
+      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -498,10 +590,15 @@
             "type": "string",
             "title": "Method",
             "description": "The HTTP method to use in the request",
-            "enum": ["POST", "PUT"]
+            "enum": [
+              "POST",
+              "PUT"
+            ]
           }
         },
-        "required": ["url"]
+        "required": [
+          "url"
+        ]
       }
     }
   ]

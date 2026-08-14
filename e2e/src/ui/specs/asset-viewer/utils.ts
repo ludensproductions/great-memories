@@ -84,7 +84,7 @@ export function setupAssetViewerFixture(seed: number): AssetViewerTestFixture {
 }
 
 export async function ensureDetailPanelVisible(page: Page) {
-  await page.waitForSelector('#immich-asset-viewer');
+  await page.waitForSelector('#great-memories-asset-viewer');
 
   const isVisible = await page.locator('#detail-panel').isVisible();
   if (!isVisible) {

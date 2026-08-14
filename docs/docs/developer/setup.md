@@ -63,7 +63,7 @@ You can access the web from `http://your-machine-ip:3000` or `http://localhost:3
 If you only want to do web development connected to an existing, remote backend, run from the repo root:
 
 ```bash
-IMMICH_SERVER_URL=https://demo.immich.app/ mise //web:start
+GREAT_MEMORIES_SERVER_URL=https://demo.immich.app/ mise //web:start
 ```
 
 This will install all dependencies (including the SDK) and start the dev server in one step. To connect to the hosted demo server specifically, use the shorthand:
@@ -75,7 +75,7 @@ mise //web:start-demo
 If you're using PowerShell on Windows you may need to set the env var separately like so:
 
 ```powershell
-$env:IMMICH_SERVER_URL = "https://demo.immich.app/"
+$env:GREAT_MEMORIES_SERVER_URL = "https://demo.immich.app/"
 mise //web:start
 ```
 
@@ -83,7 +83,7 @@ mise //web:start
 
 To see local changes to `@immich/ui` in Great Memories, do the following:
 
-1. Install `@immich/ui` as a sibling to `immich/`, for example `/home/user/immich` and `/home/user/ui`
+1. Install `@immich/ui` as a sibling to `great-memories/`, for example `/home/user/great-memories` and `/home/user/ui`
 2. Build the `@immich/ui` project via `pnpm run build`
 3. Uncomment the corresponding volume in web service of the `docker/docker-compose.dev.yml` file (`../../ui:/usr/src/ui`)
 4. Uncomment the corresponding alias in the `web/vite.config.ts` file (`'@immich/ui': path.resolve(\_\_dirname, '../../ui/packages/ui')`)
@@ -106,17 +106,17 @@ The Great Memories Apple Team ID and bundle IDs are specified in `mobile/ios/Sig
 Create `mobile/ios/Signing.local.xcconfig` and populate it with the necessary values needed to build and sign Great Memories yourself. This local override file is gitignored.
 
 ```
-IMMICH_TEAM_ID = ABCDE12345
-IMMICH_BUNDLE_ID_PROD = com.customuniqueid.immich
-IMMICH_BUNDLE_ID_DEV = com.customuniqueid.immichdev
-IMMICH_GROUP_ID = group.com.customuniqueid.immich
+GREAT_MEMORIES_TEAM_ID = ABCDE12345
+GREAT_MEMORIES_BUNDLE_ID_PROD = com.customuniqueid.greatmemories
+GREAT_MEMORIES_BUNDLE_ID_DEV = com.customuniqueid.greatmemoriesdev
+GREAT_MEMORIES_GROUP_ID = group.com.customuniqueid.greatmemories
 ```
 
-The environment values are used across Great Memories's targets and schemes to prevent redundant edits by contributors.
+The environment values are used across Great Memories' targets and schemes to prevent redundant edits by contributors.
 
 #### Translation
 
-To add a new translation text, enter the key-value pair in the `i18n/en.json` in the root of the immich project. Then run:
+To add a new translation text, enter the key-value pair in the `i18n/en.json` in the root of the great-memories project. Then run:
 
 ```bash
 mise //mobile:translation
@@ -213,7 +213,7 @@ Here are the settings we use, they should be active as workspace settings (`sett
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },
-  "cSpell.words": ["immich"],
+  "cSpell.words": ["great-memories"],
   "editor.formatOnSave": true,
   "eslint.validate": ["javascript", "svelte"],
   "explorer.fileNesting.enabled": true,

@@ -44,7 +44,7 @@ describe('MaintenanceBackupEntry', () => {
 
     renderWithTooltips(MaintenanceBackupEntry, {
       expectedVersion: '1.2.3',
-      filename: 'immich-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz',
+      filename: 'great-memories-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz',
       filesize: 1024,
       timezone: 'Asia/Tokyo',
     });

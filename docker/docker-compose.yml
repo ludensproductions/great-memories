@@ -1,5 +1,5 @@
 #
-# WARNING: To install Immich, follow our guide: https://docs.immich.app/install/docker-compose
+# WARNING: To install Great Memories, follow our guide: https://docs.immich.app/install/docker-compose
 #
 # Make sure to use the docker-compose.yml of the current release:
 #
@@ -7,12 +7,12 @@
 #
 # The compose file on main may not be compatible with the latest release.
 
-name: immich
+name: great-memories
 
 services:
-  immich-server:
-    container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+  great-memories-server:
+    container_name: great_memories_server
+    image: ghcr.io/immich-app/immich-server:${GREAT_MEMORIES_VERSION:-release}
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
@@ -31,11 +31,11 @@ services:
     healthcheck:
       disable: false
 
-  immich-machine-learning:
-    container_name: immich_machine_learning
+  great-memories-machine-learning:
+    container_name: great_memories_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
-    # Example tag: ${IMMICH_VERSION:-release}-cuda
-    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    # Example tag: ${GREAT_MEMORIES_VERSION:-release}-cuda
+    image: ghcr.io/immich-app/immich-machine-learning:${GREAT_MEMORIES_VERSION:-release}
     # extends: # uncomment this section for hardware acceleration - see https://docs.immich.app/features/ml-hardware-acceleration
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable
@@ -48,14 +48,14 @@ services:
       disable: false
 
   redis:
-    container_name: immich_redis
+    container_name: great_memories_redis
     image: docker.io/valkey/valkey:9@sha256:8e8d64b405ce18f41b8e5ee20aa4687a8ed0022d1298f2ce31cdcf3a76e09411
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
 
   database:
-    container_name: immich_postgres
+    container_name: great_memories_postgres
     image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}

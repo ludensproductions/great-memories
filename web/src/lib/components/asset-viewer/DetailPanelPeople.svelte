@@ -118,7 +118,7 @@
             widthStyle="100%"
             hidden={person.isHidden}
             highlighted={isHighlighted}
-            class="outline-offset-2 outline-immich-primary group-focus-visible:outline-2 dark:outline-immich-dark-primary"
+            class="outline-offset-2 outline-great-memories-primary group-focus-visible:outline-2 dark:outline-great-memories-dark-primary"
           />
           <p class="mt-1 truncate font-medium" title={person.name}>{person.name}</p>
           {#if person.birthDate && person.formattedAge}

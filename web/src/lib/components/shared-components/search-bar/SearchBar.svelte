@@ -276,9 +276,9 @@
         type="text"
         name="q"
         id="main-search-bar"
-        class="w-full border-2 py-4 ps-14 text-immich-fg/75 transition-all max-md:py-2 dark:text-immich-dark-fg
+        class="w-full border-2 py-4 ps-14 text-great-memories-fg/75 transition-all max-md:py-2 dark:text-great-memories-dark-fg
         {showClearIcon ? 'pe-22.5' : 'pe-14'}
-        {grayTheme ? 'dark:bg-immich-dark-gray' : 'dark:bg-immich-dark-bg'}
+        {grayTheme ? 'dark:bg-great-memories-dark-gray' : 'dark:bg-great-memories-dark-bg'}
         {showSuggestions && isSearchSuggestions ? 'rounded-t-3xl' : 'rounded-3xl bg-gray-200'}
         {searchStore.isSearchEnabled ? 'border-gray-200 bg-white dark:border-gray-700' : 'border-transparent'}"
         placeholder={$t('search_your_photos')}
@@ -341,7 +341,7 @@
 
         {#if showSearchTypeDropdown}
           <div
-            class="absolute top-full right-0 z-9999 mt-1 min-w-32 rounded-lg border border-gray-200 bg-white py-1 shadow-lg dark:border-gray-600 dark:bg-immich-dark-gray"
+            class="absolute top-full right-0 z-9999 mt-1 min-w-32 rounded-lg border border-gray-200 bg-white py-1 shadow-lg dark:border-gray-600 dark:bg-great-memories-dark-gray"
           >
             {#each searchTypes as searchType (searchType.value)}
               <button

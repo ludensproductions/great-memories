@@ -53,10 +53,10 @@ The Dev Container environment consists of the following services:
 
 | Service          | Container Name            | Description                                               | Ports                                                                   |
 | ---------------- | ------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Server & Web     | `immich-server`           | Runs both API server and web frontend in development mode | 2283 (API)<br/>3000 (Web)<br/>9230 (Workers Debug)<br/>9231 (API Debug) |
+| Server & Web     | `great-memories-server`           | Runs both API server and web frontend in development mode | 2283 (API)<br/>3000 (Web)<br/>9230 (Workers Debug)<br/>9231 (API Debug) |
 | Database         | `database`                | PostgreSQL database                                       | 5432                                                                    |
 | Cache            | `redis`                   | Valkey cache server                                       | 6379                                                                    |
-| Machine Learning | `immich-machine-learning` | Great Memories ML model inference server                          | 3003                                                                    |
+| Machine Learning | `great-memories-machine-learning` | Great Memories ML model inference server                          | 3003                                                                    |
 
 ## Getting Started
 
@@ -64,12 +64,12 @@ The Dev Container environment consists of the following services:
 
 ```bash
 git clone https://github.com/immich-app/immich.git
-cd immich
+cd great-memories
 ```
 
 ### Step 2: Configure Environment Variables
 
-The immich dev containers read environment variables from your shell environment, not from `.env` files. This allows them to work in cloud environments without pre-configuration.
+The great-memories dev containers read environment variables from your shell environment, not from `.env` files. This allows them to work in cloud environments without pre-configuration.
 
 :::important Configuration
 When running locally, and if you want to create (or use an existing) DB and/or photo storage folder, you must set the `UPLOAD_LOCATION` variable in your shell environment before launching the Dev Container. This determines where uploaded files are stored and also where the DB stores it data.
@@ -124,7 +124,7 @@ Unlike the Great Memories developer setup based on Docker Compose which uses `.e
     "UPLOAD_LOCATION": "${localEnv:UPLOAD_LOCATION:./Library}",
     "DB_PASSWORD": "${localEnv:DB_PASSWORD:postgres}",
     "DB_USERNAME": "${localEnv:DB_USERNAME:postgres}",
-    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:immich}"
+    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:great-memories}"
 }
 ```
 
@@ -135,13 +135,13 @@ The `${localEnv:VARIABLE:default}` syntax reads from your shell environment with
 The `UPLOAD_LOCATION` environment variable controls where files are stored:
 
 **Default:** `./Library` (relative to the `docker` directory)
-**Resolved to:** `<immich-root>/docker/Library`
+**Resolved to:** `<great-memories-root>/docker/Library`
 
 **Bind Mounts Created:**
 
 ```yaml
 # From .devcontainer/server/container-compose-overrides.yml
-- ${UPLOAD_LOCATION-./Library}/photos:/workspaces/immich/server/upload
+- ${UPLOAD_LOCATION-./Library}/photos:/workspaces/great-memories/server/upload
 - ${UPLOAD_LOCATION-./Library}/postgres:/var/lib/postgresql/data
 ```
 
@@ -153,7 +153,7 @@ These variables have sensible defaults (for development) but can be customized:
 | ------------------ | ---------- | ------------------- |
 | `DB_PASSWORD`      | `postgres` | PostgreSQL password |
 | `DB_USERNAME`      | `postgres` | PostgreSQL username |
-| `DB_DATABASE_NAME` | `immich`   | Database name       |
+| `DB_DATABASE_NAME` | `great-memories`   | Database name       |
 
 ### Setting Environment Variables
 
@@ -365,14 +365,14 @@ You will need DevPod CLI (check [DevPod CLI installation guide](https://devpod.s
 ```sh
 # Step 1: Clone the Repository
 git clone https://github.com/immich-app/immich.git
-cd immich
+cd great-memories
 
 # Step 2: Prepare DevPod (if you haven't already)
 devpod provider add docker
 devpod provider use docker
 
-# Step 3: Build 'immich-server-dev' docker image first manually
-docker build -f server/Dockerfile.dev -t immich-server-dev .
+# Step 3: Build 'great-memories-server-dev' docker image first manually
+docker build -f server/Dockerfile.dev -t great-memories-server-dev .
 
 # Step 4: Now you can start devcontainer
 devpod up .
@@ -446,4 +446,4 @@ Recommended minimums:
 - Read the [architecture overview](/developer/architecture)
 - Learn about [database migrations](/developer/database-migrations)
 - Explore [API documentation](https://api.immich.app/)
-- Join `#immich` on [Discord](https://discord.immich.app)
+- Join `#great-memories` on [Discord](https://discord.immich.app)

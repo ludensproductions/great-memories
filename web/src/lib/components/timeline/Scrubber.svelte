@@ -537,7 +537,7 @@
   {#if usingMobileDevice && ((timelineManager.scrolling && scrollHoverLabel) || isHover || isDragging)}
     <div
       id="time-label"
-      class="w-8 rounded-s-full bg-immich-primary ps-2 text-white select-none hover:cursor-pointer dark:bg-gray-600"
+      class="w-8 rounded-s-full bg-great-memories-primary ps-2 text-white select-none hover:cursor-pointer dark:bg-gray-600"
       style:top="{PADDING_TOP + (scrollY - 50 / 2)}px"
       style:height="50px"
       style:right="0"
@@ -553,7 +553,7 @@
           style:bottom={50 / 2 - 30 / 2 + 'px'}
           style:right="36px"
           style:width="fit-content"
-          class="pointer-events-none absolute w-8 truncate rounded-full bg-immich-primary/90 px-4 py-2 text-sm font-semibold text-white select-none hover:cursor-pointer dark:bg-gray-500"
+          class="pointer-events-none absolute w-8 truncate rounded-full bg-great-memories-primary/90 px-4 py-2 text-sm font-semibold text-white select-none hover:cursor-pointer dark:bg-gray-500"
         >
           {scrollHoverLabel}
         </p>
@@ -566,7 +566,7 @@
       {#if timelineManager.scrolling && scrollHoverLabel && !isHover}
         <p
           transition:fade={{ duration: 200 }}
-          class="pointer-events-none absolute inset-e-0 bottom-0 z-1 w-fit max-w-64 min-w-20 truncate rounded-tl-md border-b-2 border-immich-primary bg-subtle/90 p-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-immich-dark-primary dark:text-immich-dark-fg"
+          class="pointer-events-none absolute inset-e-0 bottom-0 z-1 w-fit max-w-64 min-w-20 truncate rounded-tl-md border-b-2 border-great-memories-primary bg-subtle/90 p-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-great-memories-dark-primary dark:text-great-memories-dark-fg"
         >
           {scrollHoverLabel}
         </p>
@@ -590,7 +590,7 @@
     >
       {#if !usingMobileDevice}
         {#if segment.hasLabel}
-          <div class="absolute inset-e-5 bottom-0 font-mono text-[13px] dark:text-immich-dark-fg">
+          <div class="absolute inset-e-5 bottom-0 font-mono text-[13px] dark:text-great-memories-dark-fg">
             {segment.year}
           </div>
         {/if}

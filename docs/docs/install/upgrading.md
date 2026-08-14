@@ -9,7 +9,7 @@ You can see versions that had breaking changes [here][breaking].
 :::
 
 When a new version of Great Memories is [released][releases], you should read the release notes and account for any breaking changes noted (as mentioned above).
-If you use `IMMICH_VERSION` in your `.env` file, it will need to be updated to the latest or desired version.
+If you use `GREAT_MEMORIES_VERSION` in your `.env` file, it will need to be updated to the latest or desired version.
 After that, the application can be upgraded and restarted with the following commands, run in the directory with the `docker-compose.yml` file:
 
 ```bash title="Upgrade and restart Great Memories"
@@ -60,7 +60,7 @@ After making a backup, please modify your `docker-compose.yml` file with the fol
   [...]
 
   database:
-    container_name: immich_postgres
+    container_name: great_memories_postgres
 -   image: docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:739cdd626151ff1f796dc95a6591b55a714f341c737e27f045019ceabf8e8c52
 +   image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
     environment:

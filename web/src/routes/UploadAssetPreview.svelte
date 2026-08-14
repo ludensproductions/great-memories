@@ -94,7 +94,7 @@
 
   {#if uploadAsset.state === UploadState.STARTED}
     <div class="relative mt-[5px] h-4.5 w-full rounded-md bg-gray-300 text-black dark:bg-gray-700">
-      <div class="h-4.5 rounded-md bg-immich-primary transition-all" style={`width: ${uploadAsset.progress}%`}></div>
+      <div class="h-4.5 rounded-md bg-great-memories-primary transition-all" style={`width: ${uploadAsset.progress}%`}></div>
       <p class="absolute top-0.5 size-full text-center text-[10px] text-white">
         {#if uploadAsset.message === $t('asset_hashing')}
           {uploadAsset.message}

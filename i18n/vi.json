@@ -224,7 +224,7 @@
     "maintenance_restore_database_backup": "Khôi phục cơ sở dữ liệu từ bản sao lưu",
     "maintenance_restore_database_backup_description": "Khôi phục trạng thái trước đó của cơ sở dữ liệu bằng bản sao lưu",
     "maintenance_settings": "Bảo trì",
-    "maintenance_settings_description": "Đặt [immich] vào chế độ bảo trì.",
+    "maintenance_settings_description": "Đặt [great-memories] vào chế độ bảo trì.",
     "maintenance_start": "Chuyển sang chế độ bảo trì",
     "maintenance_start_error": "Không thể bắt đầu chế độ bảo trì.",
     "maintenance_upload_backup": "Tải lên tệp bản sao lưu của cơ sở dữ liệu",

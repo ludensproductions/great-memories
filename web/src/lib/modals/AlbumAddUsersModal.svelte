@@ -70,7 +70,7 @@
   {:else}
     <Stack>
       <input
-        class="border-b-4 border-immich-bg px-6 py-2 text-2xl focus:border-immich-primary dark:border-immich-dark-gray dark:focus:border-immich-dark-primary"
+        class="border-b-4 border-great-memories-bg px-6 py-2 text-2xl focus:border-great-memories-primary dark:border-great-memories-dark-gray dark:focus:border-great-memories-dark-primary"
         placeholder={$t('search')}
         bind:value={search}
         use:initInput

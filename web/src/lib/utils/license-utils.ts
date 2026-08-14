@@ -1,5 +1,5 @@
 import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@immich/sdk';
-import { PUBLIC_IMMICH_BUY_HOST, PUBLIC_IMMICH_PAY_HOST } from '$env/static/public';
+import { PUBLIC_GREAT_MEMORIES_BUY_HOST, PUBLIC_GREAT_MEMORIES_PAY_HOST } from '$env/static/public';
 import type { GreatMemoriesProduct } from '$lib/constants';
 import { authManager } from '$lib/managers/auth-manager.svelte';
 import { serverConfigManager } from '$lib/managers/server-config-manager.svelte';
@@ -15,7 +15,7 @@ export const activateProduct = async (licenseKey: string, activationKey: string)
 };
 
 export const getActivationKey = async (licenseKey: string): Promise<string> => {
-  const response = await fetch(new URL(`/api/v1/activate/${licenseKey}`, PUBLIC_IMMICH_PAY_HOST).href);
+  const response = await fetch(new URL(`/api/v1/activate/${licenseKey}`, PUBLIC_GREAT_MEMORIES_PAY_HOST).href);
   if (!response.ok) {
     throw new Error('Failed to fetch activation key');
   }
@@ -23,7 +23,7 @@ export const getActivationKey = async (licenseKey: string): Promise<string> => {
 };
 
 export const getLicenseLink = (license: GreatMemoriesProduct) => {
-  const url = new URL('/', PUBLIC_IMMICH_BUY_HOST);
+  const url = new URL('/', PUBLIC_GREAT_MEMORIES_BUY_HOST);
   url.searchParams.append('productId', license);
   url.searchParams.append('instanceUrl', serverConfigManager.value.externalDomain || globalThis.origin);
   return url.href;

@@ -1,6 +1,6 @@
 # Remote Machine Learning
 
-To alleviate [performance issues on low-memory systems](/FAQ.mdx#why-is-immich-slow-on-low-memory-systems-like-the-raspberry-pi) like the Raspberry Pi, you may also host Great Memories's machine learning container on a more powerful system, such as your laptop or desktop computer. The server container will send requests containing the image preview to the remote machine learning container for processing. The machine learning container does not persist this data or associate it with a particular user.
+To alleviate [performance issues on low-memory systems](/FAQ.mdx#why-is-great-memories-slow-on-low-memory-systems-like-the-raspberry-pi) like the Raspberry Pi, you may also host Great Memories' machine learning container on a more powerful system, such as your laptop or desktop computer. The server container will send requests containing the image preview to the remote machine learning container for processing. The machine learning container does not persist this data or associate it with a particular user.
 
 :::info
 Smart Search and Face Detection will use this feature, but Facial Recognition will not. This is because Facial Recognition uses the _outputs_ of these models that have already been saved to the database. As such, its processing is between the server container and the database.
@@ -18,14 +18,14 @@ If using hardware acceleration, the [hwaccel.ml.yml](https://github.com/immich-a
 :::
 
 ```yaml
-name: immich_remote_ml
+name: great_memories_remote_ml
 
 services:
-  immich-machine-learning:
-    container_name: immich_machine_learning
+  great-memories-machine-learning:
+    container_name: great_memories_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
-    # Example tag: ${IMMICH_VERSION:-release}-cuda
-    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    # Example tag: ${GREAT_MEMORIES_VERSION:-release}-cuda
+    image: ghcr.io/immich-app/immich-machine-learning:${GREAT_MEMORIES_VERSION:-release}
     # extends:
     #   file: hwaccel.ml.yml
     #   service: # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable
@@ -51,7 +51,7 @@ Version mismatches between both hosts may cause bugs and instability, so remembe
 
 ## Forcing remote processing
 
-Adding a new URL to the settings is recommended over replacing the existing URL. This is because it will allow machine learning tasks to be processed successfully when the remote server is down by falling back to the local machine learning container. If you do not want machine learning tasks to be processed locally when the remote server is not available, you can instead replace the existing URL and only provide the remote container's URL. If doing this, you can remove the `immich-machine-learning` section of the local `docker-compose.yml` file to save resources, as this service will never be used.
+Adding a new URL to the settings is recommended over replacing the existing URL. This is because it will allow machine learning tasks to be processed successfully when the remote server is down by falling back to the local machine learning container. If you do not want machine learning tasks to be processed locally when the remote server is not available, you can instead replace the existing URL and only provide the remote container's URL. If doing this, you can remove the `great-memories-machine-learning` section of the local `docker-compose.yml` file to save resources, as this service will never be used.
 
 Do note that this will mean that Smart Search and Face Detection jobs will fail to be processed when the remote instance is not available. This in turn means that tasks dependent on these features—Duplicate Detection and Facial Recognition—will not run for affected assets. If this occurs, you must manually click the _Missing_ button next to Smart Search and Face Detection in the [Job Status](http://my.immich.app/admin/queues) page for the jobs to be retried.
 

@@ -7,7 +7,7 @@ import { defineConfig, type ProxyOptions, type UserConfig } from 'vite';
 import path from 'node:path';
 
 const upstream = {
-  target: process.env.IMMICH_SERVER_URL || 'http://immich-server:2283/',
+  target: process.env.GREAT_MEMORIES_SERVER_URL || 'http://great-memories-server:2283/',
   secure: true,
   changeOrigin: true,
   logLevel: 'info',
@@ -16,7 +16,7 @@ const upstream = {
 
 const proxy: Record<string, string | ProxyOptions> = {
   '/api': upstream,
-  '/.well-known/immich': upstream,
+  '/.well-known/great-memories': upstream,
   '/.well-known/great-memories': upstream,
   '/custom.css': upstream,
 };

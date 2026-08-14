@@ -15,6 +15,6 @@ At the end of creating your app passwords, a password will be displayed; save it
 
 ## Entering the SMTP credential in Great Memories
 
-Entering your credential in Great Memories's email notification settings at `Administration -> Settings -> Notification Settings`
+Entering your credential in Great Memories' email notification settings at `Administration -> Settings -> Notification Settings`
 
 <img src={require('./img/email-settings.webp').default} width="80%" title="SMTP settings" />

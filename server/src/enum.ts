@@ -7,25 +7,25 @@ export enum AuthType {
 }
 
 export enum GreatMemoriesCookie {
-  AccessToken = 'immich_access_token',
-  MaintenanceToken = 'immich_maintenance_token',
-  AuthType = 'immich_auth_type',
-  IsAuthenticated = 'immich_is_authenticated',
-  SharedLinkToken = 'immich_shared_link_token',
-  OAuthState = 'immich_oauth_state',
-  OAuthCodeVerifier = 'immich_oauth_code_verifier',
+  AccessToken = 'great_memories_access_token',
+  MaintenanceToken = 'great_memories_maintenance_token',
+  AuthType = 'great_memories_auth_type',
+  IsAuthenticated = 'great_memories_is_authenticated',
+  SharedLinkToken = 'great_memories_shared_link_token',
+  OAuthState = 'great_memories_oauth_state',
+  OAuthCodeVerifier = 'great_memories_oauth_code_verifier',
 }
 
 export enum GreatMemoriesHeader {
   ApiKey = 'x-api-key',
-  UserToken = 'x-immich-user-token',
-  SessionToken = 'x-immich-session-token',
-  SharedLinkKey = 'x-immich-share-key',
-  SharedLinkSlug = 'x-immich-share-slug',
-  Checksum = 'x-immich-checksum',
+  UserToken = 'x-great-memories-user-token',
+  SessionToken = 'x-great-memories-session-token',
+  SharedLinkKey = 'x-great-memories-share-key',
+  SharedLinkSlug = 'x-great-memories-share-slug',
+  Checksum = 'x-great-memories-checksum',
   CorrelationId = 'X-Correlation-ID',
-  HlsInitSegment = 'x-immich-hls-msn',
-  HlsPosition = 'x-immich-hls-pos',
+  HlsInitSegment = 'x-great-memories-hls-msn',
+  HlsPosition = 'x-great-memories-hls-pos',
 }
 
 export enum GreatMemoriesQuery {
@@ -580,10 +580,10 @@ export enum LogFormat {
 export const LogFormatSchema = z.enum(LogFormat).describe('Log format').meta({ id: 'LogFormat' });
 
 export enum ApiCustomExtension {
-  Permission = 'x-immich-permission',
-  AdminOnly = 'x-immich-admin-only',
-  History = 'x-immich-history',
-  State = 'x-immich-state',
+  Permission = 'x-great-memories-permission',
+  AdminOnly = 'x-great-memories-admin-only',
+  History = 'x-great-memories-history',
+  State = 'x-great-memories-state',
 }
 
 export enum MetadataKey {

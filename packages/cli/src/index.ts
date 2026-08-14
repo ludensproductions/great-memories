@@ -17,11 +17,11 @@ const program = new Command()
   .description('Command line interface for Great Memories')
   .addOption(
     new Option('-d, --config-directory <directory>', 'Configuration directory where auth.yml will be stored')
-      .env('IMMICH_CONFIG_DIR')
+      .env('GREAT_MEMORIES_CONFIG_DIR')
       .default(defaultConfigDirectory),
   )
-  .addOption(new Option('-u, --url [url]', 'Great Memories server URL').env('IMMICH_INSTANCE_URL'))
-  .addOption(new Option('-k, --key [key]', 'Great Memories API key').env('IMMICH_API_KEY'));
+  .addOption(new Option('-u, --url [url]', 'Great Memories server URL').env('GREAT_MEMORIES_INSTANCE_URL'))
+  .addOption(new Option('-k, --key [key]', 'Great Memories API key').env('GREAT_MEMORIES_API_KEY'));
 
 program
   .command('login')
@@ -45,51 +45,51 @@ program
   .command('upload')
   .description('Upload assets')
   .usage('[paths...] [options]')
-  .addOption(new Option('-r, --recursive', 'Recursive').env('IMMICH_RECURSIVE').default(false))
-  .addOption(new Option('-i, --ignore <pattern>', 'Pattern to ignore').env('IMMICH_IGNORE_PATHS'))
-  .addOption(new Option('--skip-hash', "Don't hash files before upload").env('IMMICH_SKIP_HASH').default(false))
-  .addOption(new Option('-H, --include-hidden', 'Include hidden folders').env('IMMICH_INCLUDE_HIDDEN').default(false))
+  .addOption(new Option('-r, --recursive', 'Recursive').env('GREAT_MEMORIES_RECURSIVE').default(false))
+  .addOption(new Option('-i, --ignore <pattern>', 'Pattern to ignore').env('GREAT_MEMORIES_IGNORE_PATHS'))
+  .addOption(new Option('--skip-hash', "Don't hash files before upload").env('GREAT_MEMORIES_SKIP_HASH').default(false))
+  .addOption(new Option('-H, --include-hidden', 'Include hidden folders').env('GREAT_MEMORIES_INCLUDE_HIDDEN').default(false))
   .addOption(
     new Option('-a, --album', 'Automatically create albums based on folder name')
-      .env('IMMICH_AUTO_CREATE_ALBUM')
+      .env('GREAT_MEMORIES_AUTO_CREATE_ALBUM')
       .default(false),
   )
   .addOption(
     new Option('-A, --album-name <name>', 'Add all assets to specified album')
-      .env('IMMICH_ALBUM_NAME')
+      .env('GREAT_MEMORIES_ALBUM_NAME')
       .conflicts('album'),
   )
   .addOption(
     new Option('--visibility <visibility>', 'Set the visibility of uploaded assets')
       .choices(Object.values(AssetVisibility))
-      .env('IMMICH_VISIBILITY'),
+      .env('GREAT_MEMORIES_VISIBILITY'),
   )
   .addOption(
     new Option('-n, --dry-run', "Don't perform any actions, just show what will be done")
-      .env('IMMICH_DRY_RUN')
+      .env('GREAT_MEMORIES_DRY_RUN')
       .default(false)
       .conflicts('skipHash'),
   )
   .addOption(
     new Option('-c, --concurrency <number>', 'Number of assets to upload at the same time')
-      .env('IMMICH_UPLOAD_CONCURRENCY')
+      .env('GREAT_MEMORIES_UPLOAD_CONCURRENCY')
       .default(defaultConcurrency),
   )
   .addOption(
     new Option('-j, --json-output', 'Output detailed information in json format')
-      .env('IMMICH_JSON_OUTPUT')
+      .env('GREAT_MEMORIES_JSON_OUTPUT')
       .default(false),
   )
-  .addOption(new Option('--delete', 'Delete local assets after upload').env('IMMICH_DELETE_ASSETS'))
+  .addOption(new Option('--delete', 'Delete local assets after upload').env('GREAT_MEMORIES_DELETE_ASSETS'))
   .addOption(
     new Option('--delete-duplicates', 'Delete local assets that are duplicates (already exist on server)').env(
-      'IMMICH_DELETE_DUPLICATES',
+      'GREAT_MEMORIES_DELETE_DUPLICATES',
     ),
   )
-  .addOption(new Option('--no-progress', 'Hide progress bars').env('IMMICH_PROGRESS_BAR').default(true))
+  .addOption(new Option('--no-progress', 'Hide progress bars').env('GREAT_MEMORIES_PROGRESS_BAR').default(true))
   .addOption(
     new Option('--watch', 'Watch for changes and upload automatically')
-      .env('IMMICH_WATCH_CHANGES')
+      .env('GREAT_MEMORIES_WATCH_CHANGES')
       .default(false)
       .implies({ progress: false }),
   )

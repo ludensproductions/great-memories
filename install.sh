@@ -2,7 +2,7 @@
 set -o nounset
 set -o pipefail
 
-create_immich_directory() {
+create_great_memories_directory() {
   local -r Tgt='./immich-app'
   echo "Creating Great Memories directory..."
   if [[ -e $Tgt ]]; then
@@ -81,7 +81,7 @@ main() {
     return 14
   fi
 
-  create_immich_directory || {
+  create_great_memories_directory || {
     echo 'error creating Great Memories directory'
     return 10
   }

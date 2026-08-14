@@ -1,6 +1,6 @@
 # Server Commands
 
-The `immich-server` docker image comes preinstalled with an administrative CLI (`great-memories-admin`) that supports the following commands:
+The `great-memories-server` docker image comes preinstalled with an administrative CLI (`great-memories-admin`) that supports the following commands:
 
 | Command                    | Description                                                   |
 | -------------------------- | ------------------------------------------------------------- |
@@ -21,7 +21,7 @@ The `immich-server` docker image comes preinstalled with an administrative CLI (
 
 ## How to run a command
 
-To run a command, [connect](/guides/docker-help.md#attach-to-a-container) to the `immich_server` container and then execute the command via `great-memories-admin <command>`.
+To run a command, [connect](/guides/docker-help.md#attach-to-a-container) to the `great_memories_server` container and then execute the command via `great-memories-admin <command>`.
 
 ## Examples
 
@@ -34,7 +34,7 @@ Found Admin:
 - OAuth ID=
 - Email=admin@example.com
 - Name=Great Memories Admin
-? Please choose a new password (optional) immich-is-cool
+? Please choose a new password (optional) great-memories-is-cool
 ? Invalidate existing sessions? Yes
 The admin password has been updated.
 ```
@@ -91,7 +91,7 @@ great-memories-admin list-users
 [
   {
     id: 'e65e6f88-2a30-4dbe-8dd9-1885f4889b53',
-    email: 'immich@example.com',
+    email: 'great-memories@example.com',
     name: 'Great Memories Admin',
     storageLabel: 'admin',
     externalPath: null,
@@ -133,8 +133,8 @@ Change media location
 
 ```
 great-memories-admin change-media-location
-? Enter the previous value of IMMICH_MEDIA_LOCATION: /data
-? Enter the new value of IMMICH_MEDIA_LOCATION: /my-data
+? Enter the previous value of GREAT_MEMORIES_MEDIA_LOCATION: /data
+? Enter the new value of GREAT_MEMORIES_MEDIA_LOCATION: /my-data
 ...
   Previous value: /data
   Current value:  /my-data

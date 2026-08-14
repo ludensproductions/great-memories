@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 function HomepageHeader() {
   return (
     <header>
-      <section className="max-w-[900px] m-4 p-4 md:p-6 md:m-auto md:my-12 border border-red-400 rounded-2xl  bg-slate-200 dark:bg-immich-dark-gray">
+      <section className="max-w-[900px] m-4 p-4 md:p-6 md:m-auto md:my-12 border border-red-400 rounded-2xl  bg-slate-200 dark:bg-great-memories-dark-gray">
         <section>
           <h1>Privacy Policy</h1>
           <p>Last updated: July 31st 2024</p>
@@ -85,7 +85,7 @@ function HomepageHeader() {
           <h2>6. Contact Us</h2>
           <p>
             If you have any questions about this Privacy Policy, please contact us at{' '}
-            <a href="mailto:immich@futo.org">immich@futo.org</a>
+            <a href="mailto:great-memories@futo.org">great-memories@futo.org</a>
           </p>
         </section>
       </section>

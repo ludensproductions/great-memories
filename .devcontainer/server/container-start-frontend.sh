@@ -1,7 +1,7 @@
 #!/bin/bash
 # shellcheck source=common.sh
 # shellcheck disable=SC1091
-source /immich-devcontainer/container-common.sh
+source /great-memories-devcontainer/container-common.sh
 
 export CI=1
 log "Preparing Great Memories Web Frontend"
@@ -14,12 +14,12 @@ run_cmd pnpm --filter great-memories-web install
 
 log "Starting Great Memories Web Frontend"
 log ""
-cd "${IMMICH_WORKSPACE}/web" || (
+cd "${GREAT_MEMORIES_WORKSPACE}/web" || (
     log "Great Memories workspace not found"
     exit 1
 )
 
-until curl --output /dev/null --silent --head --fail "http://127.0.0.1:${IMMICH_PORT}/api/server/config"; do
+until curl --output /dev/null --silent --head --fail "http://127.0.0.1:${GREAT_MEMORIES_PORT}/api/server/config"; do
     log "Waiting for api server..."
     sleep 1
 done

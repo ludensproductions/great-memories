@@ -42,7 +42,7 @@
         <Alert color="warning" title={$t('main_branch_warning')} class="col-span-full" size="small" />
       {/if}
 
-      <ServerAboutItem id="immich" title="Great Memories" version={info.version} versionHref={info.versionUrl} />
+      <ServerAboutItem id="great-memories" title="Great Memories" version={info.version} versionHref={info.versionUrl} />
       <ServerAboutItem id="exif" title="ExifTool" version={info.exiftool} />
       <ServerAboutItem id="nodejs" title="Node.js" version={info.nodejs} />
       <ServerAboutItem id="libvips" title="Libvips" version={info.libvips} />
@@ -88,7 +88,7 @@
             {@const createdAt = DateTime.fromISO(item.createdAt)}
             <li>
               <span
-                class="pb-2 text-xs immich-form-label"
+                class="pb-2 text-xs great-memories-form-label"
                 id="version-history"
                 title={createdAt.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS, { locale: $locale })}
               >

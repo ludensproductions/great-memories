@@ -49,7 +49,7 @@
     </div>
 
     {#if subtitle}
-      <p id={subtitleId} class="text-sm dark:text-immich-dark-fg">{subtitle}</p>
+      <p id={subtitleId} class="text-sm dark:text-great-memories-dark-fg">{subtitle}</p>
     {/if}
     {@render children?.()}
   </div>

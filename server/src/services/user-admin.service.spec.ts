@@ -61,7 +61,7 @@ describe(UserAdminService.name, () => {
     it('should update the user', async () => {
       const update = {
         shouldChangePassword: true,
-        email: 'immich@test.com',
+        email: 'great-memories@test.com',
         storageLabel: 'storage_label',
       };
       mocks.user.getByEmail.mockResolvedValue(void 0);

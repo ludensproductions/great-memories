@@ -16,13 +16,13 @@ class ServerDiscoveryConstants {
   const ServerDiscoveryConstants._();
 
   /// mDNS service type announced by Avahi on the server.
-  static const String mdnsServiceType = '_immich._tcp';
-  static const String mdnsServiceDomain = '_immich._tcp.local';
+  static const String mdnsServiceType = '_great_memories._tcp';
+  static const String mdnsServiceDomain = '_great_memories._tcp.local';
 
   /// Port where the Great Memories server listens.
   static const int serverPort = 2283;
 
-  // Hardcodeados como constantes de protocolo — igual que _immich._tcp y el
+  // Hardcodeados como constantes de protocolo — igual que _great_memories._tcp y el
   // puerto 2283. El UUID identifica el tipo de servicio BLE, no es un secreto:
   // BLE advertising es público y cualquier scanner puede verlo.
   // Múltiples Great Memories en la misma red no se interfieren porque cada
@@ -72,7 +72,7 @@ class BleServerDevice {
 class ServerDiscoveryService {
   final _log = Logger('ServerDiscoveryService');
 
-  /// Browses the local network for `_immich._tcp` services.
+  /// Browses the local network for `_great_memories._tcp` services.
   ///
   /// Returns every distinct server found within the scan window. Throws
   /// [ServerDiscoveryException] with [ServerDiscoveryErrorType.notFound]

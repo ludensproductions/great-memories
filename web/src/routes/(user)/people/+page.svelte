@@ -342,7 +342,7 @@
     <PeopleInfiniteScroll people={showPeople} hasNextPage={!!nextPage && !searchName} {loadNextPage}>
       {#snippet children({ person })}
         <div
-          class="rounded-xl border-2 border-transparent p-2 transition-all hover:border-immich-primary/50 hover:bg-gray-200 hover:shadow-sm hover:dark:border-immich-dark-primary/25 dark:hover:bg-immich-dark-primary/20"
+          class="rounded-xl border-2 border-transparent p-2 transition-all hover:border-great-memories-primary/50 hover:bg-gray-200 hover:shadow-sm hover:dark:border-great-memories-dark-primary/25 dark:hover:bg-great-memories-dark-primary/20"
         >
           <PeopleCard
             {person}
@@ -353,7 +353,7 @@
 
           <input
             type="text"
-            class="mt-2 w-full rounded-2xl border-gray-100 bg-white py-2 text-center text-sm text-primary placeholder-gray-400 dark:border-gray-900 dark:bg-immich-dark-gray"
+            class="mt-2 w-full rounded-2xl border-gray-100 bg-white py-2 text-center text-sm text-primary placeholder-gray-400 dark:border-gray-900 dark:bg-great-memories-dark-gray"
             value={person.name}
             placeholder={$t('add_a_name')}
             use:shortcut={{ shortcut: { key: 'Enter' }, onShortcut: (e) => e.currentTarget.blur() }}

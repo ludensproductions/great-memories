@@ -14,7 +14,7 @@
 <div class={cleanClass('overflow-clip', invisible && 'invisible', className)} style:height={height + 'px'}>
   {#if title}
     <div
-      class="flex h-6 place-items-center pt-7 pb-5 text-xs font-medium text-immich-fg max-md:pt-5 max-md:pb-3 md:text-sm dark:text-immich-dark-fg"
+      class="flex h-6 place-items-center pt-7 pb-5 text-xs font-medium text-great-memories-fg max-md:pt-5 max-md:pb-3 md:text-sm dark:text-great-memories-dark-fg"
     >
       {title}
     </div>

@@ -15,7 +15,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'immich-app', // Usually your GitHub org/user name.
-  projectName: 'immich', // Usually your repo name.
+  projectName: 'great-memories', // Usually your repo name.
   deploymentBranch: 'main',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -108,7 +108,7 @@ const config = {
             type: 'html',
             position: 'right',
             value:
-              '<a href="https://buy.immich.app" target="_blank" class="no-underline hover:no-underline"><button class="buy-button bg-immich-primary dark:bg-immich-dark-primary text-white dark:text-black rounded-xl">Buy Great Memories</button></a>',
+              '<a href="https://buy.immich.app" target="_blank" class="no-underline hover:no-underline"><button class="buy-button bg-great-memories-primary dark:bg-great-memories-dark-primary text-white dark:text-black rounded-xl">Buy Great Memories</button></a>',
           },
         ],
       },
@@ -145,7 +145,7 @@ const config = {
               },
               {
                 label: 'Merch',
-                href: 'https://immich.store/',
+                href: 'https://great-memories.store/',
               },
             ],
           },

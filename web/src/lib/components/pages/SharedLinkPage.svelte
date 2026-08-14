@@ -109,7 +109,7 @@
   <AlbumViewer {sharedLink} />
 {/if}
 {#if !passwordRequired && sharedLink?.type === SharedLinkType.Individual}
-  <div class="immich-scrollbar">
+  <div class="great-memories-scrollbar">
     <IndividualSharedViewer {sharedLink} {isOwned} />
   </div>
 {/if}

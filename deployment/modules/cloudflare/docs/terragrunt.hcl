@@ -19,6 +19,6 @@ remote_state {
 
   config = {
     conn_str = get_env("TF_STATE_POSTGRES_CONN_STR")
-    schema_name = "prod_cloudflare_immich_app_docs_${local.prefix_name}"
+    schema_name = "prod_cloudflare_great_memories_app_docs_${local.prefix_name}"
   }
 }

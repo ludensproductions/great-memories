@@ -44,7 +44,7 @@ The following screen will give you the option to further customize your `docker-
 
 Skip the section asking to set-up a portal for Web Station, and then complete the wizard which will build and start the containers for your project.
 
-Once your containers are successfully running, navigate to the "**Container**" section of Container Manager, right-click on the "**immich-server**" container, and choose the "**Details**".
+Once your containers are successfully running, navigate to the "**Container**" section of Container Manager, right-click on the "**great-memories-server**" container, and choose the "**Details**".
 
 Scroll to the bottom of the "**Details**" section and find the `IP Address` listed in the `Network` section. Take note of the container's IP address as you will need it for **Step 4**.
 
@@ -111,9 +111,9 @@ Go to **Project**, select **Action** then **Build**. This will download, unpack,
 
 ## Step 5. Update firewall rule
 
-Without a fixed subnet, the default behavior is to automatically start the containers once installed. If `immich_server` runs for a few seconds and then stops, it may be because the firewall rule no longer matches the server IP address.
+Without a fixed subnet, the default behavior is to automatically start the containers once installed. If `great_memories_server` runs for a few seconds and then stops, it may be because the firewall rule no longer matches the server IP address.
 
-Go to the **Container** section. Click on `immich_server` and scroll down on **General** to find the IP address.
+Go to the **Container** section. Click on `great_memories_server` and scroll down on **General** to find the IP address.
 ![Container IP](../../static/img/synology-container-ip.png)
 
 Go to Synology **Control Panel**. Select **Security** and **Firewall**.
@@ -135,7 +135,7 @@ Docker by default assigns dynamic subnets to bridge networks which can change wh
 
 ## Step 1. Determine current subnet
 
-Go to the **Container** section. Click on `immich_server` and scroll down on **General** to find the IP address.
+Go to the **Container** section. Click on `great_memories_server` and scroll down on **General** to find the IP address.
 ![Container IP](../../static/img/synology-container-ip.png)
 
 ## Step 2. Add network configuration
@@ -144,7 +144,7 @@ Add the following network configuration at the end of your `docker-compose.yml` 
 
 ```yaml
 networks:
-  immich-network:
+  great-memories-network:
     driver: bridge
     ipam:
       config:
@@ -156,29 +156,29 @@ If your docker container is running on a different subnet then update accordingl
 
 ## Step 3. Add network to each service
 
-Add the network to each service (immich-server, immich-machine-learning, redis, database):
+Add the network to each service (great-memories-server, great-memories-machine-learning, redis, database):
 
 ```yaml
 services:
-  immich-server:
+  great-memories-server:
     # other config options
     networks:
-      - immich-network
+      - great-memories-network
 
-  immich-machine-learning:
+  great-memories-machine-learning:
     # other config options
     networks:
-      - immich-network
+      - great-memories-network
 
   redis:
     # other config options
     networks:
-      - immich-network
+      - great-memories-network
 
   database:
     # other config options
     networks:
-      - immich-network
+      - great-memories-network
 ```
 
 Save your changes. Synology will ask if you want to save changes only or rebuild containers. Select rebuild containers.

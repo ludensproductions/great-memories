@@ -52,7 +52,7 @@
   };
 
   const styles = tv({
-    base: 'flex flex-col items-center rounded-3xl border-2 p-2 transition-all hover:bg-subtle dark:hover:bg-immich-dark-primary/20',
+    base: 'flex flex-col items-center rounded-3xl border-2 p-2 transition-all hover:bg-subtle dark:hover:bg-great-memories-dark-primary/20',
     variants: {
       selected: {
         true: 'border-slate-400 bg-slate-200 dark:border-slate-500 dark:bg-slate-800 dark:text-white',
@@ -72,14 +72,14 @@
       ? filterPeople(people, name)
       : filterPeople(people, name).slice(0, numberOfPeople)}
 
-    <div id="people-selection" class="-mb-4 max-h-60 immich-scrollbar overflow-y-auto">
+    <div id="people-selection" class="-mb-4 max-h-60 great-memories-scrollbar overflow-y-auto">
       <div class="flex w-full items-center justify-between gap-6">
         <Text class="py-3" fontWeight="medium">{$t('people')}</Text>
         <SearchBar bind:name placeholder={$t('filter_people')} showLoadingSpinner={false} />
       </div>
 
       <SingleGridRow
-        class="space-between mt-2 grid immich-scrollbar grid-auto-fill-20 gap-1 overflow-y-auto"
+        class="space-between mt-2 grid great-memories-scrollbar grid-auto-fill-20 gap-1 overflow-y-auto"
         bind:itemCount={numberOfPeople}
       >
         {#each peopleList as person (person.id)}

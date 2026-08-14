@@ -49,6 +49,6 @@ class GreatMemoriesTimeRange extends MediaTimeRange {
   }
 }
 
-if (!customElements.get('immich-time-range')) {
-  customElements.define('immich-time-range', GreatMemoriesTimeRange);
+if (!customElements.get('great-memories-time-range')) {
+  customElements.define('great-memories-time-range', GreatMemoriesTimeRange);
 }

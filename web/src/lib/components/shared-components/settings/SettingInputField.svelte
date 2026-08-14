@@ -97,7 +97,7 @@
   </div>
 
   {#if description}
-    <p class="pb-2 text-sm immich-form-label" id="{label}-desc">
+    <p class="pb-2 text-sm great-memories-form-label" id="{label}-desc">
       {description}
     </p>
   {:else}
@@ -111,7 +111,7 @@
       {#if inputType === SettingInputFieldType.COLOR}
         <input
           bind:this={input}
-          class="me-1 immich-form-input w-full rounded-none pb-2"
+          class="me-1 great-memories-form-input w-full rounded-none pb-2"
           aria-describedby={description ? `${label}-desc` : undefined}
           aria-labelledby="{label}-label"
           id={label}
@@ -130,7 +130,7 @@
 
       <input
         bind:this={input}
-        class="immich-form-input w-full min-w-[50px] pb-2"
+        class="great-memories-form-input w-full min-w-[50px] pb-2"
         class:color-picker={inputType === SettingInputFieldType.COLOR}
         aria-describedby={description ? `${label}-desc` : undefined}
         aria-labelledby="{label}-label"

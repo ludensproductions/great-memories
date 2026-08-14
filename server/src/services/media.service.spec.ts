@@ -1007,7 +1007,7 @@ describe(MediaService.name, () => {
     });
 
     it('should process invalid images if enabled', async () => {
-      vi.stubEnv('IMMICH_PROCESS_INVALID_IMAGES', 'true');
+      vi.stubEnv('GREAT_MEMORIES_PROCESS_INVALID_IMAGES', 'true');
       const asset = AssetFactory.from({ originalFileName: 'file.dng' })
         .exif({ fileSizeInByte: 5000, profileDescription: 'Adobe RGB', bitsPerSample: 14, orientation: undefined })
         .build();

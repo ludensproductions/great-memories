@@ -4105,10 +4105,10 @@ export function deleteAssets({ assetBulkDeleteDto }: {
 /**
  * Upload asset
  */
-export function uploadAsset({ key, slug, xImmichChecksum, assetMediaCreateDto }: {
+export function uploadAsset({ key, slug, xGreatMemoriesChecksum, assetMediaCreateDto }: {
     key?: string;
     slug?: string;
-    xImmichChecksum?: string;
+    xGreatMemoriesChecksum?: string;
     assetMediaCreateDto: AssetMediaCreateDto;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
@@ -4125,7 +4125,7 @@ export function uploadAsset({ key, slug, xImmichChecksum, assetMediaCreateDto }:
         method: "POST",
         body: assetMediaCreateDto,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-checksum": xImmichChecksum
+            "x-great-memories-checksum": xGreatMemoriesChecksum
         })
     })));
 }
@@ -4466,13 +4466,13 @@ export function endSession({ id, key, sessionId, slug }: {
 /**
  * Get HLS media playlist
  */
-export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xImmichHlsPos }: {
+export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xGreatMemoriesHlsPos }: {
     id: string;
     key?: string;
     sessionId: string;
     slug?: string;
     variantIndex: number;
-    xImmichHlsPos?: number;
+    xGreatMemoriesHlsPos?: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchBlob<{
         status: 200;
@@ -4483,21 +4483,21 @@ export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xImmi
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-hls-pos": xImmichHlsPos
+            "x-great-memories-hls-pos": xGreatMemoriesHlsPos
         })
     }));
 }
 /**
  * Get HLS segment or init file
  */
-export function getSegment({ filename, id, key, sessionId, slug, variantIndex, xImmichHlsMsn }: {
+export function getSegment({ filename, id, key, sessionId, slug, variantIndex, xGreatMemoriesHlsMsn }: {
     filename: string;
     id: string;
     key?: string;
     sessionId: string;
     slug?: string;
     variantIndex: number;
-    xImmichHlsMsn?: number;
+    xGreatMemoriesHlsMsn?: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchBlob<{
         status: 200;
@@ -4508,7 +4508,7 @@ export function getSegment({ filename, id, key, sessionId, slug, variantIndex, x
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-hls-msn": xImmichHlsMsn
+            "x-great-memories-hls-msn": xGreatMemoriesHlsMsn
         })
     }));
 }

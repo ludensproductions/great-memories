@@ -98,7 +98,7 @@ describe(`/oauth`, () => {
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
         buttonText: 'Login with Great Memories',
-        storageLabelClaim: 'immich_username',
+        storageLabelClaim: 'great_memories_username',
       });
     });
 
@@ -161,7 +161,7 @@ describe(`/oauth`, () => {
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
         buttonText: 'Login with Great Memories',
-        storageLabelClaim: 'immich_username',
+        storageLabelClaim: 'great_memories_username',
       });
     });
 
@@ -230,7 +230,7 @@ describe(`/oauth`, () => {
       const { url, state, codeVerifier } = await loginWithOAuth('oauth-auto-register');
       const { status, body } = await request(app)
         .post('/oauth/callback')
-        .set('Cookie', [`immich_oauth_state=${state}`, `immich_oauth_code_verifier=${codeVerifier}`])
+        .set('Cookie', [`great_memories_oauth_state=${state}`, `great_memories_oauth_code_verifier=${codeVerifier}`])
         .send({ url });
       expect(status).toBe(201);
       expect(body).toMatchObject({
@@ -434,7 +434,7 @@ describe(`/oauth`, () => {
         clientId: OAuthClient.DEFAULT,
         clientSecret: OAuthClient.DEFAULT,
         buttonText: 'Login with Great Memories',
-        storageLabelClaim: 'immich_username',
+        storageLabelClaim: 'great_memories_username',
         mobileOverrideEnabled: true,
         mobileRedirectUri: mobileOverrideRedirectUri,
       });
@@ -443,7 +443,7 @@ describe(`/oauth`, () => {
     it('should return the mobile redirect uri', async () => {
       const { status, body } = await request(app)
         .post('/oauth/authorize')
-        .send({ redirectUri: 'app.immich:///oauth-callback' });
+        .send({ redirectUri: 'app.great-memories:///oauth-callback' });
       expect(status).toBe(201);
       expect(body).toEqual({ url: expect.stringContaining(`${authServer.internal}/auth?`) });
 
@@ -455,11 +455,11 @@ describe(`/oauth`, () => {
     });
 
     it('should auto register the user by default', async () => {
-      const callbackParams = await loginWithOAuth('oauth-mobile-override', 'app.immich:///oauth-callback');
+      const callbackParams = await loginWithOAuth('oauth-mobile-override', 'app.great-memories:///oauth-callback');
       expect(callbackParams.url).toEqual(expect.stringContaining(mobileOverrideRedirectUri));
 
       // simulate redirecting back to mobile app
-      const url = callbackParams.url.replace(mobileOverrideRedirectUri, 'app.immich:///oauth-callback');
+      const url = callbackParams.url.replace(mobileOverrideRedirectUri, 'app.great-memories:///oauth-callback');
 
       const { status, body } = await request(app)
         .post('/oauth/callback')

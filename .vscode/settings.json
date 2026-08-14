@@ -33,17 +33,35 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "cSpell.words": ["immich"],
+  "cSpell.words": [
+    "great-memories"
+  ],
   "css.lint.unknownAtRules": "ignore",
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
   "eslint.useFlatConfig": true,
-  "eslint.validate": ["javascript", "typescript", "svelte"],
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "svelte"
+  ],
   "eslint.workingDirectories": [
-    { "changeProcessCWD": true, "directory": "cli" },
-    { "changeProcessCWD": true, "directory": "e2e" },
-    { "changeProcessCWD": true, "directory": "server" },
-    { "changeProcessCWD": true, "directory": "web" }
+    {
+      "changeProcessCWD": true,
+      "directory": "cli"
+    },
+    {
+      "changeProcessCWD": true,
+      "directory": "e2e"
+    },
+    {
+      "changeProcessCWD": true,
+      "directory": "server"
+    },
+    {
+      "changeProcessCWD": true,
+      "directory": "web"
+    }
   ],
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {

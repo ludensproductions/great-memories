@@ -70,7 +70,7 @@ jobs:
       - name: Re-tag image
         env:
           REGISTRY_NAME: 'ghcr.io'
-          REPOSITORY: ${{ github.repository_owner }}/immich-machine-learning
+          REPOSITORY: ${{ github.repository_owner }}/great-memories-machine-learning
           TAG_OLD: main${{ matrix.suffix }}
           TAG_PR: ${{ github.event.number == 0 && github.ref_name || format('pr-{0}', github.event.number) }}${{ matrix.suffix }}
           TAG_COMMIT: commit-${{ github.event_name != 'pull_request' && github.sha || github.event.pull_request.head.sha }}${{ matrix.suffix }}
@@ -100,7 +100,7 @@ jobs:
       - name: Re-tag image
         env:
           REGISTRY_NAME: 'ghcr.io'
-          REPOSITORY: ${{ github.repository_owner }}/immich-server
+          REPOSITORY: ${{ github.repository_owner }}/great-memories-server
           TAG_OLD: main${{ matrix.suffix }}
           TAG_PR: ${{ github.event.number == 0 && github.ref_name || format('pr-{0}', github.event.number) }}${{ matrix.suffix }}
           TAG_COMMIT: commit-${{ github.event_name != 'pull_request' && github.sha || github.event.pull_request.head.sha }}${{ matrix.suffix }}
@@ -142,7 +142,7 @@ jobs:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     with:
-      image: immich-machine-learning
+      image: great-memories-machine-learning
       context: machine-learning
       dockerfile: machine-learning/Dockerfile
       platforms: ${{ matrix.platforms }}
@@ -165,7 +165,7 @@ jobs:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     with:
-      image: immich-server
+      image: great-memories-server
       context: .
       dockerfile: server/Dockerfile
       dockerhub-push: ${{ github.event_name == 'release' && !github.event.release.prerelease }}

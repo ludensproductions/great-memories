@@ -37,7 +37,7 @@ class SyncStatusAndActions extends HookConsumerWidget {
         // WAL Checkpoint to ensure all changes are written to the database
         await ref.read(driftProvider).customStatement("pragma wal_checkpoint(truncate)");
         final documentsDir = await getApplicationDocumentsDirectory();
-        final dbFile = File(path.join(documentsDir.path, 'immich.sqlite'));
+        final dbFile = File(path.join(documentsDir.path, 'great-memories.sqlite'));
 
         if (!await dbFile.exists()) {
           if (context.mounted) {
@@ -49,7 +49,7 @@ class SyncStatusAndActions extends HookConsumerWidget {
         }
 
         final timestamp = DateTime.now().millisecondsSinceEpoch;
-        final exportFile = File(path.join(documentsDir.path, 'immich_export_$timestamp.sqlite'));
+        final exportFile = File(path.join(documentsDir.path, 'great_memories_export_$timestamp.sqlite'));
 
         await dbFile.copy(exportFile.path);
 

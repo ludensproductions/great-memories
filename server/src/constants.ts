@@ -11,7 +11,7 @@ import {
   VideoCodec,
 } from 'src/enum';
 
-export const IMMICH_SERVER_START = 'Great Memories Server is listening';
+export const GREAT_MEMORIES_SERVER_START = 'Great Memories Server is listening';
 
 export const ErrorMessages = {
   InconsistentMediaLocation:
@@ -58,10 +58,10 @@ export const serverVersion = new SemVer(version);
 export const citiesFile = 'cities500.txt';
 export const reverseGeocodeMaxDistance = 25_000;
 
-export const MOBILE_REDIRECT = 'app.immich:///oauth-callback';
+export const MOBILE_REDIRECT = 'app.great-memories:///oauth-callback';
 export const LOGIN_URL = '/auth/login?autoLaunch=0';
 
-export const excludePaths = ['/.well-known/immich', '/.well-known/great-memories', '/custom.css', '/favicon.ico'];
+export const excludePaths = ['/.well-known/great-memories', '/.well-known/great-memories', '/custom.css', '/favicon.ico'];
 
 export const FACE_THUMBNAIL_SIZE = 250;
 

@@ -60,11 +60,11 @@ For RKMPP to work:
 #### Basic Setup
 
 1. If you do not already have it, download the latest [`hwaccel.transcoding.yml`][hw-file] file and ensure it's in the same folder as the `docker-compose.yml`.
-2. In the `docker-compose.yml` under `immich-server`, uncomment the `extends` section and change `cpu` to the appropriate backend.
+2. In the `docker-compose.yml` under `great-memories-server`, uncomment the `extends` section and change `cpu` to the appropriate backend.
 
    Note: For VAAPI on WSL2, be sure to use `vaapi-wsl` rather than `vaapi`
 
-3. Redeploy the `immich-server` container with these updated settings.
+3. Redeploy the `great-memories-server` container with these updated settings.
 4. In the Admin page under `Video transcoding settings`, change the hardware acceleration setting to the appropriate option and save.
 
    Note: For Jasper Lake and Elkhart Lake CPUs, you will need to set the `Hardware Acceleration` -> `Constant quality mode` to `CQP`
@@ -72,7 +72,7 @@ For RKMPP to work:
 5. (Optional) Enable hardware decoding for optimal performance.
 
 <details>
-<summary>immich.json</summary>
+<summary>great-memories.json</summary>
 
 If you use a [configuration file](/install/config-file.md), use the `accel` option to select the hardware (e.g. `qsv` for Intel or `nvenc` for Nvidia). Set `accelDecode` to `true` if you want hardware decoding.
 
@@ -89,7 +89,7 @@ If you use a [configuration file](/install/config-file.md), use the `accel` opti
 
 #### Single Compose File
 
-Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `immich-server` service directly.
+Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `great-memories-server` service directly.
 
 For example, the `qsv` section in this file is:
 
@@ -98,12 +98,12 @@ devices:
   - /dev/dri:/dev/dri
 ```
 
-You can add this to the `immich-server` service instead of extending from `hwaccel.transcoding.yml`:
+You can add this to the `great-memories-server` service instead of extending from `hwaccel.transcoding.yml`:
 
 ```yaml
-immich-server:
-  container_name: immich_server
-  image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+great-memories-server:
+  container_name: great_memories_server
+  image: ghcr.io/immich-app/immich-server:${GREAT_MEMORIES_VERSION:-release}
   # Note the lack of an `extends` section
   devices:
     - /dev/dri:/dev/dri

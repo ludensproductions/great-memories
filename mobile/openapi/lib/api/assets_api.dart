@@ -983,8 +983,8 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [num] xImmichHlsPos:
-  Future<Response> getMediaPlaylistWithHttpInfo(String id, String sessionId, int variantIndex, { String? key, String? slug, num? xImmichHlsPos, Future<void>? abortTrigger, }) async {
+  /// * [num] xGreatMemoriesHlsPos:
+  Future<Response> getMediaPlaylistWithHttpInfo(String id, String sessionId, int variantIndex, { String? key, String? slug, num? xGreatMemoriesHlsPos, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final apiPath = r'/assets/{id}/video/stream/{sessionId}/{variantIndex}/playlist.m3u8'
       .replaceAll('{id}', id)
@@ -1005,8 +1005,8 @@ class AssetsApi {
       queryParams.addAll(_queryParams('', 'slug', slug));
     }
 
-    if (xImmichHlsPos != null) {
-      headerParams[r'x-immich-hls-pos'] = parameterToString(xImmichHlsPos);
+    if (xGreatMemoriesHlsPos != null) {
+      headerParams[r'x-great-memories-hls-pos'] = parameterToString(xGreatMemoriesHlsPos);
     }
 
     const contentTypes = <String>[];
@@ -1040,9 +1040,9 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [num] xImmichHlsPos:
-  Future<String?> getMediaPlaylist(String id, String sessionId, int variantIndex, { String? key, String? slug, num? xImmichHlsPos, Future<void>? abortTrigger, }) async {
-    final response = await getMediaPlaylistWithHttpInfo(id, sessionId, variantIndex, key: key, slug: slug, xImmichHlsPos: xImmichHlsPos, abortTrigger: abortTrigger,);
+  /// * [num] xGreatMemoriesHlsPos:
+  Future<String?> getMediaPlaylist(String id, String sessionId, int variantIndex, { String? key, String? slug, num? xGreatMemoriesHlsPos, Future<void>? abortTrigger, }) async {
+    final response = await getMediaPlaylistWithHttpInfo(id, sessionId, variantIndex, key: key, slug: slug, xGreatMemoriesHlsPos: xGreatMemoriesHlsPos, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1076,8 +1076,8 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [int] xImmichHlsMsn:
-  Future<Response> getSegmentWithHttpInfo(String filename, String id, String sessionId, int variantIndex, { String? key, String? slug, int? xImmichHlsMsn, Future<void>? abortTrigger, }) async {
+  /// * [int] xGreatMemoriesHlsMsn:
+  Future<Response> getSegmentWithHttpInfo(String filename, String id, String sessionId, int variantIndex, { String? key, String? slug, int? xGreatMemoriesHlsMsn, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final apiPath = r'/assets/{id}/video/stream/{sessionId}/{variantIndex}/{filename}'
       .replaceAll('{filename}', filename)
@@ -1099,8 +1099,8 @@ class AssetsApi {
       queryParams.addAll(_queryParams('', 'slug', slug));
     }
 
-    if (xImmichHlsMsn != null) {
-      headerParams[r'x-immich-hls-msn'] = parameterToString(xImmichHlsMsn);
+    if (xGreatMemoriesHlsMsn != null) {
+      headerParams[r'x-great-memories-hls-msn'] = parameterToString(xGreatMemoriesHlsMsn);
     }
 
     const contentTypes = <String>[];
@@ -1136,9 +1136,9 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [int] xImmichHlsMsn:
-  Future<MultipartFile?> getSegment(String filename, String id, String sessionId, int variantIndex, { String? key, String? slug, int? xImmichHlsMsn, Future<void>? abortTrigger, }) async {
-    final response = await getSegmentWithHttpInfo(filename, id, sessionId, variantIndex, key: key, slug: slug, xImmichHlsMsn: xImmichHlsMsn, abortTrigger: abortTrigger,);
+  /// * [int] xGreatMemoriesHlsMsn:
+  Future<MultipartFile?> getSegment(String filename, String id, String sessionId, int variantIndex, { String? key, String? slug, int? xGreatMemoriesHlsMsn, Future<void>? abortTrigger, }) async {
+    final response = await getSegmentWithHttpInfo(filename, id, sessionId, variantIndex, key: key, slug: slug, xGreatMemoriesHlsMsn: xGreatMemoriesHlsMsn, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1581,7 +1581,7 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [String] xImmichChecksum:
+  /// * [String] xGreatMemoriesChecksum:
   ///   sha1 checksum that can be used for duplicate detection before the file is uploaded
   ///
   /// * [int] duration:
@@ -1603,7 +1603,7 @@ class AssetsApi {
   ///   Sidecar file data
   ///
   /// * [AssetVisibility] visibility:
-  Future<Response> uploadAssetWithHttpInfo(MultipartFile assetData, DateTime fileCreatedAt, DateTime fileModifiedAt, { String? key, String? slug, String? xImmichChecksum, int? duration, String? filename, bool? isFavorite, String? livePhotoVideoId, List<AssetMetadataUpsertItemDto>? metadata, MultipartFile? sidecarData, AssetVisibility? visibility, Future<void>? abortTrigger, }) async {
+  Future<Response> uploadAssetWithHttpInfo(MultipartFile assetData, DateTime fileCreatedAt, DateTime fileModifiedAt, { String? key, String? slug, String? xGreatMemoriesChecksum, int? duration, String? filename, bool? isFavorite, String? livePhotoVideoId, List<AssetMetadataUpsertItemDto>? metadata, MultipartFile? sidecarData, AssetVisibility? visibility, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final apiPath = r'/assets';
 
@@ -1621,8 +1621,8 @@ class AssetsApi {
       queryParams.addAll(_queryParams('', 'slug', slug));
     }
 
-    if (xImmichChecksum != null) {
-      headerParams[r'x-immich-checksum'] = parameterToString(xImmichChecksum);
+    if (xGreatMemoriesChecksum != null) {
+      headerParams[r'x-great-memories-checksum'] = parameterToString(xGreatMemoriesChecksum);
     }
 
     const contentTypes = <String>['multipart/form-data'];
@@ -1706,7 +1706,7 @@ class AssetsApi {
   ///
   /// * [String] slug:
   ///
-  /// * [String] xImmichChecksum:
+  /// * [String] xGreatMemoriesChecksum:
   ///   sha1 checksum that can be used for duplicate detection before the file is uploaded
   ///
   /// * [int] duration:
@@ -1728,8 +1728,8 @@ class AssetsApi {
   ///   Sidecar file data
   ///
   /// * [AssetVisibility] visibility:
-  Future<AssetMediaResponseDto?> uploadAsset(MultipartFile assetData, DateTime fileCreatedAt, DateTime fileModifiedAt, { String? key, String? slug, String? xImmichChecksum, int? duration, String? filename, bool? isFavorite, String? livePhotoVideoId, List<AssetMetadataUpsertItemDto>? metadata, MultipartFile? sidecarData, AssetVisibility? visibility, Future<void>? abortTrigger, }) async {
-    final response = await uploadAssetWithHttpInfo(assetData, fileCreatedAt, fileModifiedAt, key: key, slug: slug, xImmichChecksum: xImmichChecksum, duration: duration, filename: filename, isFavorite: isFavorite, livePhotoVideoId: livePhotoVideoId, metadata: metadata, sidecarData: sidecarData, visibility: visibility, abortTrigger: abortTrigger,);
+  Future<AssetMediaResponseDto?> uploadAsset(MultipartFile assetData, DateTime fileCreatedAt, DateTime fileModifiedAt, { String? key, String? slug, String? xGreatMemoriesChecksum, int? duration, String? filename, bool? isFavorite, String? livePhotoVideoId, List<AssetMetadataUpsertItemDto>? metadata, MultipartFile? sidecarData, AssetVisibility? visibility, Future<void>? abortTrigger, }) async {
+    final response = await uploadAssetWithHttpInfo(assetData, fileCreatedAt, fileModifiedAt, key: key, slug: slug, xGreatMemoriesChecksum: xGreatMemoriesChecksum, duration: duration, filename: filename, isFavorite: isFavorite, livePhotoVideoId: livePhotoVideoId, metadata: metadata, sidecarData: sidecarData, visibility: visibility, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

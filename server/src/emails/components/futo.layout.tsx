@@ -29,7 +29,7 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
           extend: {
             colors: {
               // Light Theme
-              'immich-primary': '#4250AF',
+              'great-memories-primary': '#4250AF',
               'futo-primary': '#000000',
               'futo-bg': '#F4F4f4',
               'futo-gray': '#F6F6F4',

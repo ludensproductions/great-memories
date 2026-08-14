@@ -138,7 +138,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetArchive' }],
+        steps: [{ method: 'great-memories-plugin-core#assetArchive' }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -155,7 +155,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetArchive', config: { inverse: true } }],
+        steps: [{ method: 'great-memories-plugin-core#assetArchive', config: { inverse: true } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -174,7 +174,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetLock' }],
+        steps: [{ method: 'great-memories-plugin-core#assetLock' }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -191,7 +191,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetLock', config: { inverse: true } }],
+        steps: [{ method: 'great-memories-plugin-core#assetLock', config: { inverse: true } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -210,7 +210,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetFavorite' }],
+        steps: [{ method: 'great-memories-plugin-core#assetFavorite' }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -225,7 +225,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetFavorite', config: { inverse: true } }],
+        steps: [{ method: 'great-memories-plugin-core#assetFavorite', config: { inverse: true } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -242,7 +242,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [], albumName: 'Screenshots' } }],
+        steps: [{ method: 'great-memories-plugin-core#assetAddToAlbums', config: { albumIds: [], albumName: 'Screenshots' } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -268,7 +268,7 @@ describe('core plugin', () => {
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
-          { method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id], albumName: 'Screenshots' } },
+          { method: 'great-memories-plugin-core#assetAddToAlbums', config: { albumIds: [album.id], albumName: 'Screenshots' } },
         ],
       });
 
@@ -289,7 +289,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
+        steps: [{ method: 'great-memories-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -308,7 +308,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album1.id, album2.id] } }],
+        steps: [{ method: 'great-memories-plugin-core#assetAddToAlbums', config: { albumIds: [album1.id, album2.id] } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeUndefined();
@@ -326,7 +326,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user1.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
+        steps: [{ method: 'great-memories-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
       });
 
       await expect(ctx.sut.handleAssetTrigger({ workflowId: workflow.id, assetId: asset.id })).resolves.toBeTruthy();
@@ -346,11 +346,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'great-memories-plugin-core#assetLocationFilter',
             config: { coordinate: { latitude: 49.28882167994929, longitude: -123.1111530988137, radius: 2 } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -369,11 +369,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'great-memories-plugin-core#assetLocationFilter',
             config: { coordinate: { latitude: 49.28882167994929, longitude: -123.1111530988137, radius: 10 } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -392,11 +392,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'great-memories-plugin-core#assetLocationFilter',
             config: { region: { city: 'Vancouver' } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -416,11 +416,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTypeFilter',
+            method: 'great-memories-plugin-core#assetTypeFilter',
             config: { allowedTypes: ['VIDEO'] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -444,7 +444,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetDateFilter',
+            method: 'great-memories-plugin-core#assetDateFilter',
             config: {
               startDate: { day: 1, month: 4, year: 2000 },
               endDate: { day: 7, month: 4, year: 2000 },
@@ -452,7 +452,7 @@ describe('core plugin', () => {
             },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -481,7 +481,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetDateFilter',
+            method: 'great-memories-plugin-core#assetDateFilter',
             config: {
               startDate: { day: 12, month: 12, year: 2000 },
               endDate: { day: 30, month: 3, year: 2001 },
@@ -489,7 +489,7 @@ describe('core plugin', () => {
             },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'great-memories-plugin-core#assetFavorite',
           },
         ],
       });
@@ -518,7 +518,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#webhook',
+            method: 'great-memories-plugin-core#webhook',
             config: { url: 'http://localhost', method: 'POST' },
           },
         ],

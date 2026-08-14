@@ -6,8 +6,8 @@
     <string>$(CUSTOM_GROUP_ID)</string>
     <key>BGTaskSchedulerPermittedIdentifiers</key>
     <array>
-      <string>app.alextran.immich.background.refreshUpload</string>
-      <string>app.alextran.immich.background.processingUpload</string>
+      <string>com.greatmemories.app.background.refreshUpload</string>
+      <string>com.greatmemories.app.background.processingUpload</string>
     </array>
     <key>CADisableMinimumFrameDurationOnPhone</key>
     <true />
@@ -100,7 +100,7 @@
         <string>Deep Link</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>immich</string>
+          <string>great-memories</string>
         </array>
       </dict>
     </array>
@@ -129,7 +129,7 @@
     <array>
       <string>_googlecast._tcp</string>
       <string>_CC1AD845._googlecast._tcp</string>
-      <string>_immich._tcp</string>
+      <string>_great_memories._tcp</string>
     </array>
     <key>NSCameraUsageDescription</key>
     <string>We need to access the camera to let you take beautiful video using this app</string>

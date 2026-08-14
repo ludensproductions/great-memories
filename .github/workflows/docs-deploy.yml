@@ -203,7 +203,7 @@ jobs:
         run: |
           mise run //deployment:tf output -- -json | jq -r '
             "projectName=\(.pages_project_name.value)",
-            "subdomain=\(.immich_app_branch_subdomain.value)"
+            "subdomain=\(.great_memories_app_branch_subdomain.value)"
           ' >> $GITHUB_OUTPUT
 
       - name: Publish to Cloudflare Pages

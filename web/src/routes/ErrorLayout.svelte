@@ -33,7 +33,7 @@
 
 <div class="flex h-dvh w-dvw flex-col">
   <section>
-    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-immich-dark-gray">
+    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-great-memories-dark-gray">
       <Link href="/photos">
         <Logo variant="inline" />
       </Link>

@@ -51,7 +51,7 @@
       >
         <div class="flex w-full items-center gap-3 text-start">
           <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-immich-primary/10 text-immich-primary dark:bg-immich-dark-primary/15 dark:text-immich-dark-primary"
+            class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-great-memories-primary/10 text-great-memories-primary dark:bg-great-memories-dark-primary/15 dark:text-great-memories-dark-primary"
           >
             <Icon icon={mdiFlashOutline} size="18" />
           </div>

@@ -54,7 +54,7 @@ describe(AuthController.name, () => {
     it('should require a valid email', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/auth/admin-sign-up')
-        .send({ name, email: 'immich', password });
+        .send({ name, email: 'great-memories', password });
       expect(status).toEqual(400);
       expect(body).toEqual(
         errorDto.validationError([{ path: ['email'], message: 'Invalid input: expected email, received string' }]),
@@ -65,7 +65,7 @@ describe(AuthController.name, () => {
       service.adminSignUp.mockReset();
       const { status } = await request(ctx.getHttpServer())
         .post('/auth/admin-sign-up')
-        .send({ name: 'admin', password: 'password', email: 'aDmIn@IMMICH.cloud' });
+        .send({ name: 'admin', password: 'password', email: 'aDmIn@GREAT_MEMORIES.cloud' });
       expect(status).toEqual(201);
       expect(service.adminSignUp).toHaveBeenCalledWith(expect.objectContaining({ email: 'admin@immich.cloud' }));
     });
@@ -161,7 +161,7 @@ describe(AuthController.name, () => {
       const cookies = headers['set-cookie'];
       expect(cookies).toHaveLength(3);
       expect(cookies[0].split(';').map((item) => item.trim())).toEqual([
-        `immich_access_token=${loginResponse.accessToken}`,
+        `great_memories_access_token=${loginResponse.accessToken}`,
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),
@@ -169,7 +169,7 @@ describe(AuthController.name, () => {
         'SameSite=Lax',
       ]);
       expect(cookies[1].split(';').map((item) => item.trim())).toEqual([
-        'immich_auth_type=password',
+        'great_memories_auth_type=password',
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),
@@ -177,7 +177,7 @@ describe(AuthController.name, () => {
         'SameSite=Lax',
       ]);
       expect(cookies[2].split(';').map((item) => item.trim())).toEqual([
-        'immich_is_authenticated=true',
+        'great_memories_is_authenticated=true',
         'Max-Age=34560000',
         'Path=/',
         expect.stringContaining('Expires='),

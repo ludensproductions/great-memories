@@ -140,8 +140,8 @@ For advanced users or automated recovery scenarios, you can restore a database b
 
 ```bash title='Backup'
 # Replace <DB_USERNAME> with the database username - usually postgres unless you have changed it.
-# Replace <DB_DATABASE_NAME> with the database name - usually immich unless you have changed it.
-docker exec -t immich_postgres pg_dump --clean --if-exists --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME> | gzip > "/path/to/backup/dump.sql.gz"
+# Replace <DB_DATABASE_NAME> with the database name - usually great-memories unless you have changed it.
+docker exec -t great_memories_postgres pg_dump --clean --if-exists --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME> | gzip > "/path/to/backup/dump.sql.gz"
 ```
 
 ```bash title='Restore'
@@ -150,14 +150,14 @@ docker compose down -v  # CAUTION! Deletes all Great Memories data to start from
 # rm -rf DB_DATA_LOCATION # CAUTION! Deletes all Great Memories data to start from scratch
 docker compose pull             # Update to latest version of Great Memories (if desired)
 docker compose create           # Create Docker containers for Great Memories apps without running them
-docker start immich_postgres    # Start Postgres server
+docker start great_memories_postgres    # Start Postgres server
 sleep 10                        # Wait for Postgres server to start up
 # Check the database user if you deviated from the default
 # Replace <DB_USERNAME> with the database username - usually postgres unless you have changed it.
-# Replace <DB_DATABASE_NAME> with the database name - usually immich unless you have changed it.
+# Replace <DB_DATABASE_NAME> with the database name - usually great-memories unless you have changed it.
 gunzip --stdout "/path/to/backup/dump.sql.gz" \
 | sed "s/SELECT pg_catalog.set_config('search_path', '', false);/SELECT pg_catalog.set_config('search_path', 'public, pg_catalog', true);/g" \
-| docker exec -i immich_postgres psql --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME> --single-transaction --set ON_ERROR_STOP=on  # Restore Backup
+| docker exec -i great_memories_postgres psql --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME> --single-transaction --set ON_ERROR_STOP=on  # Restore Backup
 docker compose up -d            # Start remainder of Great Memories apps
 ```
 
@@ -166,23 +166,23 @@ docker compose up -d            # Start remainder of Great Memories apps
 
 ```powershell title='Backup'
 # Replace <DB_USERNAME> with the database username - usually postgres unless you have changed it.
-# Replace <DB_DATABASE_NAME> with the database name - usually immich unless you have changed it.
-[System.IO.File]::WriteAllLines("C:\absolute\path\to\backup\dump.sql", (docker exec -t immich_postgres pg_dump --clean --if-exists --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME>))
+# Replace <DB_DATABASE_NAME> with the database name - usually great-memories unless you have changed it.
+[System.IO.File]::WriteAllLines("C:\absolute\path\to\backup\dump.sql", (docker exec -t great_memories_postgres pg_dump --clean --if-exists --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME>))
 ```
 
 ```powershell title='Restore'
 docker compose down -v  # CAUTION! Deletes all Great Memories data to start from scratch
 ## Uncomment the next line and replace DB_DATA_LOCATION with your Postgres path to permanently reset the Postgres database
 # Remove-Item -Recurse -Force DB_DATA_LOCATION # CAUTION! Deletes all Great Memories data to start from scratch
-## You should mount the backup (as a volume, example: `- 'C:\path\to\backup\dump.sql:/dump.sql'`) into the immich_postgres container using the docker-compose.yml
+## You should mount the backup (as a volume, example: `- 'C:\path\to\backup\dump.sql:/dump.sql'`) into the great_memories_postgres container using the docker-compose.yml
 docker compose pull                               # Update to latest version of Great Memories (if desired)
 docker compose create                             # Create Docker containers for Great Memories apps without running them
-docker start immich_postgres                      # Start Postgres server
+docker start great_memories_postgres                      # Start Postgres server
 sleep 10                                          # Wait for Postgres server to start up
-docker exec -it immich_postgres bash              # Enter the Docker shell and run the following command
+docker exec -it great_memories_postgres bash              # Enter the Docker shell and run the following command
 # If your backup ends in `.gz`, replace `cat` with `gunzip --stdout`
 # Replace <DB_USERNAME> with the database username - usually postgres unless you have changed it.
-# Replace <DB_DATABASE_NAME> with the database name - usually immich unless you have changed it.
+# Replace <DB_DATABASE_NAME> with the database name - usually great-memories unless you have changed it.
 
 cat "/dump.sql" | sed "s/SELECT pg_catalog.set_config('search_path', '', false);/SELECT pg_catalog.set_config('search_path', 'public, pg_catalog', true);/g" | psql --dbname=<DB_DATABASE_NAME> --username=<DB_USERNAME>  --single-transaction --set ON_ERROR_STOP=on
 exit                                              # Exit the Docker shell
@@ -316,6 +316,6 @@ You can think of it as App-Which-Must-Not-Be-Named, the only access to viewing, 
 ## Backup ordering
 
 A backup of Great Memories should contain both the database and the asset files. When backing these up it's possible for them to get out of sync, potentially resulting in broken assets after you restore.
-The best way of dealing with this is to stop the immich-server container while you take a backup. If nothing is changing then the backup will always be in sync.
+The best way of dealing with this is to stop the great-memories-server container while you take a backup. If nothing is changing then the backup will always be in sync.
 
 If stopping the container is not an option, then the recommended order is to back up the database first, and the filesystem second. This way, the worst case scenario is that there are files on the filesystem that the database doesn't know about. If necessary, these can be (re)uploaded manually after a restore. If the backup is done the other way around, with the filesystem first and the database second, it's possible for the restored database to reference files that aren't in the filesystem backup, thus resulting in broken assets.

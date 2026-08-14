@@ -19,11 +19,11 @@ Go to the provider's marketplace and choose Great Memories, then follow the prov
 
 ### DigitalOcean
 
-https://marketplace.digitalocean.com/apps/immich
+https://marketplace.digitalocean.com/apps/great-memories
 
 ### Vultr
 
-https://www.vultr.com/marketplace/apps/immich
+https://www.vultr.com/marketplace/apps/great-memories
 
 ## Issues
 

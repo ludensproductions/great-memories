@@ -22,7 +22,7 @@ For organizations seeking to resell Great Memories, we have established the foll
 
 - Do not misrepresent your reseller site or services as being officially affiliated with or endorsed by Great Memories or our development team.
 
-- For small resellers who wish to contribute financially to Great Memories's development, we recommend directing your customers to purchase product keys directly from us rather than attempting to broker revenue-sharing arrangements. We ask that you refrain from misrepresenting reseller activities as directly supporting our development work.
+- For small resellers who wish to contribute financially to Great Memories' development, we recommend directing your customers to purchase product keys directly from us rather than attempting to broker revenue-sharing arrangements. We ask that you refrain from misrepresenting reseller activities as directly supporting our development work.
 
 When in doubt or if you have an edge case scenario, we encourage you to contact us directly via email to discuss the use of our trademark. We can provide clear guidance on what is acceptable and what is not. You can reach out at: questions@immich.app
 
@@ -32,7 +32,7 @@ When in doubt or if you have an edge case scenario, we encourage you to contact 
 
 ### How can I reset the admin password?
 
-The admin password can be reset by running the [reset-admin-password](/administration/server-commands.md) command on the immich-server.
+The admin password can be reset by running the [reset-admin-password](/administration/server-commands.md) command on the great-memories-server.
 
 ### How can I see a list of all users in Great Memories?
 
@@ -208,7 +208,7 @@ For example you could change `originals:` to `Photos:`, and change `- originals:
 ```diff
 ...
 services:
-  immich-server:
+  great-memories-server:
 ...
     volumes:
       # Do not edit the next line. If you want to change the media storage location on your system, edit the value of UPLOAD_LOCATION in the .env file
@@ -282,7 +282,7 @@ Disabling machine learning will result in a poor experience for searching and th
 
 Machine learning can be disabled under Administration > Settings > Machine Learning Settings, either entirely or by model type. For instance, you can choose to disable smart search with CLIP, but keep facial recognition enabled. This means that the machine learning service will only process the enabled jobs.
 
-However, disabling all jobs will not disable the machine learning service itself. To prevent it from starting up at all in this case, you can comment out the `immich-machine-learning` section of the docker-compose.yml.
+However, disabling all jobs will not disable the machine learning service itself. To prevent it from starting up at all in this case, you can comment out the `great-memories-machine-learning` section of the docker-compose.yml.
 
 ### I'm getting errors about models being corrupt or failing to download. What do I do?
 
@@ -298,7 +298,7 @@ You can change to a multilingual CLIP model. See [here](/features/searching#clip
 
 ### Does Great Memories support Facial Recognition for videos?
 
-Great Memories's machine learning feature operates on the generated thumbnail. If a face is visible in the video's thumbnail it will be picked up by facial recognition.
+Great Memories' machine learning feature operates on the generated thumbnail. If a face is visible in the video's thumbnail it will be picked up by facial recognition.
 Scanning the entire video for faces may be implemented in the future.
 
 ### Does Great Memories have animal recognition?
@@ -313,15 +313,15 @@ You can use [Smart Search](/features/searching.md) for this to some extent. For 
 You can increase the MIN DETECTION SCORE to 0.8 to help prevent bad thumbnails. Setting the score too high (above 0.9) might filter out too many real faces depending on the library used. If you just want to hide specific faces, you can adjust the 'MIN FACES DETECTED' setting in the administration panel  
 to increase the bar for what the algorithm considers a "core face" for that person, reducing the chance of bad thumbnails being chosen.
 
-### The immich_model-cache volume takes up a lot of space, what could be the problem?
+### The great_memories_model-cache volume takes up a lot of space, what could be the problem?
 
-If you installed several models and chose not to use some of them, it might be worth deleting the old models that are in immich_model-cache. To do this you can mount the model cache and remove the undesired models.
+If you installed several models and chose not to use some of them, it might be worth deleting the old models that are in great_memories_model-cache. To do this you can mount the model cache and remove the undesired models.
 
 <details>
 <summary>Steps</summary>
 
 ```bash
-docker run -it --rm -v immich_model-cache:/mnt-models alpine sh
+docker run -it --rm -v great_memories_model-cache:/mnt-models alpine sh
 cd /mnt-models
 ls clip/ facial-recognition/
 # rm -r clip/ABC facial-recognition/DEF # delete unused models
@@ -335,7 +335,7 @@ ls clip/ facial-recognition/
 
 ### Why is Great Memories slow on low-memory systems like the Raspberry Pi?
 
-Great Memories optionally uses transcoding and machine learning for several features. However, it can be too heavy to run on a Raspberry Pi. You can [mitigate](/FAQ#can-i-lower-cpu-and-ram-usage) this or host Great Memories's machine-learning container on a [more powerful system](/guides/remote-machine-learning), or [disable](/FAQ#how-can-i-disable-machine-learning) machine learning entirely.
+Great Memories optionally uses transcoding and machine learning for several features. However, it can be too heavy to run on a Raspberry Pi. You can [mitigate](/FAQ#can-i-lower-cpu-and-ram-usage) this or host Great Memories' machine-learning container on a [more powerful system](/guides/remote-machine-learning), or [disable](/FAQ#how-can-i-disable-machine-learning) machine learning entirely.
 
 ### Can I lower CPU and RAM usage?
 
@@ -413,8 +413,8 @@ You can change the user in the container by setting the `user` argument in `dock
 
 You may need to add mount points or docker volumes for the following internal container paths:
 
-- `immich-machine-learning:/.config`
-- `immich-machine-learning:/.cache`
+- `great-memories-machine-learning:/.config`
+- `great-memories-machine-learning:/.cache`
 - `redis:/data`
 
 The non-root user/group needs read/write access to the volume mounts, including `UPLOAD_LOCATION` and `/cache` for machine-learning.
@@ -461,7 +461,7 @@ After removing the containers and volumes, there are a few directories that need
 
 :::note Portainer
 If you use portainer, bring down the stack in portainer. Go into the volumes section  
-and remove all the volumes related to immich then restart the stack.
+and remove all the volumes related to great-memories then restart the stack.
 :::
 
 ### Why does the machine learning service report workers crashing?
@@ -493,7 +493,7 @@ A result of `on` means that checksums are enabled.
 <summary>Check if checksums are enabled</summary>
 
 ```bash
-docker exec -it immich_postgres psql --dbname=postgres --username=<DB_USERNAME> --command="show data_checksums"
+docker exec -it great_memories_postgres psql --dbname=postgres --username=<DB_USERNAME> --command="show data_checksums"
  data_checksums
 ----------------
  on
@@ -508,11 +508,11 @@ If checksums are enabled, you can check the status of the database with the foll
 <summary>Check for database corruption</summary>
 
 ```bash
-docker exec -it immich_postgres psql --dbname=postgres --username=<DB_USERNAME> --command="SELECT datname, checksum_failures, checksum_last_failure FROM pg_stat_database WHERE datname IS NOT NULL"
+docker exec -it great_memories_postgres psql --dbname=postgres --username=<DB_USERNAME> --command="SELECT datname, checksum_failures, checksum_last_failure FROM pg_stat_database WHERE datname IS NOT NULL"
   datname  | checksum_failures | checksum_last_failure
 -----------+-------------------+-----------------------
  postgres  |                 0 |
- immich    |                 0 |
+ great-memories    |                 0 |
  template1 |                 0 |
  template0 |                 0 |
 (4 rows)
@@ -525,7 +525,7 @@ You can also scan the Postgres database file structure for errors:
 <details>
 <summary>Scan for file structure errors</summary>
 ```bash
-docker exec -it immich_postgres pg_amcheck --username=<DB_USERNAME> --heapallindexed --parent-check --rootdescend --progress --all --install-missing
+docker exec -it great_memories_postgres pg_amcheck --username=<DB_USERNAME> --heapallindexed --parent-check --rootdescend --progress --all --install-missing
 ```
 
 A normal result will end something like this and return with an exit code of `0`:

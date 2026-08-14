@@ -21,11 +21,11 @@
   in:fade={{ duration: 100 }}
   out:fade={{ duration: 100 }}
   id="account-info-panel"
-  class="absolute inset-e-6 top-19 z-1 w-[min(360px,100vw-50px)] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-immich-dark-gray dark:bg-immich-dark-gray"
+  class="absolute inset-e-6 top-19 z-1 w-[min(360px,100vw-50px)] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-great-memories-dark-gray dark:bg-great-memories-dark-gray"
   use:focusTrap
 >
   <div
-    class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-t-3xl bg-white p-4 dark:bg-immich-dark-primary/10"
+    class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-t-3xl bg-white p-4 dark:bg-great-memories-dark-primary/10"
   >
     <div class="relative">
       <UserAvatar user={authManager.user} size="xl" />
@@ -47,7 +47,7 @@
       <p class="text-center text-lg font-medium text-primary">
         {authManager.user.name}
       </p>
-      <p class="text-sm text-gray-500 dark:text-immich-dark-fg">{authManager.user.email}</p>
+      <p class="text-sm text-gray-500 dark:text-great-memories-dark-fg">{authManager.user.email}</p>
     </div>
 
     <div class="flex flex-col gap-1">
@@ -58,7 +58,7 @@
         color="secondary"
         variant="ghost"
         shape="round"
-        class="border hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-immich-dark-primary/50"
+        class="border hover:bg-great-memories-primary/10 dark:border-great-memories-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-great-memories-dark-primary/50"
       >
         <div class="flex place-content-center place-items-center gap-2 px-2 text-center">
           <Icon icon={mdiCog} size="18" aria-hidden />
@@ -74,7 +74,7 @@
           size="small"
           color="secondary"
           aria-current={page.url.pathname.includes('/admin') ? 'page' : undefined}
-          class="border hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-immich-dark-primary/50"
+          class="border hover:bg-great-memories-primary/10 dark:border-great-memories-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-great-memories-dark-primary/50"
         >
           <div class="flex place-content-center place-items-center gap-2 px-2 text-center">
             <Icon icon={mdiWrench} size="18" aria-hidden />
@@ -87,7 +87,7 @@
 
   <div class="mb-4 flex flex-col">
     <Button
-      class="m-1 mx-4 rounded-none rounded-b-3xl bg-white p-3 dark:bg-immich-dark-primary/10"
+      class="m-1 mx-4 rounded-none rounded-b-3xl bg-white p-3 dark:bg-great-memories-dark-primary/10"
       href={Route.logout()}
       leadingIcon={mdiLogout}
       variant="ghost"

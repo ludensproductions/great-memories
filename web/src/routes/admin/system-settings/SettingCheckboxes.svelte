@@ -48,7 +48,7 @@
   </div>
 
   {#if desc}
-    <p class="pb-2 text-sm immich-form-label" id="{name}-desc">
+    <p class="pb-2 text-sm great-memories-form-label" id="{name}-desc">
       {desc}
     </p>
   {/if}
