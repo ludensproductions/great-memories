@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
 
 final settingsProvider = Provider.autoDispose<SettingsRepository>((_) => SettingsRepository.instance);
 

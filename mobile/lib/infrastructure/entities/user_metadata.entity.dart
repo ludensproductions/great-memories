@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/user_metadata.model.dart';
-import 'package:immich_mobile/infrastructure/entities/user.entity.dart';
-import 'package:immich_mobile/infrastructure/utils/drift_default.mixin.dart';
+import 'package:great_memories_mobile/domain/models/user_metadata.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/user.entity.dart';
+import 'package:great_memories_mobile/infrastructure/utils/drift_default.mixin.dart';
 
 class UserMetadataEntity extends Table with DriftDefaultsMixin {
   const UserMetadataEntity();

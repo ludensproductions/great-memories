@@ -1,5 +1,5 @@
-from immich_ml.config import clean_name
-from immich_ml.schemas import ModelSource
+from great_memories_ml.config import clean_name
+from great_memories_ml.schemas import ModelSource
 
 _OPENCLIP_MODELS = {
     "RN101__openai",

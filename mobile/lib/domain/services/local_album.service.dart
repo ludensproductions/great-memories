@@ -1,6 +1,6 @@
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_album.repository.dart';
 
 class LocalAlbumService {
   final DriftLocalAlbumRepository _repository;

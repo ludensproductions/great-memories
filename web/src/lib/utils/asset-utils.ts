@@ -16,7 +16,7 @@ import {
   type ExifResponseDto,
   type StackResponseDto,
   type UserResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 import { DateTime } from 'luxon';
 import { t } from 'svelte-i18n';

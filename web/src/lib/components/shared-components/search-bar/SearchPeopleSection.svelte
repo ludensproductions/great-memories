@@ -4,7 +4,7 @@
   import SearchBar from '$lib/elements/SearchBar.svelte';
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { getAllPeople, type PersonResponseDto } from '@great-memories/sdk';
   import { Button, LoadingSpinner, Text } from '@immich/ui';
   import { mdiArrowRight, mdiClose } from '@mdi/js';
   import { t } from 'svelte-i18n';

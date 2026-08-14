@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/memory.repository.dart';
+import 'package:great_memories_mobile/domain/models/memory.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/memory.repository.dart';
 import 'package:logging/logging.dart';
 
 class DriftMemoryService {

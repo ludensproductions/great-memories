@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
 
 abstract final class LocalAssetStub {
   const LocalAssetStub._();

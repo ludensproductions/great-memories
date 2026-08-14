@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/infrastructure/utils/user.converter.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/repositories/api.repository.dart';
+import 'package:great_memories_mobile/infrastructure/utils/user.converter.dart';
+import 'package:great_memories_mobile/models/activities/activity.model.dart';
+import 'package:great_memories_mobile/providers/api.provider.dart';
+import 'package:great_memories_mobile/repositories/api.repository.dart';
 import 'package:openapi/api.dart';
 
 final activityApiRepositoryProvider = Provider(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/remove_from_lock_folder_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/remove_from_lock_folder_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
 
 class LockedFolderBottomSheet extends ConsumerWidget {
   const LockedFolderBottomSheet({super.key});

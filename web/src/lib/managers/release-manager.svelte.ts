@@ -1,4 +1,4 @@
-import type { ReleaseEventV1 } from '@immich/sdk';
+import type { ReleaseEventV1 } from '@great-memories/sdk';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 
 class ReleaseManager {

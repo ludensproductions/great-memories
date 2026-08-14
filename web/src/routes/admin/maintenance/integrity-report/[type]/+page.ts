@@ -1,4 +1,4 @@
-import { getIntegrityReport, IntegrityReport } from '@immich/sdk';
+import { getIntegrityReport, IntegrityReport } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { PageLoad } from './$types';

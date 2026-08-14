@@ -1,4 +1,4 @@
-import { emptyTrash, restoreTrash } from '@immich/sdk';
+import { emptyTrash, restoreTrash } from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiDeleteForeverOutline, mdiHistory } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

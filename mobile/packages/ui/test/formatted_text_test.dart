@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/components/formatted_text.dart';
+import 'package:great_memories_ui/src/components/formatted_text.dart';
 
 import 'test_utils.dart';
 

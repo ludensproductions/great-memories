@@ -8,7 +8,7 @@ import 'package:pigeon/pigeon.dart';
     kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/connectivity/Connectivity.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.connectivity'),
     dartOptions: DartOptions(),
-    dartPackageName: 'immich_mobile',
+    dartPackageName: 'great_memories_mobile',
   ),
 )
 enum NetworkCapability { cellular, wifi, vpn, unmetered }

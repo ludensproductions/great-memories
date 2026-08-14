@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/setting.model.dart';
-import 'package:immich_mobile/domain/services/setting.service.dart';
-import 'package:immich_mobile/providers/infrastructure/store.provider.dart';
+import 'package:great_memories_mobile/domain/models/setting.model.dart';
+import 'package:great_memories_mobile/domain/services/setting.service.dart';
+import 'package:great_memories_mobile/providers/infrastructure/store.provider.dart';
 
 class SettingsNotifier extends Notifier<SettingsService> {
   @override

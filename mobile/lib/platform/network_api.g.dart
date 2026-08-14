@@ -218,7 +218,7 @@ class NetworkApi {
 
   Future<void> addCertificate(ClientCertData clientData) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.addCertificate$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.addCertificate$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -232,7 +232,7 @@ class NetworkApi {
 
   Future<void> selectCertificate(ClientCertPrompt promptText) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.selectCertificate$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.selectCertificate$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -246,7 +246,7 @@ class NetworkApi {
 
   Future<void> removeCertificate() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.removeCertificate$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.removeCertificate$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -260,7 +260,7 @@ class NetworkApi {
 
   Future<bool> hasCertificate() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.hasCertificate$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.hasCertificate$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -279,7 +279,7 @@ class NetworkApi {
 
   Future<int> getClientPointer() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.getClientPointer$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.getClientPointer$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -298,7 +298,7 @@ class NetworkApi {
 
   Future<void> setRequestHeaders(Map<String, String> headers, List<String> serverUrls, String? token) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.setRequestHeaders$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.setRequestHeaders$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -312,7 +312,7 @@ class NetworkApi {
 
   Future<String> getAppGroupId() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NetworkApi.getAppGroupId$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NetworkApi.getAppGroupId$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

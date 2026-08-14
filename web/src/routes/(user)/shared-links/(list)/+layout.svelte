@@ -7,7 +7,7 @@
   import { type SharedLinkTab } from '$lib/constants';
   import GroupTab from '$lib/elements/GroupTab.svelte';
   import { Route } from '$lib/route';
-  import { getAllSharedLinks, SharedLinkType, type SharedLinkResponseDto } from '@immich/sdk';
+  import { getAllSharedLinks, SharedLinkType, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { Container } from '@immich/ui';
   import { onMount, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';

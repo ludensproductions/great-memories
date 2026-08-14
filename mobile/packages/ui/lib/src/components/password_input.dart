@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/text_input.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:great_memories_ui/src/components/text_input.dart';
+import 'package:great_memories_ui/src/internal.dart';
 
 class GreatMemoriesPasswordInput extends StatefulWidget {
   final String? label;

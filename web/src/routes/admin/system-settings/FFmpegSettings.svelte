@@ -18,7 +18,7 @@
     TranscodePolicy,
     VideoCodec,
     VideoContainer,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, Link } from '@immich/ui';
   import { mdiHelpCircleOutline } from '@mdi/js';
   import { isEqual, sortBy } from 'lodash-es';

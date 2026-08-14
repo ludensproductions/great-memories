@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/services/hash.service.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/domain/services/hash.service.dart';
+import 'package:great_memories_mobile/platform/native_sync_api.g.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../factories/local_album_factory.dart';

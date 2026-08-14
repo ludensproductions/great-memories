@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
 
 class TestImageCompleter extends ImageStreamCompleter with CacheAwareListenerTrackerMixin {
   bool wasCancelled = false;

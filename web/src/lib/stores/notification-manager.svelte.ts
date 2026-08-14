@@ -1,4 +1,4 @@
-import { getNotifications, updateNotification, updateNotifications, type NotificationDto } from '@immich/sdk';
+import { getNotifications, updateNotification, updateNotifications, type NotificationDto } from '@great-memories/sdk';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { authManager } from '$lib/managers/auth-manager.svelte';

@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/ocr.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/ocr.repository.dart';
+import 'package:great_memories_mobile/domain/models/ocr.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/ocr.repository.dart';
 
 class OcrService {
   final OcrRepository _repository;

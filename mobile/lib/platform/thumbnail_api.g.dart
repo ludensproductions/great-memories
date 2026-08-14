@@ -57,7 +57,7 @@ class ThumbnailApi {
     required bool isVideo,
   }) async {
     final String pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.ThumbnailApi.requestImage$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.ThumbnailApi.requestImage$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -91,7 +91,7 @@ class ThumbnailApi {
 
   Future<void> cancelImageRequest(int requestId) async {
     final String pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.ThumbnailApi.cancelImageRequest$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.ThumbnailApi.cancelImageRequest$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -114,7 +114,7 @@ class ThumbnailApi {
 
   Future<Map<String, int>> getThumbhash(String thumbhash) async {
     final String pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.ThumbnailApi.getThumbhash$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.ThumbnailApi.getThumbhash$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

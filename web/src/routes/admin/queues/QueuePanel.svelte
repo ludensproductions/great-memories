@@ -11,7 +11,7 @@
     QueueName,
     type QueueResponseDto,
     runQueueCommandLegacy,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { modalManager, toastManager } from '@immich/ui';
   import type { Component } from 'svelte';
   import { t } from 'svelte-i18n';

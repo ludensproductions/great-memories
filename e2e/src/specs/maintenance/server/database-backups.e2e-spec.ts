@@ -1,4 +1,4 @@
-import { LoginResponseDto, ManualJobName } from '@immich/sdk';
+import { LoginResponseDto, ManualJobName } from '@great-memories/sdk';
 import { errorDto } from 'src/responses';
 import { app, utils } from 'src/utils';
 import request from 'supertest';

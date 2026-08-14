@@ -1,6 +1,6 @@
-import 'package:immich_mobile/domain/models/feature_message.model.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/domain/models/feature_message.model.dart';
+import 'package:great_memories_mobile/domain/models/settings_key.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
 
 class FeatureMessageService {
   final SettingsRepository _settingsRepository;

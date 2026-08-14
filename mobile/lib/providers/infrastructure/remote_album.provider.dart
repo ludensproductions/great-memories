@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/models/albums/album_search.model.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
-import 'package:immich_mobile/providers/album/pending_album_uploads.provider.dart';
-import 'package:immich_mobile/providers/backup/asset_upload_progress.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
+import 'package:great_memories_mobile/models/albums/album_search.model.dart';
+import 'package:great_memories_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:great_memories_mobile/providers/album/pending_album_uploads.provider.dart';
+import 'package:great_memories_mobile/providers/backup/asset_upload_progress.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/services/foreground_upload.service.dart';
 import 'package:logging/logging.dart';
 
 class RemoteAlbumState {

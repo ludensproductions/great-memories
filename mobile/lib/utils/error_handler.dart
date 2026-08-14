@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_ui/great_memories_ui.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 import 'package:openapi/api.dart';
 // ignore: depend_on_referenced_packages
 import 'package:stack_trace/stack_trace.dart';

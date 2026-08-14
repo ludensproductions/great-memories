@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
+import 'package:great_memories_ui/src/constants.dart';
 import 'package:material_color_utilities/blend/blend.dart';
 import 'package:material_color_utilities/hct/hct.dart';
 import 'package:material_color_utilities/palettes/tonal_palette.dart';

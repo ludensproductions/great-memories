@@ -1,10 +1,10 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/exif.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/infrastructure/entities/exif.entity.dart' as i2;
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.dart' as i2;
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
     as i3;
 import 'package:drift/internal/modular.dart' as i4;
 

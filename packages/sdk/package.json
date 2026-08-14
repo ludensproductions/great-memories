@@ -1,5 +1,5 @@
 {
-  "name": "@immich/sdk",
+  "name": "@great-memories/sdk",
   "version": "3.0.3",
   "description": "Auto-generated TypeScript SDK for the Great Memories API",
   "repository": {

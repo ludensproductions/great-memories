@@ -2,7 +2,7 @@
   import Thumbnail from '$lib/components/assets/thumbnail/Thumbnail.svelte';
   import { getFileSize } from '$lib/utils/asset-utils';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
 
   interface Props {

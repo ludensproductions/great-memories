@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:great_memories_mobile/utils/option.dart';
 
 void main() {
   group('Option', () {

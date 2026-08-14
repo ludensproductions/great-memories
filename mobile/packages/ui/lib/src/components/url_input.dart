@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:immich_ui/src/components/text_input.dart';
+import 'package:great_memories_ui/src/components/text_input.dart';
 
 class GreatMemoriesURLInput extends GreatMemoriesTextInput {
   GreatMemoriesURLInput({

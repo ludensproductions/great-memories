@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/password_input.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:great_memories_ui/src/components/password_input.dart';
+import 'package:great_memories_ui/src/previews.dart';
 
 @GreatMemoriesPreview(group: 'PasswordInput', name: 'With Validator')
 Widget previewPasswordInput() => GreatMemoriesPasswordInput(

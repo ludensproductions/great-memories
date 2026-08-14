@@ -1,13 +1,13 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/user_metadata.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/user_metadata.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/domain/models/user_metadata.model.dart' as i2;
+import 'package:great_memories_mobile/domain/models/user_metadata.model.dart' as i2;
 import 'dart:typed_data' as i3;
-import 'package:immich_mobile/infrastructure/entities/user_metadata.entity.dart'
+import 'package:great_memories_mobile/infrastructure/entities/user_metadata.entity.dart'
     as i4;
-import 'package:immich_mobile/infrastructure/entities/user.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/user.entity.drift.dart'
     as i5;
 import 'package:drift/internal/modular.dart' as i6;
 

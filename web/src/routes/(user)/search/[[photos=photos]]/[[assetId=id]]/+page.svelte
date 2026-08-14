@@ -41,7 +41,7 @@
     searchAssets,
     searchSmart,
     type SmartSearchDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton, LoadingSpinner } from '@immich/ui';
   import { mdiArrowLeft, mdiClose, mdiDotsVertical, mdiImageOffOutline, mdiSelectAll } from '@mdi/js';
   import { tick, untrack } from 'svelte';

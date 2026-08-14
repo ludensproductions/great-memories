@@ -3,10 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/shared_link.provider.dart';
-import 'package:immich_mobile/widgets/shared_link/shared_link_item.dart';
+import 'package:great_memories_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:great_memories_mobile/models/shared_link/shared_link.model.dart';
+import 'package:great_memories_mobile/providers/shared_link.provider.dart';
+import 'package:great_memories_mobile/widgets/shared_link/shared_link_item.dart';
 
 @RoutePage()
 class SharedLinkPage extends HookConsumerWidget {

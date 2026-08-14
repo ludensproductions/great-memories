@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/colors.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/constants/colors.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
 
 final Map<GreatMemoriesColorPreset, GreatMemoriesTheme> _themePresets = {
   GreatMemoriesColorPreset.indigo: GreatMemoriesTheme(

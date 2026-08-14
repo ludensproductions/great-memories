@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/common/great_memories_loading_indicator.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_loading_indicator.dart';
 
 class DelayedLoadingIndicator extends StatelessWidget {
   /// The delay to avoid showing the loading indicator

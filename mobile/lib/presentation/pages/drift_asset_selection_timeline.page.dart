@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
 
 @RoutePage()
 class DriftAssetSelectionTimelinePage extends ConsumerWidget {

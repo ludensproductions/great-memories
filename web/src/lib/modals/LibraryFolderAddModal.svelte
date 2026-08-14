@@ -1,6 +1,6 @@
 <script lang="ts">
   import { handleAddLibraryFolder } from '$lib/services/library.service';
-  import type { LibraryResponseDto } from '@immich/sdk';
+  import type { LibraryResponseDto } from '@great-memories/sdk';
   import { Field, FormModal, Input, Text } from '@immich/ui';
   import { mdiFolderSync } from '@mdi/js';
   import { t } from 'svelte-i18n';

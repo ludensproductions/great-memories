@@ -1,7 +1,7 @@
 <script lang="ts">
   import { pluginManager } from '$lib/managers/plugin-manager.svelte';
   import { getTriggerDescription, getTriggerName } from '$lib/utils/workflow';
-  import { WorkflowTrigger } from '@immich/sdk';
+  import { WorkflowTrigger } from '@great-memories/sdk';
   import { FormModal, ListButton, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { testAssetDir, utils } from 'src/utils';

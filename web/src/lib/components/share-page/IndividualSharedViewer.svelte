@@ -16,7 +16,7 @@
   import { fileUploadHandler, openFileUploadDialog } from '$lib/utils/file-uploader';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { getAssetInfo, type SharedLinkResponseDto } from '@immich/sdk';
+  import { getAssetInfo, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { IconButton, Logo, toastManager } from '@immich/ui';
   import { mdiDownload, mdiFileImagePlusOutline, mdiSelectAll } from '@mdi/js';
   import { t } from 'svelte-i18n';

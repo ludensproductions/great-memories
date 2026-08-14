@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/column_button.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:great_memories_ui/src/components/column_button.dart';
+import 'package:great_memories_ui/src/previews.dart';
 
 void _previewNoop() {}
 

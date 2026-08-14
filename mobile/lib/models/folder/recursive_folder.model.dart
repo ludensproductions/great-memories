@@ -1,4 +1,4 @@
-import 'package:immich_mobile/models/folder/root_folder.model.dart';
+import 'package:great_memories_mobile/models/folder/root_folder.model.dart';
 
 class RecursiveFolder extends RootFolder {
   final String name;

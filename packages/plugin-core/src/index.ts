@@ -1,5 +1,5 @@
-import { wrapper } from '@immich/plugin-sdk';
-import { AssetVisibility } from '@immich/sdk';
+import { wrapper } from '@great-memories/plugin-sdk';
+import { AssetVisibility } from '@great-memories/sdk';
 import type { Manifest } from '../dist/index.d.ts';
 
 type MatchValueConfig = {

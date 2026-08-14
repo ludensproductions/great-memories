@@ -2,16 +2,16 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:drift/internal/modular.dart' as i1;
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart' as i2;
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.drift.dart'
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart' as i2;
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.drift.dart'
     as i3;
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
     as i4;
-import 'package:immich_mobile/infrastructure/entities/stack.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/stack.entity.drift.dart'
     as i5;
-import 'package:immich_mobile/infrastructure/entities/local_album_asset.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/local_album_asset.entity.drift.dart'
     as i6;
-import 'package:immich_mobile/infrastructure/entities/local_album.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/local_album.entity.drift.dart'
     as i7;
 
 class MergedAssetDrift extends i1.ModularAccessor {

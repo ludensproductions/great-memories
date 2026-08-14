@@ -1,4 +1,4 @@
-import { deleteTag, updateTag, upsertTags, type TagUpdateDto } from '@immich/sdk';
+import { deleteTag, updateTag, upsertTags, type TagUpdateDto } from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiPencil, mdiPlus, mdiTrashCanOutline } from '@mdi/js';
 import { type MessageFormatter } from 'svelte-i18n';

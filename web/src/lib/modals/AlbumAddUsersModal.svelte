@@ -3,7 +3,7 @@
   import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
   import { handleAddUsersToAlbum } from '$lib/services/album.service';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { searchUsers, type AlbumResponseDto, type UserResponseDto } from '@immich/sdk';
+  import { searchUsers, type AlbumResponseDto, type UserResponseDto } from '@great-memories/sdk';
   import { FormModal, ListButton, LoadingSpinner, Stack, Text } from '@immich/ui';
   import { sortBy } from 'lodash-es';
   import { onMount } from 'svelte';

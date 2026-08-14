@@ -6,7 +6,7 @@
   import { asQueueItem } from '$lib/services/queue.service';
   import { locale } from '$lib/stores/preferences.store';
   import { transformToTitleCase } from '$lib/utils';
-  import { QueueCommand, type QueueCommandDto, type QueueResponseDto } from '@immich/sdk';
+  import { QueueCommand, type QueueCommandDto, type QueueResponseDto } from '@great-memories/sdk';
   import { Badge, Icon, IconButton, Link } from '@immich/ui';
   import {
     mdiAlertCircle,

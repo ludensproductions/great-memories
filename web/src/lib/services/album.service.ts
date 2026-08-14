@@ -14,7 +14,7 @@ import {
   type BulkIdResponseDto,
   type UpdateAlbumDto,
   type UserResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiImageOutline, mdiLink, mdiPlus, mdiPlusBoxOutline, mdiShareVariantOutline, mdiUpload } from '@mdi/js';
 import { type MessageFormatter } from 'svelte-i18n';

@@ -1,4 +1,4 @@
-import { LoginResponseDto, ManualJobName, QueueName } from '@immich/sdk';
+import { LoginResponseDto, ManualJobName, QueueName } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { utils } from 'src/utils';
 

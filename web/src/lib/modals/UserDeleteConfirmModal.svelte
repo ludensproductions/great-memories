@@ -2,7 +2,7 @@
   import FormatMessage from '$lib/elements/FormatMessage.svelte';
   import { serverConfigManager } from '$lib/managers/server-config-manager.svelte';
   import { handleDeleteUserAdmin } from '$lib/services/user-admin.service';
-  import { type UserAdminResponseDto } from '@immich/sdk';
+  import { type UserAdminResponseDto } from '@great-memories/sdk';
   import { Alert, Checkbox, ConfirmModal, Field, Input, Label, Text } from '@immich/ui';
   import { mdiTrashCanOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';

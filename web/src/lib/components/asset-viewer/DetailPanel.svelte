@@ -22,7 +22,7 @@
     getAssetInfo,
     type AlbumResponseDto,
     type AssetResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, IconButton, Link, LoadingSpinner, Text } from '@immich/ui';
   import { mdiCamera, mdiCameraIris, mdiClose, mdiImageOutline, mdiInformationOutline } from '@mdi/js';
   import { onDestroy } from 'svelte';

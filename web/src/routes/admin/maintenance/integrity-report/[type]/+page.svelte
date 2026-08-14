@@ -5,7 +5,7 @@
   import { Route } from '$lib/route';
   import { getIntegrityReportActions } from '$lib/services/integrity.service';
   import { asyncTimeout } from '$lib/utils';
-  import { getIntegrityReport, getQueuesLegacy, IntegrityReport } from '@immich/sdk';
+  import { getIntegrityReport, getQueuesLegacy, IntegrityReport } from '@great-memories/sdk';
   import { Button, Table, TableBody, TableHeader, TableHeading } from '@immich/ui';
   import { onDestroy, onMount } from 'svelte';
   import { t } from 'svelte-i18n';

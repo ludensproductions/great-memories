@@ -1,4 +1,4 @@
-import { getConfig, updateConfig, type ServerFeaturesDto, type SystemConfigDto } from '@immich/sdk';
+import { getConfig, updateConfig, type ServerFeaturesDto, type SystemConfigDto } from '@great-memories/sdk';
 import { toastManager, type ActionItem } from '@immich/ui';
 import { mdiContentCopy, mdiDownload, mdiUpload } from '@mdi/js';
 import { isEqual } from 'lodash-es';

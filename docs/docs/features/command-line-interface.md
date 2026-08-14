@@ -23,7 +23,7 @@ If you can't install node/npm, there is also a Docker version available below.
 ## Installation (NPM)
 
 ```bash
-npm i -g @immich/cli
+npm i -g @great-memories/cli
 ```
 
 NOTE: if you previously installed the legacy CLI, you will need to uninstall it first:

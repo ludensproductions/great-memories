@@ -11,7 +11,7 @@
     updatePartner,
     type PartnerResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Button, Icon, IconButton, modalManager, Text } from '@immich/ui';
   import { mdiCheck, mdiClose } from '@mdi/js';
   import { onMount } from 'svelte';

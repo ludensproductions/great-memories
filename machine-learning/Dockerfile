@@ -143,7 +143,7 @@ RUN echo "hard core 0" >> /etc/security/limits.conf && \
 
 COPY --from=builder /opt/venv /opt/venv
 COPY scripts/healthcheck.py .
-COPY immich_ml immich_ml
+COPY great_memories_ml great_memories_ml
 
 ARG BUILD_ID
 ARG BUILD_IMAGE
@@ -161,6 +161,6 @@ ENV GREAT_MEMORIES_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
 ENV GREAT_MEMORIES_SOURCE_URL=https://github.com/immich-app/immich/commit/${BUILD_SOURCE_COMMIT}
 
 ENTRYPOINT ["tini", "--"]
-CMD ["python", "-m", "immich_ml"]
+CMD ["python", "-m", "great_memories_ml"]
 
 HEALTHCHECK CMD python3 healthcheck.py

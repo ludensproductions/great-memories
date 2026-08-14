@@ -8,11 +8,11 @@ import numpy as np
 from numpy.typing import NDArray
 from tokenizers import Encoding, Tokenizer
 
-from immich_ml.config import log
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.constants import WEBLATE_TO_FLORES200
-from immich_ml.models.transforms import clean_text, serialize_np_array
-from immich_ml.schemas import ModelSession, ModelTask, ModelType
+from great_memories_ml.config import log
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.constants import WEBLATE_TO_FLORES200
+from great_memories_ml.models.transforms import clean_text, serialize_np_array
+from great_memories_ml.schemas import ModelSession, ModelTask, ModelType
 
 
 class BaseCLIPTextualEncoder(InferenceModel):

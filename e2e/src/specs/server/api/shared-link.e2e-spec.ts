@@ -6,7 +6,7 @@ import {
   SharedLinkType,
   createAlbum,
   deleteUserAdmin,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, baseUrl, shareUrl, utils } from 'src/utils';

@@ -1,10 +1,10 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart' as i2;
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.dart'
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart' as i2;
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.dart'
     as i3;
 import 'package:drift/src/runtime/query_builder/query_builder.dart' as i4;
 

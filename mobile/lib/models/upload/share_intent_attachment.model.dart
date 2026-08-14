@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:immich_mobile/utils/bytes_units.dart';
+import 'package:great_memories_mobile/utils/bytes_units.dart';
 import 'package:path/path.dart';
 
 enum ShareIntentAttachmentType { image, video }

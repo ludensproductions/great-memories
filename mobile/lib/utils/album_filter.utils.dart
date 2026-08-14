@@ -1,5 +1,5 @@
-import 'package:immich_mobile/models/albums/album_search.model.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:great_memories_mobile/models/albums/album_search.model.dart';
+import 'package:great_memories_mobile/providers/album/album_sort_by_options.provider.dart';
 
 class AlbumFilter {
   String? userId;

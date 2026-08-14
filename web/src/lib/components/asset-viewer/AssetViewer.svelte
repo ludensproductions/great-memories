@@ -36,7 +36,7 @@
     type AssetResponseDto,
     type PersonResponseDto,
     type StackResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { CommandPaletteDefaultProvider } from '@immich/ui';
   import { onDestroy, onMount, untrack } from 'svelte';
   import type { SwipeCustomEvent } from 'svelte-gestures';

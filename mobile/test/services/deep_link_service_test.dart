@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/people.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/deep_link.service.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart';
+import 'package:great_memories_mobile/domain/services/memory.service.dart';
+import 'package:great_memories_mobile/domain/services/people.service.dart';
+import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/services/deep_link.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockTimelineFactory extends Mock implements TimelineFactory {}

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/services/server_info.service.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/services/server_info.service.dart';
 
 final backupProvider = StateNotifierProvider<BackupNotifier, ServerDiskInfo>((ref) {
   return BackupNotifier(ref.watch(serverInfoServiceProvider));

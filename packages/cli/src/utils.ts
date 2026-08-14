@@ -1,4 +1,4 @@
-import { ApiKeyResponseDto, getMyApiKey, getMyUser, init, isHttpError, Permission } from '@immich/sdk';
+import { ApiKeyResponseDto, getMyApiKey, getMyUser, init, isHttpError, Permission } from '@great-memories/sdk';
 import { convertPathToPattern, glob } from 'fast-glob';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';

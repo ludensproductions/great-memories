@@ -3,8 +3,8 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import 'package:immich_mobile/models/map/map_marker.model.dart';
-import 'package:immich_mobile/utils/map_utils.dart';
+import 'package:great_memories_mobile/models/map/map_marker.model.dart';
+import 'package:great_memories_mobile/utils/map_utils.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 extension MapMarkers on MapLibreMapController {

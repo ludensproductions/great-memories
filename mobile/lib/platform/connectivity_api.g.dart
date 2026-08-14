@@ -70,7 +70,7 @@ class ConnectivityApi {
 
   Future<List<NetworkCapability>> getCapabilities() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.ConnectivityApi.getCapabilities$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.ConnectivityApi.getCapabilities$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

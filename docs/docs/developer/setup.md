@@ -127,7 +127,7 @@ The mobile app asks you what backend to connect to. You can utilize the demo bac
 #### UI components and widget previews
 
 Shared design-system widgets (buttons, inputs, forms) live in the
-[`immich_ui` package](https://github.com/immich-app/immich/tree/main/mobile/packages/ui/)
+[`great_memories_ui` package](https://github.com/immich-app/immich/tree/main/mobile/packages/ui/)
 under `mobile/packages/ui/`. Components are defined in `lib/src/components/`
 and have matching previews in `lib/src/previews/`.
 

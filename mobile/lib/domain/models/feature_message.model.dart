@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 
 class FeatureHighlight {
   /// Asset path of the feature screenshot, or null to show a placeholder.

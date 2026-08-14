@@ -1,4 +1,4 @@
-import { getStorage } from '@immich/sdk';
+import { getStorage } from '@great-memories/sdk';
 import { redirect } from '@sveltejs/kit';
 import { DateTime } from 'luxon';
 import { authManager } from '$lib/managers/auth-manager.svelte';

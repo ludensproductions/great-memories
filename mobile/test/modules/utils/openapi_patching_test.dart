@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openapi/api.dart';
-import 'package:immich_mobile/utils/openapi_patching.dart';
+import 'package:great_memories_mobile/utils/openapi_patching.dart';
 
 void main() {
   group('Test OpenApi Patching', () {

@@ -4,9 +4,9 @@ import numpy as np
 from insightface.model_zoo import RetinaFace
 from numpy.typing import NDArray
 
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.transforms import decode_cv2
-from immich_ml.schemas import FaceDetectionOutput, ModelSession, ModelTask, ModelType
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.transforms import decode_cv2
+from great_memories_ml.schemas import FaceDetectionOutput, ModelSession, ModelTask, ModelType
 
 
 class FaceDetector(InferenceModel):

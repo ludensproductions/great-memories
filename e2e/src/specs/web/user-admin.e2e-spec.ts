@@ -1,4 +1,4 @@
-import { getUserAdmin } from '@immich/sdk';
+import { getUserAdmin } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { asBearerAuth, utils } from 'src/utils';
 

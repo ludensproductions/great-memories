@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/platform/permission_api.g.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/platform/permission_api.g.dart';
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final permissionRepositoryProvider = Provider((ref) {

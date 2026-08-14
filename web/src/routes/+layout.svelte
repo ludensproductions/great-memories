@@ -17,7 +17,7 @@
   import { sidebarStore } from '$lib/stores/sidebar.svelte';
   import { closeWebsocketConnection, openWebsocketConnection, websocketStore } from '$lib/stores/websocket';
   import { maintenanceShouldRedirect } from '$lib/utils/maintenance';
-  import { getServerConfig } from '@immich/sdk';
+  import { getServerConfig } from '@great-memories/sdk';
   import {
     CommandPaletteProvider,
     CORE_PAGE_COMMANDS,

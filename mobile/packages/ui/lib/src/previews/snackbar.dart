@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
-import 'package:immich_ui/src/previews.dart';
-import 'package:immich_ui/src/snackbar.dart';
+import 'package:great_memories_ui/src/constants.dart';
+import 'package:great_memories_ui/src/previews.dart';
+import 'package:great_memories_ui/src/snackbar.dart';
 
 @GreatMemoriesPreview(group: 'Snackbar', name: 'Types')
 Widget previewSnackbarTypes() => const _SnackbarDemo();

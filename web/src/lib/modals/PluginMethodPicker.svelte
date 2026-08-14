@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { searchPluginMethods, WorkflowTrigger, type PluginMethodResponseDto } from '@immich/sdk';
+  import { searchPluginMethods, WorkflowTrigger, type PluginMethodResponseDto } from '@great-memories/sdk';
   import { Badge, BasicModal, ListButton, LoadingSpinner, Stack, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

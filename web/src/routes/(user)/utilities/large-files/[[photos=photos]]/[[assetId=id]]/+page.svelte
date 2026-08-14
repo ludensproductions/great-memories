@@ -8,7 +8,7 @@
   import { handlePromiseError } from '$lib/utils';
   import { getNextAsset, getPreviousAsset, navigateToAsset } from '$lib/utils/asset-utils';
   import { navigate } from '$lib/utils/navigation';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
 

@@ -6,34 +6,34 @@ import 'package:drift/drift.dart';
 import 'package:drift/src/runtime/executor/stream_queries.dart' show StreamQueryStore;
 import 'package:drift_sqlite_async/drift_sqlite_async.dart';
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/infrastructure/entities/asset_edit.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/asset_face.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/asset_ocr.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/auth_user.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/exif.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/local_album.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/local_album_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/memory.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/memory_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/partner.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/person.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album_user.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset_cloud_id.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/settings.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/stack.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/trashed_local_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/trashed_local_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/user.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/user_metadata.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.steps.dart';
+import 'package:great_memories_mobile/infrastructure/entities/asset_edit.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/asset_face.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/asset_ocr.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/auth_user.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/local_album.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/local_album_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/memory.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/memory_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/partner.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/person.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album_user.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset_cloud_id.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/settings.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/stack.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/store.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/trashed_local_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/trashed_local_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/user.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/user_metadata.entity.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.steps.dart';
 import 'package:logging/logging.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -68,7 +68,7 @@ import 'package:sqlite_async/sqlite_async.dart';
     SettingsEntity,
     AssetOcrEntity,
   ],
-  include: {'package:immich_mobile/infrastructure/entities/merged_asset.drift'},
+  include: {'package:great_memories_mobile/infrastructure/entities/merged_asset.drift'},
 )
 class Drift extends $Drift {
   final SqliteConnectionPool? _updatePool;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:immich_mobile/widgets/common/great_memories_logo.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
 
 class GreatMemoriesLoadingIndicator extends HookWidget {
   final double? borderRadius;

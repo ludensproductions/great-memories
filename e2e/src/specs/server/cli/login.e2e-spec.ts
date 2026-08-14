@@ -1,4 +1,4 @@
-import { Permission } from '@immich/sdk';
+import { Permission } from '@great-memories/sdk';
 import { stat } from 'node:fs/promises';
 import { app, greatMemoriesCli, utils } from 'src/utils';
 import { beforeEach, describe, expect, it } from 'vitest';

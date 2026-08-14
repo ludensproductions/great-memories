@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_ui/great_memories_ui.dart';
+import 'package:great_memories_mobile/presentation/actions/action.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/utils/error_handler.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 class _ActionWidgetScope {
   final String label;

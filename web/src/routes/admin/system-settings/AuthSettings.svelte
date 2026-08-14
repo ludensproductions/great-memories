@@ -9,7 +9,7 @@
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
   import AuthDisableLoginConfirmModal from '$lib/modals/AuthDisableLoginConfirmModal.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@immich/sdk';
+  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@great-memories/sdk';
   import { Button, Link, modalManager, Text, toastManager } from '@immich/ui';
   import { mdiRestart } from '@mdi/js';
   import { t } from 'svelte-i18n';

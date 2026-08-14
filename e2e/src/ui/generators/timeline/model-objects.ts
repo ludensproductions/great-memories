@@ -3,7 +3,7 @@
  */
 
 import { faker } from '@faker-js/faker';
-import { AssetVisibility } from '@immich/sdk';
+import { AssetVisibility } from '@great-memories/sdk';
 import { DateTime } from 'luxon';
 import { writeFileSync } from 'node:fs';
 import { SeededRandom } from 'src/ui/generators/timeline/utils';

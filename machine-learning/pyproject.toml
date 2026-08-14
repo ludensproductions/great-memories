@@ -1,5 +1,5 @@
 [project]
-name = "immich-ml"
+name = "great-memories-ml"
 version = "3.0.3"
 description = ""
 authors = [{ name = "Hau Tran", email = "alex.tran1502@gmail.com" }]
@@ -58,10 +58,10 @@ rocm = ["onnxruntime-migraphx>=1.23.2,<2"]
 compile-bytecode = true
 
 [tool.hatch.build.targets.sdist]
-include = ["immich_ml"]
+include = ["great_memories_ml"]
 
 [tool.hatch.build.targets.wheel]
-include = ["immich_ml"]
+include = ["great_memories_ml"]
 
 [build-system]
 requires = ["hatchling"]

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/people.repository.dart';
-import 'package:immich_mobile/repositories/person_api.repository.dart';
+import 'package:great_memories_mobile/domain/models/person.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/people.repository.dart';
+import 'package:great_memories_mobile/repositories/person_api.repository.dart';
 
 class DriftPeopleService {
   final DriftPeopleRepository _repository;

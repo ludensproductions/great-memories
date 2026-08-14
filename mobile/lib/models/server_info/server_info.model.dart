@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_config.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_features.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_version.model.dart';
 
 enum VersionStatus {
   upToDate,

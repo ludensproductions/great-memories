@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/infrastructure/repositories/api.repository.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/api.repository.dart';
+import 'package:great_memories_mobile/providers/api.provider.dart';
 import 'package:openapi/api.dart';
 
 final tagsApiRepositoryProvider = Provider<TagsApiRepository>(

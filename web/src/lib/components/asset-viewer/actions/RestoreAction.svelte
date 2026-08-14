@@ -3,7 +3,7 @@
   import { AssetAction } from '$lib/constants';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { restoreAssets, type AssetResponseDto } from '@immich/sdk';
+  import { restoreAssets, type AssetResponseDto } from '@great-memories/sdk';
   import { toastManager } from '@immich/ui';
   import { mdiHistory } from '@mdi/js';
   import { t } from 'svelte-i18n';

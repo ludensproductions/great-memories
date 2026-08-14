@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/widgets/photo_view/src/controller/photo_view_controller_delegate.dart'
+import 'package:great_memories_mobile/widgets/photo_view/src/controller/photo_view_controller_delegate.dart'
     show PhotoViewControllerDelegate;
 
 mixin HitCornersDetector on PhotoViewControllerDelegate {

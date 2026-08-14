@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/services/person.service.dart';
+import 'package:great_memories_mobile/domain/models/person.model.dart';
+import 'package:great_memories_mobile/services/person.service.dart';
 
 final getAllPeopleProvider = FutureProvider.autoDispose<List<PersonDto>>((ref) async {
   final PersonService personService = ref.read(personServiceProvider);

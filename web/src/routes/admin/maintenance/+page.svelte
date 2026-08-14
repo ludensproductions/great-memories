@@ -15,7 +15,7 @@
     type IntegrityReportSummaryResponseDto,
     type JobCreateDto,
     type QueuesResponseLegacyDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Button, Container, HStack, Text } from '@immich/ui';
   import { mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';

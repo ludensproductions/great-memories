@@ -4,8 +4,8 @@ WORKDIR /usr/src/app
 COPY package* pnpm* .pnpmfile.cjs ./
 COPY ./packages ./packages/
 RUN corepack enable pnpm && \
-  pnpm --filter @immich/sdk --filter @immich/cli install --frozen-lockfile && \
-  pnpm --filter @immich/sdk --filter @immich/cli build
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli install --frozen-lockfile && \
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli build
 
 WORKDIR /import
 

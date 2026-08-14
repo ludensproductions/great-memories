@@ -1,4 +1,4 @@
-import { getLibrary, getLibraryStatistics, type LibraryResponseDto } from '@immich/sdk';
+import { getLibrary, getLibraryStatistics, type LibraryResponseDto } from '@great-memories/sdk';
 import { redirect } from '@sveltejs/kit';
 import { Route } from '$lib/route';
 import { authenticate } from '$lib/utils/auth';

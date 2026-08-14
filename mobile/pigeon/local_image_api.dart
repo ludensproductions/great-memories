@@ -8,7 +8,7 @@ import 'package:pigeon/pigeon.dart';
     kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/images/LocalImages.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.images'),
     dartOptions: DartOptions(),
-    dartPackageName: 'immich_mobile',
+    dartPackageName: 'great_memories_mobile',
   ),
 )
 @HostApi()

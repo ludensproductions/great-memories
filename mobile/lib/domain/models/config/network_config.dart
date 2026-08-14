@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:great_memories_mobile/utils/option.dart';
 
 class NetworkConfig {
   final bool autoEndpointSwitching;

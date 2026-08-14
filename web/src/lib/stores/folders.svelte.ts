@@ -5,7 +5,7 @@ import {
    * TODO: Incorrect type
    */
   type AssetResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 import { TreeNode } from '$lib/utils/tree-utils';
 

@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/map/map_marker.model.dart';
-import 'package:immich_mobile/providers/map/map_service.provider.dart';
-import 'package:immich_mobile/providers/map/map_state.provider.dart';
+import 'package:great_memories_mobile/models/map/map_marker.model.dart';
+import 'package:great_memories_mobile/providers/map/map_service.provider.dart';
+import 'package:great_memories_mobile/providers/map/map_state.provider.dart';
 
 final mapMarkersProvider = FutureProvider.autoDispose<List<MapMarker>>((ref) async {
   final service = ref.read(mapServiceProvider);

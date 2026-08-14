@@ -1,10 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/map.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/map.repository.dart';
-import 'package:immich_mobile/presentation/widgets/map/map.state.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/domain/services/map.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/map.repository.dart';
+import 'package:great_memories_mobile/presentation/widgets/map/map.state.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 
 final mapRepositoryProvider = Provider<DriftMapRepository>((ref) => DriftMapRepository(ref.watch(driftProvider)));
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AlbumResponseDto } from '@immich/sdk';
+  import type { AlbumResponseDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
 
   interface Props {

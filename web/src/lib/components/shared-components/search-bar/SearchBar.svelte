@@ -7,7 +7,7 @@
   import { searchStore } from '$lib/stores/search.svelte';
   import { handlePromiseError } from '$lib/utils';
   import { generateId } from '$lib/utils/generate-id';
-  import type { MetadataSearchDto, SmartSearchDto } from '@immich/sdk';
+  import type { MetadataSearchDto, SmartSearchDto } from '@great-memories/sdk';
   import { Button, IconButton, modalManager } from '@immich/ui';
   import { mdiClose, mdiMagnify, mdiTune } from '@mdi/js';
   import { onDestroy, onMount, tick } from 'svelte';

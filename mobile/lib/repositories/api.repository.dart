@@ -1,4 +1,4 @@
-import 'package:immich_mobile/constants/errors.dart';
+import 'package:great_memories_mobile/constants/errors.dart';
 
 abstract class ApiRepository {
   Future<T> checkNull<T>(Future<T?> future) async {

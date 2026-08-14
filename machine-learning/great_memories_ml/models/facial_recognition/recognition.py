@@ -10,10 +10,10 @@ from numpy.typing import NDArray
 from onnx.tools.update_model_dims import update_inputs_outputs_dims
 from PIL import Image
 
-from immich_ml.config import log, settings
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.transforms import decode_cv2, serialize_np_array
-from immich_ml.schemas import (
+from great_memories_ml.config import log, settings
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.transforms import decode_cv2, serialize_np_array
+from great_memories_ml.schemas import (
     FaceDetectionOutput,
     FacialRecognitionOutput,
     ModelFormat,

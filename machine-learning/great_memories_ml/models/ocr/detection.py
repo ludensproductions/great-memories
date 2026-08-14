@@ -10,10 +10,10 @@ from rapidocr.utils.download_file import DownloadFile, DownloadFileInput
 from rapidocr.utils.typings import EngineType, LangDet, OCRVersion, TaskType
 from rapidocr.utils.typings import ModelType as RapidModelType
 
-from immich_ml.config import log
-from immich_ml.models.base import InferenceModel
-from immich_ml.schemas import ModelFormat, ModelSession, ModelTask, ModelType
-from immich_ml.sessions.ort import OrtSession
+from great_memories_ml.config import log
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.schemas import ModelFormat, ModelSession, ModelTask, ModelType
+from great_memories_ml.sessions.ort import OrtSession
 
 from .schemas import TextDetectionOutput
 

@@ -5,7 +5,7 @@
   import { getUserAdminActions, getUserAdminsActions } from '$lib/services/user-admin.service';
   import { locale } from '$lib/stores/preferences.store';
   import { getByteUnitString } from '$lib/utils/byte-units';
-  import { searchUsersAdmin, type UserAdminResponseDto } from '@immich/sdk';
+  import { searchUsersAdmin, type UserAdminResponseDto } from '@great-memories/sdk';
   import {
     CommandPaletteDefaultProvider,
     Container,

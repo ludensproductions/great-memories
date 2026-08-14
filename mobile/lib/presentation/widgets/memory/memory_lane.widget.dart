@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/pages/drift_memory.page.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:great_memories_mobile/domain/models/memory.model.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/pages/drift_memory.page.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:great_memories_mobile/providers/haptic_feedback.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
 
 class DriftMemoryLane extends ConsumerWidget {
   const DriftMemoryLane({super.key});

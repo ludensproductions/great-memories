@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/pages/common/download_panel.dart';
-import 'package:immich_mobile/providers/asset_viewer/download.provider.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/pages/common/download_panel.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/download.provider.dart';
 
 @RoutePage()
 class DownloadInfoPage extends ConsumerWidget {

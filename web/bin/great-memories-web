@@ -2,7 +2,7 @@
 
 cd /usr/src/app || exit
 
-pnpm --filter @immich/sdk build
+pnpm --filter @great-memories/sdk build
 
 COUNT=0
 UPSTREAM="${GREAT_MEMORIES_SERVER_URL:-http://great-memories-server:2283/}"

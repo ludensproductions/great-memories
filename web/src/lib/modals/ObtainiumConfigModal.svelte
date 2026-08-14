@@ -1,6 +1,6 @@
 <script lang="ts">
   import { handleCreateApiKey } from '$lib/services/api-key.service';
-  import { Permission } from '@immich/sdk';
+  import { Permission } from '@great-memories/sdk';
   import { Button, Field, Input, Modal, ModalBody, obtainiumBadge, Select, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
   let inputUrl = $state(location.origin);

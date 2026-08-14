@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
+import 'package:great_memories_mobile/constants/locales.dart';
+import 'package:great_memories_mobile/generated/codegen_loader.g.dart';
 
 extension PumpConsumerWidget on WidgetTester {
   /// Wraps the provided [widget] with a localized Material app such that it

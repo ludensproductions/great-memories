@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/providers/cast.provider.dart';
-import 'package:immich_mobile/widgets/asset_viewer/cast_dialog.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/providers/cast.provider.dart';
+import 'package:great_memories_mobile/widgets/asset_viewer/cast_dialog.dart';
 
 class CastActionButton extends ConsumerWidget {
   const CastActionButton({super.key, this.iconOnly = false, this.menuItem = false});

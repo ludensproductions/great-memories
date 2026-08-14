@@ -83,7 +83,7 @@ class BackgroundWorker: BackgroundWorkerBgHostApi {
     // Start the Flutter engine with the specified callback as the entry point
     let isRunning = engine.run(
       withEntrypoint: "backgroundSyncNativeEntrypoint",
-      libraryURI: "package:immich_mobile/domain/services/background_worker.service.dart"
+      libraryURI: "package:great_memories_mobile/domain/services/background_worker.service.dart"
     )
     
     // Verify that the Flutter engine started successfully

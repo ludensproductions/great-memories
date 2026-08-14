@@ -1,4 +1,4 @@
-import { AssetTypeEnum, AssetOrderBy, type AssetResponseDto } from '@immich/sdk';
+import { AssetTypeEnum, AssetOrderBy, type AssetResponseDto } from '@great-memories/sdk';
 import { DateTime, type LocaleOptions } from 'luxon';
 import { SvelteSet } from 'svelte/reactivity';
 import { get } from 'svelte/store';

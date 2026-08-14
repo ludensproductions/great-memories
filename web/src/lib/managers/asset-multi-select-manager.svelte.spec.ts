@@ -1,4 +1,4 @@
-import { AssetVisibility } from '@immich/sdk';
+import { AssetVisibility } from '@great-memories/sdk';
 import { AssetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
 import { authManager } from '$lib/managers/auth-manager.svelte';
 import { timelineAssetFactory } from '@test-data/factories/asset-factory';

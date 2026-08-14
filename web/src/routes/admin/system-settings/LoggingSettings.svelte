@@ -4,7 +4,7 @@
   import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
-  import { LogLevel } from '@immich/sdk';
+  import { LogLevel } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

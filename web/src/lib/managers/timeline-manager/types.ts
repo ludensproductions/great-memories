@@ -1,9 +1,9 @@
-import type { AssetStackResponseDto, AssetVisibility } from '@immich/sdk';
+import type { AssetStackResponseDto, AssetVisibility } from '@great-memories/sdk';
 import type { TimelineDate, TimelineDateTime, TimelineYearMonth } from '$lib/utils/timeline-util';
 
 export type ViewportTopMonth = TimelineYearMonth | undefined | 'lead-in' | 'lead-out';
 
-export type AssetApiGetTimeBucketsRequest = Parameters<typeof import('@immich/sdk').getTimeBuckets>[0];
+export type AssetApiGetTimeBucketsRequest = Parameters<typeof import('@great-memories/sdk').getTimeBuckets>[0];
 
 export type TimelineManagerOptions = Omit<AssetApiGetTimeBucketsRequest, 'size'> & {
   timelineAlbumId?: string;

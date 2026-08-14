@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NotificationLevel, NotificationType, type NotificationDto } from '@immich/sdk';
+  import { NotificationLevel, NotificationType, type NotificationDto } from '@great-memories/sdk';
   import { IconButton, Stack, Text } from '@immich/ui';
   import {
     mdiBackupRestore,

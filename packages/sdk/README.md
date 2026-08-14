@@ -1,11 +1,11 @@
-# @immich/sdk
+# @great-memories/sdk
 
 A TypeScript SDK for interfacing with the [Great Memories](https://immich.app/) API.
 
 ## Install
 
 ```bash
-npm i --save @immich/sdk
+npm i --save @great-memories/sdk
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm i --save @immich/sdk
 For a more detailed example, check out the Great Memories CLI source in this repository.
 
 ```typescript
-import { getAllAlbums, getMyUser, init } from "@immich/sdk";
+import { getAllAlbums, getMyUser, init } from "@great-memories/sdk";
 
 const API_KEY = "<API_KEY>"; // process.env.GREAT_MEMORIES_API_KEY
 

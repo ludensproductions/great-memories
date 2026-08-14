@@ -1,4 +1,4 @@
-import { editAsset, removeAssetEdits, type AssetEditsCreateDto, type AssetResponseDto } from '@immich/sdk';
+import { editAsset, removeAssetEdits, type AssetEditsCreateDto, type AssetResponseDto } from '@great-memories/sdk';
 import { ConfirmModal, modalManager, toastManager } from '@immich/ui';
 import { mdiCropRotate } from '@mdi/js';
 import type { Component } from 'svelte';

@@ -1,4 +1,4 @@
-import { LoginResponseDto, getAllAlbums, getAssetStatistics } from '@immich/sdk';
+import { LoginResponseDto, getAllAlbums, getAssetStatistics } from '@great-memories/sdk';
 import { cpSync, readFileSync } from 'node:fs';
 import { mkdir, readdir, rm, symlink } from 'node:fs/promises';
 import { asKeyAuth, greatMemoriesCli, specialCharStrings, testAssetDir, utils } from 'src/utils';

@@ -16,7 +16,7 @@
     reassignFacesById,
     type AssetFaceResponseDto,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, IconButton, LoadingSpinner, modalManager, toastManager } from '@immich/ui';
   import { mdiAccountOff, mdiArrowLeftThin, mdiPencil, mdiRestart, mdiTrashCan } from '@mdi/js';
   import { onMount } from 'svelte';

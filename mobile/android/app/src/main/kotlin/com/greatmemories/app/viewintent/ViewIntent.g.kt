@@ -270,7 +270,7 @@ interface ViewIntentHostApi {
     fun setUp(binaryMessenger: BinaryMessenger, api: ViewIntentHostApi?, messageChannelSuffix: String = "") {
       val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
       run {
-        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.immich_mobile.ViewIntentHostApi.consumeViewIntent$separatedMessageChannelSuffix", codec)
+        val channel = BasicMessageChannel<Any?>(binaryMessenger, "dev.flutter.pigeon.great_memories_mobile.ViewIntentHostApi.consumeViewIntent$separatedMessageChannelSuffix", codec)
         if (api != null) {
           channel.setMessageHandler { _, reply ->
             api.consumeViewIntent{ result: Result<ViewIntentPayload?> ->

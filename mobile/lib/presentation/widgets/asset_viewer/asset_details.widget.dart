@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/appears_in_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/date_time_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/drag_handle.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/location_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/people_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/rating_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details/technical_details.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/appears_in_details.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/date_time_details.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/drag_handle.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/location_details.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/people_details.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/rating_details.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_details/technical_details.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
 
 class AssetDetails extends ConsumerWidget {
   final BaseAsset asset;

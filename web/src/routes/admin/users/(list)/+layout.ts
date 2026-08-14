@@ -1,4 +1,4 @@
-import { searchUsersAdmin } from '@immich/sdk';
+import { searchUsersAdmin } from '@great-memories/sdk';
 import { authenticate, requestServerInfo } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { LayoutLoad } from './$types';

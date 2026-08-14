@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
 import 'package:openapi/api.dart';
 
 String getOriginalUrlForRemoteId(final String id, {bool edited = true}) {

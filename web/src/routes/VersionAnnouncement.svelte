@@ -3,7 +3,7 @@
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import VersionAnnouncementModal from '$lib/modals/VersionAnnouncementModal.svelte';
   import { semverToName } from '$lib/utils';
-  import { ReleaseType, type ReleaseEventV1 } from '@immich/sdk';
+  import { ReleaseType, type ReleaseEventV1 } from '@great-memories/sdk';
   import { modalManager } from '@immich/ui';
 
   let modal = $state<{

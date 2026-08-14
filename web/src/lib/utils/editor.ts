@@ -1,4 +1,4 @@
-import type { MirrorParameters, RotateParameters } from '@immich/sdk';
+import type { MirrorParameters, RotateParameters } from '@great-memories/sdk';
 import { compose, flipX, flipY, identity, rotate } from 'transformation-matrix';
 import type { EditActions } from '$lib/managers/edit/edit-manager.svelte';
 

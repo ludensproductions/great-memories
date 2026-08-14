@@ -3,7 +3,7 @@
   import { AssetAction } from '$lib/constants';
   import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
   import { handleError } from '$lib/utils/handle-error';
-  import { AssetVisibility, updateAssets } from '@immich/sdk';
+  import { AssetVisibility, updateAssets } from '@great-memories/sdk';
   import { modalManager } from '@immich/ui';
   import { mdiLockOpenVariantOutline, mdiLockOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';

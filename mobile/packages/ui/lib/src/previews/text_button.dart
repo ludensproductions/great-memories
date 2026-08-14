@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/text_button.dart';
-import 'package:immich_ui/src/previews.dart';
-import 'package:immich_ui/src/types.dart';
+import 'package:great_memories_ui/src/components/text_button.dart';
+import 'package:great_memories_ui/src/previews.dart';
+import 'package:great_memories_ui/src/types.dart';
 
 void _previewNoop() {}
 

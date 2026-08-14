@@ -10,7 +10,7 @@ enum PermissionStatus { granted, denied, permanentlyDenied }
     kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/permission/PermissionApi.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.permission'),
     dartOptions: DartOptions(),
-    dartPackageName: 'immich_mobile',
+    dartPackageName: 'great_memories_mobile',
   ),
 )
 @HostApi()

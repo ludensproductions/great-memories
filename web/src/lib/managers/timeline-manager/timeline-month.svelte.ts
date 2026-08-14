@@ -1,4 +1,4 @@
-import { AssetOrder, AssetOrderBy, type TimeBucketAssetResponseDto } from '@immich/sdk';
+import { AssetOrder, AssetOrderBy, type TimeBucketAssetResponseDto } from '@great-memories/sdk';
 import { t } from 'svelte-i18n';
 import { SvelteSet } from 'svelte/reactivity';
 import { get } from 'svelte/store';

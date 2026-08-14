@@ -5,7 +5,7 @@
   import { Route } from '$lib/route';
   import { locale } from '$lib/stores/preferences.store';
   import type { ContextMenuPosition } from '$lib/utils/context-menu';
-  import { AlbumUserRole, type AlbumResponseDto } from '@immich/sdk';
+  import { AlbumUserRole, type AlbumResponseDto } from '@great-memories/sdk';
   import { Icon } from '@immich/ui';
   import { mdiShareVariantOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';

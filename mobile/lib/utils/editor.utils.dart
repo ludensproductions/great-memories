@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/utils/matrix.utils.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/utils/matrix.utils.dart';
 import 'package:openapi/api.dart' hide AssetEditAction;
 
 Rect convertCropParametersToRect(CropParameters parameters, int originalWidth, int originalHeight) {

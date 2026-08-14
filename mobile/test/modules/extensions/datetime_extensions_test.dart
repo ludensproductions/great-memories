@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
+import 'package:great_memories_mobile/extensions/datetime_extensions.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() {

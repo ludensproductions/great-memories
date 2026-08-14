@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/fixed/row.dart';
-import 'package:immich_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/fixed/row.dart';
+import 'package:great_memories_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
 
 abstract class SegmentBuilder {
   final List<Bucket> buckets;

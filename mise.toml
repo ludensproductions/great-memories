@@ -40,16 +40,16 @@ lockfile = true
 
 [tasks.release]
 run = [
-  "pnpm --filter @immich/scripts install --frozen-lockfile",
-  "pnpm --filter @immich/scripts build",
-  "pnpm --filter @immich/scripts cli release {{arg(name='args', var=true)}}",
+  "pnpm --filter @great-memories/scripts install --frozen-lockfile",
+  "pnpm --filter @great-memories/scripts build",
+  "pnpm --filter @great-memories/scripts cli release {{arg(name='args', var=true)}}",
   { task = "//:open-api" },
 ]
 
 [tasks.plugins]
 run = [
-  "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core install --frozen-lockfile",
-  "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core build",
+  "pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter @great-memories/plugin-core install --frozen-lockfile",
+  "pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter @great-memories/plugin-core build",
 ]
 
 [tasks.open-api-typescript]
@@ -147,7 +147,7 @@ run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
 # SDK tasks
 [tasks."sdk:install"]
 dir = "packages/sdk"
-run = "pnpm --filter @immich/sdk install --frozen-lockfile"
+run = "pnpm --filter @great-memories/sdk install --frozen-lockfile"
 
 [tasks."sdk:build"]
 dir = "packages/sdk"

@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/repositories/widget.repository.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/repositories/widget.repository.dart';
 
 final widgetServiceProvider = Provider((ref) {
   return WidgetService(ref.watch(widgetRepositoryProvider));

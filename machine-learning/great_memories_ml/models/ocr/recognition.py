@@ -11,11 +11,11 @@ from rapidocr.utils.typings import EngineType, LangRec, OCRVersion, TaskType
 from rapidocr.utils.typings import ModelType as RapidModelType
 from rapidocr.utils.vis_res import VisRes
 
-from immich_ml.config import log, settings
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.transforms import pil_to_cv2
-from immich_ml.schemas import ModelFormat, ModelSession, ModelTask, ModelType
-from immich_ml.sessions.ort import OrtSession
+from great_memories_ml.config import log, settings
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.transforms import pil_to_cv2
+from great_memories_ml.schemas import ModelFormat, ModelSession, ModelTask, ModelType
+from great_memories_ml.sessions.ort import OrtSession
 
 from .schemas import OcrOptions, TextDetectionOutput, TextRecognitionOutput
 

@@ -8,8 +8,8 @@ import numpy as np
 import onnxruntime as ort
 from numpy.typing import NDArray
 
-from immich_ml.models.constants import SUPPORTED_PROVIDERS
-from immich_ml.schemas import ModelPrecision, SessionNode
+from great_memories_ml.models.constants import SUPPORTED_PROVIDERS
+from great_memories_ml.schemas import ModelPrecision, SessionNode
 
 from ..config import log, settings
 

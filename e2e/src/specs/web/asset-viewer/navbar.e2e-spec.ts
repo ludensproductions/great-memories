@@ -1,4 +1,4 @@
-import { AssetMediaResponseDto, LoginResponseDto, SharedLinkType } from '@immich/sdk';
+import { AssetMediaResponseDto, LoginResponseDto, SharedLinkType } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { utils } from 'src/utils';
 

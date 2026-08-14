@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/theme/color_scheme.dart';
-import 'package:immich_mobile/theme/dynamic_theme.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/theme/color_scheme.dart';
+import 'package:great_memories_mobile/theme/dynamic_theme.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
 
 // Provider for current selected theme
 final greatMemoriesThemeProvider = StateProvider<GreatMemoriesTheme>((ref) {

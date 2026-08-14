@@ -1,4 +1,4 @@
-import { AssetVisibility } from '@immich/sdk';
+import { AssetVisibility } from '@great-memories/sdk';
 import { SvelteMap, SvelteSet } from 'svelte/reactivity';
 import { authManager } from '$lib/managers/auth-manager.svelte';
 import { eventManager } from '$lib/managers/event-manager.svelte';

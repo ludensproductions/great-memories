@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/icon_button.dart';
-import 'package:immich_ui/src/types.dart';
+import 'package:great_memories_ui/src/components/icon_button.dart';
+import 'package:great_memories_ui/src/types.dart';
 
 class GreatMemoriesCloseButton extends StatelessWidget {
   final VoidCallback? onPressed;

@@ -1,4 +1,4 @@
-import { PartnerDirection, getAllAlbums, getPartners } from '@immich/sdk';
+import { PartnerDirection, getAllAlbums, getPartners } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { PageLoad } from './$types';

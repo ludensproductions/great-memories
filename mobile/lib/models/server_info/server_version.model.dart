@@ -1,4 +1,4 @@
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 import 'package:openapi/api.dart';
 
 class ServerVersion extends SemVer {

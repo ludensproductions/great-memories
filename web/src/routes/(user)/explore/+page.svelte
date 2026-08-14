@@ -7,7 +7,7 @@
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { Route } from '$lib/route';
   import { getAssetMediaUrl, getPeopleThumbnailUrl } from '$lib/utils';
-  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@immich/sdk';
+  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@great-memories/sdk';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Icon } from '@immich/ui';
   import { mdiHeart } from '@mdi/js';

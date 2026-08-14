@@ -15,7 +15,7 @@
   import MapSettingsModal from '$lib/modals/MapSettingsModal.svelte';
   import { mapSettings } from '$lib/stores/preferences.store';
   import { getAssetMediaUrl, handlePromiseError } from '$lib/utils';
-  import { getMapMarkers, type MapMarkerResponseDto } from '@immich/sdk';
+  import { getMapMarkers, type MapMarkerResponseDto } from '@great-memories/sdk';
   import { Icon, modalManager, Theme, themeManager } from '@immich/ui';
   import { mdiCog, mdiMap, mdiMapMarker } from '@mdi/js';
   import type { Feature, GeoJsonProperties, Geometry, Point } from 'geojson';

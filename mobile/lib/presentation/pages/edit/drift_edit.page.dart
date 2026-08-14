@@ -6,15 +6,15 @@ import 'package:crop_image/crop_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/aspect_ratios.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/pages/edit/editor.provider.dart';
-import 'package:immich_mobile/providers/theme.provider.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/editor.utils.dart';
-import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
-import 'package:immich_ui/great_memories_ui.dart';
+import 'package:great_memories_mobile/constants/aspect_ratios.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/pages/edit/editor.provider.dart';
+import 'package:great_memories_mobile/providers/theme.provider.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/utils/editor.utils.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 import 'package:openapi/api.dart' show RotateParameters, MirrorParameters, MirrorAxis;
 
 @RoutePage()

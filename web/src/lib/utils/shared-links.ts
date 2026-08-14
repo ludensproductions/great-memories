@@ -1,4 +1,4 @@
-import { getMySharedLink, isHttpError } from '@immich/sdk';
+import { getMySharedLink, isHttpError } from '@great-memories/sdk';
 import { getAssetMediaUrl, getSharedLink as getCachedSharedLink, setSharedLink } from '$lib/utils';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';

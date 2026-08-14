@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/colors.dart';
+import 'package:great_memories_mobile/constants/colors.dart';
 
 class ThemeConfig {
   final ThemeMode mode;

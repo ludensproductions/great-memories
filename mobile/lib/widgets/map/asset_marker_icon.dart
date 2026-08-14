@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/utils/image_url_builder.dart';
 
 class AssetMarkerIcon extends StatelessWidget {
   const AssetMarkerIcon({required this.id, required this.thumbhash, super.key});

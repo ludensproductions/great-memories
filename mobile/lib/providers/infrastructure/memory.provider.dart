@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/memory.repository.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/domain/models/memory.model.dart';
+import 'package:great_memories_mobile/domain/services/memory.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/memory.repository.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 
 final driftMemoryRepositoryProvider = Provider<DriftMemoryRepository>(
   (ref) => DriftMemoryRepository(ref.watch(driftProvider)),

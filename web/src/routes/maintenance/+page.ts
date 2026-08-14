@@ -1,4 +1,4 @@
-import { getServerVersion } from '@immich/sdk';
+import { getServerVersion } from '@great-memories/sdk';
 import { loadMaintenanceAuth, loadMaintenanceStatus } from '$lib/utils/maintenance';
 import type { PageLoad } from '../admin/$types';
 

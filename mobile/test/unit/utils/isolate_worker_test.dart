@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/wm_executor.dart';
+import 'package:great_memories_mobile/wm_executor.dart';
 
 void main() {
   tearDown(workerManagerPatch.dispose);

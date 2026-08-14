@@ -20,7 +20,7 @@ RUN --mount=type=cache,id=pnpm-server,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter great-memories build && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter great-memories build && \
   SHARP_FORCE_GLOBAL_LIBVIPS=true  pnpm --filter great-memories --prod --no-optional deploy /output/server-pruned
 
 FROM builder AS web
@@ -37,8 +37,8 @@ RUN --mount=type=cache,id=pnpm-web,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @immich/sdk --filter great-memories-web install --frozen-lockfile --force && \
-  pnpm --filter @immich/sdk --filter great-memories-web build
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @great-memories/sdk --filter great-memories-web install --frozen-lockfile --force && \
+  pnpm --filter @great-memories/sdk --filter great-memories-web build
 
 FROM builder AS cli
 
@@ -48,9 +48,9 @@ RUN --mount=type=cache,id=pnpm-cli,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  pnpm --filter @immich/sdk --filter @immich/cli install --frozen-lockfile && \
-  pnpm --filter @immich/sdk --filter @immich/cli build && \
-  pnpm --filter @immich/cli --prod --no-optional deploy /output/cli-pruned
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli install --frozen-lockfile && \
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli build && \
+  pnpm --filter @great-memories/cli --prod --no-optional deploy /output/cli-pruned
 
 FROM builder AS plugins
 

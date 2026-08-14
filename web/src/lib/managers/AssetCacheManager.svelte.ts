@@ -1,4 +1,4 @@
-import { getAssetInfo, getAssetOcr, getFaces } from '@immich/sdk';
+import { getAssetInfo, getAssetOcr, getFaces } from '@great-memories/sdk';
 import { authManager } from '$lib/managers/auth-manager.svelte';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 

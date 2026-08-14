@@ -1,4 +1,4 @@
-import { WorkflowStepConfig } from '@immich/plugin-sdk';
+import { WorkflowStepConfig } from '@great-memories/plugin-sdk';
 import { Column, ForeignKeyColumn, PrimaryGeneratedColumn, Table } from '@immich/sql-tools';
 import { Generated } from 'kysely';
 import { PluginMethodTable } from 'src/schema/tables/plugin-method.table';

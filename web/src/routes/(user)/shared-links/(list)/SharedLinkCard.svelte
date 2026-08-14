@@ -3,7 +3,7 @@
   import { Route } from '$lib/route';
   import { getSharedLinkActions } from '$lib/services/shared-link.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { SharedLinkType, type SharedLinkResponseDto } from '@immich/sdk';
+  import { SharedLinkType, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { ActionButton, ContextMenuButton, MenuItemType, Text } from '@immich/ui';
   import { DateTime, type ToRelativeUnit } from 'luxon';
   import { t } from 'svelte-i18n';

@@ -5,7 +5,7 @@ import {
   type ApiKeyCreateDto,
   type ApiKeyResponseDto,
   type ApiKeyUpdateDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiPencilOutline, mdiPlus, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

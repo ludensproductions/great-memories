@@ -1,4 +1,4 @@
-import { LoginResponseDto, QueueCommand, QueueName, updateConfig } from '@immich/sdk';
+import { LoginResponseDto, QueueCommand, QueueName, updateConfig } from '@great-memories/sdk';
 import { cpSync, rmSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { basename } from 'node:path';

@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
 
 class SearchResult {
   final List<BaseAsset> assets;

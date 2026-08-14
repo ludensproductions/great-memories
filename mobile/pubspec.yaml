@@ -1,4 +1,4 @@
-name: immich_mobile
+name: great_memories_mobile
 description: Great Memories - selfhosted backup media file on mobile phone
 
 publish_to: 'none'
@@ -40,7 +40,7 @@ dependencies:
   hooks_riverpod: ^2.6.1
   http: ^1.6.0
   image_picker: ^1.2.1
-  immich_ui:
+  great_memories_ui:
     path: './packages/ui'
   intl: ^0.20.2
   local_auth: ^2.3.0

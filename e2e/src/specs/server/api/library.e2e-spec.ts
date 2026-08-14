@@ -1,4 +1,4 @@
-import { LibraryResponseDto, LoginResponseDto, getAllLibraries } from '@immich/sdk';
+import { LibraryResponseDto, LoginResponseDto, getAllLibraries } from '@great-memories/sdk';
 import { cpSync, existsSync, rmSync, unlinkSync } from 'node:fs';
 import { Socket } from 'socket.io-client';
 import { userDto, uuidDto } from 'src/fixtures';

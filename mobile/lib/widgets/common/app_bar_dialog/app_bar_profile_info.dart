@@ -4,15 +4,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/great_memories_loading_indicator.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/backup/backup.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:great_memories_mobile/providers/upload_profile_image.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_loading_indicator.dart';
+import 'package:great_memories_mobile/widgets/common/user_circle_avatar.dart';
 
 class AppBarProfileInfoBox extends HookConsumerWidget {
   const AppBarProfileInfoBox({super.key});

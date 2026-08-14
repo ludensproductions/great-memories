@@ -4,7 +4,7 @@
   import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
   import { getPreferredTimeZone, getTimezones, toIsoDate } from '$lib/modals/timezone-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { updateAsset } from '@immich/sdk';
+  import { updateAsset } from '@great-memories/sdk';
   import { FormModal, Label } from '@immich/ui';
   import { mdiCalendarEdit } from '@mdi/js';
   import { DateTime } from 'luxon';

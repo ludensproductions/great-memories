@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:immich_mobile/providers/album/pending_album_uploads.provider.dart';
-import 'package:immich_mobile/providers/backup/asset_upload_progress.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:great_memories_mobile/providers/album/pending_album_uploads.provider.dart';
+import 'package:great_memories_mobile/providers/backup/asset_upload_progress.provider.dart';
 
 /// Pinned banner sliver that surfaces in-flight album uploads directly under
 /// the album app bar. Renders nothing while the queue is empty. Tapping the

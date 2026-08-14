@@ -6,7 +6,7 @@ import {
   runQueueCommandLegacy,
   updateQueue,
   type QueueResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem, type IconLike } from '@immich/ui';
 import {
   mdiClose,

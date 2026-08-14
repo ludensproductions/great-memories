@@ -5,16 +5,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/shared_link.provider.dart';
-import 'package:immich_mobile/services/shared_link.service.dart';
-import 'package:immich_mobile/utils/option.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/models/shared_link/shared_link.model.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/shared_link.provider.dart';
+import 'package:great_memories_mobile/services/shared_link.service.dart';
+import 'package:great_memories_mobile/utils/option.dart';
+import 'package:great_memories_mobile/utils/url_helper.dart';
+import 'package:great_memories_mobile/widgets/common/confirm_dialog.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 import 'package:share_plus/share_plus.dart';
 
 @RoutePage()

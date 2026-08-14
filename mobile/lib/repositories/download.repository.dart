@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:background_downloader/background_downloader.dart';
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/models/download/livephotos_medatada.model.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/models/download/livephotos_medatada.model.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/utils/image_url_builder.dart';
 
 final downloadRepositoryProvider = Provider((ref) => DownloadRepository());
 

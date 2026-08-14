@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/services/local_auth.service.dart';
-import 'package:immich_mobile/services/secure_storage.service.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/services/local_auth.service.dart';
+import 'package:great_memories_mobile/services/secure_storage.service.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:logging/logging.dart';
 // ignore: import_rule_openapi

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/store.repository.dart';
 
 /// Provides access to a persistent key-value store with an in-memory cache.
 /// Listens for repository changes to keep the cache updated.

@@ -8,9 +8,9 @@ import numpy as np
 from numpy.typing import NDArray
 from PIL import Image
 
-from immich_ml.config import log
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.transforms import (
+from great_memories_ml.config import log
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.transforms import (
     crop_pil,
     decode_pil,
     get_pil_resampling,
@@ -19,7 +19,7 @@ from immich_ml.models.transforms import (
     serialize_np_array,
     to_numpy,
 )
-from immich_ml.schemas import ModelSession, ModelTask, ModelType
+from great_memories_ml.schemas import ModelSession, ModelTask, ModelType
 
 
 class BaseCLIPVisualEncoder(InferenceModel):

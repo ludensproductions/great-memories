@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/extensions/collection_extensions.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
+import 'package:great_memories_mobile/extensions/collection_extensions.dart';
+import 'package:great_memories_mobile/extensions/string_extensions.dart';
 
 void main() {
   group('Test toDuration', () {

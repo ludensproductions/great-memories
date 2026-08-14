@@ -1,5 +1,5 @@
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

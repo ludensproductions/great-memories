@@ -1,4 +1,4 @@
-import { getPerson, getPersonStatistics } from '@immich/sdk';
+import { getPerson, getPersonStatistics } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { PageLoad } from './$types';

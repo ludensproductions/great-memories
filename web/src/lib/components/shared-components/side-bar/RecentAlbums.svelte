@@ -4,7 +4,7 @@
   import { userInteraction } from '$lib/stores/user.svelte';
   import { getAssetMediaUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { getAllAlbums } from '@immich/sdk';
+  import { getAllAlbums } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
 
   let albums = $state(userInteraction.recentAlbums);

@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/user_api.repository.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/user_api.repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../fixtures/user.stub.dart';

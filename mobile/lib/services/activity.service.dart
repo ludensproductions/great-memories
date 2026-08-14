@@ -1,13 +1,13 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/errors.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/mixins/error_logger.mixin.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/repositories/activity_api.repository.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:great_memories_mobile/constants/errors.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/mixins/error_logger.mixin.dart';
+import 'package:great_memories_mobile/models/activities/activity.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:great_memories_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:great_memories_mobile/repositories/activity_api.repository.dart';
+import 'package:great_memories_mobile/routing/router.dart';
 import 'package:logging/logging.dart';
 
 class ActivityService with ErrorLoggerMixin {

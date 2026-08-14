@@ -2,7 +2,7 @@
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import PlacesControls from './PlacesControls.svelte';
   import type { PageData } from './$types';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
   import { locale } from '$lib/stores/preferences.store';
   import Places from './PlacesList.svelte';

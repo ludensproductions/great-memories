@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:cast/session.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/models/cast/cast_manager_state.dart';
-import 'package:immich_mobile/models/sessions/session_create_response.model.dart';
-import 'package:immich_mobile/repositories/asset_api.repository.dart';
-import 'package:immich_mobile/repositories/gcast.repository.dart';
-import 'package:immich_mobile/repositories/sessions_api.repository.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/models/cast/cast_manager_state.dart';
+import 'package:great_memories_mobile/models/sessions/session_create_response.model.dart';
+import 'package:great_memories_mobile/repositories/asset_api.repository.dart';
+import 'package:great_memories_mobile/repositories/gcast.repository.dart';
+import 'package:great_memories_mobile/repositories/sessions_api.repository.dart';
+import 'package:great_memories_mobile/utils/image_url_builder.dart';
 // ignore: import_rule_openapi, we are only using the AssetMediaSize enum
 import 'package:openapi/api.dart';
 

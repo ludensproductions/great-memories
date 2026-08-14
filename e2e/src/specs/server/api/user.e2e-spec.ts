@@ -1,4 +1,4 @@
-import { LoginResponseDto, SharedLinkType, deleteUserAdmin, getMyPreferences, getMyUser, login } from '@immich/sdk';
+import { LoginResponseDto, SharedLinkType, deleteUserAdmin, getMyPreferences, getMyUser, login } from '@great-memories/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

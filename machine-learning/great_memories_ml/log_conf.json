@@ -3,7 +3,7 @@
   "disable_existing_loggers": false,
   "handlers": {
     "console": {
-      "class": "immich_ml.config.CustomRichHandler"
+      "class": "great_memories_ml.config.CustomRichHandler"
     }
   },
   "loggers": {

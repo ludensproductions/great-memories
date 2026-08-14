@@ -1,4 +1,4 @@
-import { OAuthClient, OAuthUser, generateLogoutToken } from '@immich/e2e-auth-server';
+import { OAuthClient, OAuthUser, generateLogoutToken } from '@great-memories/e2e-auth-server';
 import {
   LoginResponseDto,
   SystemConfigOAuthDto,
@@ -7,7 +7,7 @@ import {
   getSessions,
   startOAuth,
   updateConfig,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { createHash, randomBytes } from 'node:crypto';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, baseUrl, utils } from 'src/utils';

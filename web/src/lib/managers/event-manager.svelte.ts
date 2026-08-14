@@ -15,7 +15,7 @@ import type {
   TagResponseDto,
   UserAdminResponseDto,
   WorkflowResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
 import { BaseEventManager } from '$lib/utils/base-event-manager.svelte';
 import type { TreeNode } from '$lib/utils/tree-utils';

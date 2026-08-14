@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { CalendarHeatmapResponseDto } from '@immich/sdk';
+  import type { CalendarHeatmapResponseDto } from '@great-memories/sdk';
   import { Text } from '@immich/ui';
   import { DateTime, Info } from 'luxon';
   import { t } from 'svelte-i18n';

@@ -1,4 +1,4 @@
-import { AssetMediaResponseDto, LoginResponseDto } from '@immich/sdk';
+import { AssetMediaResponseDto, LoginResponseDto } from '@great-memories/sdk';
 import { readFile, writeFile } from 'node:fs/promises';
 import { app, tempDir, utils } from 'src/utils';
 import request from 'supertest';

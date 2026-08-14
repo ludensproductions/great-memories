@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
+  import type { SystemConfigTemplateStorageOptionDto } from '@great-memories/sdk';
   import { Card, CardBody, CardHeader, Text } from '@immich/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';

@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/widgets/settings/networking_settings/networking_settings.dart';
-import 'package:immich_ui/great_memories_ui.dart';
+import 'package:great_memories_mobile/models/auth/auxilary_endpoint.model.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/widgets/settings/networking_settings/networking_settings.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 class EndpointInput extends StatefulHookConsumerWidget {
   const EndpointInput({

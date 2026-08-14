@@ -1,4 +1,4 @@
-import { getPerson, LoginResponseDto, PersonResponseDto } from '@immich/sdk';
+import { getPerson, LoginResponseDto, PersonResponseDto } from '@great-memories/sdk';
 import { uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

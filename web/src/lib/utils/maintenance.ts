@@ -1,4 +1,4 @@
-import { getMaintenanceStatus, MaintenanceAction, maintenanceLogin } from '@immich/sdk';
+import { getMaintenanceStatus, MaintenanceAction, maintenanceLogin } from '@great-memories/sdk';
 import { Route } from '$lib/route';
 import { maintenanceStore } from '$lib/stores/maintenance.store';
 import { websocketStore } from '$lib/stores/websocket';

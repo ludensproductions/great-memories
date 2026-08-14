@@ -1,4 +1,4 @@
-import { type AssetResponseDto } from '@immich/sdk';
+import { type AssetResponseDto } from '@great-memories/sdk';
 import { get } from 'svelte/store';
 import { PlacesGroupBy, placesViewSettings, type PlacesViewSettings } from '$lib/stores/preferences.store';
 

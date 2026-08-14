@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
-import 'package:immich_mobile/widgets/common/fade_in_placeholder_image.dart';
+import 'package:great_memories_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
+import 'package:great_memories_mobile/widgets/common/fade_in_placeholder_image.dart';
 import 'package:octo_image/octo_image.dart';
 
 OctoPlaceholderBuilder blurHashPlaceholderBuilder(Uint8List? blurhash, {BoxFit? fit}) {

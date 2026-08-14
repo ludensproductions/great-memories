@@ -8,7 +8,7 @@
   import { getNaturalSize, scaleToFit } from '$lib/utils/container-utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { createFace, getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { createFace, getAllPeople, type PersonResponseDto } from '@great-memories/sdk';
   import { Button, Input, modalManager, toastManager } from '@immich/ui';
   import { Canvas, InteractiveFabricObject, Rect } from 'fabric';
   import { clamp } from 'lodash-es';

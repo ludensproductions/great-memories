@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/repositories/drift_album_api_repository.dart';
+import 'package:great_memories_mobile/repositories/drift_album_api_repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 

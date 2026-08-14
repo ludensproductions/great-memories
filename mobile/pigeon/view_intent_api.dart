@@ -6,7 +6,7 @@ import 'package:pigeon/pigeon.dart';
     kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/viewintent/ViewIntent.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.viewintent'),
     dartOptions: DartOptions(),
-    dartPackageName: 'immich_mobile',
+    dartPackageName: 'great_memories_mobile',
   ),
 )
 class ViewIntentPayload {

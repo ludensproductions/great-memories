@@ -8,7 +8,7 @@
   import { OpenQueryParam, QueryParameter } from '$lib/constants';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
   import { oauth } from '$lib/utils';
-  import { type ApiKeyResponseDto, type SessionResponseDto } from '@immich/sdk';
+  import { type ApiKeyResponseDto, type SessionResponseDto } from '@great-memories/sdk';
   import {
     mdiAccountGroupOutline,
     mdiAccountOutline,

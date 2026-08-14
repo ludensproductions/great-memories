@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/tag.model.dart';
-import 'package:immich_mobile/domain/services/tag.service.dart';
+import 'package:great_memories_mobile/domain/models/tag.model.dart';
+import 'package:great_memories_mobile/domain/services/tag.service.dart';
 
 class TagNotifier extends AsyncNotifier<Set<Tag>> {
   @override

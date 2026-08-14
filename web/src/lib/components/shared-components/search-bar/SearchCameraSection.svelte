@@ -2,7 +2,7 @@
   import Combobox, { asComboboxOptions, asSelectedOption } from '$lib/components/shared-components/Combobox.svelte';
   import type { SearchCameraFilter } from '$lib/types';
   import { handlePromiseError } from '$lib/utils';
-  import { SearchSuggestionType, getSearchSuggestions } from '@immich/sdk';
+  import { SearchSuggestionType, getSearchSuggestions } from '@great-memories/sdk';
   import { Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

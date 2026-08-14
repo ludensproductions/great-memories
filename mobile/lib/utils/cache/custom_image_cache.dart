@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/presentation/widgets/images/local_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumb_hash_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/local_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumb_hash_provider.dart';
 
 /// [ImageCache] that uses two caches for small and large images
 /// so that a single large image does not evict all small images

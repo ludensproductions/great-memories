@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:cupertino_http/cupertino_http.dart';
 import 'package:http/http.dart' as http;
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
 import 'package:ok_http/ok_http.dart';
 import 'package:web_socket/web_socket.dart';
 

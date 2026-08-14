@@ -1,7 +1,7 @@
 <script lang="ts">
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { updateMyPreferences } from '@immich/sdk';
+  import { updateMyPreferences } from '@great-memories/sdk';
   import { Button, Field, Switch, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

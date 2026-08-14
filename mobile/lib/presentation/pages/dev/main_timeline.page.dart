@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/presentation/widgets/memory/memory_lane.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/presentation/widgets/feature_message/feature_message_dialog.widget.dart';
-import 'package:immich_mobile/providers/feature_message.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/memory/memory_lane.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/feature_message/feature_message_dialog.widget.dart';
+import 'package:great_memories_mobile/providers/feature_message.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
 
 @RoutePage()
 class MainTimelinePage extends ConsumerStatefulWidget {

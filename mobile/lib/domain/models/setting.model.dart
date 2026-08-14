@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
 
 enum Setting<T> {
   advancedTroubleshooting<bool>(StoreKey.advancedTroubleshooting, false);

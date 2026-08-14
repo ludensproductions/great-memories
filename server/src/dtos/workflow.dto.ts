@@ -1,4 +1,4 @@
-import type { WorkflowStepConfig, WorkflowTrigger } from '@immich/plugin-sdk';
+import type { WorkflowStepConfig, WorkflowTrigger } from '@great-memories/plugin-sdk';
 import { createZodDto } from 'nestjs-zod';
 import { WorkflowTriggerSchema, WorkflowTypeSchema } from 'src/enum';
 import z from 'zod';

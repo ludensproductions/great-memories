@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/platform/permission_api.g.dart' as pm;
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/platform/permission_api.g.dart' as pm;
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class NotificationPermissionNotifier extends StateNotifier<PermissionStatus> {

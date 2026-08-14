@@ -5,7 +5,7 @@
   import FormatMessage from '$lib/elements/FormatMessage.svelte';
   import { handleSetMaintenanceMode } from '$lib/services/maintenance.service';
   import { maintenanceStore } from '$lib/stores/maintenance.store';
-  import { MaintenanceAction } from '@immich/sdk';
+  import { MaintenanceAction } from '@great-memories/sdk';
   import { Button, Heading, Link, ProgressBar, Scrollable, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

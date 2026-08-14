@@ -1,11 +1,11 @@
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/services/memory.service.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockDriftMemoryService extends Mock implements DriftMemoryService {}

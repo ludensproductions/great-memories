@@ -1,4 +1,4 @@
-import { AssetMediaResponseDto, LoginResponseDto, updateAssets } from '@immich/sdk';
+import { AssetMediaResponseDto, LoginResponseDto, updateAssets } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import crypto from 'node:crypto';
 import { asBearerAuth, utils } from 'src/utils';

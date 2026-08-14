@@ -3,7 +3,7 @@
   import SharedLinkFormFields from '$lib/components/SharedLinkFormFields.svelte';
   import { Route } from '$lib/route';
   import { handleUpdateSharedLink } from '$lib/services/shared-link.service';
-  import { SharedLinkType } from '@immich/sdk';
+  import { SharedLinkType } from '@great-memories/sdk';
   import { FormModal } from '@immich/ui';
   import { mdiLink } from '@mdi/js';
   import { t } from 'svelte-i18n';

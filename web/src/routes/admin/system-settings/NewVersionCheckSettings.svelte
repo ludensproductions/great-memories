@@ -6,7 +6,7 @@
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
   import SettingSelect from './SettingSelect.svelte';
-  import { ReleaseChannel } from '@immich/sdk';
+  import { ReleaseChannel } from '@great-memories/sdk';
 
   const disabled = $derived(featureFlagsManager.value.configFile);
   const config = $derived(systemConfigManager.value);

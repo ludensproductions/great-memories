@@ -1,7 +1,7 @@
 <script lang="ts">
   import ServerAboutItem from '$lib/components/ServerAboutItem.svelte';
   import { locale } from '$lib/stores/preferences.store';
-  import { type ServerAboutResponseDto, type ServerVersionHistoryResponseDto } from '@immich/sdk';
+  import { type ServerAboutResponseDto, type ServerVersionHistoryResponseDto } from '@great-memories/sdk';
   import { mdiClose } from '@mdi/js';
   import { Alert, IconButton, Label, Modal, ModalBody } from '@immich/ui';
   import { DateTime } from 'luxon';

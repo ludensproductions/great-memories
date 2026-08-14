@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
 
 extension type const AssetFilter<T extends BaseAsset>(Iterable<T> assets) implements Iterable<T> {
   AssetFilter<T> where(bool Function(T asset) test) => AssetFilter(assets.where(test));

@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
 import 'package:openapi/api.dart';
 
 // TODO: Move to repository once all classes are refactored

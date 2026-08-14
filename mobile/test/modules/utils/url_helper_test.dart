@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
+import 'package:great_memories_mobile/utils/url_helper.dart';
 
 void main() {
   group('punycodeEncodeUrl', () {

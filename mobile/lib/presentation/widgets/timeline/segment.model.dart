@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
 
 // Segments are the time groups buckets in the timeline view.
 // Each segment contains a header and a list of asset rows.

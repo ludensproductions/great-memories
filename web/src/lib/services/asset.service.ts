@@ -8,7 +8,7 @@ import {
   updateAsset,
   type AssetJobsDto,
   type AssetResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import {
   mdiAccountCircleOutline,

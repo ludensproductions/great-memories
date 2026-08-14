@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_asset.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:great_memories_mobile/platform/native_sync_api.g.dart';
 import 'package:logging/logging.dart';
 
 const String _kHashCancelledCode = "HASH_CANCELLED";

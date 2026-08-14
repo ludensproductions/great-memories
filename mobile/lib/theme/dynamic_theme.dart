@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 
 abstract final class DynamicTheme {
   const DynamicTheme._();

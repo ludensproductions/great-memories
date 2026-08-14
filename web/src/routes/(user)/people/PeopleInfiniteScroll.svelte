@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PersonResponseDto } from '@immich/sdk';
+  import type { PersonResponseDto } from '@great-memories/sdk';
 
   interface Props {
     people: PersonResponseDto[];

@@ -4,7 +4,7 @@
   import MapModal from '$lib/modals/MapModal.svelte';
   import { handleError } from '$lib/utils/handle-error';
   import { navigate } from '$lib/utils/navigation';
-  import { getAlbumMapMarkers, type AlbumResponseDto, type MapMarkerResponseDto } from '@immich/sdk';
+  import { getAlbumMapMarkers, type AlbumResponseDto, type MapMarkerResponseDto } from '@great-memories/sdk';
   import { IconButton, modalManager } from '@immich/ui';
   import { mdiMapOutline } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';

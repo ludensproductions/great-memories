@@ -1,4 +1,4 @@
-import 'package:immich_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
 
 // Store index allows us to re-arrange the values without affecting the saved prefs
 enum AlbumSortMode {

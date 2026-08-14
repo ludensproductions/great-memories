@@ -54,7 +54,7 @@ class Settings(BaseSettings):
         protected_namespaces=("settings_",),
     )
 
-    cache_folder: Path = (Path.home() / ".cache" / "immich_ml").resolve()
+    cache_folder: Path = (Path.home() / ".cache" / "great_memories_ml").resolve()
     model_ttl: int = 300
     model_ttl_poll_s: int = 10
     workers: int = 1

@@ -1,12 +1,12 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
-import 'package:immich_mobile/services/server_info.service.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_config.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_features.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_version.model.dart';
+import 'package:great_memories_mobile/services/server_info.service.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

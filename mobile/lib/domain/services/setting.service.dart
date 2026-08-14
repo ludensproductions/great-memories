@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/setting.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/domain/models/setting.model.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
 
 // Singleton instance of SettingsService, to use in places
 // where reactivity is not required

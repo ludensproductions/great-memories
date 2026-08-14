@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/great_memories_ui.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 class GreatMemoriesTextButton extends StatefulWidget {
   final String labelText;

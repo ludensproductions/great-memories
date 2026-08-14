@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@great-memories/plugin-sdk';
 import { WorkflowController } from 'src/controllers/workflow.controller';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { WorkflowService } from 'src/services/workflow.service';

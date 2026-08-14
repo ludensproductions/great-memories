@@ -12,7 +12,7 @@
     type ReleaseEventV1,
     type ServerAboutResponseDto,
     type ServerVersionHistoryResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, modalManager, Text } from '@immich/ui';
   import { mdiAlert, mdiNewBox } from '@mdi/js';
   import { onMount } from 'svelte';

@@ -4,7 +4,7 @@
   import JobsPanel from './QueuePanel.svelte';
   import { queueManager } from '$lib/managers/queue-manager.svelte';
   import { getQueuesActions } from '$lib/services/queue.service';
-  import { type QueueResponseDto } from '@immich/sdk';
+  import { type QueueResponseDto } from '@great-memories/sdk';
   import { CommandPaletteDefaultProvider, Container, type ActionItem } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

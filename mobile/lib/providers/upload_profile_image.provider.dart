@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/providers/infrastructure/user.provider.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 
 enum UploadProfileStatus { idle, loading, success, failure }
 

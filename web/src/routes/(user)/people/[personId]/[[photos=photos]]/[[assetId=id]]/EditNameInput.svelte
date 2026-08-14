@@ -1,6 +1,6 @@
 <script lang="ts">
   import SearchPeople from '$lib/components/faces-page/PeopleSearch.svelte';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@great-memories/sdk';
   import { Button } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';

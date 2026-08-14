@@ -4,7 +4,7 @@
   import { SettingInputFieldType } from '$lib/constants';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
-  import { QueueName, type SystemConfigJobDto } from '@immich/sdk';
+  import { QueueName, type SystemConfigJobDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

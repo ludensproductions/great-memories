@@ -1,8 +1,8 @@
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/partner.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/user.repository.dart';
-import 'package:immich_mobile/repositories/partner_api.repository.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/partner.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/user.repository.dart';
+import 'package:great_memories_mobile/repositories/partner_api.repository.dart';
 import 'package:stream_transform/stream_transform.dart';
 
 class PartnerService {

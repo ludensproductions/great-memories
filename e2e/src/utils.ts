@@ -52,7 +52,7 @@ import {
   updateMyPreferences,
   upsertTags,
   validate,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { BrowserContext } from '@playwright/test';
 import { exec, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';

@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/infrastructure/entities/log.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/log.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/logger_db.repository.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/log.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/log.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/log.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/logger_db.repository.dart';
 
 class LogRepository {
   final DriftLogger _db;

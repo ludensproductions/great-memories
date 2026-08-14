@@ -1,7 +1,7 @@
 <script lang="ts">
   import { pluginManager } from '$lib/managers/plugin-manager.svelte';
   import { handleCreateWorkflow } from '$lib/services/workflow.service';
-  import { type PluginTemplateResponseDto } from '@immich/sdk';
+  import { type PluginTemplateResponseDto } from '@great-memories/sdk';
   import { Badge, FormModal, Icon, ListButton, Text } from '@immich/ui';
   import { mdiFlashOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';

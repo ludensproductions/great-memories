@@ -1,15 +1,15 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/services/local_album.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_album.repository.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/remote_album.provider.dart';
-import 'package:immich_mobile/repositories/drift_album_api_repository.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/services/local_album.service.dart';
+import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/remote_album.repository.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:great_memories_mobile/repositories/drift_album_api_repository.dart';
+import 'package:great_memories_mobile/services/foreground_upload.service.dart';
 
 final localAlbumRepository = Provider<DriftLocalAlbumRepository>(
   (ref) => DriftLocalAlbumRepository(ref.watch(driftProvider)),

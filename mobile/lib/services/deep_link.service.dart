@@ -1,20 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart' as beta_asset_service;
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/people.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart' as beta_asset_provider;
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/people.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:great_memories_mobile/domain/models/memory.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart' as beta_asset_service;
+import 'package:great_memories_mobile/domain/services/memory.service.dart';
+import 'package:great_memories_mobile/domain/services/people.service.dart';
+import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart' as beta_asset_provider;
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/people.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
 
 final deepLinkServiceProvider = Provider(
   (ref) => DeepLinkService(

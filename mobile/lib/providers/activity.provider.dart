@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/providers/activity_service.provider.dart';
+import 'package:great_memories_mobile/models/activities/activity.model.dart';
+import 'package:great_memories_mobile/providers/activity_service.provider.dart';
 
 // ignore: unintended_html_in_doc_comment
 /// Maintains the current list of all activities for <share-album-id, asset>

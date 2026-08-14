@@ -4,7 +4,7 @@
   import NotificationItem from '$lib/components/shared-components/navigation-bar/NotificationItem.svelte';
   import { notificationManager } from '$lib/stores/notification-manager.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { NotificationType, type NotificationDto } from '@immich/sdk';
+  import { NotificationType, type NotificationDto } from '@great-memories/sdk';
   import { Button, Icon, Scrollable, Stack, Text, toastManager } from '@immich/ui';
   import { mdiBellOutline, mdiCheckAll } from '@mdi/js';
   import { t } from 'svelte-i18n';

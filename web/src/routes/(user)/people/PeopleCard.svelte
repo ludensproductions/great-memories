@@ -5,7 +5,7 @@
   import { Route } from '$lib/route';
   import { getPersonActions } from '$lib/services/person.service';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@great-memories/sdk';
   import { Icon } from '@immich/ui';
   import {
     mdiAccountMultipleCheckOutline,

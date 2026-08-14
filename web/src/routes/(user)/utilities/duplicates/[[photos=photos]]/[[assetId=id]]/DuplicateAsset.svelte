@@ -4,7 +4,7 @@
   import { getAllMetadataItems, type DifferingMetadataFields } from '$lib/utils/duplicate-utils';
   import { getAltText } from '$lib/utils/thumbnail-util';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { getAllAlbums, type AssetResponseDto } from '@immich/sdk';
+  import { getAllAlbums, type AssetResponseDto } from '@great-memories/sdk';
   import { Icon } from '@immich/ui';
   import { mdiBookmarkOutline, mdiHeart, mdiImageMultipleOutline, mdiMagnifyPlus } from '@mdi/js';
   import { t } from 'svelte-i18n';

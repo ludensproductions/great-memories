@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:immich_mobile/domain/utils/migrate_cloud_ids.dart' as m;
-import 'package:immich_mobile/domain/utils/sync_linked_album.dart';
-import 'package:immich_mobile/providers/infrastructure/sync.provider.dart';
-import 'package:immich_mobile/utils/isolate.dart';
+import 'package:great_memories_mobile/domain/utils/migrate_cloud_ids.dart' as m;
+import 'package:great_memories_mobile/domain/utils/sync_linked_album.dart';
+import 'package:great_memories_mobile/providers/infrastructure/sync.provider.dart';
+import 'package:great_memories_mobile/utils/isolate.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 typedef SyncCallback = void Function();

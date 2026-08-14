@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/map.model.dart';
-import 'package:immich_mobile/domain/services/map.service.dart';
-import 'package:immich_mobile/infrastructure/entities/exif.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/map.model.dart';
+import 'package:great_memories_mobile/domain/services/map.service.dart';
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/timeline.repository.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class DriftMapRepository extends DriftDatabaseRepository {

@@ -5,7 +5,7 @@ import {
   WorkflowEventPayload,
   WorkflowResponse,
   WorkflowTrigger,
-} from '@immich/plugin-sdk';
+} from '@great-memories/plugin-sdk';
 import { HttpException, UnauthorizedException } from '@nestjs/common';
 import { join } from 'node:path';
 import { DummyValue, OnEvent, OnJob } from 'src/decorators';

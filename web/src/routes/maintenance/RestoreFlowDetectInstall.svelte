@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@immich/sdk';
+  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@great-memories/sdk';
   import { Button, Heading, HStack, Icon, Stack, Text } from '@immich/ui';
   import { mdiAlert, mdiArrowRight, mdiCheck, mdiClose, mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';

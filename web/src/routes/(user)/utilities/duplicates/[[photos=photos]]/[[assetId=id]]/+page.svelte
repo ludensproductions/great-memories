@@ -11,8 +11,8 @@
   import { Route } from '$lib/route';
   import { locale } from '$lib/stores/preferences.store';
   import { handleError } from '$lib/utils/handle-error';
-  import type { AssetResponseDto } from '@immich/sdk';
-  import { createStack, deleteDuplicates, resolveDuplicates, updateAssets } from '@immich/sdk';
+  import type { AssetResponseDto } from '@great-memories/sdk';
+  import { createStack, deleteDuplicates, resolveDuplicates, updateAssets } from '@great-memories/sdk';
   import { Button, HStack, IconButton, modalManager, Text, toastManager } from '@immich/ui';
   import {
     mdiCheckOutline,

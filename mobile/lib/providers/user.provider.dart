@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/providers/infrastructure/user.provider.dart';
 
 class CurrentUserProvider extends StateNotifier<UserDto?> {
   CurrentUserProvider(this._userService) : super(null) {

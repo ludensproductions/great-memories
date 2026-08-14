@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/auth/biometric_status.model.dart';
+import 'package:great_memories_mobile/models/auth/biometric_status.model.dart';
 import 'package:local_auth/local_auth.dart';
 
 final biometricRepositoryProvider = Provider((ref) => BiometricRepository(LocalAuthentication()));

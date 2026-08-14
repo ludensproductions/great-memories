@@ -7,7 +7,7 @@
   } from '$lib/components/shared-components/album-selection/album-selection-utils';
   import { eventManager } from '$lib/managers/event-manager.svelte';
   import { albumViewSettings } from '$lib/stores/preferences.store';
-  import { createAlbum, getAllAlbums, type AlbumResponseDto } from '@immich/sdk';
+  import { createAlbum, getAllAlbums, type AlbumResponseDto } from '@great-memories/sdk';
   import { Button, Icon, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { mdiKeyboardReturn } from '@mdi/js';
   import { onMount } from 'svelte';

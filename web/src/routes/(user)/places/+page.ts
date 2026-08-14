@@ -1,4 +1,4 @@
-import { getAssetsByCity } from '@immich/sdk';
+import { getAssetsByCity } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { PageLoad } from './$types';

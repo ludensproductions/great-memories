@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { AssetTypeEnum, AssetVisibility, type AssetResponseDto, type StackResponseDto } from '@immich/sdk';
+import { AssetTypeEnum, AssetVisibility, type AssetResponseDto, type StackResponseDto } from '@great-memories/sdk';
 import { BrowserContext } from '@playwright/test';
 import { randomPreview, randomThumbnail } from 'src/ui/generators/timeline';
 

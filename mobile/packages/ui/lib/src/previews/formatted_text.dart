@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/formatted_text.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:great_memories_ui/src/components/formatted_text.dart';
+import 'package:great_memories_ui/src/previews.dart';
 
 @GreatMemoriesPreview(group: 'FormattedText', name: 'Bold')
 Widget previewFormattedTextBold() => const GreatMemoriesFormattedText('This is <b>bold text</b>.');

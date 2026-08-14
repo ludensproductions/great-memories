@@ -1,4 +1,4 @@
-import type { MemoryResponseDto } from '@immich/sdk';
+import type { MemoryResponseDto } from '@great-memories/sdk';
 import { BrowserContext } from '@playwright/test';
 
 export type MemoryChanges = {

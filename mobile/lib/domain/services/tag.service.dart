@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/tag.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/tags_api.repository.dart';
+import 'package:great_memories_mobile/domain/models/tag.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/tags_api.repository.dart';
 
 final tagServiceProvider = Provider<TagService>((ref) => TagService(ref.watch(tagsApiRepositoryProvider)));
 

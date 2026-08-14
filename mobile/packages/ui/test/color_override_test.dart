@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/color_override.dart';
-import 'package:immich_ui/src/components/icon_button.dart';
+import 'package:great_memories_ui/src/color_override.dart';
+import 'package:great_memories_ui/src/components/icon_button.dart';
 
 import 'test_utils.dart';
 

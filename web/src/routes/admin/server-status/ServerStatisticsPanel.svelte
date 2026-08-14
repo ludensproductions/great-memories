@@ -2,7 +2,7 @@
   import ServerStatisticsCard from '$lib/components/server-statistics/ServerStatisticsCard.svelte';
   import { locale } from '$lib/stores/preferences.store';
   import { getBytesWithUnit } from '$lib/utils/byte-units';
-  import type { ServerStatsResponseDto, UserAdminResponseDto } from '@immich/sdk';
+  import type { ServerStatsResponseDto, UserAdminResponseDto } from '@great-memories/sdk';
   import {
     Code,
     FormatBytes,

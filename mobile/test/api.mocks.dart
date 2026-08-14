@@ -1,5 +1,5 @@
-import 'package:immich_mobile/platform/connectivity_api.g.dart';
-import 'package:immich_mobile/repositories/partner_api.repository.dart';
+import 'package:great_memories_mobile/platform/connectivity_api.g.dart';
+import 'package:great_memories_mobile/repositories/partner_api.repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 

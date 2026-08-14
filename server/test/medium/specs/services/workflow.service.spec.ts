@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@great-memories/plugin-sdk';
 import { Kysely } from 'kysely';
 import { WorkflowType } from 'src/enum';
 import { AccessRepository } from 'src/repositories/access.repository';

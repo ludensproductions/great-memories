@@ -1,4 +1,4 @@
-import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@immich/sdk';
+import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@great-memories/sdk';
 import { PUBLIC_GREAT_MEMORIES_BUY_HOST, PUBLIC_GREAT_MEMORIES_PAY_HOST } from '$env/static/public';
 import type { GreatMemoriesProduct } from '$lib/constants';
 import { authManager } from '$lib/managers/auth-manager.svelte';

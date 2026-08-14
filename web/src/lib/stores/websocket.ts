@@ -7,7 +7,7 @@ import {
   type ServerVersionResponseDto,
   type SyncAssetEditV1,
   type SyncAssetV2,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { io, type Socket } from 'socket.io-client';
 import { get, writable } from 'svelte/store';
 import { page } from '$app/state';

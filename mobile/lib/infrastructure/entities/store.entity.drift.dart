@@ -1,9 +1,9 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/store.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/store.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/infrastructure/entities/store.entity.dart' as i2;
+import 'package:great_memories_mobile/infrastructure/entities/store.entity.dart' as i2;
 
 typedef $$StoreEntityTableCreateCompanionBuilder =
     i1.StoreEntityCompanion Function({

@@ -1,4 +1,4 @@
-import { isHttpError } from '@immich/sdk';
+import { isHttpError } from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 
 export function getServerErrorMessage(error: unknown) {

@@ -6,7 +6,7 @@
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { handleDownloadAsset } from '$lib/services/asset.service';
   import { downloadArchive } from '$lib/utils/asset-utils';
-  import { getAssetInfo } from '@immich/sdk';
+  import { getAssetInfo } from '@great-memories/sdk';
   import { IconButton } from '@immich/ui';
   import { mdiDownload } from '@mdi/js';
   import { t } from 'svelte-i18n';

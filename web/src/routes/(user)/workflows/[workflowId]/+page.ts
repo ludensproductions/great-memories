@@ -1,4 +1,4 @@
-import { searchWorkflows } from '@immich/sdk';
+import { searchWorkflows } from '@great-memories/sdk';
 import { redirect } from '@sveltejs/kit';
 import { pluginManager } from '$lib/managers/plugin-manager.svelte';
 import { Route } from '$lib/route';

@@ -1,4 +1,4 @@
-import { AssetEditAction, MirrorAxis } from '@immich/sdk';
+import { AssetEditAction, MirrorAxis } from '@great-memories/sdk';
 import type { EditActions } from '$lib/managers/edit/edit-manager.svelte';
 import { buildAffineFromEdits, normalizeTransformEdits } from '$lib/utils/editor';
 

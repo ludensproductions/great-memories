@@ -1,11 +1,11 @@
 from typing import Any
 
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
-from immich_ml.models.clip.visual import OpenClipVisualEncoder
-from immich_ml.models.ocr.detection import TextDetector
-from immich_ml.models.ocr.recognition import TextRecognizer
-from immich_ml.schemas import ModelSource, ModelTask, ModelType
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
+from great_memories_ml.models.clip.visual import OpenClipVisualEncoder
+from great_memories_ml.models.ocr.detection import TextDetector
+from great_memories_ml.models.ocr.recognition import TextRecognizer
+from great_memories_ml.schemas import ModelSource, ModelTask, ModelType
 
 from .constants import get_model_source
 from .facial_recognition.detection import FaceDetector

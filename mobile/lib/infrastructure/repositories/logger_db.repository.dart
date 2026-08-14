@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
 import 'package:drift_sqlite_async/drift_sqlite_async.dart';
-import 'package:immich_mobile/infrastructure/entities/log.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/logger_db.repository.drift.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/infrastructure/entities/log.entity.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/logger_db.repository.drift.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 import 'package:sqlite_async/sqlite_async.dart';
 
 @DriftDatabase(tables: [LogMessageEntity])

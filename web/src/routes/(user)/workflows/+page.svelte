@@ -6,7 +6,7 @@
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
   import { Route } from '$lib/route';
   import { getWorkflowActions, getWorkflowsActions, getWorkflowShowSchemaAction } from '$lib/services/workflow.service';
-  import { getWorkflowForShare, type WorkflowResponseDto } from '@immich/sdk';
+  import { getWorkflowForShare, type WorkflowResponseDto } from '@great-memories/sdk';
   import {
     Badge,
     Button,

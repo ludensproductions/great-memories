@@ -1,4 +1,4 @@
-import 'package:immich_mobile/models/folder/recursive_folder.model.dart';
+import 'package:great_memories_mobile/models/folder/recursive_folder.model.dart';
 
 class RootFolder {
   final List<RecursiveFolder> subfolders;

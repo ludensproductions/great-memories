@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/pages/library/partner/partner.page.dart';
-import 'package:immich_mobile/presentation/actions/partner.action.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/pages/library/partner/partner.page.dart';
+import 'package:great_memories_mobile/presentation/actions/partner.action.dart';
 
 import '../factories/partner_user_factory.dart';
 import '../factories/user_factory.dart';

@@ -18,7 +18,7 @@ import {
   type ServerVersionResponseDto,
   type SharedLinkResponseDto,
   type UserResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { toastManager, type ActionItem, type IfLike } from '@immich/ui';
 import { init, register, t } from 'svelte-i18n';
 import { derived, get } from 'svelte/store';

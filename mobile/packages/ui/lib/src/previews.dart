@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-import 'package:immich_ui/src/theme.dart';
+import 'package:great_memories_ui/src/theme.dart';
 
 const ColorScheme _lightColorScheme = ColorScheme.light(
   primary: Color(0xFF4250AF),

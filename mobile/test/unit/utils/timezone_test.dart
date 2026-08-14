@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/timezone.dart';
+import 'package:great_memories_mobile/utils/timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 void main() {

@@ -1,5 +1,5 @@
 {
-  "name": "@immich/plugin-sdk",
+  "name": "@great-memories/plugin-sdk",
   "version": "0.0.0",
   "description": "",
   "type": "module",
@@ -30,7 +30,7 @@
   "packageManager": "pnpm@11.13.1",
   "devDependencies": {
     "@extism/js-pdk": "^1.1.1",
-    "@immich/sdk": "workspace:*",
+    "@great-memories/sdk": "workspace:*",
     "@types/node": "^24.13.3",
     "esbuild": "^0.28.0",
     "tsc-alias": "^1.8.16",

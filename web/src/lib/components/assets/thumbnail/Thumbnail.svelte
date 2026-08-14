@@ -8,7 +8,7 @@
   import { moveFocus } from '$lib/utils/focus-util';
   import { currentUrlReplaceAssetId } from '$lib/utils/navigation';
   import { getAltText } from '$lib/utils/thumbnail-util';
-  import { AssetMediaSize, AssetVisibility, type UserResponseDto } from '@immich/sdk';
+  import { AssetMediaSize, AssetVisibility, type UserResponseDto } from '@great-memories/sdk';
   import { Icon } from '@immich/ui';
   import {
     mdiArchiveArrowDownOutline,

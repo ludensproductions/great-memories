@@ -75,7 +75,7 @@
             {
               "label": "Build Great Memories CLI",
               "type": "shell",
-              "command": "pnpm --filter @immich/cli build:dev"
+              "command": "pnpm --filter @great-memories/cli build:dev"
             }
           ]
         }

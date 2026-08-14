@@ -1,6 +1,6 @@
 <script module lang="ts">
   import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { getAlbumInfo } from '@immich/sdk';
+  import { getAlbumInfo } from '@great-memories/sdk';
 
   // eslint-disable-next-line svelte/prefer-svelte-reactivity
   const albumNameCache = new Map<string, Promise<string>>();
@@ -19,7 +19,7 @@
 <script lang="ts">
   import { pluginManager } from '$lib/managers/plugin-manager.svelte';
   import type { JSONSchemaProperty } from '$lib/types';
-  import { type WorkflowStepDto } from '@immich/sdk';
+  import { type WorkflowStepDto } from '@great-memories/sdk';
   import { Badge, Card, CardBody, CardDescription, CardHeader, CardTitle, Icon, IconButton } from '@immich/ui';
   import {
     mdiAutoFix,

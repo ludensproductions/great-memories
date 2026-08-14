@@ -1,7 +1,7 @@
 <script lang="ts">
   import { eventManager } from '$lib/managers/event-manager.svelte';
   import { tagAssets } from '$lib/utils/asset-utils';
-  import { getAllTags, upsertTags, type TagResponseDto } from '@immich/sdk';
+  import { getAllTags, upsertTags, type TagResponseDto } from '@great-memories/sdk';
   import { FormModal } from '@immich/ui';
   import { mdiTag } from '@mdi/js';
   import { onMount } from 'svelte';

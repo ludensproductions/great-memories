@@ -3,12 +3,12 @@ import 'dart:ui';
 
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/providers/infrastructure/cancel.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/wm_executor.dart';
+import 'package:great_memories_mobile/domain/services/log.service.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/providers/infrastructure/cancel.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/utils/bootstrap.dart';
+import 'package:great_memories_mobile/wm_executor.dart';
 import 'package:logging/logging.dart';
 import 'package:worker_manager/worker_manager.dart' show Cancelable;
 

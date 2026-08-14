@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/map/map.state.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_settings_list_tile.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_settings_time_dropdown.dart';
-import 'package:immich_mobile/widgets/map/map_settings/map_theme_picker.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/map/map.state.dart';
+import 'package:great_memories_mobile/widgets/map/map_settings/map_settings_list_tile.dart';
+import 'package:great_memories_mobile/widgets/map/map_settings/map_settings_time_dropdown.dart';
+import 'package:great_memories_mobile/widgets/map/map_settings/map_theme_picker.dart';
 
 class DriftMapSettingsSheet extends HookConsumerWidget {
   const DriftMapSettingsSheet({super.key});
