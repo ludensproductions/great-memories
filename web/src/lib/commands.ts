@@ -237,8 +237,8 @@ export const getSettingsProvider = ($t: MessageFormatter) => {
       onAction: () => screencastManager.toggle(),
     },
     {
-      title: $t('my_immich_title'),
-      description: $t('my_immich_description'),
+      title: $t('my_great_memories_title'),
+      description: $t('my_great_memories_description'),
       onAction: () => copyToClipboard(getMyGreatMemoriesLink().href),
       shortcuts: { ctrl: true, shift: true, key: 'm' },
     },

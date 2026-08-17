@@ -386,7 +386,7 @@ describe(DatabaseBackupService.name, () => {
                 port: 1234,
                 username: 'mypg',
                 password: 'mypwd',
-                database: 'myimmich',
+                database: 'mygreatmemories',
               },
               skipMigrations: false,
             },
@@ -419,7 +419,7 @@ describe(DatabaseBackupService.name, () => {
               "myhost",
               "--port",
               "1234",
-              "myimmich",
+              "mygreatmemories",
               "--clean",
               "--if-exists",
             ],
@@ -444,7 +444,7 @@ describe(DatabaseBackupService.name, () => {
               "--port",
               "1234",
               "--dbname",
-              "myimmich",
+              "mygreatmemories",
               "--single-transaction",
               "--set",
               "ON_ERROR_STOP=on",
@@ -463,7 +463,7 @@ describe(DatabaseBackupService.name, () => {
 
     describe('using URL', () => {
       beforeEach(() => {
-        const dbUrl = 'postgresql://mypg:mypwd@myhost:1234/myimmich?sslmode=require&uselibpqcompat=true';
+        const dbUrl = 'postgresql://mypg:mypwd@myhost:1234/mygreatmemories?sslmode=require&uselibpqcompat=true';
         const configMock = {
           getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
           getWorker: () => GreatMemoriesWorker.Api,
@@ -488,7 +488,7 @@ describe(DatabaseBackupService.name, () => {
         await expect(sut.buildPostgresLaunchArguments('pg_dump')).resolves.toMatchInlineSnapshot(`
           {
             "args": [
-              "postgresql://mypg:mypwd@myhost:1234/myimmich?sslmode=require",
+              "postgresql://mypg:mypwd@myhost:1234/mygreatmemories?sslmode=require",
               "--clean",
               "--if-exists",
             ],
@@ -507,7 +507,7 @@ describe(DatabaseBackupService.name, () => {
           {
             "args": [
               "--dbname",
-              "postgresql://mypg:mypwd@myhost:1234/myimmich?sslmode=require",
+              "postgresql://mypg:mypwd@myhost:1234/mygreatmemories?sslmode=require",
               "--single-transaction",
               "--set",
               "ON_ERROR_STOP=on",
@@ -526,7 +526,7 @@ describe(DatabaseBackupService.name, () => {
 
     describe('using bad URL', () => {
       beforeEach(() => {
-        const dbUrl = 'post://gresql://mypg:myp@wd@myhos:t:1234/myimmich?sslmode=require&uselibpqcompat=true';
+        const dbUrl = 'post://gresql://mypg:myp@wd@myhos:t:1234/mygreatmemories?sslmode=require&uselibpqcompat=true';
         const configMock = {
           getEnv: () => ({ database: { config: { connectionType: 'url', url: dbUrl }, skipMigrations: false } }),
           getWorker: () => GreatMemoriesWorker.Api,
@@ -552,7 +552,7 @@ describe(DatabaseBackupService.name, () => {
           {
             "args": [
               "--dbname",
-              "post://gresql//mypg:myp@wd@myhos:t:1234/myimmich?sslmode=require",
+              "post://gresql//mypg:myp@wd@myhos:t:1234/mygreatmemories?sslmode=require",
               "--echo-all",
               "--output=/dev/null",
             ],
@@ -652,7 +652,7 @@ describe(DatabaseBackupService.name, () => {
               port: 1234,
               username: 'mypg',
               password: 'mypwd',
-              database: 'myimmich',
+              database: 'mygreatmemories',
             },
             skipMigrations: false,
           },
@@ -711,7 +711,7 @@ describe(DatabaseBackupService.name, () => {
           '--port',
           '1234',
           '--dbname',
-          'myimmich',
+          'mygreatmemories',
           '--single-transaction',
           '--set',
           'ON_ERROR_STOP=on',
@@ -775,7 +775,7 @@ describe(DatabaseBackupService.name, () => {
           '--port',
           '1234',
           '--dbname',
-          'myimmich',
+          'mygreatmemories',
           '--echo-all',
           '--output=/dev/null',
         ],

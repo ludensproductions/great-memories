@@ -6,10 +6,10 @@ from pathlib import Path
 
 from .config import log, non_prefixed_settings, settings
 
-if source_ref := os.getenv("IMMICH_SOURCE_REF"):
-    log.info(f"Initializing Immich ML [{source_ref}]")
+if source_ref := os.getenv("GREAT_MEMORIES_SOURCE_REF"):
+    log.info(f"Initializing Great Memories ML [{source_ref}]")
 else:
-    log.info("Initializing Immich ML")
+    log.info("Initializing Great Memories ML")
 
 module_dir = Path(__file__).parent
 
@@ -21,10 +21,10 @@ def is_ipv6(host: str) -> bool:
         return False
 
 
-bind_host = non_prefixed_settings.immich_host
+bind_host = non_prefixed_settings.great_memories_host
 if is_ipv6(bind_host):
     bind_host = f"[{bind_host}]"
-bind_address = f"{bind_host}:{non_prefixed_settings.immich_port}"
+bind_address = f"{bind_host}:{non_prefixed_settings.great_memories_port}"
 
 try:
     with subprocess.Popen(

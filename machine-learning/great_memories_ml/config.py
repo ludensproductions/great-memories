@@ -83,9 +83,9 @@ class Settings(BaseSettings):
 class NonPrefixedSettings(BaseSettings):
     model_config = SettingsConfigDict(case_sensitive=False)
 
-    immich_host: str = "[::]"
-    immich_port: int = 3003
-    immich_log_level: str = "info"
+    great_memories_host: str = "[::]"
+    great_memories_port: int = 3003
+    great_memories_log_level: str = "info"
     no_color: bool = False
 
 
@@ -110,7 +110,7 @@ LOG_LEVELS: dict[str, int] = {
 settings = Settings()
 non_prefixed_settings = NonPrefixedSettings()
 
-LOG_LEVEL = LOG_LEVELS.get(non_prefixed_settings.immich_log_level.lower(), logging.INFO)
+LOG_LEVEL = LOG_LEVELS.get(non_prefixed_settings.great_memories_log_level.lower(), logging.INFO)
 
 
 class CustomRichHandler(RichHandler):

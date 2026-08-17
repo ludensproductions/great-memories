@@ -49,7 +49,7 @@ class TrashActionButton extends ConsumerWidget {
     return BaseActionButton(
       maxWidth: 85.0,
       iconData: Icons.delete_outline_rounded,
-      label: "control_bottom_app_bar_trash_from_immich".t(context: context),
+      label: "control_bottom_app_bar_trash_from_great_memories".t(context: context),
       iconOnly: iconOnly,
       menuItem: menuItem,
       onPressed: () => _onTap(context, ref),

@@ -122,7 +122,7 @@ Great Memories has a route (`/api/oauth/mobile-redirect`) that is already config
 
 Here's an example of OAuth configured for Authelia:
 
-This assumes there exist an attribute `immichquota` in the user schema, which is used to set the user's storage quota in Great Memories.
+This assumes there exist an attribute `greatmemoriesquota` in the user schema, which is used to set the user's storage quota in Great Memories.
 The configuration concerning the quota is optional.
 
 ```yaml
@@ -132,7 +132,7 @@ authentication_backend:
     # See: https://www.authelia.com/c/ldap
     attributes:
       extra:
-        immichquota: # The attribute name from LDAP
+        greatmemoriesquota: # The attribute name from LDAP
           name: 'great_memories_quota'
           multi_valued: false
           value_type: 'integer'

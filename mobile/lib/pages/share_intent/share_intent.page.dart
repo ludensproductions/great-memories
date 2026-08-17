@@ -56,7 +56,7 @@ class ShareIntentPage extends ConsumerWidget {
       appBar: AppBar(
         title: Column(
           children: [
-            const Text('upload_to_immich').tr(namedArgs: {'count': candidates.length.toString()}),
+            const Text('upload_to_great_memories').tr(namedArgs: {'count': candidates.length.toString()}),
             Text(
               currentEndpoint,
               style: context.textTheme.labelMedium?.copyWith(color: context.colorScheme.onSurface.withAlpha(200)),

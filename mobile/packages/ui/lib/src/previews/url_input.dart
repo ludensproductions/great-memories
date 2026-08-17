@@ -23,6 +23,6 @@ class _PreviewUrlInputState extends State<_PreviewUrlInput> {
 
   @override
   Widget build(BuildContext context) {
-    return GreatMemoriesURLInput(label: 'Server URL', hintText: 'https://demo.immich.com', controller: _controller);
+    return GreatMemoriesURLInput(label: 'Server URL', hintText: 'https://demo.great-memories.com', controller: _controller);
   }
 }

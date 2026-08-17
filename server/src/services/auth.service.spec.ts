@@ -17,7 +17,7 @@ import { userStub } from 'test/fixtures/user.stub';
 import { newUuid } from 'test/small.factory';
 import { newTestService, ServiceMocks } from 'test/utils';
 
-const email = 'test@immich.com';
+const email = 'test@great-memories.com';
 const loginDetails = {
   isSecure: true,
   clientIp: '127.0.0.1',
@@ -305,7 +305,7 @@ describe(AuthService.name, () => {
   });
 
   describe('adminSignUp', () => {
-    const dto: SignUpDto = { email: 'test@immich.com', password: 'password', name: 'great-memories admin' };
+    const dto: SignUpDto = { email: 'test@great-memories.com', password: 'password', name: 'great-memories admin' };
 
     it('should only allow one admin', async () => {
       mocks.user.getAdmin.mockResolvedValue({} as UserAdmin);
@@ -330,7 +330,7 @@ describe(AuthService.name, () => {
         avatarColor: expect.any(String),
         id: 'admin',
         createdAt: new Date('2021-01-01'),
-        email: 'test@immich.com',
+        email: 'test@great-memories.com',
         name: 'great-memories admin',
       });
 
