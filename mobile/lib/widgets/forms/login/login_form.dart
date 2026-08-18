@@ -163,12 +163,6 @@ class LoginForm extends HookConsumerWidget {
       return null;
     }, []);
 
-    populateTestLoginInfo() {
-      emailController.text = 'demo@immich.app';
-      passwordController.text = 'demo';
-      serverEndpointController.text = 'https://demo.immich.app';
-    }
-
     populateTestLoginInfo1() {
       emailController.text = 'testuser@email.com';
       passwordController.text = 'password';
@@ -512,7 +506,6 @@ class LoginForm extends HookConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
-                        onDoubleTap: () => populateTestLoginInfo(),
                         onLongPress: () => populateTestLoginInfo1(),
                         child: RotationTransition(
                           turns: logoAnimationController,

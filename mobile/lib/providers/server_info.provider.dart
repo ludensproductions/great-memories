@@ -56,13 +56,13 @@ class ServerInfoNotifier extends StateNotifier<ServerInfo> {
     }
   }
 
-  _checkServerVersionMismatch(ServerVersion serverVersion, {ServerVersion? latestVersion}) async {
-    state = state.copyWith(serverVersion: serverVersion, latestVersion: latestVersion);
+  _checkServerVersionMismatch(ServerVersion serverVersion) async {
+    state = state.copyWith(serverVersion: serverVersion);
 
     var packageInfo = await PackageInfo.fromPlatform();
     SemVer clientVersion = SemVer.fromString(packageInfo.version);
 
-    if (serverVersion < clientVersion || (latestVersion != null && serverVersion < latestVersion)) {
+    if (serverVersion < clientVersion) {
       state = state.copyWith(versionStatus: VersionStatus.serverOutOfDate);
       return;
     }
@@ -73,11 +73,6 @@ class ServerInfoNotifier extends StateNotifier<ServerInfo> {
     }
 
     state = state.copyWith(versionStatus: VersionStatus.upToDate);
-  }
-
-  handleReleaseInfo(ServerVersion serverVersion, ServerVersion? latestVersion) {
-    // Update local server version
-    _checkServerVersionMismatch(serverVersion, latestVersion: latestVersion);
   }
 
   getServerFeatures() async {
@@ -105,7 +100,7 @@ final versionWarningPresentProvider = Provider.family<bool, UserDto?>((ref, user
   final serverInfo = ref.watch(serverInfoProvider);
   return switch (serverInfo.versionStatus) {
     VersionStatus.clientOutOfDate || VersionStatus.error => true,
-    VersionStatus.serverOutOfDate => serverInfo.latestVersion != null && (user?.isAdmin ?? false),
+    VersionStatus.serverOutOfDate => user?.isAdmin ?? false,
     VersionStatus.upToDate => false,
   };
 });

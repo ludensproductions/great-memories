@@ -171,37 +171,8 @@ export class UserService extends BaseService {
     await this.userRepository.deleteMetadata(user.id, UserMetadataKey.License);
   }
 
-  async setLicense(auth: AuthDto, license: LicenseKeyDto): Promise<LicenseResponseDto> {
-    if (!license.licenseKey.startsWith('IMCL-') && !license.licenseKey.startsWith('IMSV-')) {
-      throw new BadRequestException('Invalid license key');
-    }
-
-    const { licensePublicKey } = this.configRepository.getEnv();
-
-    const isClientLicenseValid = this.cryptoRepository.verifySha256(
-      license.licenseKey,
-      license.activationKey,
-      licensePublicKey.client,
-    );
-
-    const isServerLicenseValid = this.cryptoRepository.verifySha256(
-      license.licenseKey,
-      license.activationKey,
-      licensePublicKey.server,
-    );
-
-    if (!isClientLicenseValid && !isServerLicenseValid) {
-      throw new BadRequestException('Invalid license key');
-    }
-
-    const activatedAt = new Date();
-
-    await this.userRepository.upsertMetadata(auth.user.id, {
-      key: UserMetadataKey.License,
-      value: { ...license, activatedAt: activatedAt.toISOString() },
-    });
-
-    return { ...license, activatedAt };
+  async setLicense(_auth: AuthDto, _license: LicenseKeyDto): Promise<LicenseResponseDto> {
+    throw new BadRequestException('Invalid license key');
   }
 
   async getOnboarding(auth: AuthDto): Promise<OnboardingResponseDto> {

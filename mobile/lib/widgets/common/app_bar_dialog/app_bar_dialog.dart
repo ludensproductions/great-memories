@@ -21,7 +21,6 @@ import 'package:great_memories_mobile/widgets/common/app_bar_dialog/app_bar_serv
 import 'package:great_memories_mobile/widgets/common/confirm_dialog.dart';
 import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class GreatMemoriesAppBarDialog extends HookConsumerWidget {
   const GreatMemoriesAppBarDialog({super.key});
@@ -177,22 +176,6 @@ class GreatMemoriesAppBarDialog extends HookConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            InkWell(
-              onTap: () {
-                ContextHelper(context).pop();
-                launchUrl(Uri.parse('https://docs.immich.app'), mode: LaunchMode.externalApplication);
-              },
-              child: Text("documentation", style: context.textTheme.bodySmall).tr(),
-            ),
-            const SizedBox(width: 20, child: Text("•", textAlign: TextAlign.center)),
-            InkWell(
-              onTap: () {
-                ContextHelper(context).pop();
-                launchUrl(Uri.parse('https://github.com/immich-app/immich'), mode: LaunchMode.externalApplication);
-              },
-              child: Text("profile_drawer_github", style: context.textTheme.bodySmall).tr(),
-            ),
-            const SizedBox(width: 20, child: Text("•", textAlign: TextAlign.center)),
             InkWell(
               onTap: () async {
                 ContextHelper(context).pop();

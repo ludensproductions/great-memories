@@ -3,7 +3,6 @@
   import { page } from '$app/state';
   import { shortcuts } from '$lib/actions/shortcut';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
-  import LinkToDocs from './LinkToDocs.svelte';
   import DuplicatesCompareControl from './DuplicatesCompareControl.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
@@ -255,7 +254,7 @@
   <div>
     {#if duplicates && duplicates.length > 0}
       <Text size="small" color="muted" class="mb-4">
-        <p>{$t('duplicates_description')} <LinkToDocs href="https://docs.immich.app/features/duplicates-utility" /></p>
+        <p>{$t('duplicates_description')}</p>
       </Text>
 
       {#key duplicates[duplicatesIndex].duplicateId}

@@ -18,8 +18,8 @@ sudo apt install -y git
 ### 2. Clonar el repo
 
 ```bash
-git clone https://github.com/ludensproductions/great-memories.git
-cd great-memories
+git clone https://github.com/ludensproductions/immich.git
+cd immich
 ```
 
 ### 3. Correr el script
@@ -56,8 +56,8 @@ newgrp docker
 ### Clonar e iniciar Great Memories
 
 ```bash
-git clone https://github.com/ludensproductions/great-memories.git
-cd great-memories/docker
+git clone https://github.com/ludensproductions/immich.git
+cd immich/docker
 cp example.env .env
 nano .env   # ajustar UPLOAD_LOCATION y DB_DATA_LOCATION
 sudo mkdir -p /srv/great-memories/photos /srv/great-memories/db

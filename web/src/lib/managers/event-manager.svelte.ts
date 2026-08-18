@@ -9,7 +9,6 @@ import type {
   LoginResponseDto,
   PersonResponseDto,
   QueueResponseDto,
-  ReleaseEventV1,
   SharedLinkResponseDto,
   SystemConfigDto,
   TagResponseDto,
@@ -95,8 +94,6 @@ export type Events = {
   WorkflowCreate: [WorkflowResponseDto];
   WorkflowUpdate: [WorkflowResponseDto];
   WorkflowDelete: [WorkflowResponseDto];
-
-  ReleaseEvent: [ReleaseEventV1];
 
   WebsocketConnect: [];
 };

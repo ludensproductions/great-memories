@@ -61,7 +61,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/immich-app/immich/tree/main/docs/',
+          editUrl: 'https://github.com/ludensproductions/immich/tree/main/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -100,15 +100,9 @@ const config = {
             label: 'Home',
           },
           {
-            href: 'https://github.com/immich-app/immich',
+            href: 'https://github.com/ludensproductions/immich',
             label: 'GitHub',
             position: 'right',
-          },
-          {
-            type: 'html',
-            position: 'right',
-            value:
-              '<a href="https://buy.immich.app" target="_blank" class="no-underline hover:no-underline"><button class="buy-button bg-great-memories-primary dark:bg-great-memories-dark-primary text-white dark:text-black rounded-xl">Buy Great Memories</button></a>',
           },
         ],
       },
@@ -116,33 +110,8 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Download',
-            items: [
-              {
-                label: 'Android',
-                href: 'https://get.immich.app/android',
-              },
-              {
-                label: 'iOS',
-                href: 'https://get.immich.app/ios',
-              },
-              {
-                label: 'Server',
-                href: 'https://immich.app/download',
-              },
-            ],
-          },
-          {
             title: 'Company',
             items: [
-              {
-                label: 'FUTO',
-                href: 'https://futo.tech/',
-              },
-              {
-                label: 'Purchase',
-                href: 'https://buy.immich.app/',
-              },
               {
                 label: 'Merch',
                 href: 'https://great-memories.store/',
@@ -150,69 +119,11 @@ const config = {
             ],
           },
           {
-            title: 'Sites',
-            items: [
-              {
-                label: 'Home',
-                href: 'https://immich.app',
-              },
-              {
-                label: 'My Great Memories',
-                href: 'https://my.immich.app/',
-              },
-              {
-                label: 'Awesome Great Memories',
-                href: 'https://awesome.immich.app/',
-              },
-              {
-                label: 'Great Memories API',
-                href: 'https://api.immich.app/',
-              },
-              {
-                label: 'Great Memories Data',
-                href: 'https://data.immich.app/',
-              },
-              {
-                label: 'Great Memories Datasets',
-                href: 'https://datasets.immich.app/',
-              },
-            ],
-          },
-          {
             title: 'Miscellaneous',
             items: [
               {
-                label: 'Roadmap',
-                href: 'https://immich.app/roadmap',
-              },
-              {
-                label: 'Cursed Knowledge',
-                href: 'https://immich.app/cursed-knowledge',
-              },
-              {
                 label: 'Privacy Policy',
                 to: '/privacy-policy',
-              },
-            ],
-          },
-          {
-            title: 'Social',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/immich-app/immich',
-              },
-              {
-                label: 'YouTube',
-                href: 'https://www.youtube.com/@immich-app',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discord.immich.app',
-              },
-              {
-                label: 'Reddit',
-                href: 'https://www.reddit.com/r/immich/',
               },
             ],
           },

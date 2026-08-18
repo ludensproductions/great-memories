@@ -136,7 +136,7 @@
               <p class="pb-2 text-sm great-memories-form-label">
                 <FormatMessage key="admin.machine_learning_clip_model_description">
                   {#snippet children({ message })}
-                    <a target="_blank" href="https://huggingface.co/immich-app"><u>{message}</u></a>
+                    {message}
                   {/snippet}
                 </FormatMessage>
               </p>

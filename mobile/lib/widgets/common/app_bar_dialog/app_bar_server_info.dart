@@ -54,17 +54,6 @@ class AppBarServerInfo extends HookConsumerWidget {
           ),
           divider,
           _ServerInfoItem(label: "server_info_box_server_url".tr(), text: getServerUrl() ?? '--', tooltip: true),
-          if (serverInfoState.latestVersion != null) ...[
-            divider,
-            _ServerInfoItem(
-              label: "latest_version".tr(),
-              text: serverInfoState.latestVersion!.major > 0 ? "${serverInfoState.latestVersion!}" : "--",
-              tooltip: true,
-              icon: serverInfoState.versionStatus == VersionStatus.serverOutOfDate
-                  ? const Icon(Icons.info, color: Color.fromARGB(255, 243, 188, 106), size: 12)
-                  : null,
-            ),
-          ],
         ],
       ),
     );

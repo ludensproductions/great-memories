@@ -12,7 +12,7 @@
   import { Route } from '$lib/route';
   import { handleSystemConfigSave } from '$lib/services/system-config.service';
   import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@great-memories/sdk';
-  import { Heading, Link, LoadingSpinner, Text } from '@immich/ui';
+  import { Heading, LoadingSpinner, Text } from '@immich/ui';
   import handlebar from 'handlebars';
   import * as luxon from 'luxon';
   import { onDestroy } from 'svelte';
@@ -110,14 +110,8 @@
   <div in:fade={{ duration }} class="mx-4 flex flex-col gap-4 py-4">
     <p class="text-sm dark:text-great-memories-dark-fg">
       <FormatMessage key="admin.storage_template_more_details">
-        {#snippet children({ tag, message })}
-          {#if tag === 'template-link'}
-            <Link href="https://docs.immich.app/administration/storage-template">{message}</Link>
-          {:else if tag === 'implications-link'}
-            <Link href="https://docs.immich.app/administration/backup-and-restore#asset-types-and-storage-locations">
-              {message}
-            </Link>
-          {/if}
+        {#snippet children({ message })}
+          {message}
         {/snippet}
       </FormatMessage>
     </p>

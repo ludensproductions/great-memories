@@ -24,7 +24,7 @@ If you have write-access to the Great Memories repository directly, running dcm 
 If you are working on a clone of a fork, you need to connect to the main Great Memories repository as remote first:
 
 ```bash
-git remote add great-memories git@github.com:immich-app/immich.git
+git remote add great-memories git@github.com:ludensproductions/immich.git
 ```
 
 ## Great Memories Flutter Directory Structure

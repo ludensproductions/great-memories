@@ -1,6 +1,5 @@
 <script lang="ts">
   import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { releaseManager } from '$lib/managers/release-manager.svelte';
   import ServerAboutModal from '$lib/modals/ServerAboutModal.svelte';
   import { userInteraction } from '$lib/stores/user.svelte';
   import { websocketStore } from '$lib/stores/websocket';
@@ -9,12 +8,11 @@
   import {
     getAboutInfo,
     getVersionHistory,
-    type ReleaseEventV1,
     type ServerAboutResponseDto,
     type ServerVersionHistoryResponseDto,
   } from '@great-memories/sdk';
-  import { Icon, modalManager, Text } from '@immich/ui';
-  import { mdiAlert, mdiNewBox } from '@mdi/js';
+  import { Icon, modalManager } from '@immich/ui';
+  import { mdiAlert } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
 
@@ -38,25 +36,8 @@
     userInteraction.aboutInfo = info;
     userInteraction.versions = versions;
   });
-  let isMain = $derived(info?.sourceRef === 'main' && info.repository === 'immich-app/immich');
+  let isMain = $derived(info?.sourceRef === 'main' && info.repository === 'ludensproductions/immich');
   let version = $derived($serverVersion ? semverToName($serverVersion) : null);
-
-  const getReleaseInfo = (release?: ReleaseEventV1) => {
-    if (!release || !release?.isAvailable || !authManager.user.isAdmin) {
-      return;
-    }
-
-    const availableVersion = semverToName(release.releaseVersion);
-    const serverVersion = semverToName(release.serverVersion);
-
-    if (serverVersion === availableVersion) {
-      return;
-    }
-
-    return { availableVersion, releaseUrl: `https://github.com/immich-app/immich/releases/tag/${availableVersion}` };
-  };
-
-  const releaseInfo = $derived(getReleaseInfo(releaseManager.value));
 </script>
 
 <div
@@ -92,26 +73,3 @@
     {/if}
   </div>
 </div>
-
-{#if releaseInfo}
-  <a
-    href={releaseInfo.releaseUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="group ms-4 mt-3 block min-w-52 rounded-lg border border-gray-200/50 bg-white/50 p-2.5 text-sm transition-all duration-200 hover:border-great-memories-primary/40 hover:bg-great-memories-primary/5 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-great-memories-dark-primary/40 dark:hover:bg-great-memories-dark-primary/5"
-  >
-    <div class="flex items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <Icon icon={mdiNewBox} size="16" class="text-great-memories-primary opacity-80 dark:text-great-memories-dark-primary" />
-        <Text size="tiny" fontWeight="medium" class="text-gray-700 dark:text-gray-300">
-          {releaseInfo.availableVersion}
-        </Text>
-      </div>
-      <span
-        class="text-[11px] text-gray-500 opacity-70 transition-colors group-hover:text-great-memories-primary group-hover:opacity-100 dark:text-gray-400 dark:group-hover:text-great-memories-dark-primary"
-      >
-        {$t('new_update')}!
-      </span>
-    </div>
-  </a>
-{/if}

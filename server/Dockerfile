@@ -104,14 +104,14 @@ ARG BUILD_SOURCE_REF
 ARG BUILD_SOURCE_COMMIT
 
 ENV GREAT_MEMORIES_BUILD=${BUILD_ID}
-ENV GREAT_MEMORIES_BUILD_URL=https://github.com/immich-app/immich/actions/runs/${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD_URL=https://github.com/ludensproductions/immich/actions/runs/${BUILD_ID}
 ENV GREAT_MEMORIES_BUILD_IMAGE=${BUILD_IMAGE}
-ENV GREAT_MEMORIES_BUILD_IMAGE_URL=https://github.com/immich-app/immich/pkgs/container/great-memories-server
-ENV GREAT_MEMORIES_REPOSITORY=immich-app/immich
-ENV GREAT_MEMORIES_REPOSITORY_URL=https://github.com/immich-app/immich
+ENV GREAT_MEMORIES_BUILD_IMAGE_URL=https://github.com/ludensproductions/immich/pkgs/container/great-memories-server
+ENV GREAT_MEMORIES_REPOSITORY=ludensproductions/immich
+ENV GREAT_MEMORIES_REPOSITORY_URL=https://github.com/ludensproductions/immich
 ENV GREAT_MEMORIES_SOURCE_REF=${BUILD_SOURCE_REF}
 ENV GREAT_MEMORIES_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
-ENV GREAT_MEMORIES_SOURCE_URL=https://github.com/immich-app/immich/commit/${BUILD_SOURCE_COMMIT}
+ENV GREAT_MEMORIES_SOURCE_URL=https://github.com/ludensproductions/immich/commit/${BUILD_SOURCE_COMMIT}
 
 VOLUME /data
 EXPOSE 2283

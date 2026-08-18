@@ -46,7 +46,7 @@ const int kMinMonthsToEnableScrubberSnap = 12;
 
 const String kGreatMemoriesAppStoreLink = "https://apps.apple.com/app/great-memories/id1613945652";
 const String kGreatMemoriesPlayStoreLink = "https://play.google.com/store/apps/details?id=com.greatmemories.app";
-const String kGreatMemoriesLatestRelease = "https://github.com/immich-app/immich/releases/latest";
+const String kGreatMemoriesLatestRelease = "https://github.com/ludensproductions/immich/releases/latest";
 
 const int kPhotoTabIndex = 0;
 const int kSearchTabIndex = 1;
