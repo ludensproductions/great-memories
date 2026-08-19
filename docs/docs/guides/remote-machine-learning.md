@@ -14,7 +14,7 @@ Image previews are sent to the remote machine learning container. Use this optio
 2. Copy the following `docker-compose.yml` to the remote server
 
 :::info
-If using hardware acceleration, the [hwaccel.ml.yml](https://github.com/immich-app/immich/releases/latest/download/hwaccel.ml.yml) file also needs to be added and the `docker-compose.yml` needs to be configured as described in the [hardware acceleration documentation](/features/ml-hardware-acceleration)
+If using hardware acceleration, the [hwaccel.ml.yml](https://github.com/ludensproductions/great-memories/releases/latest/download/hwaccel.ml.yml) file also needs to be added and the `docker-compose.yml` needs to be configured as described in the [hardware acceleration documentation](/features/ml-hardware-acceleration)
 :::
 
 ```yaml

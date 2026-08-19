@@ -9,7 +9,7 @@ Dev Containers provide a consistent, reproducible development environment using 
 
 Get started fast!
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/immich-app/immich/)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ludensproductions/great-memories/)
 
 [Learn more about Dev Containers](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
 
@@ -63,7 +63,7 @@ The Dev Container environment consists of the following services:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/immich-app/immich.git
+git clone https://github.com/ludensproductions/great-memories.git
 cd great-memories
 ```
 
@@ -364,7 +364,7 @@ You will need DevPod CLI (check [DevPod CLI installation guide](https://devpod.s
 
 ```sh
 # Step 1: Clone the Repository
-git clone https://github.com/immich-app/immich.git
+git clone https://github.com/ludensproductions/great-memories.git
 cd great-memories
 
 # Step 2: Prepare DevPod (if you haven't already)

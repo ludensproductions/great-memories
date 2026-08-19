@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NOTA: Isto non se pode cambiar máis tarde!",
     "notification_email_from_address": "Enderezo do remitente",
     "notification_email_from_address_description": "Enderezo de correo do remitente, por exemplo: \"Servidor de Fotos Great Memories noreply@exemplo.com\". Asegúrese de empregar un enderezo dende o que teña permiso para enviar correos.",
-    "notification_email_host_description": "Host do servidor de correo electrónico (p. ex. smtp.immich.app)",
+    "notification_email_host_description": "Host do servidor de correo electrónico (p. ex. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorar erros de certificado",
     "notification_email_ignore_certificate_errors_description": "Ignorar erros de validación do certificado TLS (non recomendado)",
     "notification_email_password_description": "Contrasinal a usar ao autenticarse co servidor de correo electrónico",

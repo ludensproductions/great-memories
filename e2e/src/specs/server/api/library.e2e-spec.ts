@@ -544,7 +544,7 @@ describe('/libraries', () => {
     });
 
     it('should respect exclusion patterns when using multiple import paths', async () => {
-      // https://github.com/immich-app/immich/issues/17121
+  
       const library = await utils.createLibrary(admin.accessToken, {
         ownerId: admin.userId,
         importPaths: [`${testAssetDirInternal}/temp/exclusion/`, `${testAssetDirInternal}/temp/exclusion2/`],

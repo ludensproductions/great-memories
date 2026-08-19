@@ -270,7 +270,7 @@
     "note_cannot_be_changed_later": "MÄRKUS: Seda ei saa hiljem muuta!",
     "notification_email_from_address": "Saatja aadress",
     "notification_email_from_address_description": "Saatja e-posti aadress, näiteks: \"Great Memories Photo Server <noreply@example.com>\". Kasuta kindlasti aadressi, millelt sul on luba e-kirju saata.",
-    "notification_email_host_description": "E-posti serveri host (nt. smtp.immich.app)",
+    "notification_email_host_description": "E-posti serveri host (nt. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignoreeri sertifikaadi vigu",
     "notification_email_ignore_certificate_errors_description": "Ignoreeri TLS sertifikaadi valideerimise vigu (mittesoovituslik)",
     "notification_email_password_description": "Parool e-posti serveriga autentimiseks",

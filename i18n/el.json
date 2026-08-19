@@ -242,7 +242,7 @@
     "note_cannot_be_changed_later": "ΣΗΜΕΊΩΣΗ: Αυτό δεν μπορεί να τροποποιηθεί αργότερα!",
     "notification_email_from_address": "Διεύθυνση αποστολέα",
     "notification_email_from_address_description": "Διεύθυνση αποστολέα, πχ: \"Great Memories Photo Server <noreply@example.com>\". Βεβαιωθείτε ότι έχετε δικαίωμα χρήσης της διεύθυνσης που χρησιμοποιείτε.",
-    "notification_email_host_description": "Πάροχος του email server (πχ smtp.immich.app)",
+    "notification_email_host_description": "Πάροχος του email server (πχ smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Παράβλεψη των σφαλμάτων πιστοποίησης",
     "notification_email_ignore_certificate_errors_description": "Παράβλεψη σφαλμάτων επικύρωσης της πιστοποίησης TLS (δεν προτείνεται)",
     "notification_email_password_description": "Κωδικός για την αυθεντικοποίηση με τον server του email",

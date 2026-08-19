@@ -5,7 +5,7 @@ sidebar_position: 2
 # Setup
 
 :::warning
-Make sure to read the [`CONTRIBUTING.md`](https://github.com/immich-app/immich/blob/main/CONTRIBUTING.md) before you dive into the code.
+Make sure to read the [`CONTRIBUTING.md`](https://github.com/ludensproductions/great-memories/blob/main/CONTRIBUTING.md) before you dive into the code.
 :::
 
 :::note
@@ -24,9 +24,9 @@ Thanks for being interested in contributing 😊
 
 This environment includes the services below. Additional details are available in each service's README.
 
-- Server - [`/server`](https://github.com/immich-app/immich/tree/main/server)
-- Web app - [`/web`](https://github.com/immich-app/immich/tree/main/web)
-- Machine learning - [`/machine-learning`](https://github.com/immich-app/immich/tree/main/machine-learning)
+- Server - [`/server`](https://github.com/ludensproductions/great-memories/tree/main/server)
+- Web app - [`/web`](https://github.com/ludensproductions/great-memories/tree/main/web)
+- Machine learning - [`/machine-learning`](https://github.com/ludensproductions/great-memories/tree/main/machine-learning)
 - Redis
 - PostgreSQL development database with exposed port `5432` so you can use any database client to access it
 
@@ -127,7 +127,7 @@ The mobile app asks you what backend to connect to. You can utilize the demo bac
 #### UI components and widget previews
 
 Shared design-system widgets (buttons, inputs, forms) live in the
-[`great_memories_ui` package](https://github.com/immich-app/immich/tree/main/mobile/packages/ui/)
+[`great_memories_ui` package](https://github.com/ludensproductions/great-memories/tree/main/mobile/packages/ui/)
 under `mobile/packages/ui/`. Components are defined in `lib/src/components/`
 and have matching previews in `lib/src/previews/`.
 

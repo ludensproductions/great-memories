@@ -46,7 +46,7 @@ alt="Select Plugins > Compose.Manager > Add New Stack > Label it Great Memories"
 />
 
 3.  Select the cogwheel ⚙️ next to Great Memories and click "**Edit Stack**"
-4.  Click "**Compose File**" and then paste the entire contents of the [Great Memories Docker Compose](https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml) file into the Unraid editor. Remove any text that may be in the text area by default. Note that Unraid v6.12.10 uses version 24.0.9 of the Docker Engine, which does not support healthcheck `start_interval` as defined in the `database` service of the Docker compose file (version 25 or higher is needed). This parameter defines an initial waiting period before starting health checks, to give the container time to start up. Commenting out the `start_interval` and `start_period` parameters will allow the containers to start up normally. The only downside to this is that the database container will not receive an initial health check until `interval` time has passed.
+4.  Click "**Compose File**" and then paste the entire contents of the [Great Memories Docker Compose](https://github.com/ludensproductions/great-memories/releases/latest/download/docker-compose.yml) file into the Unraid editor. Remove any text that may be in the text area by default. Note that Unraid v6.12.10 uses version 24.0.9 of the Docker Engine, which does not support healthcheck `start_interval` as defined in the `database` service of the Docker compose file (version 25 or higher is needed). This parameter defines an initial waiting period before starting health checks, to give the container time to start up. Commenting out the `start_interval` and `start_period` parameters will allow the containers to start up normally. The only downside to this is that the database container will not receive an initial health check until `interval` time has passed.
 
     <details >
         <summary>Using an existing Postgres container? Click me! Otherwise proceed to step 5.</summary>
@@ -74,7 +74,7 @@ alt="Select Plugins > Compose.Manager > Add New Stack > Label it Great Memories"
 
 5.  Click "**Save Changes**", you will be prompted to edit stack UI labels, just leave this blank and click "**Ok**"
 6.  Select the cog ⚙️ next to Great Memories, click "**Edit Stack**", then click "**Env File**"
-7.  Paste the entire contents of the [Great Memories example.env](https://github.com/immich-app/immich/releases/latest/download/example.env) file into the Unraid editor, then **before saving** edit the following:
+7.  Paste the entire contents of the [Great Memories example.env](https://github.com/ludensproductions/great-memories/releases/latest/download/example.env) file into the Unraid editor, then **before saving** edit the following:
     - `UPLOAD_LOCATION`: Create a folder in your Images Unraid share and place the **absolute** location here > For example my _"images"_ share has a folder within it called _"great-memories"_. If I browse to this directory in the terminal and type `pwd` the output is `/mnt/user/images/great-memories`. This is the exact value I need to enter as my `UPLOAD_LOCATION`
     - `DB_DATA_LOCATION`: Change this to use an Unraid share (preferably a cache pool, e.g. `/mnt/user/appdata/postgresql/data`). This uses the `appdata` share. Do also create the `postgresql` folder, by running `mkdir /mnt/user/{share_location}/postgresql/data`. If left at default it will try to use Unraid's `/boot/config/plugins/compose.manager/projects/[stack_name]/postgres` folder which it doesn't have permissions to, resulting in this container continuously restarting.
 
@@ -110,7 +110,7 @@ alt="Go to Docker Tab and visit the address listed next to great-memories-web"
 
 <details >
     <summary>Using the FolderView plugin for organizing your Docker containers? Click me! Otherwise you're complete!</summary>
-    <p>If you are using the FolderView plugin go the Docker tab and select "<b>New Folder</b>".<br />Label it <i>"Great Memories"</i> and use this URL as the logo: https://raw.githubusercontent.com/immich-app/immich/main/design/great-memories-logo.png<br/>Then simply select all the Great Memories related containers before clicking "<b>Submit</b>"</p>
+    <p>If you are using the FolderView plugin go the Docker tab and select "<b>New Folder</b>".<br />Label it <i>"Great Memories"</i> and use this URL as the logo: https://raw.githubusercontent.com/ludensproductions/great-memories/main/design/great-memories-logo.png<br/>Then simply select all the Great Memories related containers before clicking "<b>Submit</b>"</p>
     <img
         src={require('./img/unraid07.webp').default}
         width="80%"

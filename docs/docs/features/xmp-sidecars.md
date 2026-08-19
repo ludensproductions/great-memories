@@ -53,7 +53,7 @@ If both `.jpg.xmp` and `.xmp` are present, Great Memories uses the **`.jpg.xmp`*
 3. **Write-back** – If Great Memories has **write access** to the mount, any future metadata edits (e.g., rating or tags) are also written back to the original `.xmp` file on disk.
 
 :::danger
-If the mount is **read-only**, Great Memories cannot update either the sidecar **or** the database — **metadata edits will silently fail** with no warning see issue [#10538](https://github.com/immich-app/immich/issues/10538) for more details.
+If the mount is **read-only**, Great Memories cannot update either the sidecar **or** the database — **metadata edits will silently fail** with no warning see issue [#10538](https://github.com/ludensproductions/great-memories/issues/10538) for more details.
 :::
 
 ## Admin Jobs

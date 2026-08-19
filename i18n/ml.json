@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "കുറിപ്പ്: ഇത് പിന്നീട് മാറ്റാൻ കഴിയില്ല!",
     "notification_email_from_address": "അയയ്ക്കുന്നയാളുടെ വിലാസം",
     "notification_email_from_address_description": "അയയ്ക്കുന്നയാളുടെ ഇമെയിൽ വിലാസം, ഉദാഹരണത്തിന്: \"Great Memories Photo Server <noreply@example.com>\". നിങ്ങൾക്ക് ഇമെയിലുകൾ അയയ്ക്കാൻ അനുവാദമുള്ള ഒരു വിലാസം ഉപയോഗിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക.",
-    "notification_email_host_description": "ഇമെയിൽ സെർവറിന്റെ ഹോസ്റ്റ് (ഉദാ. smtp.immich.app)",
+    "notification_email_host_description": "ഇമെയിൽ സെർവറിന്റെ ഹോസ്റ്റ് (ഉദാ. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "സർട്ടിഫിക്കറ്റ് പിശകുകൾ അവഗണിക്കുക",
     "notification_email_ignore_certificate_errors_description": "TLS സർട്ടിഫിക്കറ്റ് സാധുതാ പിശകുകൾ അവഗണിക്കുക (ശുപാർശ ചെയ്യുന്നില്ല)",
     "notification_email_password_description": "ഇമെയിൽ സെർവറുമായി പ്രാമാണീകരിക്കുമ്പോൾ ഉപയോഗിക്കേണ്ട പാസ്‌വേഡ്",

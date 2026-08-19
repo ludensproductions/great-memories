@@ -148,4 +148,4 @@ This format includes:
 
 For more information on log formats, see [`GREAT_MEMORIES_LOG_FORMAT`](/install/environment-variables.md#general).
 
-[prom-file]: https://github.com/immich-app/immich/releases/latest/download/prometheus.yml
+[prom-file]: https://github.com/ludensproductions/great-memories/releases/latest/download/prometheus.yml

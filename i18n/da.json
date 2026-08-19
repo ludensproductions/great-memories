@@ -269,7 +269,7 @@
     "note_cannot_be_changed_later": "BEMÆRK: Dette kan ikke ændres senere!",
     "notification_email_from_address": "Fra adressse",
     "notification_email_from_address_description": "Afsenderemailadresse, for eksempel: \"Great Memories Billedserver <noreply@example.com>\". Vær sikker på du bruger en email du kan sende emails fra.",
-    "notification_email_host_description": "Host af emailserver (fx smtp.immich.app)",
+    "notification_email_host_description": "Host af emailserver (fx smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorér certifikatfejl",
     "notification_email_ignore_certificate_errors_description": "Ignorér TLS-certifikatgodkendelsesfejl (ikke anbefalet)",
     "notification_email_password_description": "Adgangskode til brug ved autentificering med e-mailserveren",

@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "LƯU Ý: Cài đặt này không thể thay đổi được sau khi lưu!",
     "notification_email_from_address": "Địa chỉ email người gửi",
     "notification_email_from_address_description": "Địa chỉ email của người gửi, ví dụ: \"Great Memories Photo Server <noreply@example.com>\". Hãy chắc là bạn dùng một địa chỉ mà bạn được phép gửi email ra.",
-    "notification_email_host_description": "Địa chỉ máy chủ email (ví dụ: smtp.immich.app)",
+    "notification_email_host_description": "Địa chỉ máy chủ email (ví dụ: smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Bỏ qua lỗi chứng chỉ",
     "notification_email_ignore_certificate_errors_description": "Bỏ qua lỗi xác thực chứng chỉ TLS (không đề xuất)",
     "notification_email_password_description": "Mật khẩu dùng để xác thực với máy chủ email",

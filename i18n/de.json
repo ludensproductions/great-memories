@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "HINWEIS: Dies kann später nicht mehr geändert werden!",
     "notification_email_from_address": "Absenderadresse",
     "notification_email_from_address_description": "E-Mail-Adresse des Senders, zum Beispiel: \"Great Memories Photo Server <noreply@example.com>\". Stelle sicher, dass du eine Adresse nutzt, die du berechtigt bist zu nutzen.",
-    "notification_email_host_description": "Host des E-Mail-Servers (z.B. smtp.immich.app)",
+    "notification_email_host_description": "Host des E-Mail-Servers (z.B. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignoriere Zertifikats-Fehler",
     "notification_email_ignore_certificate_errors_description": "TLS-Zertifikatsvalidierungsfehler ignorieren (nicht empfohlen)",
     "notification_email_password_description": "Passwort für die Anmeldung am E-Mail-Server",

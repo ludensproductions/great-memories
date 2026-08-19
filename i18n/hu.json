@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "FIGYELEM: ezt később nem lehet megváltoztatni!",
     "notification_email_from_address": "Feladó cím",
     "notification_email_from_address_description": "Küldő email címe, például: \"Great Memories Fotószerver <noreply@example.com>\". Figyelj hogy olyan címet adj meg ahonnan az email küldés engedélyezett.",
-    "notification_email_host_description": "Email szerver kiszolgálója (pl. smtp.immich.app)",
+    "notification_email_host_description": "Email szerver kiszolgálója (pl. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Tanúsítvány hibák figyelmen kívül hagyása",
     "notification_email_ignore_certificate_errors_description": "TLS tanúsítvány érvényességi hibák figyelmen kívül hagyása (nem ajánlott)",
     "notification_email_password_description": "Az email szerverrel való hitelesítéshez használt jelszó",

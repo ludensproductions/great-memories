@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "REMARQUE : Il n'est pas possible de modifier ce paramètre ultérieurement !",
     "notification_email_from_address": "Depuis l'adresse",
     "notification_email_from_address_description": "Adresse courriel de l'expéditeur, par exemple : « Serveur de photos Great Memories <nepasrepondre@exemple.org> ». Assurez-vous d'utiliser une adresse à partir de laquelle vous pouvez envoyer des courriels.",
-    "notification_email_host_description": "Hôte du serveur de messagerie électronique (par exemple, smtp.immich.app)",
+    "notification_email_host_description": "Hôte du serveur de messagerie électronique (par exemple, smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorer les erreurs de certificat",
     "notification_email_ignore_certificate_errors_description": "Ignorer les erreurs de validation du certificat TLS (non recommandé)",
     "notification_email_password_description": "Mot de passe à utiliser lors de l'authentification avec le serveur de messagerie",

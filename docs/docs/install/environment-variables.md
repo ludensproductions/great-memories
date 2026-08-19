@@ -186,7 +186,7 @@ Redis (Sentinel) URL example JSON before encoding:
 
 \*2: Since each process duplicates models in memory, changing this is not recommended unless you have abundant memory to go around.
 
-\*3: For scenarios like HPA in K8S. https://github.com/immich-app/immich/discussions/12064
+\*3: For scenarios like HPA in K8S. https://github.com/ludensproductions/great-memories/discussions/12064
 
 \*4: Using multiple GPUs requires `MACHINE_LEARNING_WORKERS` to be set greater than 1. A single device is assigned to each worker in round-robin priority.
 

@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NOTA: Isto não pode ser alterado posteriormente!",
     "notification_email_from_address": "E-mail de origem",
     "notification_email_from_address_description": "Endereço de e-mail do remetente, por exemplo: \"Great Memories Photo Server <noreply@example.com>\". Tenha certeza de ter permissão para enviar e-mails a partir do endereço selecionado.",
-    "notification_email_host_description": "Servidor de e-mail (por exemplo, smtp.immich.app)",
+    "notification_email_host_description": "Servidor de e-mail (por exemplo, smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorar erros de certificado",
     "notification_email_ignore_certificate_errors_description": "Ignorar erros de validação de certificado TLS (não recomendado)",
     "notification_email_password_description": "Senha a ser usada ao autenticar no servidor de e-mail",

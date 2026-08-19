@@ -13,7 +13,7 @@ The instructions on this page show you how to prepare your Great Memories instan
 
 ## Database
 
-Great Memories stores [file paths](https://github.com/immich-app/immich/discussions/3299) and user metadata in the database. It does not scan the library folder, so database backups are essential.
+Great Memories stores [file paths](https://github.com/ludensproductions/great-memories/discussions/3299) and user metadata in the database. It does not scan the library folder, so database backups are essential.
 
 ### Automatic Database Backups
 
@@ -231,7 +231,7 @@ Some storage locations are impacted by the Storage Template. See below for more 
 
 :::note
 The `UPLOAD_LOCATION/library` folder is not used by default on new machines running version 1.92.0. It is used only if the system administrator activated the storage template engine,
-for more info read the [release notes](https://github.com/immich-app/immich/releases/tag/v1.92.0#:~:text=the%20partner%E2%80%99s%20assets.-,Hardening%20storage%20template).
+for more info read the [release notes](https://github.com/ludensproductions/great-memories/releases/tag/v1.92.0#:~:text=the%20partner%E2%80%99s%20assets.-,Hardening%20storage%20template).
 :::
 
 **1. User-Specific Folders:**
@@ -258,7 +258,7 @@ for more info read the [release notes](https://github.com/immich-app/immich/rele
   - Stored in `UPLOAD_LOCATION/backups/`.
 - **Postgres**
   - The Great Memories database containing all the information to allow the system to function properly.
-    **Note:** This folder will only appear to users who have made the changes mentioned in [v1.102.0](https://github.com/immich-app/immich/discussions/8930) (an optional, non-mandatory change) or who started with this version.
+    **Note:** This folder will only appear to users who have made the changes mentioned in [v1.102.0](https://github.com/ludensproductions/great-memories/discussions/8930) (an optional, non-mandatory change) or who started with this version.
   - Stored in `DB_DATA_LOCATION`.
 
 </TabItem>
@@ -301,7 +301,7 @@ When you turn off the storage template engine, it will leave the assets in `UPLO
   - Stored in `UPLOAD_LOCATION/backups/`.
 - **Postgres**
   - The Great Memories database containing all the information to allow the system to function properly.
-    **Note:** This folder will only appear to users who have made the changes mentioned in [v1.102.0](https://github.com/immich-app/immich/discussions/8930) (an optional, non-mandatory change) or who started with this version.
+    **Note:** This folder will only appear to users who have made the changes mentioned in [v1.102.0](https://github.com/ludensproductions/great-memories/discussions/8930) (an optional, non-mandatory change) or who started with this version.
   - Stored in `DB_DATA_LOCATION`.
 
 </TabItem>

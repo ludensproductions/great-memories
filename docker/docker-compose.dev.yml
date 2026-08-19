@@ -77,15 +77,15 @@ services:
     env_file:
       - .env
     environment:
-      GREAT_MEMORIES_REPOSITORY: immich-app/immich
-      GREAT_MEMORIES_REPOSITORY_URL: https://github.com/immich-app/immich
+      GREAT_MEMORIES_REPOSITORY: ludensproductions/great-memories
+      GREAT_MEMORIES_REPOSITORY_URL: https://github.com/ludensproductions/great-memories
       GREAT_MEMORIES_SOURCE_REF: local
       GREAT_MEMORIES_SOURCE_COMMIT: af2efbdbbddc27cd06142f22253ccbbbbeec1f55
-      GREAT_MEMORIES_SOURCE_URL: https://github.com/immich-app/immich/commit/af2efbdbbddc27cd06142f22253ccbbbbeec1f55
+      GREAT_MEMORIES_SOURCE_URL: https://github.com/ludensproductions/great-memories/commit/af2efbdbbddc27cd06142f22253ccbbbbeec1f55
       GREAT_MEMORIES_BUILD: '9654404849'
-      GREAT_MEMORIES_BUILD_URL: https://github.com/immich-app/immich/actions/runs/9654404849
+      GREAT_MEMORIES_BUILD_URL: https://github.com/ludensproductions/great-memories/actions/runs/9654404849
       GREAT_MEMORIES_BUILD_IMAGE: development
-      GREAT_MEMORIES_BUILD_IMAGE_URL: https://github.com/immich-app/immich/pkgs/container/great-memories-server
+      GREAT_MEMORIES_BUILD_IMAGE_URL: https://github.com/ludensproductions/great-memories/pkgs/container/great-memories-server
       GREAT_MEMORIES_THIRD_PARTY_SOURCE_URL: https://github.com/immich-app/immich/
       GREAT_MEMORIES_THIRD_PARTY_BUG_FEATURE_URL: https://github.com/immich-app/immich/issues
       GREAT_MEMORIES_THIRD_PARTY_DOCUMENTATION_URL: https://docs.immich.app

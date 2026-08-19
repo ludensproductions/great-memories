@@ -38,7 +38,7 @@
     </div>
 
     <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
-      {#if info.sourceRef === 'main' && info.repository === 'ludensproductions/immich'}
+      {#if info.sourceRef === 'main' && info.repository === 'ludensproductions/great-memories'}
         <Alert color="warning" title={$t('main_branch_warning')} class="col-span-full" size="small" />
       {/if}
 

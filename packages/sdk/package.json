@@ -4,7 +4,7 @@
   "description": "Auto-generated TypeScript SDK for the Great Memories API",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ludensproductions/immich.git",
+    "url": "git+https://github.com/ludensproductions/great-memories.git",
     "directory": "packages/sdk"
   },
   "type": "module",

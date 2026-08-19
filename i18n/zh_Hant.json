@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "注意：此設定日後無法變更！",
     "notification_email_from_address": "寄件地址",
     "notification_email_from_address_description": "寄件者電子郵件地址，例如：\"Great Memories Photo Server <noreply@example.com>\"。請確保使用的是您有權限寄送郵件的地址。",
-    "notification_email_host_description": "電子郵件伺服器主機（例如：smtp.immich.app）",
+    "notification_email_host_description": "電子郵件伺服器主機（例如：smtp.example.com）",
     "notification_email_ignore_certificate_errors": "忽略憑證錯誤",
     "notification_email_ignore_certificate_errors_description": "忽略 TLS 憑證驗證錯誤（不建議）",
     "notification_email_password_description": "用於與電子郵件伺服器驗證的密碼",

@@ -204,7 +204,7 @@
     "note_cannot_be_changed_later": "توجه: این را نمی توان بعداً تغییر داد!",
     "notification_email_from_address": "آدرس فرستنده",
     "notification_email_from_address_description": "آدرس ایمیل فرستنده، به عنوان مثال:\"سرور عکس Great Memories  <noreply@example.com>\". مطمئن باشید از آدرسی استفاده کنید که اجازه ارسال ایمیل از آن را دارید.",
-    "notification_email_host_description": "میزبان سرور ایمیل (مثلاً smtp.immich.app)",
+    "notification_email_host_description": "میزبان سرور ایمیل (مثلاً smtp.example.com)",
     "notification_email_ignore_certificate_errors": "خطاهای گواهی را نادیده بگیر",
     "notification_email_ignore_certificate_errors_description": "خطاهای اعتبارسنجی گواهی TLS را نادیده بگیر (توصیه نمی‌شود)",
     "notification_email_password_description": "رمز عبور برای استفاده در هنگام احراز هویت با سرور ایمیل",

@@ -260,7 +260,7 @@
     "note_cannot_be_changed_later": "หมายเหตุ: ไม่สามารถเปลี่ยนภายหลังได้!",
     "notification_email_from_address": "จากที่อยู่",
     "notification_email_from_address_description": "ที่อยู่อีเมลผู้ส่ง ตัวอย่าง \"Great Memories Photo Server <noreply@immich.app>\" (กรุณายีนยันว่าสามารถส่งเมลจากที่อยู่นี้ได้)",
-    "notification_email_host_description": "ที่อยู่เซิร์ฟเวอร์อีเมล (เช่น smtp.immich.app)",
+    "notification_email_host_description": "ที่อยู่เซิร์ฟเวอร์อีเมล (เช่น smtp.example.com)",
     "notification_email_ignore_certificate_errors": "ไม่สนใจข้อผิดพลาดเกี่ยวกับใบรับรอง",
     "notification_email_ignore_certificate_errors_description": "ไม่สนใจการยืนยันใบรับรอง TLS ผิดพลาด (ไม่แนะนำ)",
     "notification_email_password_description": "รหัสผ่านที่ใช้เมื่อเข้าถึงเซิร์ฟเวอร์อีเมล",

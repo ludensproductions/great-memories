@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NOTA: Això és irreversible!",
     "notification_email_from_address": "Des de l'adreça",
     "notification_email_from_address_description": "Adreça de correu electrònic del remitent, per exemple: \"Great Memories Photo Server <noreply@example.com>\". Assegureu-vos d'utilitzar una adreça des de la qual tingueu permís per enviar correus electrònics.",
-    "notification_email_host_description": "Amfitrió del servidor de correu electrònic (p.ex. smtp.immich.app)",
+    "notification_email_host_description": "Amfitrió del servidor de correu electrònic (p.ex. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignora els errors de certificat",
     "notification_email_ignore_certificate_errors_description": "Ignora els errors de validació de certificat TLS (no recomanat)",
     "notification_email_password_description": "Contrasenya per a autenticar-se amb el servidor de correu electrònic",

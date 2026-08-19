@@ -188,7 +188,7 @@
     "note_cannot_be_changed_later": "గమనిక: దీనిని తర్వాత మార్చలేము!",
     "notification_email_from_address": "నుండి",
     "notification_email_from_address_description": "పంపినవారి ఇమెయిల్ చిరునామా, ఉదాహరణకు: \"Great Memories Photo Server <noreply@example.com>\"",
-    "notification_email_host_description": "ఇమెయిల్ సర్వర్ యొక్క హోస్ట్ (ఉదా. smtp.immich.app)",
+    "notification_email_host_description": "ఇమెయిల్ సర్వర్ యొక్క హోస్ట్ (ఉదా. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "సర్టిఫికెట్ లోపాలను విస్మరించండి",
     "notification_email_ignore_certificate_errors_description": "TLS సర్టిఫికెట్ ధ్రువీకరణ లోపాలను విస్మరించండి (సిఫార్సు చేయబడలేదు)",
     "notification_email_password_description": "ఈమెయిల్ సర్వర్ తో ప్రామాణీకరించేటప్పుడు ఉపయోగించాల్సిన పాస్‌వర్డ్",

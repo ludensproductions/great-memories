@@ -20,5 +20,5 @@ If you are a programmer or developer, take a look at Great Memories' [technology
 
 You can also [purchase Great Memories](https://buy.immich.app), for either one user or your entire server. Building Great Memories takes a lot of time and effort, and we have full-time engineers working on it to make it as good as we possibly can, so any support is greatly appreciated. Don't worry, all features will be free, forever! Nothing will ever be put behind any paywalls.
 
-[github-issue]: https://github.com/immich-app/immich/issues/new/choose
-[github-langs]: https://github.com/immich-app/immich/tree/main/mobile/assets/i18n
+[github-issue]: https://github.com/ludensproductions/great-memories/issues/new/choose
+[github-langs]: https://github.com/ludensproductions/great-memories/tree/main/mobile/assets/i18n

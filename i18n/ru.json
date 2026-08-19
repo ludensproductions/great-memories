@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "ПРИМЕЧАНИЕ: Позже нельзя будет изменить!",
     "notification_email_from_address": "Адрес отправителя",
     "notification_email_from_address_description": "Адрес электронной почты отправителя, например: \"Great Memories Photo Server <noreply@example.com>\".",
-    "notification_email_host_description": "Доменное имя почтового сервера (например, smtp.immich.app)",
+    "notification_email_host_description": "Доменное имя почтового сервера (например, smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Игнорировать ошибки сертификата",
     "notification_email_ignore_certificate_errors_description": "Игнорировать ошибки проверки сертификата TLS (не рекомендуется)",
     "notification_email_password_description": "Пароль для аутентификации на сервере электронной почты",

@@ -251,7 +251,7 @@
     "note_cannot_be_changed_later": "नोट: हे नंतर बदलता येणार नाही!",
     "notification_email_from_address": "प्रेषकाचा पत्ता",
     "notification_email_from_address_description": "प्रेषक ईमेल पत्ता, उदाहरणार्थ: \"Great Memories Photo Server noreply@example.com\". खात्री करा की आपण ज्यापासून ईमेल पाठवण्याची परवानगी आहे तोच पत्ता वापरता.",
-    "notification_email_host_description": "ईमेल सर्व्हरचा होस्ट (उदा. smtp.immich.app)",
+    "notification_email_host_description": "ईमेल सर्व्हरचा होस्ट (उदा. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "प्रमाणपत्र त्रुटी दुर्लक्षित करा",
     "notification_email_ignore_certificate_errors_description": "TLS प्रमाणपत्र पडताळणी त्रुटी दुर्लक्षित करा (शिफारसीय नाही)",
     "notification_email_password_description": "ईमेल सर्व्हरवर प्रमाणीकरणासाठी वापरण्याचा पासवर्ड",

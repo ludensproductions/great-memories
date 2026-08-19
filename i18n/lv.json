@@ -245,7 +245,7 @@
     "note_cannot_be_changed_later": "PIEZĪME: Vēlāk to vairs nevar mainīt!",
     "notification_email_from_address": "No adreses",
     "notification_email_from_address_description": "Sūtītāja e-pasta adrese, piemēram: “Great Memories foto serveris <noreply@example.com>”. Pārliecinies, ka izmanto adresi, no kuras tev atļauts sūtīt e-pastus.",
-    "notification_email_host_description": "E-pasta servera nosaukums (piemēram, smtp.immich.app)",
+    "notification_email_host_description": "E-pasta servera nosaukums (piemēram, smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorēt sertifikātu kļūdas",
     "notification_email_ignore_certificate_errors_description": "Ignorēt TLS sertifikāta apstiprināšanas kļūdas (nav ieteicams)",
     "notification_email_password_description": "Parole, kas jāizmanto, autentificējoties ar e-pasta serveri",

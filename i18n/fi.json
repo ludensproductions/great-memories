@@ -242,7 +242,7 @@
     "note_cannot_be_changed_later": "Huom: Tätä ei voi enää myöhemmin vaihtaa!",
     "notification_email_from_address": "Lähettäjän osoite",
     "notification_email_from_address_description": "Lähettäjän sähköpostiosoite. Esimerkiksi \"Great Memories-kuvapalvelin <noreply@example.com>\". Varmista, että käytetystä osoitteesta on lupa lähettää sähköposteja.",
-    "notification_email_host_description": "Sähköpostipalvelin (esim. smtp.immich.app)",
+    "notification_email_host_description": "Sähköpostipalvelin (esim. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Älä huomioi varmennevirheitä",
     "notification_email_ignore_certificate_errors_description": "Älä huomioi TLS-varmenteiden validointivirheitä (ei suositeltu)",
     "notification_email_password_description": "Sähköpostipalvelimen salasana",

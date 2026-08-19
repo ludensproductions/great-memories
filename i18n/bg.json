@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "ВНИМАНИЕ: Това не може да бъде променено по-късно!",
     "notification_email_from_address": "От адрес",
     "notification_email_from_address_description": "Електронна поща на изпращача, например: \"Great Memories Photo Server <noreply@example.com>\". Използвайте адрес, от който може да изпращате имейли.",
-    "notification_email_host_description": "Хост на сървъра за електронна поща (например: smtp.immich.app)",
+    "notification_email_host_description": "Хост на сървъра за електронна поща (например: smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Игнорирайте сертификационни грешки",
     "notification_email_ignore_certificate_errors_description": "Игнорирай грешки свързани с валидация на TLS сертификат (не се препоръчва)",
     "notification_email_password_description": "Парола използвана за удостоверяване пред сървъра за електронна поща",

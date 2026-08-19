@@ -36,7 +36,7 @@
     userInteraction.aboutInfo = info;
     userInteraction.versions = versions;
   });
-  let isMain = $derived(info?.sourceRef === 'main' && info.repository === 'ludensproductions/immich');
+  let isMain = $derived(info?.sourceRef === 'main' && info.repository === 'ludensproductions/great-memories');
   let version = $derived($serverVersion ? semverToName($serverVersion) : null);
 </script>
 

@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "SHËNIM: Kjo nuk mund të ndryshohet më vonë!",
     "notification_email_from_address": "Adresa nga",
     "notification_email_from_address_description": "Adresa e email-it të dërguesit, për shembull: \"Great Memories Photo Server <noreply@example.com>\". Sigurohuni që të përdorni një adresë nga e cila lejoheni të dërgoni email-e.",
-    "notification_email_host_description": "Strehuesi i serverit të email-it (p.sh. smtp.immich.app)",
+    "notification_email_host_description": "Strehuesi i serverit të email-it (p.sh. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Injoro gabimet e certifikatës",
     "notification_email_ignore_certificate_errors_description": "Injoroni gabimet e validimit të certifikatës TLS (nuk rekomandohet)",
     "notification_email_password_description": "Fjalëkalimi që duhet përdorur gjatë autentifikimit me serverin e email-it",

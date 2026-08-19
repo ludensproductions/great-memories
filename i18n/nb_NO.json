@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "MERK: Dette kan ikke endres senere!",
     "notification_email_from_address": "Fra adresse",
     "notification_email_from_address_description": "Avsenderens e-postadresse, for eksempel: \"Great Memories Photo Server <noreply@example.com>\". Bruk en e-postadresse du har tillatelse til å sende epost fra.",
-    "notification_email_host_description": "Verten til e-posts serveren (f.eks. smtp.immich.app)",
+    "notification_email_host_description": "Verten til e-posts serveren (f.eks. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorer sertifikatfeil",
     "notification_email_ignore_certificate_errors_description": "Ignorer valideringsfeil for TLS-sertifikat (ikke anbefalt)",
     "notification_email_password_description": "Passordet som skal brukes ved autentisering med e-posts serveren",

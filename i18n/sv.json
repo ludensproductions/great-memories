@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "OBS: Detta kan inte ändras i efterhand!",
     "notification_email_from_address": "Från adress",
     "notification_email_from_address_description": "Avsändarens e-post, till exempel: \"Great Memories Fotoserver <noreply@example.com>\". Säkerställ att du använder en adress som du har tillåtelse att skicka e-post från.",
-    "notification_email_host_description": "Värd för epostservern (t.ex. smtp.immich.app)",
+    "notification_email_host_description": "Värd för epostservern (t.ex. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorera certifikatfel",
     "notification_email_ignore_certificate_errors_description": "Ignorera valideringsfel för TLS-certifikat (rekommenderas ej)",
     "notification_email_password_description": "Lösenord att använda för att verifiera identitet med epostservern",

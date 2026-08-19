@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NAPOMENA: Ovo se ne može promijeniti kasnije!",
     "notification_email_from_address": "Od adrese",
     "notification_email_from_address_description": "E-mail adresa pošiljatelja, na primjer: \"Great Memories Photo Server <noreply@example.com>\". Obavezno koristite adresu s koje vam je dopušteno slanje e-pošte.",
-    "notification_email_host_description": "Poslužitelja e-pošte (npr. smtp.immich.app)",
+    "notification_email_host_description": "Poslužitelja e-pošte (npr. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignoriraj pogreške certifikata",
     "notification_email_ignore_certificate_errors_description": "Ignoriraj pogreške provjere valjanosti TLS certifikata (nije preporučeno)",
     "notification_email_password_description": "Lozinka za korištenje pri autentifikaciji s poslužiteljem e-pošte",

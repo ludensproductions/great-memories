@@ -23,8 +23,8 @@ docker image prune
 ```
 
 [watchtower]: https://containrrr.dev/watchtower/
-[breaking]: https://github.com/immich-app/immich/discussions?discussions_q=label%3Achangelog%3Abreaking-change+sort%3Adate_created
-[releases]: https://github.com/immich-app/immich/releases
+[breaking]: https://github.com/ludensproductions/great-memories/discussions?discussions_q=label%3Achangelog%3Abreaking-change+sort%3Adate_created
+[releases]: https://github.com/ludensproductions/great-memories/releases
 
 ## Versioning Policy
 
@@ -107,7 +107,7 @@ After making these changes, you can start Great Memories as normal. Great Memori
 After switching to VectorChord, you should not downgrade Great Memories below 1.133.0.
 :::
 
-Please don’t hesitate to contact us on [GitHub](https://github.com/immich-app/immich/discussions) or [Discord](https://discord.immich.app/) if you encounter migration issues.
+Please don’t hesitate to contact us on [GitHub](https://github.com/ludensproductions/great-memories/discussions) or [Discord](https://discord.immich.app/) if you encounter migration issues.
 
 ### VectorChord FAQ
 

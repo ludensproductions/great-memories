@@ -235,7 +235,7 @@
     "note_cannot_be_changed_later": "HINWEIS: Das cha spöter nümme gänderet werde!",
     "notification_email_from_address": "Absenderadresse",
     "notification_email_from_address_description": "E-Mail-Adrässe vom Sender, zum Bispiel: \"Great Memories Photo Server noreply@example.com\". Stell sicher, dass du e Adrässe bruuchsch, wo du berechtigt bisch z bruuchä.",
-    "notification_email_host_description": "Host vom E-Mail-Server (z.B. smtp.immich.app)",
+    "notification_email_host_description": "Host vom E-Mail-Server (z.B. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Zertifikats-Fähler ignoriere",
     "notification_email_ignore_certificate_errors_description": "TLS-Zertifikatsvalidierig-Fähler ignoriere (nöd empfehlenswert)",
     "notification_email_password_description": "Passwort für d’Aahmäldig am E-Mail-Server",

@@ -214,7 +214,7 @@
     "note_cannot_be_changed_later": "NOTA: Ini tidak boleh diubah kemudian!",
     "notification_email_from_address": "Dari alamat",
     "notification_email_from_address_description": "Alamat e-mel penghantar, sebagai contoh: \"Pelayan Gambar Great Memories <noreply@example.com>\". Pastikan menggunakan alamat yang dibenarkan anda untuk menghantar e-mel.",
-    "notification_email_host_description": "Hos e-mel pelayan (cth. smtp.immich.app)",
+    "notification_email_host_description": "Hos e-mel pelayan (cth. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Abaikan ralat-ralat sijil",
     "notification_email_ignore_certificate_errors_description": "Abaikan ralat pengesahan sijil TLS (tidak disyorkan)",
     "notification_email_password_description": "Kata laluan untuk digunakan semasa membuat pengesahan dengan pelayan e-mel",

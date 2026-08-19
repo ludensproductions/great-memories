@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NOTU: ne eblas poste ŝanĝi tion ĉi!",
     "notification_email_from_address": "Adreso de sendanto",
     "notification_email_from_address_description": "Retadreso, kiu aperos kiel \"sendinto\" de retmesaĝoj, ekz. \"Great Memories foto-servilo <noreply@example.com>\". Uzu nur adreson, kiun vi rajtas uzi tiel.",
-    "notification_email_host_description": "Gastiganto de la retmesaĝa servilo (ekz. smtp.immich.app)",
+    "notification_email_host_description": "Gastiganto de la retmesaĝa servilo (ekz. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignori erarojn pri atestiloj",
     "notification_email_ignore_certificate_errors_description": "Ignori erarojn pri valideco de TLS-atestiloj (malrekomendite)",
     "notification_email_password_description": "Pasvorto por uzi kun la retmesaĝa servilo",

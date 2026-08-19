@@ -88,7 +88,7 @@ On iOS (iPhone and iPad), the operating system determines if a particular app ca
 ### Why are features in the mobile app not working with a self-signed certificate, Basic Auth, custom headers, or mutual TLS?
 
 These network features are experimental. They often do not work with video playback, asset upload or download, and other features.
-Many of these limitations are tracked in [#15230](https://github.com/immich-app/immich/issues/15230).
+Many of these limitations are tracked in [#15230](https://github.com/ludensproductions/great-memories/issues/15230).
 Instead of these experimental features, we recommend using the URL switching feature, a VPN, or a [free trusted SSL certificate](https://letsencrypt.org/) for your domain.
 
 We are not actively developing these features and will not be able to provide support, but welcome contributions to improve them.
@@ -149,11 +149,11 @@ See [Backup and Restore](/administration/backup-and-restore.md).
 
 ### Does Great Memories support reading existing face tag metadata?
 
-Yes, it creates new faces and persons from the imported asset metadata. For details see the [feature request #4348](https://github.com/immich-app/immich/discussions/4348) and [PR #6455](https://github.com/immich-app/immich/pull/6455).
+Yes, it creates new faces and persons from the imported asset metadata. For details see the [feature request #4348](https://github.com/ludensproductions/great-memories/discussions/4348) and [PR #6455](https://github.com/ludensproductions/great-memories/pull/6455).
 
 ### Does Great Memories support the filtering of NSFW images?
 
-No, it currently does not. There is an [open feature request on Github](https://github.com/immich-app/immich/discussions/2451).
+No, it currently does not. There is an [open feature request on Github](https://github.com/ludensproductions/great-memories/discussions/2451).
 
 ### Why are there so many thumbnail generation jobs?
 
@@ -168,7 +168,7 @@ Also, there are additional jobs for person (face) thumbnails.
 ### Why do files from WhatsApp not appear with the correct date?
 
 Files sent on WhatsApp are saved without metadata on the file. Therefore, Great Memories has no way of knowing the original date of the file when files are uploaded from WhatsApp,
-not the order of arrival on the device. [See #9116](https://github.com/immich-app/immich/discussions/9116).
+not the order of arrival on the device. [See #9116](https://github.com/ludensproductions/great-memories/discussions/9116).
 
 ### What happens if an asset exists in more than one account?
 
@@ -235,7 +235,7 @@ Yes, by using the [Great Memories CLI](/features/command-line-interface) along w
 
 ### Is there a way to reorder photos within an album?
 
-No, not yet. For updates on this planned feature, follow the [GitHub discussion](https://github.com/immich-app/immich/discussions/1689).
+No, not yet. For updates on this planned feature, follow the [GitHub discussion](https://github.com/ludensproductions/great-memories/discussions/1689).
 
 ---
 
@@ -243,7 +243,7 @@ No, not yet. For updates on this planned feature, follow the [GitHub discussion]
 
 ### Can I add an external library while keeping the existing album structure?
 
-We haven't implemented an official mechanism for creating albums from external libraries, but there are some [workarounds from the community](https://github.com/immich-app/immich/discussions/4279) to help you achieve that.
+We haven't implemented an official mechanism for creating albums from external libraries, but there are some [workarounds from the community](https://github.com/ludensproductions/great-memories/discussions/4279) to help you achieve that.
 
 ### What happens to duplicates in external libraries?
 
@@ -409,7 +409,7 @@ To decrease Redis logs, you can add the following line to the `redis:` section o
 
 You can change the user in the container by setting the `user` argument in `docker-compose.yml` for each service.
 
-[Example docker-compose.yml file](https://github.com/immich-app/immich/blob/main/docker/docker-compose.rootless.yml)
+[Example docker-compose.yml file](https://github.com/ludensproductions/great-memories/blob/main/docker/docker-compose.rootless.yml)
 
 You may need to add mount points or docker volumes for the following internal container paths:
 

@@ -274,7 +274,7 @@
     "note_cannot_be_changed_later": "PASTABA: Vėliau to pakeisti negalima!",
     "notification_email_from_address": "Iš adreso",
     "notification_email_from_address_description": "Siuntėjo el. pašto adresas, pavyzdžiui: \"Great Memories Photo Server <noreply@example.com>\". Būtinai naudokite adresą iš kurio jums galima siųsti laiškus.",
-    "notification_email_host_description": "Elektroninio pašto serverio adresas (pvz. smtp.immich.app)",
+    "notification_email_host_description": "Elektroninio pašto serverio adresas (pvz. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Nepaisyti sertifikatų klaidų",
     "notification_email_ignore_certificate_errors_description": "Nepaisyti TLS sertifikato patvirtinimo klaidų (nerekomenduojama)",
     "notification_email_password_description": "Slaptažodis, naudojant autentikacijai su elektroninio pašto serveriu",

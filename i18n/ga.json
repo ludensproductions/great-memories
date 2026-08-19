@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "NÓTA: Ní féidir é seo a athrú níos déanaí!",
     "notification_email_from_address": "Ó sheoladh",
     "notification_email_from_address_description": "Seoladh ríomhphoist an tseoltóra, mar shampla: \"Great Memories Photo Server <noreply@example.com>\". Déan cinnte seoladh a úsáid a bhfuil cead agat ríomhphoist a sheoladh uaidh.",
-    "notification_email_host_description": "Óstach an fhreastalaí ríomhphoist (m.sh. smtp.immich.app)",
+    "notification_email_host_description": "Óstach an fhreastalaí ríomhphoist (m.sh. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Déan neamhaird ar earráidí teastais",
     "notification_email_ignore_certificate_errors_description": "Déan neamhaird ar earráidí bailíochtaithe teastais TLS (ní mholtar)",
     "notification_email_password_description": "Pasfhocal le húsáid agus fíordheimhniú á dhéanamh leis an bhfreastalaí ríomhphoist",

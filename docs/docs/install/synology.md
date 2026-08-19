@@ -14,16 +14,16 @@ Great Memories can easily be installed on a Synology NAS using Container Manager
 
 ## Step 1 - Download the required files
 
-Create a directory of your choice (e.g. `./immich-app`) to house Great Memories. In general, it's best practice to have all Docker-based applications running under the `./docker` directory, so in this case, your directory structure will look like `./docker/immich-app`.
+Create a directory of your choice (e.g. `./great-memories-app`) to house Great Memories. In general, it's best practice to have all Docker-based applications running under the `./docker` directory, so in this case, your directory structure will look like `./docker/great-memories-app`.
 
-Now create a `./postgres` and `./library` directory as sub-directories of the `./docker/immich-app`.
+Now create a `./postgres` and `./library` directory as sub-directories of the `./docker/great-memories-app`.
 
 When you're all done, you should have the following:
 
-- `./docker/immich-app/postgres`
-- `./docker/immich-app/library`
+- `./docker/great-memories-app/postgres`
+- `./docker/great-memories-app/library`
 
-Download [`docker-compose.yml`](https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml) and [`example.env`](https://github.com/immich-app/immich/releases/latest/download/example.env) to your computer. Upload the files to the `./docker/immich-app` directory, and rename `example.env` to `.env`. Note: If you plan to use the Synology Text editor to edit the `.env` file on the NAS within File Station, you will need to rename it to a temporary name (e.g. `example.txt`) in order to see 'Open with Text Editor' in the file context menu. Once saved, rename it back to `.env`.
+Download [`docker-compose.yml`](https://github.com/ludensproductions/great-memories/releases/latest/download/docker-compose.yml) and [`example.env`](https://github.com/ludensproductions/great-memories/releases/latest/download/example.env) to your computer. Upload the files to the `./docker/great-memories-app` directory, and rename `example.env` to `.env`. Note: If you plan to use the Synology Text editor to edit the `.env` file on the NAS within File Station, you will need to rename it to a temporary name (e.g. `example.txt`) in order to see 'Open with Text Editor' in the file context menu. Once saved, rename it back to `.env`.
 
 ## Step 2 - Populate the .env file with custom values
 
@@ -34,7 +34,7 @@ Follow [Step 2 in Docker Compose](/install/docker-compose#step-2---populate-the-
 Open Container Manager, and select the "**Project**" action on the left navigation bar and then click "**Create**".
 ![Create project](../../static/img/synology-container-manager-create-project.png)
 
-In the settings of your new project, set "**Project name**" to a name you'll remember, such as _immich-app_. When setting the "**Path**", select the `./docker/immich-app` directory you created earlier. Doing so will prompt a message to use the existing `docker-compose.yml` already present in the directory for your project. Click "**OK**" to continue.
+In the settings of your new project, set "**Project name**" to a name you'll remember, such as _great-memories-app_. When setting the "**Path**", select the `./docker/great-memories-app` directory you created earlier. Doing so will prompt a message to use the existing `docker-compose.yml` already present in the directory for your project. Click "**OK**" to continue.
 
 ![Set path](../../static/img/synology-container-manager-set-path.png)
 
@@ -83,7 +83,7 @@ Ensure your photos and videos are backed up. Your `.env` settings will define wh
 
 ## Step 2. Check release notes
 
-Always check the [release notes](https://github.com/immich-app/immich/releases) before proceeding with an update!
+Always check the [release notes](https://github.com/ludensproductions/great-memories/releases) before proceeding with an update!
 
 ## Step 3. Stop containers & clean up
 

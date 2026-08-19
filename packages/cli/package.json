@@ -4,7 +4,7 @@
   "description": "Command Line Interface (CLI) for Great Memories",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ludensproductions/immich.git",
+    "url": "git+https://github.com/ludensproductions/great-memories.git",
     "directory": "packages/cli"
   },
   "type": "module",

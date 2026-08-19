@@ -260,7 +260,7 @@
     "note_cannot_be_changed_later": "CATATAN: Ini tidak akan dapat diubah lagi!",
     "notification_email_from_address": "Dari alamat",
     "notification_email_from_address_description": "Alamat email pengirim, misalnya: \"Server Foto Great Memories <noreply@example.com>\". Pastikan untuk menggunakan alamat yang diizinkan untuk mengirim email.",
-    "notification_email_host_description": "Host server email (mis. smtp.immich.app)",
+    "notification_email_host_description": "Host server email (mis. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Abaikan kesalahan sertifikat",
     "notification_email_ignore_certificate_errors_description": "Abaikan kesalahan validasi sertifikat TLS (tidak disarankan)",
     "notification_email_password_description": "Sandi yang digunakan ketika mengautentikasi dengan server email",

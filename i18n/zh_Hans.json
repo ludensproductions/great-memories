@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "注意：此项设置无法更改！",
     "notification_email_from_address": "发件人地址",
     "notification_email_from_address_description": "发件人邮箱地址，例如：“Great Memories 照片服务器 <noreply@example.com>”。请确保使用您有权使用的邮箱地址进行发送。",
-    "notification_email_host_description": "邮件服务器主机（例如：smtp.immich.app）",
+    "notification_email_host_description": "邮件服务器主机（例如：smtp.example.com）",
     "notification_email_ignore_certificate_errors": "忽略证书错误",
     "notification_email_ignore_certificate_errors_description": "忽略 TLS 证书验证错误（不推荐）",
     "notification_email_password_description": "连接邮件服务器进行身份验证时使用的密码",

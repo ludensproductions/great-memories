@@ -260,7 +260,7 @@
     "note_cannot_be_changed_later": "ملاحظة: لا يمكن تغيير هذا لاحقًا!",
     "notification_email_from_address": "عنوان المرسل",
     "notification_email_from_address_description": "عنوان البريد الإلكتروني للمرسل، على سبيل المثال: \"Great Memories Photo Server noreply@example.com\". تاكد من استخدام عنوان بريد الكتروني يسمح لك بارسال البريد الالكتروني منه.",
-    "notification_email_host_description": "عنوان خادم البريد الإلكتروني (مثل smtp.immich.app)",
+    "notification_email_host_description": "عنوان خادم البريد الإلكتروني (مثل smtp.example.com)",
     "notification_email_ignore_certificate_errors": "تجاهل أخطاء الشهادة",
     "notification_email_ignore_certificate_errors_description": "تجاهل أخطاء التحقق من صحة شهادة TLS (غير مستحسن)",
     "notification_email_password_description": "كلمة المرور المستخدمة للمصادقة مع خادم البريد الإلكتروني",

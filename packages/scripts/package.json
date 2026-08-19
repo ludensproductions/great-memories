@@ -7,7 +7,7 @@
   "license": "GNU Affero General Public License version 3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ludensproductions/immich.git",
+    "url": "git+https://github.com/ludensproductions/great-memories.git",
     "directory": "packages/scripts"
   },
   "scripts": {

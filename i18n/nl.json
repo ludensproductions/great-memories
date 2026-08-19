@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "LET OP: Dit kan later niet meer worden gewijzigd!",
     "notification_email_from_address": "Adres afzender",
     "notification_email_from_address_description": "E-mailadres van de afzender, bijvoorbeeld: \"Great Memories Foto Server <noreply@example.com>\". Zorg ervoor dat je een adres gebruikt waar je e-mails van mag verzenden.",
-    "notification_email_host_description": "Host van de e-mailserver (bijv. smtp.immich.app)",
+    "notification_email_host_description": "Host van de e-mailserver (bijv. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Negeer certificaatfouten",
     "notification_email_ignore_certificate_errors_description": "Negeer validatiefouten van TLS-certificaat (niet aanbevolen)",
     "notification_email_password_description": "Wachtwoord om te gebruiken bij authenticatie met de e-mailserver",

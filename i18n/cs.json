@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "UPOZORNĚNÍ: Toto nelze později změnit!",
     "notification_email_from_address": "Adresa Od",
     "notification_email_from_address_description": "E-mailová adresa odesílatele, např.: „Great Memories Photo Server <noreply@example.com>“. Ujistěte se, že používáte adresu, ze které smíte odesílat e-maily.",
-    "notification_email_host_description": "Adresa e-mailového serveru (např. smtp.immich.app)",
+    "notification_email_host_description": "Adresa e-mailového serveru (např. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorovat chyby certifikátů",
     "notification_email_ignore_certificate_errors_description": "Ignorovat chyby ověření certifikátu TLS (nedoporučuje se)",
     "notification_email_password_description": "Heslo pro ověření na e-mailovém serveru",

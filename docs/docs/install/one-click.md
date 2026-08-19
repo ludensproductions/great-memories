@@ -29,4 +29,4 @@ https://www.vultr.com/marketplace/apps/great-memories
 
 For issues, open an issue on the associated [GitHub Repository][github].
 
-[github]: https://github.com/immich-app/immich/
+[github]: https://github.com/ludensproductions/great-memories/

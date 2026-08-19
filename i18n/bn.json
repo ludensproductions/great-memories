@@ -246,7 +246,7 @@
     "note_cannot_be_changed_later": "সতর্কবার্তা: এটি পরবর্তীতে পরিবর্তন করা যাবে না!",
     "notification_email_from_address": "প্রেরকের ঠিকানা (From address)",
     "notification_email_from_address_description": "প্রেরকের ইমেল ঠিকানা, উদাহরণস্বরূপ: \"Great Memories Photo Server noreply@example.com\"। নিশ্চিত করুন যে আপনি এমন একটি ঠিকানা ব্যবহার করছেন যা থেকে ইমেল পাঠানোর অনুমতি আপনার আছে।",
-    "notification_email_host_description": "ইমেল সার্ভারের হোস্ট (যেমন: smtp.immich.app)",
+    "notification_email_host_description": "ইমেল সার্ভারের হোস্ট (যেমন: smtp.example.com)",
     "notification_email_ignore_certificate_errors": "সার্টিফিকেট ত্রুটিগুলো উপেক্ষা করুন (Ignore certificate errors)",
     "notification_email_ignore_certificate_errors_description": "TLS সার্টিফিকেট ভ্যালিডেশন ত্রুটিগুলো উপেক্ষা করুন (প্রস্তাবিত নয়)",
     "notification_email_password_description": "ইমেল সার্ভারে অথেন্টিকেশন বা সত্যতা যাচাইয়ের জন্য ব্যবহৃত পাসওয়ার্ড",

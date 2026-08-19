@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "POZNÁMKA: Toto nie je možné neskôr zmeniť!",
     "notification_email_from_address": "Z adresy",
     "notification_email_from_address_description": "E-mailová adresa odosielateľa, napríklad: \"Great Memories Foto Server <email@napriklad.sk>\". Uistite sa, že používate adresu, z ktorej máte povolené odosielať e-maily.",
-    "notification_email_host_description": "Adresa emailového serveru (príklad: smtp.immich.app)",
+    "notification_email_host_description": "Adresa emailového serveru (príklad: smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ignorovať chyby certifikátu",
     "notification_email_ignore_certificate_errors_description": "Ignorovať chyby pri overení TLS certifikátu (neodporúča sa)",
     "notification_email_password_description": "Heslo pre autentifikáciu s emailovým serverom",

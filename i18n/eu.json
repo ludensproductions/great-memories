@@ -275,7 +275,7 @@
     "note_cannot_be_changed_later": "OHARRA: Ezin da geroago aldatu!",
     "notification_email_from_address": "Nondik",
     "notification_email_from_address_description": "Bidaltzailearen helbide elektronikoa, adibidez: \"Great Memories Photo Server <noreply@example.com>\". Ziurtatu mezu elektronikoak bidaltzeko baimena daukazun helbide bat erabiltzen duzula.",
-    "notification_email_host_description": "Posta elektronikoko zerbitzariaren ostalaria (adibidez, smtp.immich.app)",
+    "notification_email_host_description": "Posta elektronikoko zerbitzariaren ostalaria (adibidez, smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Ziurtagiri akatsak kontuan ez hartu",
     "notification_email_ignore_certificate_errors_description": "TLS ziurtagiri egiaztapen akatsak kontuan ez hartu (ez da gomendatzen)",
     "notification_email_password_description": "E-mail zerbitzariarekin autentikatzerakoan erabiltzeko pasahitza",

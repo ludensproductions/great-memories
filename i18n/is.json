@@ -226,7 +226,7 @@
     "note_cannot_be_changed_later": "ATHUGIÐ: Þessu getur ekki verið breytt seinna!",
     "notification_email_from_address": "Frá tölvupóstfang",
     "notification_email_from_address_description": "Netfang sendanda, til dæmis \"Great Memories myndaþjónn <ekkisvara@dæmi.is>\". Notið netfang sem þið hafið leyfi til að senda frá.",
-    "notification_email_host_description": "Hýsill tölvupóstþjónsins (t.d. smtp.immich.app)",
+    "notification_email_host_description": "Hýsill tölvupóstþjónsins (t.d. smtp.example.com)",
     "notification_email_ignore_certificate_errors": "Hundsa villur í TLS skírteini",
     "notification_email_ignore_certificate_errors_description": "Hundsa villur í sannreynslu TLS skírteinis (slæm hugmynd)",
     "notification_email_password_description": "Lykilorð til auðkenningar á póstþjóninum",

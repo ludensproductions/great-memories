@@ -61,7 +61,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/ludensproductions/immich/tree/main/docs/',
+          editUrl: 'https://github.com/ludensproductions/great-memories/tree/main/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -100,7 +100,7 @@ const config = {
             label: 'Home',
           },
           {
-            href: 'https://github.com/ludensproductions/immich',
+            href: 'https://github.com/ludensproductions/great-memories',
             label: 'GitHub',
             position: 'right',
           },

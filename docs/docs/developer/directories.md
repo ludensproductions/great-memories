@@ -4,7 +4,7 @@ title: Directories
 
 # Repository Folder Structure
 
-Our [GitHub Repository](https://github.com/immich-app/immich) is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) and includes the following folders:
+Our [GitHub Repository](https://github.com/ludensproductions/great-memories) is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) and includes the following folders:
 
 | Folder              | Description                                                          |
 | :------------------ | :------------------------------------------------------------------- |
