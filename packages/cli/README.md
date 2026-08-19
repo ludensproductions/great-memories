@@ -1,6 +1,6 @@
 A command-line interface for interfacing with the self-hosted photo manager [Great Memories](https://immich.app/).
 
-Please see the [Great Memories CLI documentation](https://docs.immich.app/features/command-line-interface).
+Please see the Great Memories CLI documentation (`docs/docs/features/command-line-interface.md` in this repository).
 
 # For developers
 

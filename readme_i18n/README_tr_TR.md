@@ -45,14 +45,14 @@
 
 ## Bağlantılar
 
-- [Resmi Belgeler](https://docs.immich.app/)
-- [Giriş](https://docs.immich.app/overview/introduction)
-- [Kurulum](https://docs.immich.app/install/requirements)
+- Resmi Belgeler
+- Giriş
+- Kurulum
 - [Yol Haritası](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Özellikler](#özellikler)
-- [Çeviriler](https://docs.immich.app/developer/translations)
-- [Katkı Sağlama Rehberi](https://docs.immich.app/overview/support-the-project)
+- Çeviriler
+- Katkı Sağlama Rehberi
 
 ## Demo
 

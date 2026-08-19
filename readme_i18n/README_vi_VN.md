@@ -49,14 +49,14 @@
 
 ## Liên kết
 
-- [Tài liệu](https://docs.immich.app)
-- [Giới thiệu](https://docs.immich.app/overview/introduction)
-- [Cài đặt](https://docs.immich.app/install/requirements)
+- Tài liệu
+- Giới thiệu
+- Cài đặt
 - [Lộ trình](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Tính năng](#Tính-năng)
-- [Dịch thuật](https://docs.immich.app/developer/translations)
-- [Đóng góp](https://docs.immich.app/overview/support-the-project)
+- Dịch thuật
+- Đóng góp
 
 ## Demo
 
@@ -103,7 +103,7 @@ Truy cập bản demo [tại đây](https://demo.immich.app). Đối với ứng
 
 ## Dịch thuật
 
-Đọc thêm về dịch thuật [tại đây](https://docs.immich.app/developer/translations).
+Đọc thêm về dịch thuật trong `docs/docs/developer/translations.md`.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Tình trạng dịch thuật" />

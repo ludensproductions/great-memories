@@ -45,14 +45,14 @@
 
 ## روابط
 
-- [الوثائق الرسمية](https://docs.immich.app/)
-- [مقدمة](https://docs.immich.app/overview/introduction)
-- [تعليمات التحميل](https://docs.immich.app/install/requirements)
+- الوثائق الرسمية
+- مقدمة
+- تعليمات التحميل
 - [خريطة الطريق](https://immich.app/roadmap)
 - [تجريبي](#تجريبي)
 - [سمات](#سمات)
-- [الترجمات](https://docs.immich.app/developer/translations)
-- [قواعد المساهمة](https://docs.immich.app/overview/support-the-project)
+- الترجمات
+- قواعد المساهمة
 
 ## تجريبي
 

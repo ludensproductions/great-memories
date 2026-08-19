@@ -47,14 +47,14 @@
 
 ## Посилання
 
-- [Документація](https://docs.immich.app)
-- [Про проєкт](https://docs.immich.app/overview/introduction)
-- [Встановлення](https://docs.immich.app/install/requirements)
+- Документація
+- Про проєкт
+- Встановлення
 - [Дорожня карта](https://immich.app/roadmap)
 - [Демо](#демо)
 - [Функції](#функції)
-- [Переклади](https://docs.immich.app/developer/translations)
-- [Гід для розробки проєкту](https://docs.immich.app/overview/support-the-project)
+- Переклади
+- Гід для розробки проєкту
 
 ## Демо
 
@@ -103,7 +103,7 @@
 
 ## Переклади
 
-Більше про переклади [тут](https://docs.immich.app/developer/translations).
+Більше про переклади в `docs/docs/developer/translations.md`.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Статус перекладів" />

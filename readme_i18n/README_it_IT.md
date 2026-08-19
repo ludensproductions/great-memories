@@ -46,14 +46,14 @@
 
 ## Link utili
 
-- [Documentazione](https://docs.immich.app)  
-- [Informazioni](https://docs.immich.app/overview/introduction)  
-- [Installazione](https://docs.immich.app/install/requirements)  
+- Documentazione  
+- Informazioni  
+- Installazione  
 - [Roadmap](https://immich.app/roadmap)  
 - [Demo](#demo)  
 - [Funzionalità](#funzionalità)  
-- [Traduzioni](https://docs.immich.app/developer/translations)  
-- [Contribuire](https://docs.immich.app/overview/support-the-project)  
+- Traduzioni  
+- Contribuire  
 
 ## Demo
 
@@ -103,7 +103,7 @@ Per l’app mobile puoi usare `https://demo.immich.app` come `Server Endpoint UR
 
 ## Traduzioni
 
-Scopri di più sulle traduzioni [qui](https://docs.immich.app/developer/translations).  
+Scopri di più sulle traduzioni in `docs/docs/developer/translations.md`.  
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Stato traduzioni" />

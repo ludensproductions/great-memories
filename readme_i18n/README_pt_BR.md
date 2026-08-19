@@ -48,14 +48,14 @@
 
 ## Links
 
-- [Documentação](https://docs.immich.app)
-- [Sobre](https://docs.immich.app/overview/introduction)
-- [Instalação](https://docs.immich.app/install/requirements)
+- Documentação
+- Sobre
+- Instalação
 - [Roadmap](https://github.com/orgs/immich-app/projects/1)
 - [Demonstração](#demonstração)
 - [Funcionalidades](#funcionalidades)
-- [Traduções](https://docs.immich.app/developer/translations)
-- [Diretrizes de Contribuição](https://docs.immich.app/overview/support-the-project)
+- Traduções
+- Diretrizes de Contribuição
 
 ## Demonstração
 
@@ -108,7 +108,7 @@ Acesse a demonstração [aqui](https://demo.immich.app). No aplicativo para disp
 ## Traduções
 
 Leia mais sobre as traduções
-[aqui](https://docs.immich.app/developer/translations).
+aqui.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Status da tradução" />

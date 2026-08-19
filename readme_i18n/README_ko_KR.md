@@ -47,14 +47,14 @@
 
 ## 링크
 
-- [문서](https://docs.immich.app)
-- [소개](https://docs.immich.app/overview/introduction)
-- [설치](https://docs.immich.app/install/requirements)
+- 문서
+- 소개
+- 설치
 - [로드맵](https://immich.app/roadmap)
 - [데모](#데모)
 - [기능](#기능)
-- [번역](https://docs.immich.app/developer/translations)
-- [기여](https://docs.immich.app/overview/support-the-project)
+- 번역
+- 기여
 
 ## 데모
 
@@ -101,7 +101,7 @@
 
 ## 번역
 
-번역에 대한 자세한 정보는 [이곳](https://docs.immich.app/developer/translations)에서 확인하세요.
+번역에 대한 자세한 정보는 `docs/docs/developer/translations.md`에서 확인하세요.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="번역 현황" />

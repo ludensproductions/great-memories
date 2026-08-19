@@ -47,14 +47,14 @@
 
 ## ലിങ്കുകൾ
 
-- [ഡോക്യുമെന്റേഷൻ](https://docs.immich.app/)
-- [വിവരങ്ങൾ](https://docs.immich.app/overview/introduction)
-- [ഇൻസ്റ്റാളേഷൻ](https://docs.immich.app/install/requirements)
+- ഡോക്യുമെന്റേഷൻ
+- വിവരങ്ങൾ
+- ഇൻസ്റ്റാളേഷൻ
 - [റോഡ്മാപ്പ്](https://immich.app/roadmap)
 - [ഡെമോ](#ഡെമോ)
 - [സവിശേഷതകൾ](#സവിശേഷതകൾ)
-- [വിവർത്തനങ്ങൾ](https://docs.immich.app/developer/translations)
-- [സംഭാവന നൽകൽ](https://docs.immich.app/overview/support-the-project)
+- വിവർത്തനങ്ങൾ
+- സംഭാവന നൽകൽ
 
 ## ഡെമോ
 
@@ -103,7 +103,7 @@
 
 ## വിവർത്തനങ്ങൾ
 
-വിവർത്തനങ്ങളെക്കുറിച്ച് കൂടുതൽ [ഇവിടെ](https://docs.immich.app/developer/translations) വായിക്കാം.
+വിവർത്തനങ്ങളെക്കുറിച്ച് കൂടുതൽ `docs/docs/developer/translations.md`-ൽ വായിക്കാം.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Translation status" />

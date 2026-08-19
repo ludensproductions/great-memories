@@ -45,14 +45,14 @@
 
 ## Contenido
 
-- [Documentación](https://docs.immich.app/)
-- [Introducción](https://docs.immich.app/overview/introduction)
-- [Instalación](https://docs.immich.app/install/requirements)
+- Documentación
+- Introducción
+- Instalación
 - [Hoja de ruta](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Funciones](#funciones)
-- [Traducciones](https://docs.immich.app/developer/translations)
-- [Directrices para contribuir](https://docs.immich.app/overview/support-the-project)
+- Traducciones
+- Directrices para contribuir
 
 ## Demo
 
@@ -96,7 +96,7 @@ contraseña: demo
 
 ## Traducciones
 
-Lea mas acerca de las traducciones [acá](https://docs.immich.app/developer/translations).
+Lea más acerca de las traducciones en `docs/docs/developer/translations.md`.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Translation status" />

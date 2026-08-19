@@ -4,7 +4,7 @@ The Great Memories mobile app is a Flutter-based solution leveraging the Isar Da
 
 ## Setup
 
-See [setup](https://docs.immich.app/developer/setup) for how to set up the mobile build environment.
+See the developer setup guide (`docs/docs/developer/setup.md` in this repository) for how to set up the mobile build environment.
 
 ## Static Analysis
 
@@ -73,4 +73,4 @@ Below is how your code needs to be structured:
 
 ## Contributing
 
-Please refer to the [architecture](https://docs.immich.app/developer/architecture/) for contributing to the mobile app!
+Please refer to the architecture guide (`docs/docs/developer/architecture.mdx` in this repository) for contributing to the mobile app!
