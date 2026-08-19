@@ -9,13 +9,13 @@ There are also additional resources about Great Memories architecture, database 
 
 ## General
 
-Please try to keep pull requests as focused as possible. A PR should do exactly one thing and not bleed into other, unrelated areas. The smaller a PR, the fewer changes are likely needed, and the quicker it will likely be merged. For larger/more impactful PRs, please reach out to us first to discuss your plans. The best way to do this is through our Discord. We have a dedicated `#contributing` channel there. Additionally, please fill out the entire template when opening a PR.
+Please try to keep pull requests as focused as possible. A PR should do exactly one thing and not bleed into other, unrelated areas. The smaller a PR, the fewer changes are likely needed, and the quicker it will likely be merged. For larger/more impactful PRs, please reach out to us first to discuss your plans by opening a GitHub discussion. Additionally, please fill out the entire template when opening a PR.
 
 ## Finding work
 
-If you are looking for something to work on, there are discussions and issues with a `good-first-issue` label on them. These are always a good starting point. If none of them sound interesting or fit your skill set, feel free to reach out on our Discord. We're happy to help you find something to work on!
+If you are looking for something to work on, there are discussions and issues with a `good-first-issue` label on them. These are always a good starting point. If none of them sound interesting or fit your skill set, feel free to open a GitHub discussion. We're happy to help you find something to work on!
 
-We usually do not assign issues to new contributors, since it happens often that a PR is never even opened. Again, reach out on Discord if you fear putting a lot of time into fixing an issue, but ending up with a duplicate PR.
+We usually do not assign issues to new contributors, since it happens often that a PR is never even opened. Again, open a GitHub discussion if you fear putting a lot of time into fixing an issue, but ending up with a duplicate PR.
 
 ## Use of generative AI
 
@@ -23,7 +23,7 @@ We ask you not to open PRs generated with an LLM. We find that code generated li
 
 ## Feature freezes
 
-From time to time, we put a feature freeze on parts of the codebase. For us, this means we won't accept most PRs that make changes in that area. Exempted from this are simple bug fixes that require only minor changes. We will close feature PRs that target a feature-frozen area, even if that feature is highly requested and you put a lot of work into it. Please keep that in mind, and if you're ever uncertain if a PR would be accepted, reach out to us first (e.g., in the aforementioned `#contributing` channel). We hate to throw away work. Currently, we have feature freezes on:
+From time to time, we put a feature freeze on parts of the codebase. For us, this means we won't accept most PRs that make changes in that area. Exempted from this are simple bug fixes that require only minor changes. We will close feature PRs that target a feature-frozen area, even if that feature is highly requested and you put a lot of work into it. Please keep that in mind, and if you're ever uncertain if a PR would be accepted, reach out to us first by opening a GitHub discussion. We hate to throw away work. Currently, we have feature freezes on:
 
 - Sharing/Asset ownership
 - (External) libraries
@@ -42,4 +42,4 @@ Help us improve our Great Memories Datasets by submitting photos and videos take
 
 ### Community support
 
-If you like helping others, answering Q&A discussions here on GitHub and replying to people on our Discord is also always appreciated.
+If you like helping others, answering Q&A discussions here on GitHub is also always appreciated.

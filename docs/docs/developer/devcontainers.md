@@ -356,7 +356,7 @@ If you encounter issues:
 1. Check container logs: View → Output → Select "Dev Containers"
 2. Rebuild without cache: "Dev Containers: Rebuild Container Without Cache"
 3. Review [common Docker issues](https://docs.docker.com/desktop/troubleshoot/)
-4. Ask in [Discord](https://discord.immich.app) `#contributing` channel
+4. Open a GitHub discussion
 
 ### Quick-start guide for DevPod with docker
 
@@ -446,4 +446,3 @@ Recommended minimums:
 - Read the [architecture overview](/developer/architecture)
 - Learn about [database migrations](/developer/database-migrations)
 - Explore [API documentation](https://api.immich.app/)
-- Join `#great-memories` on [Discord](https://discord.immich.app)
