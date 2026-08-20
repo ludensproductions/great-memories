@@ -14,7 +14,7 @@ seguir, en vez de dejarlo así indefinidamente.
 
 | # | Punto | Severidad | Afecta a |
 |---|-------|-----------|----------|
-| 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | 🔴 Crítico | Todo usuario que instala/actualiza el server |
+| 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | 🟡 En progreso | Todo usuario que instala/actualiza el server |
 | 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🔴 Crítico | Todo despliegue (server, ML, Postgres) |
 | 3 | [Deep links / Universal Links móviles](#3-deep-links--universal-links-apuntan-a-myimmichapp) | 🔴 Crítico | Usuarios de la app móvil |
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
@@ -23,7 +23,7 @@ seguir, en vez de dejarlo así indefinidamente.
 | 7 | [GitHub Actions de `immich-app/devtools`](#7-cicd-depende-de-github-actions-de-immich-appdevtools) | 🟠 Operativo | Pipeline de CI/CD (build, release) |
 | 8 | [Weblate compartido](#8-weblate-posiblemente-compartido-con-immich) | 🟠 Operativo | Flujo de traducciones |
 | 9 | [F-Droid vía FUTO](#9-f-droid-publica-con-identidad-de-immich) | 🟠 Operativo | Distribución en F-Droid |
-| 10 | [security.txt](#10-securitytxt-dirige-reportes-a-immich) | 🟠 Operativo | Reportes de vulnerabilidades |
+| 10 | [security.txt](#10-securitytxt-dirige-reportes-a-immich) | ✅ Resuelto | Reportes de vulnerabilidades |
 | 11 | [Ficha propia en Apple App Store](#11-ficha-propia-en-apple-app-store) | 🟡 Pendiente de confirmar | Descarga en iOS |
 | 12 | [Credenciales de firma/publicación](#12-credenciales-de-firmapublicación-en-build-mobileyml) | 🟡 Pendiente de confirmar | Builds firmados de iOS/Android |
 
@@ -49,25 +49,53 @@ Paso 0 → Paso 1 → Paso 2 → Paso 3 → Paso 4 → Paso 5 → Paso 6
                        propio)                  dominio)
 ```
 
-### Paso 0 — Quick win: punto 10 (`security.txt`)
+### Paso 0 — Quick win: punto 10 (`security.txt`) ✅ Hecho (2026-08-20)
 
 Hazlo primero y ya. No depende de nada del resto del plan, es editar un solo
 archivo, y es completamente reversible. Sirve además para validar el flujo de
 "detectar → documentar en este archivo → resolver → marcar como hecho" antes
 de meterse a los puntos grandes.
 
-### Paso 1 — Repo y releases propias en `ludensproductions` (base de los puntos 1, 2 y parte del 4)
+**Resuelto:** `web/static/.well-known/security.txt` ya apunta a
+`github.com/ludensproductions/great-memories` (Policy y Security Advisories) y
+a `security@greatmemories.app` como contacto. Ese correo es un **placeholder**
+sobre un dominio que todavía no existe (ver Paso 3) — hay que confirmarlo o
+rotarlo a un correo real en cuanto exista el dominio propio o se defina un
+contacto alternativo.
+
+### Paso 1 — Repo y releases propias en `ludensproductions` (base de los puntos 1, 2 y parte del 4) 🟡 En progreso (2026-08-20)
 
 Ya existe la organización, así que este paso es solo trabajo de repo/CI, sin
 gestiones externas:
-1. Confirmar en qué repo de `ludensproductions` van a vivir las releases
-   públicas de Great Memories (puede ser el mismo repo actual o uno dedicado a
-   distribución).
-2. Verificar que `prepare-release.yml` / `packages/scripts/release.ts` publique
-   (o se pueda ajustar fácilmente para publicar) los assets
-   `docker-compose.yml` y `.env` en esas releases, igual que hace Immich hoy.
-3. Esto por sí solo no resuelve el punto 1 todavía (falta apuntar `install.sh`
-   ahí), pero es el prerequisito sin el cual no se puede avanzar.
+1. ✅ **Confirmado:** las releases públicas de Great Memories viven en el mismo
+   repo actual, `github.com/ludensproductions/great-memories` (es el `origin`
+   git de este checkout).
+2. ✅ **Verificado:** `prepare-release.yml` (job `prepare_release`, líneas
+   154-170) ya adjunta `docker/docker-compose.yml`,
+   `docker/docker-compose.rootless.yml`, `docker/example.env`,
+   `docker/hwaccel.ml.yml`, `docker/hwaccel.transcoding.yml`,
+   `docker/prometheus.yml` y el `.apk` como assets del release vía
+   `softprops/action-gh-release`. No requiere cambios: al correr el workflow en
+   `ludensproductions/great-memories` publicará esos assets ahí directamente.
+   (`packages/scripts/src/commands/release.ts` solo bumpea versiones; la única
+   URL de Immich que genera es `archive.immich.app` para versiones archivadas,
+   que corresponde al punto 5, no a este.)
+3. ✅ **Hecho:** actualizado `install.sh` para descargar desde
+   `github.com/ludensproductions/great-memories/releases/latest/download/...`
+   en vez de `immich-app/immich`. También actualizados los comentarios
+   `# Make sure to use the docker-compose.yml of the current release` en
+   `docker/docker-compose.yml`, `docker-compose.prod.yml`,
+   `docker-compose.rootless.yml`, `docker-compose.dev.yml` y `docker/README.md`
+   para apuntar al mismo repo.
+4. ⚠️ **Pendiente real — no confundir con "hecho":** todavía **no existe ningún
+   release publicado** en `ludensproductions/great-memories` con esos assets.
+   `install.sh` apunta a `releases/latest/download/...`, que **fallará** hasta
+   que se dispare `prepare-release.yml` (o un release manual) al menos una vez
+   en ese repo. No anunciar/recomendar `install.sh` a usuarios finales hasta
+   confirmar que existe un release con los assets adjuntos.
+5. Nota: las imágenes de contenedor (`ghcr.io/immich-app/...` en los mismos
+   `docker-compose*.yml`) **no se tocaron** — eso es el punto 2 / Paso 2, que
+   depende de tener el registro GHCR propio primero.
 
 ### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2)
 
@@ -127,32 +155,41 @@ anteriores en cuanto haya claridad:
 
 ---
 
-## 1. Instalador y Docker Compose apuntan a releases de Immich
+## 1. Instalador y Docker Compose apuntan a releases de Immich 🟡 En progreso (2026-08-20)
 
-**Estado actual:** [install.sh:75](install.sh#L75) descarga `docker-compose.yml`
-y `.env` desde `https://github.com/immich-app/immich/releases/latest/download/...`.
-Los `docker/docker-compose*.yml` (default, rootless, prod, dev) y
-[docker/README.md:3](docker/README.md#L3) tienen el mismo comentario/instrucción
-apuntando al repo de Immich.
+**Estado actual:** [install.sh:75](install.sh#L75) ya descarga
+`docker-compose.yml` y `.env` desde
+`https://github.com/ludensproductions/great-memories/releases/latest/download/...`.
+Los comentarios en `docker/docker-compose*.yml` (default, rootless, prod, dev) y
+[docker/README.md:3](docker/README.md#L3) ya apuntan a ese mismo repo.
+**Pendiente:** todavía no existe ningún release publicado ahí con esos assets
+adjuntos, así que la URL `releases/latest/download/...` fallará (404) hasta que
+se corra `prepare-release.yml` (o se publique un release manual) al menos una
+vez en `ludensproductions/great-memories`.
 
 **Por qué bloquea:** el script de instalación oficial de Great Memories —el que
-se recomienda a cualquier usuario nuevo— descarga los artefactos de configuración
-desde el repositorio y las releases de **Immich**, no de Great Memories. Si Immich
-cambia el formato de esos archivos o deja de publicarlos, la instalación de Great
-Memories se rompe sin que Great Memories haya hecho nada.
+se recomienda a cualquier usuario nuevo— apunta ya al repositorio correcto, pero
+sin un release publicado ahí la instalación falla directamente. No se debe
+recomendar `install.sh` a usuarios finales hasta confirmar que el primer release
+con esos assets existe.
 
 **Qué falta implementar:**
-1. Publicar releases propias de Great Memories en `github.com/<org>/great-memories`
-   (o el repo que corresponda) que incluyan `docker-compose.yml` y `.env` como
-   assets del release, igual que hace Immich hoy.
-2. Actualizar `install.sh` para apuntar a
-   `github.com/<org-great-memories>/great-memories/releases/latest/download/...`.
-3. Actualizar los comentarios/instrucciones en todos los `docker/docker-compose*.yml`
-   y en `docker/README.md` para que reflejen la nueva ruta de descarga.
-4. Verificar que el pipeline de release (`prepare-release.yml`, `release.ts` en
-   `packages/scripts`) efectivamente adjunte esos archivos como assets del
-   release de Great Memories antes de cambiar el punto 2, para no romper la
-   instalación en el interín.
+1. ~~Publicar releases propias de Great Memories en
+   `github.com/<org>/great-memories`~~ → confirmado: es
+   `github.com/ludensproductions/great-memories` (ya es el `origin` de este
+   repo). Falta que corra `prepare-release.yml` (o un release manual) al menos
+   una vez ahí para que existan los assets.
+2. ~~Actualizar `install.sh` para apuntar a
+   `github.com/<org-great-memories>/great-memories/releases/latest/download/...`~~
+   → hecho.
+3. ~~Actualizar los comentarios/instrucciones en todos los
+   `docker/docker-compose*.yml` y en `docker/README.md`~~ → hecho (solo la URL
+   de descarga; el link a `docs.immich.app/install/docker-compose` en esos
+   mismos archivos es el punto 4/5, pendiente de dominio propio).
+4. ~~Verificar que el pipeline de release (`prepare-release.yml`,
+   `release.ts`)~~ → verificado: `prepare-release.yml` líneas 154-170 ya adjunta
+   los assets correctos vía `softprops/action-gh-release`, sin cambios de
+   código necesarios. Falta solo **ejecutarlo** en el repo propio.
 
 ## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app`
 
@@ -384,28 +421,29 @@ problemas de atribución en el historial de ese repositorio de terceros.
    de identidad de mantenedor, ya que estos repos comunitarios a veces requieren
    verificación del nuevo mantenedor.
 
-## 10. `security.txt` dirige reportes a Immich
+## 10. `security.txt` dirige reportes a Immich ✅ Resuelto (2026-08-20)
 
-**Estado actual:** `web/static/.well-known/security.txt` tiene
+**Estado anterior:** `web/static/.well-known/security.txt` tenía
 `Contact: mailto:security@immich.app` y enlaces a
 `github.com/immich-app/immich/security/advisories/new`.
 
-**Por qué bloquea:** cualquier investigador de seguridad que encuentre una
+**Por qué bloqueaba:** cualquier investigador de seguridad que encuentre una
 vulnerabilidad en Great Memories y siga las buenas prácticas (revisar
-`security.txt`) terminará reportándola al equipo de seguridad de Immich, que no
-tiene ni el contexto ni la responsabilidad de gestionar vulnerabilidades de
-Great Memories. Esto es un riesgo real: reportes de seguridad podrían perderse
-o tardar en llegar al equipo correcto.
+`security.txt`) terminaría reportándola al equipo de seguridad de Immich, que
+no tiene ni el contexto ni la responsabilidad de gestionar vulnerabilidades de
+Great Memories. Esto era un riesgo real: reportes de seguridad podrían
+perderse o tardar en llegar al equipo correcto.
 
-**Qué falta implementar:**
-1. Definir un contacto de seguridad propio de Great Memories (correo o
-   formulario) y, si aplica, un programa de "security advisories" en el repo de
-   GitHub de Great Memories.
-2. Actualizar `web/static/.well-known/security.txt` con el contacto y los
-   enlaces propios, siguiendo el estándar RFC 9116.
-3. Este es de los cambios más simples y de mayor impacto/costo-beneficio de
-   todo el documento — no depende de infraestructura nueva, solo de definir el
-   contacto y editar el archivo.
+**Qué se implementó:**
+1. `web/static/.well-known/security.txt` ahora apunta `Policy` y `Contact` (el
+   enlace de GitHub Security Advisories) a
+   `github.com/ludensproductions/great-memories`.
+2. Se usó `mailto:security@greatmemories.app` como contacto — **es un
+   placeholder** sobre un dominio que aún no existe (Paso 3 de este plan). Debe
+   confirmarse o rotarse a un correo real (ej. uno bajo `ludensproductions` o
+   el que se decida) en cuanto exista dirección definitiva.
+3. Pendiente opcional: dar de alta un programa formal de "security advisories"
+   en GitHub si no existe ya en `ludensproductions/great-memories`.
 
 ---
 
