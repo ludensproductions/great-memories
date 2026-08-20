@@ -103,7 +103,7 @@ You can add this to the `great-memories-server` service instead of extending fro
 ```yaml
 great-memories-server:
   container_name: great_memories_server
-  image: ghcr.io/immich-app/immich-server:${GREAT_MEMORIES_VERSION:-release}
+  image: ghcr.io/ludensproductions/great-memories-server:${GREAT_MEMORIES_VERSION:-release}
   # Note the lack of an `extends` section
   devices:
     - /dev/dri:/dev/dri

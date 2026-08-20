@@ -15,7 +15,7 @@ seguir, en vez de dejarlo así indefinidamente.
 | # | Punto | Severidad | Afecta a |
 |---|-------|-----------|----------|
 | 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | ✅ Resuelto | Todo usuario que instala/actualiza el server |
-| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🔴 Crítico | Todo despliegue (server, ML, Postgres) |
+| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🟡 En progreso | Todo despliegue (server, ML, Postgres) |
 | 3 | [Deep links / Universal Links móviles](#3-deep-links--universal-links-apuntan-a-myimmichapp) | 🔴 Crítico | Usuarios de la app móvil |
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
 | 5 | [Terraform de documentación](#5-infraestructura-terraform-de-docs-apunta-a-docsimmichapp) | 🔴 Crítico | Publicación de la documentación propia |
@@ -114,20 +114,56 @@ gestiones externas:
    móvil sin rotar (punto 12). El pipeline de release automatizado real queda
    pendiente hasta resolver esos dos puntos.
 
-### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2)
+### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2) 🟡 En progreso (2026-08-20)
 
 GHCR funciona igual bajo la organización de GitHub que ya existe — no se
 necesita Docker Hub ni ninguna cuenta nueva:
-1. Activar/usar GHCR en `ludensproductions` y crear un workflow de CI que
-   construya y publique `great-memories-server`,
-   `great-memories-machine-learning` y la imagen de Postgres usada
-   (`ghcr.io/ludensproductions/...`).
-2. Con el registro propio y las releases del paso 1 ya funcionando, **ahora sí
-   se puede cerrar el punto 1 completo**: actualizar `install.sh` y todos los
-   `docker-compose*.yml` para apuntar a `ludensproductions` en vez de
-   `immich-app`.
-3. Esto también resuelve la parte de `versionUrl` / `getApkLinks` del punto 4
-   que depende de las releases de GitHub (no de docs).
+1. ✅ **Hecho:** reescrito `.github/workflows/docker.yml` desde cero, sin
+   depender de `immich-app/devtools/.github/workflows/multi-runner-build.yml`
+   (workflow reusable externo bloqueado por la GitHub App de Immich, mismo
+   problema que el punto 7). El nuevo workflow usa
+   `docker/build-push-action` estándar y construye/publica
+   `ghcr.io/ludensproductions/great-memories-server` y
+   `ghcr.io/ludensproductions/great-memories-machine-learning` (linux/amd64 +
+   linux/arm64) en push a `main` y en cada release publicado.
+   **Alcance reducido a propósito:** solo variante CPU. Las variantes GPU que
+   Immich sí construye (`-cuda`, `-rocm`, `-openvino`, `-armnn`, `-rknn`) no
+   se replican todavía — se pueden agregar después como jobs adicionales del
+   mismo workflow si hace falta.
+2. ✅ **Hecho:** actualizado el `image:` en `docker/docker-compose.yml` y
+   `docker-compose.rootless.yml` (los únicos que referenciaban
+   server/machine-learning; `.prod.yml` y `.dev.yml` solo referencian
+   Postgres, sin tocar) para apuntar a `ghcr.io/ludensproductions/...`.
+3. ✅ **Hecho:** actualizadas las referencias de imagen en
+   `docs/docs/features/hardware-transcoding.md`,
+   `docs/docs/guides/remote-machine-learning.md` y
+   `docs/docs/features/ml-hardware-acceleration.md` (esta última con nota
+   explícita de que la variante `-cuda` mostrada como ejemplo aún no se
+   publica bajo el registro propio).
+4. ⚠️ **Pendiente real:** el workflow nuevo (`docker.yml`) **no se ha
+   ejecutado todavía** — no hay ninguna imagen publicada aún en
+   `ghcr.io/ludensproductions/great-memories-server` ni
+   `-machine-learning`. Hasta que corra al menos una vez (push a `main` o
+   publicar un release), los `docker-compose.yml` actualizados **fallarán al
+   hacer pull** de una imagen que no existe. No recomendar estos
+   docker-compose a usuarios finales todavía.
+5. Imagen base de build (`ghcr.io/immich-app/base-server-dev`/`-prod` en
+   `server/Dockerfile`) y Postgres (`ghcr.io/immich-app/postgres`) **se
+   dejaron sin tocar por decisión**: son imágenes de infraestructura/build,
+   no runtime público de marca, y el riesgo de que Immich las retire es bajo.
+6. ⚠️ **Hallazgo nuevo, fuera de alcance de este paso:** `docs/docs/features/command-line-interface.md`
+   sigue usando `ghcr.io/immich-app/immich-cli:latest`. El paquete
+   `packages/cli` tiene su propio `Dockerfile`, pero **no hay ningún workflow
+   en este repo que lo construya y publique** (ni en el `docker.yml`
+   original ni en el nuevo) — probablemente se construía en
+   `immich-app/devtools` o en un pipeline fuera de este repo. Falta decidir
+   si se agrega como tercer job a `docker.yml` o se resuelve aparte.
+7. ⚠️ **Hallazgo nuevo, fuera de alcance de este paso:** `renovate.json:3`
+   tiene `"extends": ["local>immich-app/.github:renovate-config"]` — hereda
+   la configuración base de Renovate desde un repo de Immich. No bloquea
+   usuarios finales (solo automatiza PRs de dependencias), así que se deja
+   para revisar después, junto con el resto del punto 2 o como su propio
+   punto de seguimiento.
 
 ### Paso 3 — Comprar el dominio propio (desbloquea puntos 3 y 5)
 
@@ -201,42 +237,53 @@ anteriores en cuanto haya claridad:
   pipeline sigue bloqueado por los puntos 7 y 12 (GitHub App de Immich y
   credenciales de firma móvil sin rotar).
 
-## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app`
+## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app` 🟡 En progreso (2026-08-20)
 
-**Estado actual:** server, machine-learning y Postgres se descargan de
+**Estado anterior:** server, machine-learning y Postgres se descargaban de
 `ghcr.io/immich-app/immich-server`, `ghcr.io/immich-app/immich-machine-learning`
-y `ghcr.io/immich-app/postgres` en `docker/docker-compose.yml`,
-`docker-compose.rootless.yml`, `docker-compose.prod.yml`, `docker-compose.dev.yml`.
-El propio `server/Dockerfile` y `server/Dockerfile.dev` usan
-`ghcr.io/immich-app/base-server-dev` / `base-server-prod` como imagen base de
-build.
+y `ghcr.io/immich-app/postgres` en `docker/docker-compose.yml` y
+`docker-compose.rootless.yml`. El propio `.github/workflows/docker.yml`
+dependía de un workflow reusable externo
+(`immich-app/devtools/.github/workflows/multi-runner-build.yml`) y de la
+GitHub App `immich-push-o-matic` (mismo bloqueo del punto 7).
 
-**Por qué bloquea:** todo despliegue de Great Memories —incluyendo el de
-cualquier usuario final— descarga binarios publicados bajo la cuenta de GHCR de
-`immich-app`. Great Memories no controla ese registro: si Immich borra, renombra
-o restringe esas imágenes, ningún usuario puede desplegar ni actualizar Great
-Memories.
+**Qué se implementó:**
+1. `docker.yml` reescrito sin dependencias externas de Immich: usa
+   `docker/build-push-action` para construir y publicar
+   `ghcr.io/ludensproductions/great-memories-server` y
+   `-machine-learning` (variante CPU, linux/amd64+arm64) en push a `main` y en
+   cada release publicado.
+2. `docker/docker-compose.yml` y `docker-compose.rootless.yml` apuntan ya al
+   registro propio.
+3. Documentación de usuario (`hardware-transcoding.md`,
+   `remote-machine-learning.md`, `ml-hardware-acceleration.md`) actualizada.
 
-**Qué falta implementar:**
-1. Configurar un registro de contenedores propio (GHCR bajo la org de Great
-   Memories, o Docker Hub) y un workflow de CI que construya y publique
-   `great-memories-server`, `great-memories-machine-learning` y la imagen de
-   Postgres usada, replicando lo que hoy hacen los workflows de Immich.
-2. Para las imágenes base de build (`base-server-dev`/`base-server-prod`),
-   evaluar si se puede seguir dependiendo de las de Immich (son solo imágenes de
-   build, no runtime público) o si conviene también tener una copia propia para
-   evitar el riesgo de que Immich las retire.
-3. Una vez publicadas las imágenes propias, actualizar los `image:` en todos los
-   `docker-compose*.yml`, `server/Dockerfile`, `server/Dockerfile.dev`,
-   `server/test/medium/globalSetup.ts`, `e2e/docker-compose.yml` y los workflows
-   de CI (`test.yml`, `close-duplicates.yml`) para apuntar al registro propio.
-4. Actualizar `renovate.json` para trackear las imágenes propias en vez de
-   `ghcr.io/immich-app/postgres` y `ghcr.io/immich-app/base-server-*`.
-5. Actualizar la documentación que enseña estos comandos a usuarios finales
-   (`docs/docs/install/upgrading.md`, `docs/docs/guides/remote-machine-learning.md`,
-   `docs/docs/features/ml-hardware-acceleration.md`,
-   `docs/docs/features/hardware-transcoding.md`,
-   `docs/docs/features/command-line-interface.md`).
+**Qué queda pendiente o fuera de alcance:**
+1. ⚠️ **Bloqueante real:** el workflow nuevo no se ha ejecutado — no existen
+   todavía imágenes en `ghcr.io/ludensproductions/great-memories-server` ni
+   `-machine-learning`. Los `docker-compose*.yml` ya actualizados fallarán al
+   hacer `pull` hasta que el workflow corra al menos una vez (push a `main` o
+   un release).
+2. Variantes GPU (`-cuda`, `-rocm`, `-openvino`, `-armnn`, `-rknn`) no se
+   replican todavía — alcance reducido a CPU a propósito. Se pueden agregar
+   como jobs adicionales del mismo workflow más adelante si hace falta.
+3. Imágenes base de build (`base-server-dev`/`base-server-prod`) y Postgres
+   se dejan dependiendo de Immich por decisión: son infraestructura/build, no
+   runtime público de marca, riesgo bajo de retiro repentino.
+4. `server/test/medium/globalSetup.ts` y `e2e/docker-compose.yml` **no se
+   tocaron** — solo referencian la imagen de Postgres de Immich, que se deja
+   igual (ver punto 3 arriba).
+5. `docs/docs/install/upgrading.md` **no se tocó** — todas sus referencias a
+   `ghcr.io/immich-app` son sobre Postgres/VectorChord, no sobre
+   server/machine-learning.
+6. ⚠️ **Hallazgo nuevo:** `docs/docs/features/command-line-interface.md` usa
+   `ghcr.io/immich-app/immich-cli:latest`. `packages/cli` tiene su propio
+   Dockerfile pero **ningún workflow en este repo lo construye/publica** —
+   pendiente de decidir si se agrega como job nuevo a `docker.yml`.
+7. ⚠️ **Hallazgo nuevo:** `renovate.json:3` hereda config base de Renovate
+   desde `local>immich-app/.github:renovate-config`. No bloquea usuarios
+   finales (solo automatización de PRs de dependencias); pendiente de
+   revisión aparte.
 
 ## 3. Deep links / Universal Links apuntan a `my.immich.app`
 
