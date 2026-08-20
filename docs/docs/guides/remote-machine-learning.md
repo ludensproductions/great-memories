@@ -25,7 +25,7 @@ services:
     container_name: great_memories_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
     # Example tag: ${GREAT_MEMORIES_VERSION:-release}-cuda
-    image: ghcr.io/immich-app/immich-machine-learning:${GREAT_MEMORIES_VERSION:-release}
+    image: ghcr.io/ludensproductions/great-memories-machine-learning:${GREAT_MEMORIES_VERSION:-release}
     # extends:
     #   file: hwaccel.ml.yml
     #   service: # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable

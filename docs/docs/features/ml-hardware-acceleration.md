@@ -121,7 +121,10 @@ You can add this to the `great-memories-machine-learning` service instead of ext
 great-memories-machine-learning:
   container_name: great_memories_machine_learning
   # Note the `-cuda` at the end
-  image: ghcr.io/immich-app/immich-machine-learning:${GREAT_MEMORIES_VERSION:-release}-cuda
+  # NOTE: GPU-accelerated image variants (-cuda, -rocm, -openvino, -armnn, -rknn)
+  # are not yet published under this registry; this tag is illustrative until
+  # those variants are built (see REBRANDING_TODO.md, point 2).
+  image: ghcr.io/ludensproductions/great-memories-machine-learning:${GREAT_MEMORIES_VERSION:-release}-cuda
   # Note the lack of an `extends` section
   deploy:
     resources:
