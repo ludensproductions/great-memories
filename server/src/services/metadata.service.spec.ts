@@ -9,12 +9,12 @@ import {
   AssetVisibility,
   ChecksumAlgorithm,
   ExifOrientation,
-  ImmichWorker,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   SourceType,
 } from 'src/enum';
-import { ImmichTags } from 'src/repositories/metadata.repository';
+import { GreatMemoriesTags } from 'src/repositories/metadata.repository';
 import { firstDateTime, MetadataService } from 'src/services/metadata.service';
 import { AssetFactory } from 'test/factories/asset.factory';
 import { PersonFactory } from 'test/factories/person.factory';
@@ -41,8 +41,8 @@ const forSidecarJob = (
 
 const makeFaceTags = (
   face: Partial<{ Name: string }> = {},
-  orientation?: ImmichTags['Orientation'],
-): Partial<ImmichTags> => ({
+  orientation?: GreatMemoriesTags['Orientation'],
+): Partial<GreatMemoriesTags> => ({
   Orientation: orientation,
   RegionInfo: {
     AppliedToDimensions: { W: 1000, H: 100, Unit: 'pixel' },
@@ -75,7 +75,7 @@ describe(MetadataService.name, () => {
   let sut: MetadataService;
   let mocks: ServiceMocks;
 
-  const mockReadTags = (exifData?: Partial<ImmichTags>, sidecarData?: Partial<ImmichTags>) => {
+  const mockReadTags = (exifData?: Partial<GreatMemoriesTags>, sidecarData?: Partial<GreatMemoriesTags>) => {
     mocks.metadata.readTags.mockReset();
     mocks.metadata.readTags.mockResolvedValueOnce(exifData ?? {});
     mocks.metadata.readTags.mockResolvedValueOnce(sidecarData ?? {});
@@ -86,7 +86,7 @@ describe(MetadataService.name, () => {
 
     mockReadTags();
 
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(GreatMemoriesWorker.Microservices);
 
     delete process.env.TZ;
   });
@@ -1037,7 +1037,7 @@ describe(MetadataService.name, () => {
       const dateForTest = new Date('1970-01-01T00:00:00.000-11:30');
       const asset = AssetFactory.create();
 
-      const tags: ImmichTags = {
+      const tags: GreatMemoriesTags = {
         BitsPerSample: 1,
         ComponentBitDepth: 1,
         ImagePixelDepth: '1',
@@ -1125,7 +1125,7 @@ describe(MetadataService.name, () => {
       expect(ExifDateTime.fromISO(someDate + '+00:00')?.zone).toBe('UTC'); // this is the issue, should be UTC+0
       expect(ExifDateTime.fromISO(someDate + '+04:00')?.zone).toBe('UTC+4');
 
-      const tags: ImmichTags = {
+      const tags: GreatMemoriesTags = {
         DateTimeOriginal: ExifDateTime.fromISO(someDate + '+00:00'),
         zone: undefined,
       };

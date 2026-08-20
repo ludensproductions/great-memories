@@ -1,7 +1,7 @@
 <script lang="ts">
   import { SlideshowMetadataOverlayMode, slideshowStore } from '$lib/stores/slideshow.store';
   import { fromISODateTime, fromISODateTimeUTC } from '$lib/utils/timeline-util';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@great-memories/sdk';
   import { Text } from '@immich/ui';
   import { DateTime } from 'luxon';
 

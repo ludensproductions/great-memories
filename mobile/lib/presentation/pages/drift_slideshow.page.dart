@@ -6,22 +6,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/config/slideshow_config.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/scroll_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/pages/common/settings.page.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/video_player_provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/system_ui.utils.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/photo_view/photo_view.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/config/slideshow_config.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/scroll_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/pages/common/settings.page.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/video_player_provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/utils/system_ui.utils.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_loading_indicator.dart';
+import 'package:great_memories_mobile/widgets/photo_view/photo_view.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 @RoutePage()
@@ -329,7 +329,7 @@ class _DriftSlideshowPageState extends ConsumerState<DriftSlideshowPage> with Si
     final asset = widget.timeline.getAssetSafe(index);
 
     if (asset == null) {
-      return const Center(child: ImmichLoadingIndicator());
+      return const Center(child: GreatMemoriesLoadingIndicator());
     }
 
     final scale = _config.look == SlideshowLook.cover

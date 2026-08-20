@@ -1,4 +1,4 @@
-import type { AssetResponseDto } from '@immich/sdk';
+import type { AssetResponseDto } from '@great-memories/sdk';
 import { canCopyImageToClipboard, getAssetFilename, getFilenameExtension } from './asset-utils';
 
 describe('get file extension from filename', () => {

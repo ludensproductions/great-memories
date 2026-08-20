@@ -1,7 +1,7 @@
 <script lang="ts">
   import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { Icon, Modal, ModalBody } from '@immich/ui';
-  import { mdiInformationOutline } from '@mdi/js';
+  import { Icon, IconButton, Modal, ModalBody } from '@immich/ui';
+  import { mdiClose, mdiInformationOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
   interface Shortcuts {
@@ -53,8 +53,27 @@
   }: Props = $props();
 </script>
 
-<Modal title={$t('keyboard_shortcuts')} size="medium" {onClose}>
+<Modal size="medium" {onClose}>
   <ModalBody>
+    <div class="mb-4 flex items-center justify-between gap-3 border-b border-gray-200 px-4 pb-3 pt-4 dark:border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="/manifest-icon-512.maskable.png?v=great-memories-20260729" alt="Great Memories logo" class="h-8 w-8" />
+        <div class="flex flex-col">
+          <p class="text-lg font-semibold tracking-tight text-dark/90 dark:text-white">{$t('keyboard_shortcuts')}</p>
+          <p class="text-sm text-primary">Great Memories</p>
+        </div>
+      </div>
+
+      <IconButton
+        shape="round"
+        color="secondary"
+        variant="ghost"
+        icon={mdiClose}
+        aria-label={$t('close')}
+        onclick={onClose}
+      />
+    </div>
+
     <div class="grid grid-cols-1 gap-4 px-4 pb-4 md:grid-cols-2">
       {#if shortcuts.general.length > 0}
         <div class="p-4">
@@ -65,7 +84,7 @@
                 <div class="flex justify-self-end">
                   {#each shortcut.key as key (key)}
                     <p
-                      class="me-1 flex items-center justify-center justify-self-end rounded-lg bg-immich-primary/25 p-2"
+                      class="me-1 flex items-center justify-center justify-self-end rounded-lg bg-great-memories-primary/25 p-2"
                     >
                       {key}
                     </p>
@@ -86,7 +105,7 @@
                 <div class="flex justify-self-end">
                   {#each shortcut.key as key (key)}
                     <p
-                      class="me-1 flex items-center justify-center justify-self-end rounded-lg bg-immich-primary/25 p-2"
+                      class="me-1 flex items-center justify-center justify-self-end rounded-lg bg-great-memories-primary/25 p-2"
                     >
                       {key}
                     </p>

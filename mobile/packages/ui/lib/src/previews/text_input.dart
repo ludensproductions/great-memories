@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/text_input.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:great_memories_ui/src/components/text_input.dart';
+import 'package:great_memories_ui/src/previews.dart';
 
-@ImmichPreview(group: 'TextInput', name: 'Basic')
+@GreatMemoriesPreview(group: 'TextInput', name: 'Basic')
 Widget previewTextInputBasic() => const _PreviewTextInputBasic();
 
-@ImmichPreview(group: 'TextInput', name: 'With Validator')
+@GreatMemoriesPreview(group: 'TextInput', name: 'With Validator')
 Widget previewTextInputValidator() => const _PreviewTextInputValidator();
 
 class _PreviewTextInputBasic extends StatefulWidget {
@@ -26,7 +26,7 @@ class _PreviewTextInputBasicState extends State<_PreviewTextInputBasic> {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichTextInput(
+    return GreatMemoriesTextInput(
       label: 'Email',
       hintText: 'Enter your email',
       controller: _controller,
@@ -53,7 +53,7 @@ class _PreviewTextInputValidatorState extends State<_PreviewTextInputValidator> 
 
   @override
   Widget build(BuildContext context) {
-    return ImmichTextInput(
+    return GreatMemoriesTextInput(
       label: 'Username',
       controller: _controller,
       autovalidateMode: AutovalidateMode.onUserInteraction,

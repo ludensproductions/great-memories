@@ -1,20 +1,17 @@
 <p align="center"> 
   <br/>  
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="Lizenz: MIT"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" alt="Discord"/>
-  </a>
   <br/>  
   <br/>   
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login mit eigener URL">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login mit eigener URL">
 </p>
-<h3 align="center">Immich - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
+<h3 align="center">Great Memories - Hoch performante, selbst gehostete Backup-Lösung für Fotos und Videos</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Haupt-Screenshot">
+<img src="../design/great-memories-screenshots.png" title="Haupt-Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -50,14 +47,14 @@
 
 ## Inhalt
 
-- [Offizielle Dokumentation](https://docs.immich.app)
-- [Über Immich](https://docs.immich.app/overview/introduction)
-- [Installation](https://docs.immich.app/install/requirements)
+- Offizielle Dokumentation
+- Über Great Memories
+- Installation
 - [Roadmap](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Funktionen](#funktionen)
-- [Übersetzungen](https://docs.immich.app/developer/translations)
-- [Beitragsrichtlinien](https://docs.immich.app/overview/support-the-project)
+- Übersetzungen
+- Beitragsrichtlinien
 
 ## Demo
 
@@ -107,7 +104,7 @@ Die Web-Demo kannst Du unter https://demo.immich.app finden. Für die Smartphone
 
 ## Übersetzungen
 
-Mehr zum Thema Übersetzungen kannst du [hier](https://docs.immich.app/developer/translations) erfahren.
+Mehr zum Thema Übersetzungen kannst du hier erfahren.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Translation status" />
@@ -129,6 +126,6 @@ Mehr zum Thema Übersetzungen kannst du [hier](https://docs.immich.app/developer
 
 ## Mitwirkende
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

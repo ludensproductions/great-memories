@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_mobile/presentation/actions/action.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/utils/error_handler.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 class _ActionWidgetScope {
   final String label;
@@ -45,20 +45,20 @@ class _ActionWidget extends ConsumerWidget {
 
 class ActionIconButtonWidget extends StatelessWidget {
   final BaseAction action;
-  final ImmichVariant variant;
+  final GreatMemoriesVariant variant;
 
   const ActionIconButtonWidget({super.key, required this.action, this.variant = .ghost});
 
   @override
   Widget build(BuildContext context) => _ActionWidget(
     action: action,
-    builder: (ctx) => ImmichIconButton(icon: action.icon, onPressed: ctx.onAction, variant: variant),
+    builder: (ctx) => GreatMemoriesIconButton(icon: action.icon, onPressed: ctx.onAction, variant: variant),
   );
 }
 
 class ActionButtonWidget extends StatelessWidget {
   final BaseAction action;
-  final ImmichVariant variant;
+  final GreatMemoriesVariant variant;
 
   const ActionButtonWidget({super.key, required this.action, this.variant = .ghost});
 
@@ -66,7 +66,7 @@ class ActionButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) => _ActionWidget(
     action: action,
     builder: (ctx) =>
-        ImmichTextButton(labelText: ctx.label, icon: action.icon, onPressed: ctx.onAction, variant: variant),
+        GreatMemoriesTextButton(labelText: ctx.label, icon: action.icon, onPressed: ctx.onAction, variant: variant),
   );
 }
 
@@ -78,7 +78,7 @@ class ActionColumnButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => _ActionWidget(
     action: action,
-    builder: (ctx) => ImmichColumnButton(icon: action.icon, label: ctx.label, onPressed: ctx.onAction),
+    builder: (ctx) => GreatMemoriesColumnButton(icon: action.icon, label: ctx.label, onPressed: ctx.onAction),
   );
 }
 
@@ -90,6 +90,6 @@ class ActionMenuItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => _ActionWidget(
     action: action,
-    builder: (ctx) => ImmichMenuItem(icon: action.icon, label: ctx.label, onPressed: ctx.onAction),
+    builder: (ctx) => GreatMemoriesMenuItem(icon: action.icon, label: ctx.label, onPressed: ctx.onAction),
   );
 }

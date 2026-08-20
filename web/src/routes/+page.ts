@@ -39,7 +39,7 @@ export const load = (async ({ fetch }) => {
   return {
     meta: {
       title: $t('welcome') + ' 🎉',
-      description: $t('immich_web_interface'),
+      description: $t('great_memories_web_interface'),
     },
   };
 }) satisfies PageLoad;

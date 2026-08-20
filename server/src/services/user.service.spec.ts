@@ -2,7 +2,7 @@ import { BadRequestException, InternalServerErrorException, NotFoundException } 
 import { UserAdmin } from 'src/database';
 import { CacheControl, JobName, UserMetadataKey } from 'src/enum';
 import { UserService } from 'src/services/user.service';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { AuthFactory } from 'test/factories/auth.factory';
 import { UserFactory } from 'test/factories/user.factory';
 import { authStub } from 'test/fixtures/auth.stub';
@@ -197,7 +197,7 @@ describe(UserService.name, () => {
       mocks.user.get.mockResolvedValue(user);
 
       await expect(sut.getProfileImage(user.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new GreatMemoriesFileResponse({
           path: '/path/to/profile.jpg',
           contentType: 'image/jpeg',
           cacheControl: CacheControl.None,
@@ -212,7 +212,7 @@ describe(UserService.name, () => {
       mocks.user.get.mockResolvedValue(user);
 
       await expect(sut.getProfileImage(user.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new GreatMemoriesFileResponse({
           path: '/path/to/profile.webp',
           contentType: 'image/webp',
           cacheControl: CacheControl.None,

@@ -1,9 +1,9 @@
-import { ApiKeyResponseDto, getMyApiKey, getMyUser, init, isHttpError, Permission } from '@immich/sdk';
+import { ApiKeyResponseDto, getMyApiKey, getMyUser, init, isHttpError, Permission } from '@great-memories/sdk';
 import { convertPathToPattern, glob } from 'fast-glob';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { readFile, stat, writeFile } from 'node:fs/promises';
-import { platform } from 'node:os';
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { homedir, platform } from 'node:os';
 import { join, resolve } from 'node:path';
 import yaml from 'yaml';
 
@@ -16,6 +16,9 @@ export interface BaseOptions {
 export type AuthDto = { url: string; key: string };
 type OldAuthDto = { instanceUrl: string; apiKey: string };
 
+const legacyConfigDirectory = join(homedir(), '.config', 'great-memories');
+const isDefaultConfigDirectory = (dir: string) => resolve(dir) === resolve(join(homedir(), '.config', 'great-memories'));
+
 export const authenticate = async (options: BaseOptions): Promise<AuthDto> => {
   const { configDirectory: configDir, url, key } = options;
 
@@ -25,9 +28,9 @@ export const authenticate = async (options: BaseOptions): Promise<AuthDto> => {
   }
 
   // fallback to auth file
-  const config = await readAuthFile(configDir);
+  const { auth: config, sourceDir } = await readAuthFile(configDir);
   const auth = await connect(config.url, config.key);
-  if (auth.url !== config.url) {
+  if (auth.url !== config.url || sourceDir !== configDir) {
     await writeAuthFile(configDir, auth);
   }
 
@@ -66,17 +69,21 @@ Please make sure your API key has the correct permissions.`,
 };
 
 export const connect = async (url: string, key: string) => {
-  const wellKnownUrl = new URL('.well-known/immich', url);
-  try {
-    // eslint-disable-next-line unicorn/prefer-await
-    const wellKnown = (await fetch(wellKnownUrl).then((response) => response.json())) as { api: { endpoint: string } };
-    const endpoint = new URL(wellKnown.api.endpoint, url).href;
-    if (endpoint !== url) {
-      console.debug(`Discovered API at ${endpoint}`);
+  const wellKnownPaths = ['.well-known/great-memories', '.well-known/great-memories'];
+  for (const path of wellKnownPaths) {
+    try {
+      const wellKnownUrl = new URL(path, url);
+      // eslint-disable-next-line unicorn/prefer-await
+      const wellKnown = (await fetch(wellKnownUrl).then((response) => response.json())) as { api: { endpoint: string } };
+      const endpoint = new URL(wellKnown.api.endpoint, url).href;
+      if (endpoint !== url) {
+        console.debug(`Discovered API at ${endpoint}`);
+      }
+      url = endpoint;
+      break;
+    } catch {
+      // noop
     }
-    url = endpoint;
-  } catch {
-    // noop
   }
 
   init({ baseUrl: url, apiKey: key });
@@ -101,17 +108,20 @@ export const logError = (error: unknown, message: string) => {
 
 export const getAuthFilePath = (dir: string) => join(dir, 'auth.yml');
 
-export const readAuthFile = async (dir: string) => {
+export const readAuthFile = async (dir: string): Promise<{ auth: AuthDto; sourceDir: string }> => {
   try {
     const data = await readFile(getAuthFilePath(dir));
     // TODO add class-transform/validation
     const auth = yaml.parse(data.toString()) as AuthDto | OldAuthDto;
     const { instanceUrl, apiKey } = auth as OldAuthDto;
     if (instanceUrl && apiKey) {
-      return { url: instanceUrl, key: apiKey };
+      return { auth: { url: instanceUrl, key: apiKey }, sourceDir: dir };
     }
-    return auth as AuthDto;
+    return { auth: auth as AuthDto, sourceDir: dir };
   } catch (error: Error | any) {
+    if ((error.code === 'ENOENT' || error.code === 'ENOTDIR') && isDefaultConfigDirectory(dir)) {
+      return readAuthFile(legacyConfigDirectory);
+    }
     if (error.code === 'ENOENT' || error.code === 'ENOTDIR') {
       console.log('No auth file exists. Please login first.');
       process.exit(1);
@@ -120,8 +130,10 @@ export const readAuthFile = async (dir: string) => {
   }
 };
 
-export const writeAuthFile = async (dir: string, auth: AuthDto) =>
-  writeFile(getAuthFilePath(dir), yaml.stringify(auth), { mode: 0o600 });
+export const writeAuthFile = async (dir: string, auth: AuthDto) => {
+  await mkdir(dir, { recursive: true });
+  await writeFile(getAuthFilePath(dir), yaml.stringify(auth), { mode: 0o600 });
+};
 
 export const withError = async <T>(promise: Promise<T>): Promise<[Error, undefined] | [undefined, T]> => {
   try {

@@ -304,7 +304,7 @@ class ServerApi {
 
   /// Get statistics
   ///
-  /// Retrieve statistics about the entire Immich instance such as asset counts.
+  /// Retrieve statistics about the entire Great Memories instance such as asset counts.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getServerStatisticsWithHttpInfo({ Future<void>? abortTrigger, }) async {
@@ -335,7 +335,7 @@ class ServerApi {
 
   /// Get statistics
   ///
-  /// Retrieve statistics about the entire Immich instance such as asset counts.
+  /// Retrieve statistics about the entire Great Memories instance such as asset counts.
   Future<ServerStatsResponseDto?> getServerStatistics({ Future<void>? abortTrigger, }) async {
     final response = await getServerStatisticsWithHttpInfo(abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {

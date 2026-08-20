@@ -29,7 +29,7 @@
   import { getAssetBulkActions } from '$lib/services/asset.service';
   import { getTagActions } from '$lib/services/tag.service';
   import { joinPaths, TreeNode } from '$lib/utils/tree-utils';
-  import { getAllTags, type TagResponseDto } from '@immich/sdk';
+  import { getAllTags, type TagResponseDto } from '@great-memories/sdk';
   import { ActionButton, CommandPaletteDefaultProvider, Text } from '@immich/ui';
   import { mdiDotsVertical, mdiTag, mdiTagMultiple } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -91,7 +91,7 @@
 
   <Breadcrumbs node={tag} icon={mdiTagMultiple} title={$t('tags')} {getLink} />
 
-  <section class="mt-2 h-[calc(100%-(--spacing(20)))] immich-scrollbar overflow-auto">
+  <section class="mt-2 h-[calc(100%-(--spacing(20)))] great-memories-scrollbar overflow-auto">
     {#if tag.hasAssets}
       <Timeline
         enableRouting={true}

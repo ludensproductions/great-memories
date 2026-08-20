@@ -18,7 +18,7 @@ import { UserTable } from 'src/schema/tables/user.table';
 import { BaseService } from 'src/services/base.service';
 import { getCalendarHeatmap } from 'src/services/shared/user-methods';
 import { JobOf, UserMetadataItem } from 'src/types';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { mimeTypes } from 'src/utils/mime-types';
 import { getPreferences, getPreferencesPartial, mergePreferences } from 'src/utils/preferences';
 import { generateProfileImage } from 'src/utils/profile-image';
@@ -141,14 +141,14 @@ export class UserService extends BaseService {
     await this.jobRepository.queue({ name: JobName.FileDelete, data: { files: [user.profileImagePath] } });
   }
 
-  async getProfileImage(id: string): Promise<ImmichFileResponse> {
+  async getProfileImage(id: string): Promise<GreatMemoriesFileResponse> {
     const user = await this.userRepository.get(id, {});
     if (!user || !user.profileImagePath) {
       this.logger.debug('User or profile image not found');
       throw new NotFoundException();
     }
 
-    return new ImmichFileResponse({
+    return new GreatMemoriesFileResponse({
       path: user.profileImagePath,
       contentType: mimeTypes.lookup(user.profileImagePath),
       cacheControl: CacheControl.None,
@@ -171,37 +171,8 @@ export class UserService extends BaseService {
     await this.userRepository.deleteMetadata(user.id, UserMetadataKey.License);
   }
 
-  async setLicense(auth: AuthDto, license: LicenseKeyDto): Promise<LicenseResponseDto> {
-    if (!license.licenseKey.startsWith('IMCL-') && !license.licenseKey.startsWith('IMSV-')) {
-      throw new BadRequestException('Invalid license key');
-    }
-
-    const { licensePublicKey } = this.configRepository.getEnv();
-
-    const isClientLicenseValid = this.cryptoRepository.verifySha256(
-      license.licenseKey,
-      license.activationKey,
-      licensePublicKey.client,
-    );
-
-    const isServerLicenseValid = this.cryptoRepository.verifySha256(
-      license.licenseKey,
-      license.activationKey,
-      licensePublicKey.server,
-    );
-
-    if (!isClientLicenseValid && !isServerLicenseValid) {
-      throw new BadRequestException('Invalid license key');
-    }
-
-    const activatedAt = new Date();
-
-    await this.userRepository.upsertMetadata(auth.user.id, {
-      key: UserMetadataKey.License,
-      value: { ...license, activatedAt: activatedAt.toISOString() },
-    });
-
-    return { ...license, activatedAt };
+  async setLicense(_auth: AuthDto, _license: LicenseKeyDto): Promise<LicenseResponseDto> {
+    throw new BadRequestException('Invalid license key');
   }
 
   async getOnboarding(auth: AuthDto): Promise<OnboardingResponseDto> {

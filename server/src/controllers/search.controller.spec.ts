@@ -67,7 +67,7 @@ describe(SearchController.name, () => {
     it('should reject an visibility as not an enum', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ visibility: 'immich' });
+        .send({ visibility: 'great-memories' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -79,7 +79,7 @@ describe(SearchController.name, () => {
     it('should reject an isFavorite as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isFavorite: 'immich' });
+        .send({ isFavorite: 'great-memories' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -91,7 +91,7 @@ describe(SearchController.name, () => {
     it('should reject an isEncoded as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isEncoded: 'immich' });
+        .send({ isEncoded: 'great-memories' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -103,7 +103,7 @@ describe(SearchController.name, () => {
     it('should reject an isOffline as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isOffline: 'immich' });
+        .send({ isOffline: 'great-memories' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -113,7 +113,7 @@ describe(SearchController.name, () => {
     });
 
     it('should reject an isMotion as not a boolean', async () => {
-      const { status, body } = await request(ctx.getHttpServer()).post('/search/metadata').send({ isMotion: 'immich' });
+      const { status, body } = await request(ctx.getHttpServer()).post('/search/metadata').send({ isMotion: 'great-memories' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([{ path: ['isMotion'], message: 'Invalid input: expected boolean, received string' }]),
@@ -129,7 +129,7 @@ describe(SearchController.name, () => {
       it('should reject if withStacked is not a boolean', async () => {
         const { status, body } = await request(ctx.getHttpServer())
           .post('/search/random')
-          .send({ withStacked: 'immich' });
+          .send({ withStacked: 'great-memories' });
         expect(status).toBe(400);
         expect(body).toEqual(
           errorDto.validationError([
@@ -141,7 +141,7 @@ describe(SearchController.name, () => {
       it('should reject if withPeople is not a boolean', async () => {
         const { status, body } = await request(ctx.getHttpServer())
           .post('/search/random')
-          .send({ withPeople: 'immich' });
+          .send({ withPeople: 'great-memories' });
         expect(status).toBe(400);
         expect(body).toEqual(
           errorDto.validationError([

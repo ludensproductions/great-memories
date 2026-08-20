@@ -1,13 +1,13 @@
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 
-// Redirect URL = app.immich:///oauth-callback
+// Redirect URL = app.great-memories:///oauth-callback
 
 class OAuthService {
   final ApiService _apiService;
-  final callbackUrlScheme = 'app.immich';
+  final callbackUrlScheme = 'app.great-memories';
   final log = Logger('OAuthService');
   OAuthService(this._apiService);
 
@@ -36,8 +36,8 @@ class OAuthService {
 
     log.info('Received OAuth callback: $result');
 
-    if (result.startsWith('app.immich:/oauth-callback')) {
-      result = result.replaceAll('app.immich:/oauth-callback', 'app.immich:///oauth-callback');
+    if (result.startsWith('app.great-memories:/oauth-callback')) {
+      result = result.replaceAll('app.great-memories:/oauth-callback', 'app.great-memories:///oauth-callback');
     }
 
     return await _apiService.oAuthApi.finishOAuth(

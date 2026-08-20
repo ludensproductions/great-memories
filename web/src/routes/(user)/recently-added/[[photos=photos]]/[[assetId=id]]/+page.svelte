@@ -31,7 +31,7 @@
     type OnUnlink,
   } from '$lib/utils/actions';
   import { openFileUploadDialog } from '$lib/utils/file-uploader';
-  import { AssetVisibility, AssetOrderBy } from '@immich/sdk';
+  import { AssetVisibility, AssetOrderBy } from '@great-memories/sdk';
   import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';

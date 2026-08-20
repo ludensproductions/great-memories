@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { SessionResponseDto } from '@immich/sdk';
+  import type { SessionResponseDto } from '@great-memories/sdk';
   import { Icon, IconButton } from '@immich/ui';
   import {
     mdiAndroid,

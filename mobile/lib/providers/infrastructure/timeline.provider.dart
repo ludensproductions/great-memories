@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.state.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.state.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 
 final timelineRepositoryProvider = Provider<DriftTimelineRepository>(
   (ref) => DriftTimelineRepository(ref.watch(driftProvider)),

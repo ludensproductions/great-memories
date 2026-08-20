@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart' show InformationCollector;
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
 
 /// A [MultiFrameImageStreamCompleter] with support for listener tracking
 /// which makes resource cleanup possible when no longer needed.

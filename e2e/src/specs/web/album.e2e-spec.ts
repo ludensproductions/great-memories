@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { testAssetDir, utils } from 'src/utils';
@@ -54,10 +54,10 @@ test.describe('Album', () => {
     await expect(mapMarker).toBeVisible();
     await mapMarker.click();
 
-    await page.waitForSelector('#immich-asset-viewer');
+    await page.waitForSelector('#great-memories-asset-viewer');
     await page.getByRole('button', { name: 'Go back' }).click();
 
-    await expect(page.locator('#immich-asset-viewer')).not.toBeVisible();
+    await expect(page.locator('#great-memories-asset-viewer')).not.toBeVisible();
     await expect(mapModal).toBeVisible();
   });
 });

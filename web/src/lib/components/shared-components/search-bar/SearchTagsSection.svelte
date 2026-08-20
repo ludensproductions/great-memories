@@ -1,7 +1,7 @@
 <script lang="ts">
   import Combobox, { type ComboBoxOption } from '$lib/components/shared-components/Combobox.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { getAllTags, type TagResponseDto } from '@immich/sdk';
+  import { getAllTags, type TagResponseDto } from '@great-memories/sdk';
   import { Checkbox, Label, Text } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

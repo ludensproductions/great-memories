@@ -8,7 +8,7 @@
 
 set -o pipefail
 
-# The Immich mobile root (containing the Dart `lib` directory). This is used to make
+# The Great Memories mobile root (containing the Dart `lib` directory). This is used to make
 # absolute paths for Xcode linking
 app_root="${FLUTTER_APPLICATION_PATH:-$SRCROOT/..}"
 

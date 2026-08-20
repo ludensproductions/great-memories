@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/widgets/asset_viewer/detail_panel/exif_map.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/widgets/asset_viewer/detail_panel/exif_map.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class LocationDetails extends ConsumerStatefulWidget {

@@ -21,7 +21,7 @@ import {
   mapLoginResponse,
 } from 'src/dtos/auth.dto';
 import { UserAdminResponseDto, mapUserAdmin } from 'src/dtos/user.dto';
-import { AuthType, ImmichCookie, ImmichHeader, ImmichQuery, JobName, Permission } from 'src/enum';
+import { AuthType, GreatMemoriesCookie, GreatMemoriesHeader, GreatMemoriesQuery, JobName, Permission } from 'src/enum';
 import { OAuthProfile } from 'src/repositories/oauth.repository';
 import { BaseService } from 'src/services/base.service';
 import { isGranted } from 'src/utils/access';
@@ -245,14 +245,14 @@ export class AuthService extends BaseService {
   }
 
   private async validate({ headers, queryParams }: Omit<ValidateRequest, 'metadata'>): Promise<AuthDto> {
-    const shareKey = (headers[ImmichHeader.SharedLinkKey] || queryParams[ImmichQuery.SharedLinkKey]) as string;
-    const shareSlug = (headers[ImmichHeader.SharedLinkSlug] || queryParams[ImmichQuery.SharedLinkSlug]) as string;
-    const session = (headers[ImmichHeader.UserToken] ||
-      headers[ImmichHeader.SessionToken] ||
-      queryParams[ImmichQuery.SessionKey] ||
+    const shareKey = (headers[GreatMemoriesHeader.SharedLinkKey] || queryParams[GreatMemoriesQuery.SharedLinkKey]) as string;
+    const shareSlug = (headers[GreatMemoriesHeader.SharedLinkSlug] || queryParams[GreatMemoriesQuery.SharedLinkSlug]) as string;
+    const session = (headers[GreatMemoriesHeader.UserToken] ||
+      headers[GreatMemoriesHeader.SessionToken] ||
+      queryParams[GreatMemoriesQuery.SessionKey] ||
       this.getBearerToken(headers) ||
       this.getCookieToken(headers)) as string;
-    const apiKey = (headers[ImmichHeader.ApiKey] || queryParams[ImmichQuery.ApiKey]) as string;
+    const apiKey = (headers[GreatMemoriesHeader.ApiKey] || queryParams[GreatMemoriesQuery.ApiKey]) as string;
 
     if (shareKey) {
       return this.validateSharedLinkKey(shareKey);
@@ -488,17 +488,17 @@ export class AuthService extends BaseService {
 
   private getCookieToken(headers: IncomingHttpHeaders): string | null {
     const cookies = parse(headers.cookie || '');
-    return cookies[ImmichCookie.AccessToken] || null;
+    return cookies[GreatMemoriesCookie.AccessToken] || null;
   }
 
   private getCookieOauthState(headers: IncomingHttpHeaders): string | null {
     const cookies = parse(headers.cookie || '');
-    return cookies[ImmichCookie.OAuthState] || null;
+    return cookies[GreatMemoriesCookie.OAuthState] || null;
   }
 
   private getCookieCodeVerifier(headers: IncomingHttpHeaders): string | null {
     const cookies = parse(headers.cookie || '');
-    return cookies[ImmichCookie.OAuthCodeVerifier] || null;
+    return cookies[GreatMemoriesCookie.OAuthCodeVerifier] || null;
   }
 
   async validateSharedLinkKey(key: string | string[]): Promise<AuthDto> {
@@ -661,7 +661,7 @@ export class AuthService extends BaseService {
     url: string,
   ) {
     if (mobileOverrideEnabled && mobileRedirectUri) {
-      return url.replace(/app\.immich:\/+oauth-callback/, () => mobileRedirectUri);
+      return url.replace(/app\.great-memories:\/+oauth-callback/, () => mobileRedirectUri);
     }
     return url;
   }

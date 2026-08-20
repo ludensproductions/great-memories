@@ -14,10 +14,10 @@ import { Telemetry } from 'src/decorators';
 import { EnvSchema } from 'src/dtos/env.dto';
 import {
   DatabaseExtension,
-  ImmichEnvironment,
-  ImmichHeader,
-  ImmichTelemetry,
-  ImmichWorker,
+  GreatMemoriesEnvironment,
+  GreatMemoriesHeader,
+  GreatMemoriesTelemetry,
+  GreatMemoriesWorker,
   LogFormat,
   LogLevel,
   QueueName,
@@ -28,7 +28,7 @@ import { setDifference } from 'src/utils/set';
 export interface EnvData {
   host?: string;
   port: number;
-  environment: ImmichEnvironment;
+  environment: GreatMemoriesEnvironment;
   configFile?: string;
   logLevel?: LogLevel;
   logFormat?: LogFormat;
@@ -108,7 +108,7 @@ export interface EnvData {
   telemetry: {
     apiPort: number;
     microservicesPort: number;
-    metrics: Set<ImmichTelemetry>;
+    metrics: Set<GreatMemoriesTelemetry>;
   };
 
   storage: {
@@ -116,7 +116,7 @@ export interface EnvData {
     mediaLocation?: string;
   };
 
-  workers: ImmichWorker[];
+  workers: GreatMemoriesWorker[];
 
   plugins: {
     external: {
@@ -143,8 +143,8 @@ const stagingKeys = {
     'LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUE3Sy8yd3ZLUS9NdU8ydi9MUm5saAoyUy9zTHhDOGJiTEw1UUlKOGowQ3BVZW40YURlY2dYMUpKUmtGNlpUVUtpNTdTbEhtS3RSM2JOTzJmdTBUUVg5Ck5WMEJzVzllZVB0MmlTMWl4VVFmTzRObjdvTjZzbEtac01qd29RNGtGRGFmM3VHTlZJc0dMb3UxVWRLUVhpeDEKUlRHcXVTb3NZVjNWRlk3Q1hGYTVWaENBL3poVXNsNGFuVXp3eEF6M01jUFVlTXBaenYvbVZiQlRKVzBPSytWZgpWQUJvMXdYMkVBanpBekVHVzQ3Vko4czhnMnQrNHNPaHFBNStMQjBKVzlORUg5QUpweGZzWE4zSzVtM00yNUJVClZXcTlRYStIdHRENnJ0bnAvcUFweXVkWUdwZk9HYTRCUlZTR1MxMURZM0xrb2FlRzYwUEU5NHpoYjduOHpMWkgKelFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tDQo=',
 };
 
-const WORKER_TYPES = new Set(Object.values(ImmichWorker));
-const TELEMETRY_TYPES = new Set(Object.values(ImmichTelemetry));
+const WORKER_TYPES = new Set(Object.values(GreatMemoriesWorker));
+const TELEMETRY_TYPES = new Set(Object.values(GreatMemoriesTelemetry));
 
 const asSet = <T>(value: string | undefined, defaults: T[]) => {
   const values = (value || '').replaceAll(/\s/g, '').split(',').filter(Boolean);
@@ -182,8 +182,8 @@ const getEnv = (): EnvData => {
   }
   const dto = parseResult.data;
 
-  const includedWorkers = asSet(dto.IMMICH_WORKERS_INCLUDE, [ImmichWorker.Api, ImmichWorker.Microservices]);
-  const excludedWorkers = asSet(dto.IMMICH_WORKERS_EXCLUDE, []);
+  const includedWorkers = asSet(dto.GREAT_MEMORIES_WORKERS_INCLUDE, [GreatMemoriesWorker.Api, GreatMemoriesWorker.Microservices]);
+  const excludedWorkers = asSet(dto.GREAT_MEMORIES_WORKERS_EXCLUDE, []);
   const workers = [...setDifference(includedWorkers, excludedWorkers)];
   for (const worker of workers) {
     if (!WORKER_TYPES.has(worker)) {
@@ -191,9 +191,9 @@ const getEnv = (): EnvData => {
     }
   }
 
-  const environment = dto.IMMICH_ENV || ImmichEnvironment.Production;
-  const isProd = environment === ImmichEnvironment.Production;
-  const buildFolder = dto.IMMICH_BUILD_DATA || '/build';
+  const environment = dto.GREAT_MEMORIES_ENV || GreatMemoriesEnvironment.Production;
+  const isProd = environment === GreatMemoriesEnvironment.Production;
+  const buildFolder = dto.GREAT_MEMORIES_BUILD_DATA || '/build';
   const folders = {
     geodata: join(buildFolder, 'geodata'),
     web: join(buildFolder, 'www'),
@@ -218,11 +218,11 @@ const getEnv = (): EnvData => {
   }
 
   const includedTelemetries =
-    dto.IMMICH_TELEMETRY_INCLUDE === 'all'
-      ? new Set(Object.values(ImmichTelemetry))
-      : asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_INCLUDE, []);
+    dto.GREAT_MEMORIES_TELEMETRY_INCLUDE === 'all'
+      ? new Set(Object.values(GreatMemoriesTelemetry))
+      : asSet<GreatMemoriesTelemetry>(dto.GREAT_MEMORIES_TELEMETRY_INCLUDE, []);
 
-  const excludedTelemetries = asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_EXCLUDE, []);
+  const excludedTelemetries = asSet<GreatMemoriesTelemetry>(dto.GREAT_MEMORIES_TELEMETRY_EXCLUDE, []);
   const telemetries = setDifference(includedTelemetries, excludedTelemetries);
   for (const telemetry of telemetries) {
     if (!TELEMETRY_TYPES.has(telemetry)) {
@@ -238,7 +238,7 @@ const getEnv = (): EnvData => {
         port: dto.DB_PORT || 5432,
         username: dto.DB_USERNAME || 'postgres',
         password: dto.DB_PASSWORD || 'postgres',
-        database: dto.DB_DATABASE_NAME || 'immich',
+        database: dto.DB_DATABASE_NAME || 'great-memories',
         ssl: dto.DB_SSL_MODE || undefined,
       };
 
@@ -257,32 +257,32 @@ const getEnv = (): EnvData => {
   }
 
   return {
-    host: dto.IMMICH_HOST,
-    port: dto.IMMICH_PORT || 2283,
+    host: dto.GREAT_MEMORIES_HOST,
+    port: dto.GREAT_MEMORIES_PORT || 2283,
     environment,
-    configFile: dto.IMMICH_CONFIG_FILE,
-    logLevel: dto.IMMICH_LOG_LEVEL,
-    logFormat: dto.IMMICH_LOG_FORMAT || LogFormat.Console,
+    configFile: dto.GREAT_MEMORIES_CONFIG_FILE,
+    logLevel: dto.GREAT_MEMORIES_LOG_LEVEL,
+    logFormat: dto.GREAT_MEMORIES_LOG_FORMAT || LogFormat.Console,
 
     buildMetadata: {
-      build: dto.IMMICH_BUILD,
-      buildUrl: dto.IMMICH_BUILD_URL,
-      buildImage: dto.IMMICH_BUILD_IMAGE,
-      buildImageUrl: dto.IMMICH_BUILD_IMAGE_URL,
-      repository: dto.IMMICH_REPOSITORY,
-      repositoryUrl: dto.IMMICH_REPOSITORY_URL,
-      sourceRef: dto.IMMICH_SOURCE_REF,
-      sourceCommit: dto.IMMICH_SOURCE_COMMIT,
-      sourceUrl: dto.IMMICH_SOURCE_URL,
-      thirdPartySourceUrl: dto.IMMICH_THIRD_PARTY_SOURCE_URL,
-      thirdPartyBugFeatureUrl: dto.IMMICH_THIRD_PARTY_BUG_FEATURE_URL,
-      thirdPartyDocumentationUrl: dto.IMMICH_THIRD_PARTY_DOCUMENTATION_URL,
-      thirdPartySupportUrl: dto.IMMICH_THIRD_PARTY_SUPPORT_URL,
+      build: dto.GREAT_MEMORIES_BUILD,
+      buildUrl: dto.GREAT_MEMORIES_BUILD_URL,
+      buildImage: dto.GREAT_MEMORIES_BUILD_IMAGE,
+      buildImageUrl: dto.GREAT_MEMORIES_BUILD_IMAGE_URL,
+      repository: dto.GREAT_MEMORIES_REPOSITORY,
+      repositoryUrl: dto.GREAT_MEMORIES_REPOSITORY_URL,
+      sourceRef: dto.GREAT_MEMORIES_SOURCE_REF,
+      sourceCommit: dto.GREAT_MEMORIES_SOURCE_COMMIT,
+      sourceUrl: dto.GREAT_MEMORIES_SOURCE_URL,
+      thirdPartySourceUrl: dto.GREAT_MEMORIES_THIRD_PARTY_SOURCE_URL,
+      thirdPartyBugFeatureUrl: dto.GREAT_MEMORIES_THIRD_PARTY_BUG_FEATURE_URL,
+      thirdPartyDocumentationUrl: dto.GREAT_MEMORIES_THIRD_PARTY_DOCUMENTATION_URL,
+      thirdPartySupportUrl: dto.GREAT_MEMORIES_THIRD_PARTY_SUPPORT_URL,
     },
 
     bull: {
       config: {
-        prefix: 'immich_bull',
+        prefix: 'great_memories_bull',
         connection: { ...redisConfig },
         defaultJobOptions: {
           attempts: 1,
@@ -299,9 +299,9 @@ const getEnv = (): EnvData => {
           mount: true,
           generateId: true,
           setup: (cls, req: Request, res: Response) => {
-            const cid = req.header(ImmichHeader.CorrelationId) || cls.get(CLS_ID);
+            const cid = req.header(GreatMemoriesHeader.CorrelationId) || cls.get(CLS_ID);
             cls.set(CLS_ID, cid);
-            res.header(ImmichHeader.CorrelationId, cid);
+            res.header(GreatMemoriesHeader.CorrelationId, cid);
           },
         },
       },
@@ -314,7 +314,7 @@ const getEnv = (): EnvData => {
     },
 
     helmet: {
-      config: resolveHelmetFile(dto.IMMICH_HELMET_FILE),
+      config: resolveHelmetFile(dto.GREAT_MEMORIES_HELMET_FILE),
     },
 
     licensePublicKey: isProd ? productionKeys : stagingKeys,
@@ -324,12 +324,12 @@ const getEnv = (): EnvData => {
     },
 
     network: {
-      trustedProxies: dto.IMMICH_TRUSTED_PROXIES ?? ['linklocal', 'uniquelocal'],
+      trustedProxies: dto.GREAT_MEMORIES_TRUSTED_PROXIES ?? ['linklocal', 'uniquelocal'],
     },
 
     otel: {
       metrics: {
-        hostMetrics: telemetries.has(ImmichTelemetry.Host),
+        hostMetrics: telemetries.has(GreatMemoriesTelemetry.Host),
       },
     },
 
@@ -348,21 +348,21 @@ const getEnv = (): EnvData => {
         root: folders.web,
         indexHtml: join(folders.web, 'index.html'),
       },
-      corePlugin: join(buildFolder, 'plugins', 'immich-plugin-core'),
+      corePlugin: join(buildFolder, 'plugins', 'great-memories-plugin-core'),
     },
 
     setup: {
-      allow: dto.IMMICH_ALLOW_SETUP ?? true,
+      allow: dto.GREAT_MEMORIES_ALLOW_SETUP ?? true,
     },
 
     storage: {
-      ignoreMountCheckErrors: !!dto.IMMICH_IGNORE_MOUNT_CHECK_ERRORS,
-      mediaLocation: dto.IMMICH_MEDIA_LOCATION,
+      ignoreMountCheckErrors: !!dto.GREAT_MEMORIES_IGNORE_MOUNT_CHECK_ERRORS,
+      mediaLocation: dto.GREAT_MEMORIES_MEDIA_LOCATION,
     },
 
     telemetry: {
-      apiPort: dto.IMMICH_API_METRICS_PORT || 8081,
-      microservicesPort: dto.IMMICH_MICROSERVICES_METRICS_PORT || 8082,
+      apiPort: dto.GREAT_MEMORIES_API_METRICS_PORT || 8081,
+      microservicesPort: dto.GREAT_MEMORIES_MICROSERVICES_METRICS_PORT || 8082,
       metrics: telemetries,
     },
 
@@ -370,8 +370,8 @@ const getEnv = (): EnvData => {
 
     plugins: {
       external: {
-        allow: dto.IMMICH_ALLOW_EXTERNAL_PLUGINS ?? false,
-        installFolder: dto.IMMICH_PLUGINS_INSTALL_FOLDER,
+        allow: dto.GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS ?? false,
+        installFolder: dto.GREAT_MEMORIES_PLUGINS_INSTALL_FOLDER,
       },
     },
 
@@ -384,7 +384,7 @@ let cached: EnvData | undefined;
 @Injectable()
 @Telemetry({ enabled: false })
 export class ConfigRepository {
-  constructor(@Inject(IWorker) @Optional() private worker?: ImmichWorker) {}
+  constructor(@Inject(IWorker) @Optional() private worker?: GreatMemoriesWorker) {}
 
   getEnv() {
     if (!cached) {
@@ -395,7 +395,7 @@ export class ConfigRepository {
   }
 
   isDev() {
-    return this.getEnv().environment === ImmichEnvironment.Development;
+    return this.getEnv().environment === GreatMemoriesEnvironment.Development;
   }
 
   getWorker() {

@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/pages/drift_user_selection.page.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/remote_album.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/pages/drift_user_selection.page.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/widgets/common/user_circle_avatar.dart';
 
 @RoutePage()
 class DriftAlbumOptionsPage extends HookConsumerWidget {
@@ -35,7 +35,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
 
     void showErrorMessage() {
       ContextHelper(context).pop();
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "shared_album_section_people_action_error".t(context: context),
         toastType: ToastType.error,
@@ -74,7 +74,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
         await ref.read(remoteAlbumProvider.notifier).addUsers(album.id, newUsers);
 
         if (newUsers.isNotEmpty) {
-          ImmichToast.show(
+          GreatMemoriesToast.show(
             context: context,
             msg: "users_added_to_album_count".t(context: context, args: {'count': newUsers.length}),
             toastType: ToastType.success,
@@ -83,7 +83,7 @@ class DriftAlbumOptionsPage extends HookConsumerWidget {
 
         ref.invalidate(remoteAlbumSharedUsersProvider(album.id));
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "Failed to add users to album: ${e.toString()}",
           toastType: ToastType.error,

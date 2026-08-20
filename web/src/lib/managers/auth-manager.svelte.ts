@@ -5,7 +5,7 @@ import {
   logout,
   type UserAdminResponseDto,
   type UserPreferencesResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
 import { page } from '$app/state';
@@ -125,7 +125,7 @@ class AuthManager {
 
     for (const cookie of document.cookie.split('; ')) {
       const [name] = cookie.split('=', 1);
-      if (name === 'immich_is_authenticated') {
+      if (name === 'great_memories_is_authenticated') {
         return true;
       }
     }

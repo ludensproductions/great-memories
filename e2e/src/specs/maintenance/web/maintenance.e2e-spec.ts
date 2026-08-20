@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { utils } from 'src/utils';
 
@@ -28,7 +28,7 @@ test.describe('Maintenance', () => {
     const setCookie = await utils.enterMaintenance(admin.accessToken);
     const cookie = setCookie
       ?.map((cookie) => cookie.split(';', 1)[0].split('='))
-      ?.find(([name]) => name === 'immich_maintenance_token');
+      ?.find(([name]) => name === 'great_memories_maintenance_token');
 
     expect(cookie).toBeTruthy();
 

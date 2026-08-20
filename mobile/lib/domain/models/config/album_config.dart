@@ -1,4 +1,4 @@
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:great_memories_mobile/providers/album/album_sort_by_options.provider.dart';
 
 class AlbumConfig {
   final AlbumSortMode sortMode;

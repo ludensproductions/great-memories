@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/like_activity_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/album/drift_activity_text_field.dart';
-import 'package:immich_mobile/providers/activity.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/widgets/activities/comment_bubble.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/like_activity_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/drift_activity_text_field.dart';
+import 'package:great_memories_mobile/providers/activity.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:great_memories_mobile/widgets/activities/comment_bubble.dart';
 
 @RoutePage()
 class DriftActivitiesPage extends HookConsumerWidget {

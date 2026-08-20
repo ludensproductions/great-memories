@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/utils/drift_default.mixin.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/utils/drift_default.mixin.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_asset_ocr_asset_id ON asset_ocr_entity (asset_id)')
 class AssetOcrEntity extends Table with DriftDefaultsMixin {

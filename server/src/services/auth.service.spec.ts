@@ -17,7 +17,7 @@ import { userStub } from 'test/fixtures/user.stub';
 import { newUuid } from 'test/small.factory';
 import { newTestService, ServiceMocks } from 'test/utils';
 
-const email = 'test@immich.com';
+const email = 'test@great-memories.com';
 const loginDetails = {
   isSecure: true,
   clientIp: '127.0.0.1',
@@ -70,7 +70,7 @@ describe(AuthService.name, () => {
     });
 
     it('should successfully log the user in', async () => {
-      const user = UserFactory.create({ password: 'immich_password' });
+      const user = UserFactory.create({ password: 'great_memories_password' });
       const session = SessionFactory.create();
       mocks.user.getByEmail.mockResolvedValue(user);
       mocks.session.create.mockResolvedValue(session);
@@ -305,7 +305,7 @@ describe(AuthService.name, () => {
   });
 
   describe('adminSignUp', () => {
-    const dto: SignUpDto = { email: 'test@immich.com', password: 'password', name: 'immich admin' };
+    const dto: SignUpDto = { email: 'test@great-memories.com', password: 'password', name: 'great-memories admin' };
 
     it('should only allow one admin', async () => {
       mocks.user.getAdmin.mockResolvedValue({} as UserAdmin);
@@ -321,7 +321,7 @@ describe(AuthService.name, () => {
         ...userStub.admin,
         ...dto,
         id: 'admin',
-        name: 'immich admin',
+        name: 'great-memories admin',
         createdAt: new Date('2021-01-01'),
         metadata: [] as UserMetadataItem[],
       } as UserAdmin);
@@ -330,8 +330,8 @@ describe(AuthService.name, () => {
         avatarColor: expect.any(String),
         id: 'admin',
         createdAt: new Date('2021-01-01'),
-        email: 'test@immich.com',
-        name: 'immich admin',
+        email: 'test@great-memories.com',
+        name: 'great-memories admin',
       });
 
       expect(mocks.user.getAdmin).toHaveBeenCalled();
@@ -385,7 +385,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': 'key' },
+          headers: { 'x-great-memories-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -397,7 +397,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': 'key' },
+          headers: { 'x-great-memories-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -409,7 +409,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': 'key' },
+          headers: { 'x-great-memories-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -422,7 +422,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': 'key' },
+          headers: { 'x-great-memories-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -441,7 +441,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': key },
+          headers: { 'x-great-memories-share-key': key },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -462,7 +462,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-key': key },
+          headers: { 'x-great-memories-share-key': key },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -478,7 +478,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-slug': 'slug' },
+          headers: { 'x-great-memories-share-slug': 'slug' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -494,7 +494,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-share-slug': 'slug-123' },
+          headers: { 'x-great-memories-share-slug': 'slug-123' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -510,7 +510,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-immich-user-token': 'auth_token' },
+          headers: { 'x-great-memories-user-token': 'auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -532,7 +532,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'immich_access_token=auth_token' },
+          headers: { cookie: 'great_memories_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -561,7 +561,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'immich_access_token=auth_token' },
+          headers: { cookie: 'great_memories_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: true, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -585,7 +585,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'immich_access_token=auth_token' },
+          headers: { cookie: 'great_memories_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -678,12 +678,12 @@ describe(AuthService.name, () => {
   describe('getMobileRedirect', () => {
     it('should pass along the query params', () => {
       expect(sut.getMobileRedirect('https://immich.app?code=123&state=456')).toEqual(
-        'app.immich:///oauth-callback?code=123&state=456',
+        'app.great-memories:///oauth-callback?code=123&state=456',
       );
     });
 
     it('should work if called without query params', () => {
-      expect(sut.getMobileRedirect('https://immich.app')).toEqual('app.immich:///oauth-callback?');
+      expect(sut.getMobileRedirect('https://immich.app')).toEqual('app.great-memories:///oauth-callback?');
     });
   });
 
@@ -717,7 +717,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+          { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
           {},
           loginDetails,
         ),
@@ -737,7 +737,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -757,7 +757,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -769,7 +769,7 @@ describe(AuthService.name, () => {
 
     it('should normalize the email from the OAuth profile before linking', async () => {
       const user = UserFactory.create();
-      const profile = OAuthProfileFactory.create({ email: '  TEST@IMMICH.CLOUD  ' });
+      const profile = OAuthProfileFactory.create({ email: '  TEST@GREAT_MEMORIES.CLOUD  ' });
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile });
@@ -778,7 +778,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -797,7 +797,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+          { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
           {},
           loginDetails,
         ),
@@ -816,7 +816,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -835,7 +835,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+          { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
           {},
           loginDetails,
         ),
@@ -846,9 +846,9 @@ describe(AuthService.name, () => {
     });
 
     for (const url of [
-      'app.immich:/oauth-callback?code=abc123',
-      'app.immich://oauth-callback?code=abc123',
-      'app.immich:///oauth-callback?code=abc123',
+      'app.great-memories:/oauth-callback?code=abc123',
+      'app.great-memories://oauth-callback?code=abc123',
+      'app.great-memories:///oauth-callback?code=abc123',
     ]) {
       it(`should use the mobile redirect override for a url of ${url}`, async () => {
         mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithMobileOverride);
@@ -876,7 +876,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -895,7 +895,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -914,7 +914,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -925,7 +925,7 @@ describe(AuthService.name, () => {
     it('should ignore an invalid storage quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_quota: 'abc' }),
+        profile: OAuthProfileFactory.create({ great_memories_quota: 'abc' }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -933,7 +933,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -944,7 +944,7 @@ describe(AuthService.name, () => {
     it('should ignore a negative quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_quota: -5 }),
+        profile: OAuthProfileFactory.create({ great_memories_quota: -5 }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -952,7 +952,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -962,14 +962,14 @@ describe(AuthService.name, () => {
 
     it('should set quota for 0 quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
-      mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile: OAuthProfileFactory.create({ immich_quota: 0 }) });
+      mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile: OAuthProfileFactory.create({ great_memories_quota: 0 }) });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.create.mockResolvedValue(UserFactory.create({ oauthId: 'oauth-id' }));
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -979,7 +979,7 @@ describe(AuthService.name, () => {
 
     it('should use a valid storage quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
-      mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile: OAuthProfileFactory.create({ immich_quota: 5 }) });
+      mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile: OAuthProfileFactory.create({ great_memories_quota: 5 }) });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -987,7 +987,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1013,7 +1013,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1046,7 +1046,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+          { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
           {},
           loginDetails,
         ),
@@ -1072,7 +1072,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1084,7 +1084,7 @@ describe(AuthService.name, () => {
     it('should only allow "admin" and "user" for the role claim', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_role: 'foo' }),
+        profile: OAuthProfileFactory.create({ great_memories_role: 'foo' }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
@@ -1093,7 +1093,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1104,7 +1104,7 @@ describe(AuthService.name, () => {
     it('should create an admin user if the role claim is set to admin', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_role: 'admin' }),
+        profile: OAuthProfileFactory.create({ great_memories_role: 'admin' }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1112,7 +1112,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1133,7 +1133,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1144,7 +1144,7 @@ describe(AuthService.name, () => {
     it('should create an admin user if the role claim is an array containing admin', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_role: ['user', 'admin'] }),
+        profile: OAuthProfileFactory.create({ great_memories_role: ['user', 'admin'] }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1152,7 +1152,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1163,7 +1163,7 @@ describe(AuthService.name, () => {
     it('should create a standard user if the role claim is an array containing only user', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ immich_role: ['user'] }),
+        profile: OAuthProfileFactory.create({ great_memories_role: ['user'] }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1172,7 +1172,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1185,14 +1185,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ sub: user.oauthId, immich_role: 'admin' }),
+        profile: OAuthProfileFactory.create({ sub: user.oauthId, great_memories_role: 'admin' }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, isAdmin: true });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1205,14 +1205,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        profile: OAuthProfileFactory.create({ sub: user.oauthId, immich_role: ['user'] }),
+        profile: OAuthProfileFactory.create({ sub: user.oauthId, great_memories_role: ['user'] }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, isAdmin: false });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1231,7 +1231,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1241,7 +1241,7 @@ describe(AuthService.name, () => {
 
     it('should re-evaluate the role claim for a user linked by email', async () => {
       const user = UserFactory.create({ isAdmin: false });
-      const profile = OAuthProfileFactory.create({ immich_role: 'admin' });
+      const profile = OAuthProfileFactory.create({ great_memories_role: 'admin' });
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ profile });
@@ -1251,7 +1251,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://immich/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://great-memories/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -1273,7 +1273,7 @@ describe(AuthService.name, () => {
 
       await sut.link(
         auth,
-        { url: 'http://immich/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
       );
 
@@ -1296,7 +1296,7 @@ describe(AuthService.name, () => {
 
       await sut.link(
         auth,
-        { url: 'http://immich/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://great-memories/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
       );
 
@@ -1317,7 +1317,7 @@ describe(AuthService.name, () => {
       mocks.user.getByOAuthId.mockResolvedValue({ id: 'other-user' } as UserAdmin);
 
       await expect(
-        sut.link(auth, { url: 'http://immich/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' }, {}),
+        sut.link(auth, { url: 'http://great-memories/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' }, {}),
       ).rejects.toBeInstanceOf(BadRequestException);
 
       expect(mocks.user.update).not.toHaveBeenCalled();

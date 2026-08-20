@@ -1,4 +1,4 @@
-import { getAllTags } from '@immich/sdk';
+import { getAllTags } from '@great-memories/sdk';
 import { QueryParameter } from '$lib/constants';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';

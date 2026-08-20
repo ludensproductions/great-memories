@@ -2,16 +2,16 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album_user.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album_user.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 
 enum SortRemoteAlbumsBy { id, updatedAt }
 

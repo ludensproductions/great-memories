@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/domain/models/settings_key.dart';
 
 void main() {
   group('SettingsKey', () {

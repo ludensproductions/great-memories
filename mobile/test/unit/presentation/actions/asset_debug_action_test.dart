@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/asset_debug.action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/presentation/actions/action.widget.dart';
+import 'package:great_memories_mobile/presentation/actions/asset_debug.action.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 import '../../factories/remote_asset_factory.dart';
 import '../presentation_context.dart';
@@ -27,7 +27,7 @@ void main() {
         ActionIconButtonWidget(action: AssetDebugAction(assets: [RemoteAssetFactory.create()])),
       );
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(GreatMemoriesIconButton), findsOneWidget);
     });
 
     testWidgets('hidden for multiple assets', (tester) async {
@@ -38,7 +38,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(GreatMemoriesIconButton), findsNothing);
     });
 
     testWidgets('hidden when advanced troubleshooting is off', (tester) async {
@@ -48,7 +48,7 @@ void main() {
         ActionIconButtonWidget(action: AssetDebugAction(assets: [RemoteAssetFactory.create()])),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(GreatMemoriesIconButton), findsNothing);
     });
   });
 }

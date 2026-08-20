@@ -4,20 +4,20 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/models/folder/recursive_folder.model.dart';
-import 'package:immich_mobile/models/folder/root_folder.model.dart';
-import 'package:immich_mobile/pages/common/large_leading_tile.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail_tile.widget.dart';
-import 'package:immich_mobile/providers/folder.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/models/folder/recursive_folder.model.dart';
+import 'package:great_memories_mobile/models/folder/root_folder.model.dart';
+import 'package:great_memories_mobile/pages/common/large_leading_tile.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumbnail_tile.widget.dart';
+import 'package:great_memories_mobile/providers/folder.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/utils/bytes_units.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 RecursiveFolder? _findFolderInStructure(RootFolder rootFolder, RecursiveFolder targetFolder) {
   for (final folder in rootFolder.subfolders) {
@@ -94,7 +94,7 @@ class FolderPage extends HookConsumerWidget {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) {
-          ImmichToast.show(context: context, msg: "failed_to_load_folder".tr(), toastType: ToastType.error);
+          GreatMemoriesToast.show(context: context, msg: "failed_to_load_folder".tr(), toastType: ToastType.error);
           return Center(child: const Text("failed_to_load_folder").tr());
         },
       ),
@@ -207,7 +207,7 @@ class FolderContent extends HookConsumerWidget {
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (error, stack) {
-              ImmichToast.show(context: context, msg: "failed_to_load_assets".tr(), toastType: ToastType.error);
+              GreatMemoriesToast.show(context: context, msg: "failed_to_load_assets".tr(), toastType: ToastType.error);
               return Center(child: const Text("failed_to_load_assets").tr());
             },
           ),

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/services/partner.service.dart';
+import 'package:great_memories_mobile/domain/services/partner.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../service_context.dart';

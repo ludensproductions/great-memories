@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+
+class GreatMemoriesLogo extends StatelessWidget {
+  final double size;
+  final dynamic heroTag;
+
+  const GreatMemoriesLogo({super.key, this.size = 100, this.heroTag});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image(
+      image: const AssetImage('assets/great-memories-logo.png'),
+      width: size,
+      filterQuality: FilterQuality.high,
+      isAntiAlias: true,
+    );
+  }
+}

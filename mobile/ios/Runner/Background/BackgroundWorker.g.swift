@@ -246,7 +246,7 @@ class BackgroundWorkerFgHostApiSetup {
   /// Sets up an instance of `BackgroundWorkerFgHostApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: BackgroundWorkerFgHostApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let enableChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.enable\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let enableChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.enable\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       enableChannel.setMessageHandler { _, reply in
         do {
@@ -259,7 +259,7 @@ class BackgroundWorkerFgHostApiSetup {
     } else {
       enableChannel.setMessageHandler(nil)
     }
-    let saveNotificationMessageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.saveNotificationMessage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let saveNotificationMessageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.saveNotificationMessage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       saveNotificationMessageChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -275,7 +275,7 @@ class BackgroundWorkerFgHostApiSetup {
     } else {
       saveNotificationMessageChannel.setMessageHandler(nil)
     }
-    let configureChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.configure\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let configureChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.configure\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       configureChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -290,7 +290,7 @@ class BackgroundWorkerFgHostApiSetup {
     } else {
       configureChannel.setMessageHandler(nil)
     }
-    let disableChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.disable\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let disableChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.disable\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       disableChannel.setMessageHandler { _, reply in
         do {
@@ -317,7 +317,7 @@ class BackgroundWorkerBgHostApiSetup {
   /// Sets up an instance of `BackgroundWorkerBgHostApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: BackgroundWorkerBgHostApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let onInitializedChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerBgHostApi.onInitialized\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let onInitializedChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerBgHostApi.onInitialized\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       onInitializedChannel.setMessageHandler { _, reply in
         do {
@@ -330,7 +330,7 @@ class BackgroundWorkerBgHostApiSetup {
     } else {
       onInitializedChannel.setMessageHandler(nil)
     }
-    let closeChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.BackgroundWorkerBgHostApi.close\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let closeChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerBgHostApi.close\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       closeChannel.setMessageHandler { _, reply in
         do {
@@ -362,7 +362,7 @@ class BackgroundWorkerFlutterApi: BackgroundWorkerFlutterApiProtocol {
     return BackgroundWorkerPigeonCodec.shared
   }
   func onIosUpload(isRefresh isRefreshArg: Bool, maxSeconds maxSecondsArg: Int64?, completion: @escaping (Result<Void, PigeonError>) -> Void) {
-    let channelName: String = "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.onIosUpload\(messageChannelSuffix)"
+    let channelName: String = "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.onIosUpload\(messageChannelSuffix)"
     let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
     channel.sendMessage([isRefreshArg, maxSecondsArg] as [Any?]) { response in
       guard let listResponse = response as? [Any?] else {
@@ -380,7 +380,7 @@ class BackgroundWorkerFlutterApi: BackgroundWorkerFlutterApiProtocol {
     }
   }
   func onAndroidUpload(maxMinutes maxMinutesArg: Int64?, completion: @escaping (Result<Void, PigeonError>) -> Void) {
-    let channelName: String = "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.onAndroidUpload\(messageChannelSuffix)"
+    let channelName: String = "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.onAndroidUpload\(messageChannelSuffix)"
     let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
     channel.sendMessage([maxMinutesArg] as [Any?]) { response in
       guard let listResponse = response as? [Any?] else {
@@ -398,7 +398,7 @@ class BackgroundWorkerFlutterApi: BackgroundWorkerFlutterApiProtocol {
     }
   }
   func cancel(completion: @escaping (Result<Void, PigeonError>) -> Void) {
-    let channelName: String = "dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.cancel\(messageChannelSuffix)"
+    let channelName: String = "dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.cancel\(messageChannelSuffix)"
     let channel = FlutterBasicMessageChannel(name: channelName, binaryMessenger: binaryMessenger, codec: codec)
     channel.sendMessage(nil) { response in
       guard let listResponse = response as? [Any?] else {

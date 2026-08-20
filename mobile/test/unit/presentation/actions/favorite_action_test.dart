@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/presentation/actions/favorite.action.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../domain/service.mock.dart';

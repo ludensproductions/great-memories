@@ -6,7 +6,7 @@
   import { faceManager } from '$lib/stores/face.svelte';
   import { locale } from '$lib/stores/preferences.store';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@great-memories/sdk';
   import { IconButton, Text } from '@immich/ui';
   import { mdiEye, mdiEyeOff, mdiPencil, mdiPlus } from '@mdi/js';
   import { DateTime } from 'luxon';
@@ -118,7 +118,7 @@
             widthStyle="100%"
             hidden={person.isHidden}
             highlighted={isHighlighted}
-            class="outline-offset-2 outline-immich-primary group-focus-visible:outline-2 dark:outline-immich-dark-primary"
+            class="outline-offset-2 outline-great-memories-primary group-focus-visible:outline-2 dark:outline-great-memories-dark-primary"
           />
           <p class="mt-1 truncate font-medium" title={person.name}>{person.name}</p>
           {#if person.birthDate && person.formattedAge}

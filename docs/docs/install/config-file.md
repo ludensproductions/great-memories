@@ -8,12 +8,12 @@ A config file can be provided as an alternative to the UI configuration.
 
 ### Step 1 - Create a new config file
 
-In JSON format, create a new config file (e.g. `immich.json`) and put it in a location mounted in the container that can be accessed by Immich.
+In JSON format, create a new config file (e.g. `great-memories.json`) and put it in a location mounted in the container that can be accessed by Great Memories.
 YAML-formatted config files are also supported.
 The default configuration looks like this:
 
 <details>
-<summary>immich.json</summary>
+<summary>great-memories.json</summary>
 
 ```json
 {
@@ -146,7 +146,7 @@ The default configuration looks like this:
       "minRecognitionScore": 0.8,
       "modelName": "PP-OCRv5_mobile"
     },
-    "urls": ["http://immich-machine-learning:3003"]
+    "urls": ["http://great-memories-machine-learning:3003"]
   },
   "map": {
     "darkStyle": "https://tiles.immich.cloud/v1/style/dark.json",
@@ -197,11 +197,11 @@ The default configuration looks like this:
     "mobileOverrideEnabled": false,
     "mobileRedirectUri": "",
     "profileSigningAlgorithm": "none",
-    "roleClaim": "immich_role",
+    "roleClaim": "great_memories_role",
     "scope": "openid email profile",
     "signingAlgorithm": "RS256",
     "storageLabelClaim": "preferred_username",
-    "storageQuotaClaim": "immich_quota",
+    "storageQuotaClaim": "great_memories_quota",
     "timeout": 30000,
     "tokenEndpointAuthMethod": "client_secret_post"
   },
@@ -250,18 +250,18 @@ So you can just grab it from there, paste it into a file and you're pretty much 
 
 ### Step 2 - Specify the file location
 
-In your `.env` file, set the variable `IMMICH_CONFIG_FILE` to the path of your config.
+In your `.env` file, set the variable `GREAT_MEMORIES_CONFIG_FILE` to the path of your config.
 For more information, refer to the [Environment Variables](/install/environment-variables.md) section.
 
 :::info Docker Compose
 In your `.env` file, the variables `UPLOAD_LOCATION` and `DB_DATA_LOCATION` concern the location on the host.
-However, the variable `IMMICH_CONFIG_FILE` concerns the location inside the container, and informs the `immich-server` container that a configuration file is present.
+However, the variable `GREAT_MEMORIES_CONFIG_FILE` concerns the location inside the container, and informs the `great-memories-server` container that a configuration file is present.
 
 It is recommended to reuse this variable in your `docker-compose.yml`:
 
 ```yaml
 volumes:
-  - ./configuration.yml:${IMMICH_CONFIG_FILE}
+  - ./configuration.yml:${GREAT_MEMORIES_CONFIG_FILE}
 ```
 
 :::

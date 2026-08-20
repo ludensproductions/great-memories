@@ -3,7 +3,7 @@
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { getContextMenuPositionFromEvent, type ContextMenuPosition } from '$lib/utils/context-menu';
   import { getShortDateRange } from '$lib/utils/date-time';
-  import { type AlbumResponseDto } from '@immich/sdk';
+  import { type AlbumResponseDto } from '@great-memories/sdk';
   import { IconButton } from '@immich/ui';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -68,12 +68,12 @@
     </p>
 
     {#if showDateRange && album.startDate && album.endDate}
-      <p class="flex text-sm capitalize dark:text-immich-dark-fg">
+      <p class="flex text-sm capitalize dark:text-great-memories-dark-fg">
         {getShortDateRange(album.startDate, album.endDate)}
       </p>
     {/if}
 
-    <span class="flex gap-2 text-sm dark:text-immich-dark-fg" data-testid="album-details">
+    <span class="flex gap-2 text-sm dark:text-great-memories-dark-fg" data-testid="album-details">
       {#if showItemCount}
         <p>
           {$t('items_count', { values: { count: album.assetCount } })}

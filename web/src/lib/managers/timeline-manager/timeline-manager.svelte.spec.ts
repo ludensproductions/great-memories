@@ -1,4 +1,4 @@
-import { AssetOrderBy, AssetVisibility, type AssetResponseDto, type TimeBucketAssetResponseDto } from '@immich/sdk';
+import { AssetOrderBy, AssetVisibility, type AssetResponseDto, type TimeBucketAssetResponseDto } from '@great-memories/sdk';
 import { tick } from 'svelte';
 import { sdkMock } from '$lib/__mocks__/sdk.mock';
 import { eventManager } from '$lib/managers/event-manager.svelte';

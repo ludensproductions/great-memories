@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_config.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_features.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_version.model.dart';
 
 enum VersionStatus {
   upToDate,
@@ -20,7 +20,6 @@ enum VersionStatus {
 
 class ServerInfo {
   final ServerVersion serverVersion;
-  final ServerVersion? latestVersion;
   final ServerFeatures serverFeatures;
   final ServerConfig serverConfig;
   final ServerDiskInfo serverDiskInfo;
@@ -28,7 +27,6 @@ class ServerInfo {
 
   const ServerInfo({
     required this.serverVersion,
-    this.latestVersion,
     required this.serverFeatures,
     required this.serverConfig,
     required this.serverDiskInfo,
@@ -37,7 +35,6 @@ class ServerInfo {
 
   ServerInfo copyWith({
     ServerVersion? serverVersion,
-    ServerVersion? latestVersion,
     ServerFeatures? serverFeatures,
     ServerConfig? serverConfig,
     ServerDiskInfo? serverDiskInfo,
@@ -45,7 +42,6 @@ class ServerInfo {
   }) {
     return ServerInfo(
       serverVersion: serverVersion ?? this.serverVersion,
-      latestVersion: latestVersion ?? this.latestVersion,
       serverFeatures: serverFeatures ?? this.serverFeatures,
       serverConfig: serverConfig ?? this.serverConfig,
       serverDiskInfo: serverDiskInfo ?? this.serverDiskInfo,
@@ -55,7 +51,7 @@ class ServerInfo {
 
   @override
   String toString() {
-    return 'ServerInfo(serverVersion: $serverVersion, latestVersion: $latestVersion, serverFeatures: $serverFeatures, serverConfig: $serverConfig, serverDiskInfo: $serverDiskInfo, versionStatus: $versionStatus)';
+    return 'ServerInfo(serverVersion: $serverVersion, serverFeatures: $serverFeatures, serverConfig: $serverConfig, serverDiskInfo: $serverDiskInfo, versionStatus: $versionStatus)';
   }
 
   @override
@@ -66,7 +62,6 @@ class ServerInfo {
 
     return other is ServerInfo &&
         other.serverVersion == serverVersion &&
-        other.latestVersion == latestVersion &&
         other.serverFeatures == serverFeatures &&
         other.serverConfig == serverConfig &&
         other.serverDiskInfo == serverDiskInfo &&
@@ -76,7 +71,6 @@ class ServerInfo {
   @override
   int get hashCode {
     return serverVersion.hashCode ^
-        latestVersion.hashCode ^
         serverFeatures.hashCode ^
         serverConfig.hashCode ^
         serverDiskInfo.hashCode ^

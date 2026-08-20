@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 class PartnerDetailBottomSheet extends ConsumerStatefulWidget {
   const PartnerDetailBottomSheet({super.key});
@@ -42,11 +42,11 @@ class _PartnerDetailBottomSheetState extends ConsumerState<PartnerDetailBottomSh
       }
 
       if (!result.success) {
-        ImmichToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
+        GreatMemoriesToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.count == 0
             ? 'add_to_album_bottom_sheet_already_exists'.tr(namedArgs: {'album': album.name})

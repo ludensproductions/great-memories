@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/server_info/server_info.model.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/models/server_info/server_info.model.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ServerUpdateNotification extends HookConsumerWidget {
@@ -21,15 +21,15 @@ class ServerUpdateNotification extends HookConsumerWidget {
     void openUpdateLink() {
       String url;
       if (serverInfoState.versionStatus == VersionStatus.serverOutOfDate) {
-        url = kImmichLatestRelease;
+        url = kGreatMemoriesLatestRelease;
       } else {
         if (Platform.isIOS) {
-          url = kImmichAppStoreLink;
+          url = kGreatMemoriesAppStoreLink;
         } else if (Platform.isAndroid) {
-          url = kImmichPlayStoreLink;
+          url = kGreatMemoriesPlayStoreLink;
         } else {
           // Fallback to latest release for other/unknown platforms
-          url = kImmichLatestRelease;
+          url = kGreatMemoriesLatestRelease;
         }
       }
 

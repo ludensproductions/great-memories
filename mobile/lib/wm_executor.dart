@@ -6,7 +6,7 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/utils/isolate_worker.dart';
+import 'package:great_memories_mobile/utils/isolate_worker.dart';
 import 'package:worker_manager/src/number_of_processors/processors_io.dart';
 import 'package:worker_manager/worker_manager.dart';
 

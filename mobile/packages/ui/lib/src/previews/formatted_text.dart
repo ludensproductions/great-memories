@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/formatted_text.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:great_memories_ui/src/components/formatted_text.dart';
+import 'package:great_memories_ui/src/previews.dart';
 
-@ImmichPreview(group: 'FormattedText', name: 'Bold')
-Widget previewFormattedTextBold() => const ImmichFormattedText('This is <b>bold text</b>.');
+@GreatMemoriesPreview(group: 'FormattedText', name: 'Bold')
+Widget previewFormattedTextBold() => const GreatMemoriesFormattedText('This is <b>bold text</b>.');
 
-@ImmichPreview(group: 'FormattedText', name: 'Links')
+@GreatMemoriesPreview(group: 'FormattedText', name: 'Links')
 Widget previewFormattedTextLinks() => const _PreviewFormattedTextLinks();
 
-@ImmichPreview(group: 'FormattedText', name: 'Mixed Content')
+@GreatMemoriesPreview(group: 'FormattedText', name: 'Mixed Content')
 Widget previewFormattedTextMixed() => const _PreviewFormattedTextMixed();
 
 class _PreviewFormattedTextLinks extends StatelessWidget {
@@ -16,7 +16,7 @@ class _PreviewFormattedTextLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichFormattedText(
+    return GreatMemoriesFormattedText(
       'Read the <docs-link>documentation</docs-link> or visit <github-link>GitHub</github-link>.',
       spanBuilder: (tag) => FormattedSpan(
         onTap: switch (tag) {
@@ -36,7 +36,7 @@ class _PreviewFormattedTextMixed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichFormattedText(
+    return GreatMemoriesFormattedText(
       'You can use <b>bold text</b> and <link>links</link> together.',
       spanBuilder: (tag) => switch (tag) {
         'b' => const FormattedSpan(style: TextStyle(fontWeight: FontWeight.bold)),

@@ -1,6 +1,6 @@
 import 'package:async/async.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
 
 typedef TrashedAssetsCount = ({int total, int hashed});
 

@@ -4,7 +4,7 @@ import { mapFaces, mapPerson } from 'src/dtos/person.dto';
 import { AssetFileType, CacheControl, JobName, JobStatus, SourceType, SystemMetadataKey } from 'src/enum';
 import { FaceSearchResult } from 'src/repositories/search.repository';
 import { PersonService } from 'src/services/person.service';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { AssetFaceFactory } from 'test/factories/asset-face.factory';
 import { AssetFactory } from 'test/factories/asset.factory';
 import { AuthFactory } from 'test/factories/auth.factory';
@@ -154,7 +154,7 @@ describe(PersonService.name, () => {
       mocks.person.getById.mockResolvedValue(person);
       mocks.access.person.checkOwnerAccess.mockResolvedValue(new Set([person.id]));
       await expect(sut.getThumbnail(auth, person.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new GreatMemoriesFileResponse({
           path: person.thumbnailPath,
           contentType: 'image/jpeg',
           cacheControl: CacheControl.PrivateWithoutCache,

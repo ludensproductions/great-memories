@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:drift/drift.dart' hide isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/entities/store.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/store.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/store.repository.dart';
 
 import '../../fixtures/user.stub.dart';
 

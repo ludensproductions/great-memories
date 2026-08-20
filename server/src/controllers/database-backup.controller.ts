@@ -8,7 +8,7 @@ import {
   DatabaseBackupListResponseDto,
   DatabaseBackupUploadDto,
 } from 'src/dtos/database-backup.dto';
-import { ApiTag, ImmichCookie, Permission } from 'src/enum';
+import { ApiTag, GreatMemoriesCookie, Permission } from 'src/enum';
 import { Authenticated, FileResponse, GetLoginDetails } from 'src/middleware/auth.guard';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { LoginDetails } from 'src/services/auth.service';
@@ -68,7 +68,7 @@ export class DatabaseBackupController {
   @Post('start-restore')
   @Endpoint({
     summary: 'Start database backup restore flow',
-    description: 'Put Immich into maintenance mode to restore a backup (Immich must not be configured)',
+    description: 'Put Great Memories into maintenance mode to restore a backup (Great Memories must not be configured)',
     history: new HistoryBuilder().added('v2.5.0').alpha('v2.5.0'),
   })
   async startDatabaseRestoreFlow(
@@ -78,7 +78,7 @@ export class DatabaseBackupController {
     const { jwt } = await this.maintenanceService.startRestoreFlow();
     return respondWithCookie(res, undefined, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.MaintenanceToken, value: jwt }],
+      values: [{ key: GreatMemoriesCookie.MaintenanceToken, value: jwt }],
     });
   }
 

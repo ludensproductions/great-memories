@@ -3,10 +3,10 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: immich_api
+  - job_name: great_memories_api
     static_configs:
-      - targets: ['immich-server:8081']
+      - targets: ['great-memories-server:8081']
 
-  - job_name: immich_microservices
+  - job_name: great_memories_microservices
     static_configs:
-      - targets: ['immich-server:8082']
+      - targets: ['great-memories-server:8082']

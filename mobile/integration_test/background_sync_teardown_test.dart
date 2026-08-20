@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/user.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/main.dart' as app;
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/wm_executor.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/utils/background_sync.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/user.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/main.dart' as app;
+import 'package:great_memories_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/utils/bootstrap.dart';
+import 'package:great_memories_mobile/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:openapi/api.dart';
 
-import 'test_utils/fake_immich_server.dart';
+import 'test_utils/fake_great_memories_server.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ void main() {
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
   late Drift drift;
-  late FakeImmichServer server;
+  late FakeGreatMemoriesServer server;
 
   setUpAll(() async {
     await app.initApp();
@@ -31,7 +31,7 @@ void main() {
 
   setUp(() async {
     await workerManagerPatch.init(dynamicSpawning: true);
-    server = await FakeImmichServer.start();
+    server = await FakeGreatMemoriesServer.start();
     await ApiService().resolveAndSetEndpoint(server.endpoint);
     await drift.delete(drift.userEntity).go();
     await Store.delete(StoreKey.syncMigrationStatus);
@@ -104,7 +104,7 @@ void main() {
     final sw = Stopwatch()..start();
     await workerManagerPatch.dispose().timeout(
       const Duration(seconds: 15),
-      onTimeout: () => fail('dispose() hung — worker did not drain and exit'),
+      onTimeout: () => fail('dispose() hung Ã¢â‚¬â€ worker did not drain and exit'),
     );
     expect(sw.elapsed, lessThan(const Duration(seconds: 10)), reason: 'abort-driven, not socket-timeout bound');
 
@@ -137,7 +137,7 @@ void main() {
     await stream.close();
 
     // dispose() can only finish once the worker unwinds, which is blocked on the
-    // lock — so start it, release the lock, then await completion.
+    // lock Ã¢â‚¬â€ so start it, release the lock, then await completion.
     final disposed = workerManagerPatch.dispose();
     releaseTxn.complete();
     await txn;

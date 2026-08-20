@@ -1,7 +1,7 @@
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/fixed/segment.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/segment.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/segment_builder.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/fixed/segment.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/segment.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/segment_builder.dart';
 
 class FixedSegmentBuilder extends SegmentBuilder {
   final double tileHeight;

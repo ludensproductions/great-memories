@@ -5,9 +5,9 @@ import 'package:background_downloader/background_downloader.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/download/livephotos_medatada.model.dart';
-import 'package:immich_mobile/repositories/download.repository.dart';
-import 'package:immich_mobile/repositories/file_media.repository.dart';
+import 'package:great_memories_mobile/models/download/livephotos_medatada.model.dart';
+import 'package:great_memories_mobile/repositories/download.repository.dart';
+import 'package:great_memories_mobile/repositories/file_media.repository.dart';
 import 'package:logging/logging.dart';
 
 final downloadServiceProvider = Provider(
@@ -71,7 +71,7 @@ class DownloadService {
   Future<bool> _saveImageWithPath(Task task) async {
     final filePath = await task.filePath();
     final title = task.filename;
-    final relativePath = Platform.isAndroid ? 'DCIM/Immich' : null;
+    final relativePath = Platform.isAndroid ? 'DCIM/Great Memories' : null;
     try {
       final resultAsset = await _fileMediaRepository.saveImageWithFile(
         filePath,
@@ -92,7 +92,7 @@ class DownloadService {
   Future<bool> _saveVideo(Task task) async {
     final filePath = await task.filePath();
     final title = task.filename;
-    final relativePath = Platform.isAndroid ? 'DCIM/Immich' : null;
+    final relativePath = Platform.isAndroid ? 'DCIM/Great Memories' : null;
     final file = File(filePath);
     try {
       final resultAsset = await _fileMediaRepository.saveVideo(file, title: title, relativePath: relativePath);

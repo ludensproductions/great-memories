@@ -5,7 +5,7 @@ import {
   WorkflowEventPayload,
   WorkflowResponse,
   WorkflowTrigger,
-} from '@immich/plugin-sdk';
+} from '@great-memories/plugin-sdk';
 import { HttpException, UnauthorizedException } from '@nestjs/common';
 import { join } from 'node:path';
 import { DummyValue, OnEvent, OnJob } from 'src/decorators';
@@ -16,12 +16,13 @@ import { PluginManifestDto } from 'src/dtos/plugin-manifest.dto';
 import {
   BootstrapEventPriority,
   DatabaseLock,
-  ImmichEnvironment,
-  ImmichWorker,
+  GreatMemoriesEnvironment,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   QueueName,
   WorkflowType,
+  AssetVisibility,
 } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { AlbumService } from 'src/services/album.service';
@@ -49,14 +50,14 @@ type HostContext = {
 export class WorkflowExecutionService extends BaseService {
   private jwtSecret!: string;
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [GreatMemoriesWorker.Microservices] })
   async onPluginSync() {
     await this.databaseRepository.withLock(DatabaseLock.PluginImport, async () => {
       // TODO avoid importing plugins in each worker
       // Can this use system metadata similar to geocoding?
 
       const { environment, resourcePaths, plugins } = this.configRepository.getEnv();
-      await this.importFolder(resourcePaths.corePlugin, { force: environment === ImmichEnvironment.Development });
+      await this.importFolder(resourcePaths.corePlugin, { force: environment === GreatMemoriesEnvironment.Development });
 
       if (plugins.external.allow && plugins.external.installFolder) {
         await this.importFolders(plugins.external.installFolder);
@@ -64,7 +65,7 @@ export class WorkflowExecutionService extends BaseService {
     });
   }
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [GreatMemoriesWorker.Microservices] })
   async onPluginLoad() {
     this.jwtSecret = this.cryptoRepository.randomBytesAsText(32);
 
@@ -334,8 +335,8 @@ export class WorkflowExecutionService extends BaseService {
                 authUserId: asset.ownerId,
               };
             },
-            write: async (auth, changes) => {
-              const asset = changes.asset;
+            write: async (auth: AuthDto, changes: WorkflowChanges<WorkflowType.AssetV1>) => {
+              const asset = (changes as { asset?: { isFavorite?: boolean; visibility?: AssetVisibility; exifInfo?: { dateTimeOriginal?: string | null; longitude?: number | null; latitude?: number | null; description?: string | null; rating?: number | null } | null } }).asset;
               if (!asset) {
                 return;
               }

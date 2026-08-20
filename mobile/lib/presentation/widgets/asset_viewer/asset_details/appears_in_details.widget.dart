@@ -3,16 +3,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_tile.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/album_tile.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
 
 class AppearsInDetails extends ConsumerWidget {
   final BaseAsset asset;

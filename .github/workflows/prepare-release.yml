@@ -84,8 +84,8 @@ jobs:
 
       - id: output
         run: |
-          echo "version=$IMMICH_VERSION" >> $GITHUB_OUTPUT
-          if [[ "$IMMICH_VERSION" =~ -rc\.[0-9]+$ ]]; then
+          echo "version=$GREAT_MEMORIES_VERSION" >> $GITHUB_OUTPUT
+          if [[ "$GREAT_MEMORIES_VERSION" =~ -rc\.[0-9]+$ ]]; then
             echo "rc=true" >> $GITHUB_OUTPUT
           else
             echo "rc=false" >> $GITHUB_OUTPUT

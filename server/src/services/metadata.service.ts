@@ -17,7 +17,7 @@ import {
   ChecksumAlgorithm,
   DatabaseLock,
   ExifOrientation,
-  ImmichWorker,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -25,7 +25,7 @@ import {
 } from 'src/enum';
 import { ArgOf } from 'src/repositories/event.repository';
 import { ReverseGeocodeResult } from 'src/repositories/map.repository';
-import { ImmichTags } from 'src/repositories/metadata.repository';
+import { GreatMemoriesTags } from 'src/repositories/metadata.repository';
 import { AssetExifTable } from 'src/schema/tables/asset-exif.table';
 import { AssetFaceTable } from 'src/schema/tables/asset-face.table';
 import { PersonTable } from 'src/schema/tables/person.table';
@@ -43,7 +43,7 @@ const POSTGRES_INT_MAX = 2_147_483_647;
 const POSTGRES_INT_MIN = -2_147_483_648;
 
 /** look for a date from these tags (in order) */
-const EXIF_DATE_TAGS: Array<keyof ImmichTags> = [
+const EXIF_DATE_TAGS: Array<keyof GreatMemoriesTags> = [
   'SubSecDateTimeOriginal',
   'SubSecCreateDate',
   'DateTimeOriginal',
@@ -55,10 +55,10 @@ const EXIF_DATE_TAGS: Array<keyof ImmichTags> = [
   'DateTimeUTC',
   'SonyDateTime2',
   // Undocumented, non-standard tag from insta360 in xmp.GPano namespace
-  'SourceImageCreateTime' as keyof ImmichTags,
+  'SourceImageCreateTime' as keyof GreatMemoriesTags,
 ];
 
-export function firstDateTime(tags: ImmichTags) {
+export function firstDateTime(tags: GreatMemoriesTags) {
   for (const tag of EXIF_DATE_TAGS) {
     const tagValue = tags?.[tag];
 
@@ -116,7 +116,7 @@ const validateRange = (value: number | undefined, min: number, max: number): Non
   return Math.round(val);
 };
 
-const getLensModel = (exifTags: ImmichTags): string | null => {
+const getLensModel = (exifTags: GreatMemoriesTags): string | null => {
   const lensModel = (exifTags.LensID ?? exifTags.LensType ?? exifTags.LensSpec ?? exifTags.LensModel ?? '').trim();
   if (lensModel === '----') {
     return null;
@@ -127,7 +127,7 @@ const getLensModel = (exifTags: ImmichTags): string | null => {
   return lensModel || null;
 };
 
-type ImmichTagsWithFaces = ImmichTags & { RegionInfo: NonNullable<ImmichTags['RegionInfo']> };
+type GreatMemoriesTagsWithFaces = GreatMemoriesTags & { RegionInfo: NonNullable<GreatMemoriesTags['RegionInfo']> };
 
 type Dates = {
   dateTimeOriginal: Date;
@@ -136,7 +136,7 @@ type Dates = {
 
 @Injectable()
 export class MetadataService extends BaseService {
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Microservices] })
   async onBootstrap() {
     this.logger.log('Bootstrapping metadata service');
     await this.init();
@@ -147,12 +147,12 @@ export class MetadataService extends BaseService {
     await this.metadataRepository.teardown();
   }
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [GreatMemoriesWorker.Microservices] })
   onConfigInit({ newConfig }: ArgOf<'ConfigInit'>) {
     this.metadataRepository.setMaxConcurrency(newConfig.job.metadataExtraction.concurrency);
   }
 
-  @OnEvent({ name: 'ConfigUpdate', workers: [ImmichWorker.Microservices], server: true })
+  @OnEvent({ name: 'ConfigUpdate', workers: [GreatMemoriesWorker.Microservices], server: true })
   onConfigUpdate({ newConfig }: ArgOf<'ConfigUpdate'>) {
     this.metadataRepository.setMaxConcurrency(newConfig.job.metadataExtraction.concurrency);
   }
@@ -559,7 +559,7 @@ export class MetadataService extends BaseService {
     return candidates;
   }
 
-  private getImageDimensions(exifTags: ImmichTags): { width?: number; height?: number } {
+  private getImageDimensions(exifTags: GreatMemoriesTags): { width?: number; height?: number } {
     /*
      * The "true" values for width and height are a bit hidden, depending on the camera model and file format.
      * For RAW images in the CR2 or RAF format, the "ImageSize" value seems to be correct,
@@ -634,7 +634,7 @@ export class MetadataService extends BaseService {
     };
   }
 
-  private getTagList(exifTags: ImmichTags): string[] {
+  private getTagList(exifTags: GreatMemoriesTags): string[] {
     let tags: string[];
     if (exifTags.TagsList) {
       tags = exifTags.TagsList.map(String);
@@ -672,11 +672,11 @@ export class MetadataService extends BaseService {
     );
   }
 
-  private isMotionPhoto(asset: { type: AssetType }, tags: ImmichTags): boolean {
+  private isMotionPhoto(asset: { type: AssetType }, tags: GreatMemoriesTags): boolean {
     return asset.type === AssetType.Image && !!(tags.MotionPhoto || tags.MicroVideo);
   }
 
-  private async applyMotionPhotos(asset: Asset, tags: ImmichTags, dates: Dates, stats: Stats) {
+  private async applyMotionPhotos(asset: Asset, tags: GreatMemoriesTags, dates: Dates, stats: Stats) {
     const isMotionPhoto = tags.MotionPhoto;
     const isMicroVideo = tags.MicroVideo;
     const videoOffset = tags.MicroVideoOffset;
@@ -823,16 +823,16 @@ export class MetadataService extends BaseService {
     }
   }
 
-  private hasTaggedFaces(tags: ImmichTags): tags is ImmichTagsWithFaces {
+  private hasTaggedFaces(tags: GreatMemoriesTags): tags is GreatMemoriesTagsWithFaces {
     return (
       tags.RegionInfo !== undefined && tags.RegionInfo.AppliedToDimensions && tags.RegionInfo.RegionList.length > 0
     );
   }
 
   private orientRegionInfo(
-    regionInfo: ImmichTagsWithFaces['RegionInfo'],
+    regionInfo: GreatMemoriesTagsWithFaces['RegionInfo'],
     orientation: ExifOrientation | undefined,
-  ): ImmichTagsWithFaces['RegionInfo'] {
+  ): GreatMemoriesTagsWithFaces['RegionInfo'] {
     // skip default Orientation
     if (orientation === undefined || orientation === ExifOrientation.Horizontal) {
       return regionInfo;
@@ -907,7 +907,7 @@ export class MetadataService extends BaseService {
 
   private async applyTaggedFaces(
     asset: { id: string; ownerId: string; faces: { id: string; sourceType: SourceType }[]; originalPath: string },
-    tags: ImmichTags,
+    tags: GreatMemoriesTags,
   ) {
     if (!tags.RegionInfo?.AppliedToDimensions || tags.RegionInfo.RegionList.length === 0) {
       return;
@@ -985,7 +985,7 @@ export class MetadataService extends BaseService {
 
   private getDates(
     asset: { id: string; originalPath: string; fileCreatedAt: Date },
-    exifTags: ImmichTags,
+    exifTags: GreatMemoriesTags,
     stats: Stats,
   ) {
     const result = firstDateTime(exifTags);
@@ -1052,20 +1052,20 @@ export class MetadataService extends BaseService {
     };
   }
 
-  private hasGeo(tags: ImmichTags) {
+  private hasGeo(tags: GreatMemoriesTags) {
     const lat = Number(tags.GPSLatitude);
     const lng = Number(tags.GPSLongitude);
     return !Number.isNaN(lat) && !Number.isNaN(lng) && (lat !== 0 || lng !== 0);
   }
 
-  private getAutoStackId(tags: ImmichTags | null): string | null {
+  private getAutoStackId(tags: GreatMemoriesTags | null): string | null {
     if (!tags) {
       return null;
     }
     return tags.BurstID ?? tags.BurstUUID ?? tags.CameraBurstID ?? tags.MediaUniqueID ?? null;
   }
 
-  private getBitsPerSample(tags: ImmichTags): number | null {
+  private getBitsPerSample(tags: GreatMemoriesTags): number | null {
     const bitDepthTags = [
       tags.BitsPerSample,
       tags.ComponentBitDepth,
@@ -1083,7 +1083,7 @@ export class MetadataService extends BaseService {
     return bitsPerSample;
   }
 
-  private getDuration(tags: ImmichTags): number | null {
+  private getDuration(tags: GreatMemoriesTags): number | null {
     const duration = tags.Duration;
     // eslint-disable-next-line unicorn/prefer-number-coercion
     const seconds = typeof duration === 'number' ? duration : Number.parseFloat(duration as string);
@@ -1096,7 +1096,7 @@ export class MetadataService extends BaseService {
     const audio = audioStreams[0];
     const packets = video?.timeBase ? await this.mediaRepository.probePackets(originalPath, video.index) : null;
 
-    const tags: Pick<ImmichTags, 'Duration' | 'Orientation' | 'ImageWidth' | 'ImageHeight'> = {};
+    const tags: Pick<GreatMemoriesTags, 'Duration' | 'Orientation' | 'ImageWidth' | 'ImageHeight'> = {};
 
     if (video) {
       if (video.width) {
@@ -1133,7 +1133,7 @@ export class MetadataService extends BaseService {
     return { tags, audio, video, packets, format };
   }
 
-  private getHeifOrientation(exifTags: ImmichTags): ExifOrientation | null {
+  private getHeifOrientation(exifTags: GreatMemoriesTags): ExifOrientation | null {
     // https://exiftool.org/TagNames/QuickTime.html#ItemPropCont
     const rotation = typeof exifTags.Rotation === 'number' ? exifTags.Rotation : undefined;
     switch (rotation) {

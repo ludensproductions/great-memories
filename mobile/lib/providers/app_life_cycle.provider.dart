@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/backup/drift_backup.provider.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/permission.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/services/log.service.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/backup/drift_backup.provider.dart';
+import 'package:great_memories_mobile/providers/gallery_permission.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/permission.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/websocket.provider.dart';
 import 'package:logging/logging.dart';
 
 enum AppLifeCycleEnum { active, inactive, paused, resumed, detached, hidden }

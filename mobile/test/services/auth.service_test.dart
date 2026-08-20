@@ -2,11 +2,11 @@ import 'package:drift/drift.dart' hide isNull;
 import 'package:drift/native.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/services/auth.service.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:great_memories_mobile/models/auth/auxilary_endpoint.model.dart';
+import 'package:great_memories_mobile/services/auth.service.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 
@@ -67,8 +67,8 @@ void main() {
     });
 
     test('Should resolve HTTPS endpoint', () async {
-      const testUrl = 'https://immich.domain.com';
-      const resolvedUrl = 'https://immich.domain.com/api';
+      const testUrl = 'https://great-memories.domain.com';
+      const resolvedUrl = 'https://great-memories.domain.com/api';
 
       when(() => apiService.resolveAndSetEndpoint(testUrl)).thenAnswer((_) async => resolvedUrl);
       when(() => apiService.setDeviceInfoHeader()).thenAnswer((_) async => {});

@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { utils } from 'src/utils';
 
@@ -23,7 +23,7 @@ test.describe('Database Backups', () => {
     // work-around until test is running on released version
     await utils.move(
       `/data/backups/${filename}`,
-      '/data/backups/immich-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
+      '/data/backups/great-memories-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
     );
 
     await page.goto('/admin/maintenance?isOpen=backups');
@@ -78,7 +78,7 @@ test.describe('Database Backups', () => {
     // work-around until test is running on released version
     await utils.move(
       `/data/backups/${filename}`,
-      '/data/backups/immich-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
+      '/data/backups/great-memories-db-backup-20260114T184016-v2.5.0-pg14.19.sql.gz',
     );
 
     await utils.resetDatabase();

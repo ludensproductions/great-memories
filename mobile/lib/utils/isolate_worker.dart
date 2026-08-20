@@ -2,7 +2,7 @@
 // `CancelRequest` completes the computation's [Completer] (so it can await
 // cancellation and unwind) instead of flipping a polled flag, and [shutdown]
 // lets the isolate drain and exit on its own rather than force-killing it. Only
-// the gentle-with-cancellation path immich uses is kept.
+// the gentle-with-cancellation path great-memories uses is kept.
 //
 // ignore_for_file: implementation_imports
 

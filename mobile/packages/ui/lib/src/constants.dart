@@ -1,6 +1,6 @@
 /// Spacing constants for gaps between widgets
-abstract class ImmichSpacing {
-  const ImmichSpacing._();
+abstract class GreatMemoriesSpacing {
+  const GreatMemoriesSpacing._();
 
   /// Extra small spacing: 4.0
   static const double xs = 4.0;
@@ -25,8 +25,8 @@ abstract class ImmichSpacing {
 }
 
 /// Border radius constants for consistent rounded corners
-abstract class ImmichRadius {
-  const ImmichRadius._();
+abstract class GreatMemoriesRadius {
+  const GreatMemoriesRadius._();
 
   /// No radius: 0.0
   static const double none = 0.0;
@@ -54,8 +54,8 @@ abstract class ImmichRadius {
 }
 
 /// Icon size constants for consistent icon sizing
-abstract class ImmichIconSize {
-  const ImmichIconSize._();
+abstract class GreatMemoriesIconSize {
+  const GreatMemoriesIconSize._();
 
   /// Extra small icon: 16.0
   static const double xs = 16.0;
@@ -77,8 +77,8 @@ abstract class ImmichIconSize {
 }
 
 /// Animation duration constants for consistent timing
-abstract class ImmichDuration {
-  const ImmichDuration._();
+abstract class GreatMemoriesDuration {
+  const GreatMemoriesDuration._();
 
   /// Extra fast: 100ms
   static const Duration extraFast = Duration(milliseconds: 100);
@@ -100,8 +100,8 @@ abstract class ImmichDuration {
 }
 
 /// Elevation constants for consistent shadows and depth
-abstract class ImmichElevation {
-  const ImmichElevation._();
+abstract class GreatMemoriesElevation {
+  const GreatMemoriesElevation._();
 
   /// No elevation: 0.0
   static const double none = 0.0;
@@ -126,8 +126,8 @@ abstract class ImmichElevation {
 }
 
 /// Border width constants (similar to Tailwind's border-* scale)
-abstract class ImmichBorderWidth {
-  const ImmichBorderWidth._();
+abstract class GreatMemoriesBorderWidth {
+  const GreatMemoriesBorderWidth._();
 
   /// No border: 0.0
   static const double none = 0.0;
@@ -150,8 +150,8 @@ abstract class ImmichBorderWidth {
 
 /// Text size constants with semantic HTML-like naming
 /// These follow a type scale for harmonious text hierarchy
-abstract class ImmichTextSize {
-  const ImmichTextSize._();
+abstract class GreatMemoriesTextSize {
+  const GreatMemoriesTextSize._();
 
   /// Caption text: 10.0
   /// Use for: Tiny labels, legal text, metadata, timestamps

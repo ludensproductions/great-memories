@@ -1,13 +1,13 @@
 # Database GUI
 
-A short guide on connecting [pgAdmin](https://www.pgadmin.org/) to Immich.
+A short guide on connecting [pgAdmin](https://www.pgadmin.org/) to Great Memories.
 
 ## 1. Install pgAdmin
 
 Add a file `docker-compose-pgadmin.yml` next to your `docker-compose.yml` with the following content:
 
 ```
-name: immich
+name: great-memories
 
 services:
   pgadmin:
@@ -28,7 +28,7 @@ volumes:
 
 Change the values of `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` in this file.
 
-Run `docker compose -f docker-compose.yml -f docker-compose-pgadmin.yml up` to start immich along with `pgAdmin`.
+Run `docker compose -f docker-compose.yml -f docker-compose-pgadmin.yml up` to start great-memories along with `pgAdmin`.
 
 ## 2. Add a Server
 
@@ -44,10 +44,10 @@ The parameters used here match those specified in the example `.env` file. If yo
 
 | Name                 | Value             |
 | -------------------- | ----------------- |
-| Host name/address    | `immich_postgres` |
+| Host name/address    | `great_memories_postgres` |
 | Port                 | `5432`            |
-| Maintenance database | `immich`          |
+| Maintenance database | `great-memories`          |
 | Username             | `postgres`        |
 | Password             | `postgres`        |
 
-Click on "Save" to connect to the Immich database.
+Click on "Save" to connect to the Great Memories database.

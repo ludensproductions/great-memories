@@ -2,7 +2,7 @@
   import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { deleteProfileImage, updateMyUser, UserAvatarColor } from '@immich/sdk';
+  import { deleteProfileImage, updateMyUser, UserAvatarColor } from '@great-memories/sdk';
   import { Modal, ModalBody, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

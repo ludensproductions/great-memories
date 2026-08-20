@@ -5,27 +5,26 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/backup/drift_backup.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/theme/color_scheme.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
+import 'package:great_memories_mobile/constants/locales.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/generated/codegen_loader.g.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/backup/drift_backup.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:great_memories_mobile/providers/websocket.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/theme/color_scheme.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_title_text.dart';
 import 'package:logging/logging.dart';
-import 'package:url_launcher/url_launcher.dart' show launchUrl, LaunchMode;
 
 class BootstrapErrorWidget extends StatelessWidget {
   final String error;
@@ -35,7 +34,7 @@ class BootstrapErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext _) {
-    final immichTheme = defaultConfig.theme.primaryColor.themeOfPreset;
+    final greatMemoriesTheme = defaultConfig.theme.primaryColor.themeOfPreset;
 
     return EasyLocalization(
       supportedLocales: locales.values.toList(),
@@ -45,14 +44,14 @@ class BootstrapErrorWidget extends StatelessWidget {
       assetLoader: const CodegenLoader(),
       child: Builder(
         builder: (lCtx) => MaterialApp(
-          title: 'Immich',
+          title: 'Great Memories',
           debugShowCheckedModeBanner: true,
           localizationsDelegates: lCtx.localizationDelegates,
           supportedLocales: lCtx.supportedLocales,
           locale: lCtx.locale,
           themeMode: ThemeMode.system,
-          darkTheme: getThemeData(colorScheme: immichTheme.dark, locale: lCtx.locale),
-          theme: getThemeData(colorScheme: immichTheme.light, locale: lCtx.locale),
+          darkTheme: getThemeData(colorScheme: greatMemoriesTheme.dark, locale: lCtx.locale),
+          theme: getThemeData(colorScheme: greatMemoriesTheme.light, locale: lCtx.locale),
           home: Builder(
             builder: (ctx) => Scaffold(
               body: Column(
@@ -63,7 +62,7 @@ class BootstrapErrorWidget extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [ImmichLogo(size: 48), SizedBox(width: 12), ImmichTitleText(fontSize: 24)],
+                        children: [GreatMemoriesLogo(size: 48), SizedBox(width: 12), GreatMemoriesTitleText(fontSize: 24)],
                       ),
                     ),
                   ),
@@ -130,7 +129,7 @@ class _BottomPanelState extends State<_BottomPanel> {
     }
 
     try {
-      await deleteSqliteDatabase(name: 'immich');
+      await deleteSqliteDatabase(name: 'great-memories');
     } catch (_) {
       return;
     }
@@ -154,19 +153,6 @@ class _BottomPanelState extends State<_BottomPanel> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _ActionLink(
-              icon: Icons.chat_bubble_outline,
-              label: context.t.discord,
-              onTap: () => launchUrl(Uri.parse('https://discord.immich.app/'), mode: LaunchMode.externalApplication),
-            ),
-            _ActionLink(
-              icon: Icons.bug_report_outlined,
-              label: context.t.profile_drawer_github,
-              onTap: () => launchUrl(
-                Uri.parse('https://github.com/immich-app/immich/issues'),
-                mode: LaunchMode.externalApplication,
-              ),
-            ),
             if (!_cleared)
               _ActionLink(
                 icon: Icons.delete_outline,
@@ -380,7 +366,7 @@ class SplashScreenPageState extends ConsumerState<SplashScreenPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Image(image: AssetImage('assets/immich-logo.png'), width: 80, filterQuality: FilterQuality.high),
+        child: Image(image: AssetImage('assets/great-memories-logo.png'), width: 80, filterQuality: FilterQuality.high),
       ),
     );
   }

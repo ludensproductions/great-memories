@@ -16,16 +16,16 @@ class ServerDiscoveryConstants {
   const ServerDiscoveryConstants._();
 
   /// mDNS service type announced by Avahi on the server.
-  static const String mdnsServiceType = '_immich._tcp';
-  static const String mdnsServiceDomain = '_immich._tcp.local';
+  static const String mdnsServiceType = '_great_memories._tcp';
+  static const String mdnsServiceDomain = '_great_memories._tcp.local';
 
-  /// Port where the Immich server listens.
+  /// Port where the Great Memories server listens.
   static const int serverPort = 2283;
 
-  // Hardcodeados como constantes de protocolo — igual que _immich._tcp y el
+  // Hardcodeados como constantes de protocolo — igual que _great_memories._tcp y el
   // puerto 2283. El UUID identifica el tipo de servicio BLE, no es un secreto:
   // BLE advertising es público y cualquier scanner puede verlo.
-  // Múltiples Immich en la misma red no se interfieren porque cada
+  // Múltiples Great Memories en la misma red no se interfieren porque cada
   // dispositivo tiene un MAC address BLE único.
   static final Guid bleServiceUuid = Guid('494d4d49-0000-1000-8000-000000002283');
   static final Guid bleIpCharacteristicUuid = Guid('494d4d49-0001-1000-8000-000000002283');
@@ -55,7 +55,7 @@ class DiscoveredServer {
   String get url => 'http://$ip:$port';
 }
 
-/// A BLE peripheral advertising the Immich service UUID, found during a scan.
+/// A BLE peripheral advertising the Great Memories service UUID, found during a scan.
 /// The server IP is not known yet: it requires connecting and reading the
 /// characteristic via [ServerDiscoveryService.readBleServerIp].
 class BleServerDevice {
@@ -64,7 +64,7 @@ class BleServerDevice {
 
   const BleServerDevice({required this.device, required this.advertisedName});
 
-  String get name => advertisedName.isEmpty ? 'Immich' : advertisedName;
+  String get name => advertisedName.isEmpty ? 'Great Memories' : advertisedName;
 
   String get id => device.remoteId.str;
 }
@@ -72,7 +72,7 @@ class BleServerDevice {
 class ServerDiscoveryService {
   final _log = Logger('ServerDiscoveryService');
 
-  /// Browses the local network for `_immich._tcp` services.
+  /// Browses the local network for `_great_memories._tcp` services.
   ///
   /// Returns every distinct server found within the scan window. Throws
   /// [ServerDiscoveryException] with [ServerDiscoveryErrorType.notFound]
@@ -133,7 +133,7 @@ class ServerDiscoveryService {
     if (found.isEmpty) {
       throw const ServerDiscoveryException(
         ServerDiscoveryErrorType.notFound,
-        'No se encontró ningún servidor Immich en la red (tiempo de espera agotado).',
+        'No se encontró ningún servidor Great Memories en la red (tiempo de espera agotado).',
       );
     }
 
@@ -141,7 +141,7 @@ class ServerDiscoveryService {
   }
 
   /// Scans during the whole [ServerDiscoveryConstants.scanTimeout] window and
-  /// returns every distinct BLE peripheral advertising the Immich service UUID.
+  /// returns every distinct BLE peripheral advertising the Great Memories service UUID.
   Future<List<BleServerDevice>> scanForBleServers() async {
     await _ensureBlePermissions();
     await _ensureBluetoothOn();
@@ -204,7 +204,7 @@ class ServerDiscoveryService {
       if (service == null) {
         throw const ServerDiscoveryException(
           ServerDiscoveryErrorType.notFound,
-          'El dispositivo encontrado no expone el servicio Immich.',
+          'El dispositivo encontrado no expone el servicio Great Memories.',
         );
       }
 

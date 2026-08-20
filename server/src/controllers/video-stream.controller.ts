@@ -12,7 +12,7 @@ import {
   HlsSessionParamDto,
   HlsVariantParamDto,
 } from 'src/dtos/streaming.dto';
-import { ApiTag, ImmichHeader, Permission, RouteKey } from 'src/enum';
+import { ApiTag, GreatMemoriesHeader, Permission, RouteKey } from 'src/enum';
 import { Auth, Authenticated, FileResponse } from 'src/middleware/auth.guard';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { HlsService } from 'src/services/hls.service';
@@ -61,7 +61,7 @@ export class VideoStreamController {
     } catch (error) {
       throw new ZodValidationException(error);
     }
-    return this.service.getMediaPlaylist(auth, id, sessionId, variantIndex, headers[ImmichHeader.HlsPosition]);
+    return this.service.getMediaPlaylist(auth, id, sessionId, variantIndex, headers[GreatMemoriesHeader.HlsPosition]);
   }
 
   @Get(':id/video/stream/:sessionId/:variantIndex/:filename')
@@ -87,7 +87,7 @@ export class VideoStreamController {
     await sendFile(
       res,
       next,
-      () => this.service.getSegment(auth, id, sessionId, variantIndex, filename, headers[ImmichHeader.HlsInitSegment]),
+      () => this.service.getSegment(auth, id, sessionId, variantIndex, filename, headers[GreatMemoriesHeader.HlsInitSegment]),
       this.logger,
     );
   }

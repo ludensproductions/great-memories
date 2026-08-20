@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/cache_aware_listener_tracker.mixin.dart';
 
 /// An ImageStreamCompleter with support for loading multiple images.
 class OneFramePlaceholderImageStreamCompleter extends ImageStreamCompleter with CacheAwareListenerTrackerMixin {

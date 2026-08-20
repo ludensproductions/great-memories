@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/is_motion_video_playing.provider.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/is_motion_video_playing.provider.dart';
 
 class MotionPhotoPlayButton extends ConsumerWidget {
   const MotionPhotoPlayButton({super.key});

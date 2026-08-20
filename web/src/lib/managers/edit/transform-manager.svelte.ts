@@ -1,4 +1,4 @@
-import { AssetEditAction, AssetMediaSize, MirrorAxis, type AssetResponseDto, type CropParameters } from '@immich/sdk';
+import { AssetEditAction, AssetMediaSize, MirrorAxis, type AssetResponseDto, type CropParameters } from '@great-memories/sdk';
 import { clamp } from 'lodash-es';
 import { tick } from 'svelte';
 import { type EditActions, type EditToolManager } from '$lib/managers/edit/edit-manager.svelte';

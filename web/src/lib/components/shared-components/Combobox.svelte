@@ -285,7 +285,7 @@
   <div>
     {#if isActive}
       <div class="absolute inset-y-0 inset-s-0 flex items-center ps-3">
-        <div class="dark:text-immich-dark-fg/75">
+        <div class="dark:text-great-memories-dark-fg/75">
           <Icon icon={mdiMagnify} aria-hidden />
         </div>
       </div>
@@ -304,7 +304,7 @@
       class:rounded-b-none!={isOpen && dropdownDirection === 'bottom'}
       class:rounded-t-none!={isOpen && dropdownDirection === 'top'}
       class:cursor-pointer={!isActive}
-      class="immich-form-input w-full pe-12! text-sm transition-all"
+      class="great-memories-form-input w-full pe-12! text-sm transition-all"
       id={inputId}
       onfocus={activate}
       oninput={onInput}

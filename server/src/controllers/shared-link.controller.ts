@@ -26,7 +26,7 @@ import {
   SharedLinkResponseDto,
   SharedLinkSearchDto,
 } from 'src/dtos/shared-link.dto';
-import { ApiTag, ImmichCookie, Permission } from 'src/enum';
+import { ApiTag, GreatMemoriesCookie, Permission } from 'src/enum';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { LoginDetails } from 'src/services/auth.service';
@@ -35,7 +35,7 @@ import { respondWithCookie } from 'src/utils/response';
 import { UUIDParamDto } from 'src/validation';
 
 const getAuthTokens = (cookies: Record<string, string> | undefined) => {
-  return cookies?.[ImmichCookie.SharedLinkToken]?.split(',') || [];
+  return cookies?.[GreatMemoriesCookie.SharedLinkToken]?.split(',') || [];
 };
 
 const merge = (cookies: Record<string, string> | undefined, token: string) => {
@@ -84,7 +84,7 @@ export class SharedLinkController {
 
     return respondWithCookie(res, sharedLink, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.SharedLinkToken, value: merge(req.cookies, token) }],
+      values: [{ key: GreatMemoriesCookie.SharedLinkToken, value: merge(req.cookies, token) }],
     });
   }
 

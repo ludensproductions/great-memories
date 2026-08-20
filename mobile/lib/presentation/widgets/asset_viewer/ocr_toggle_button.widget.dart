@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/ocr.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/ocr.provider.dart';
 
 class OcrToggleButton extends ConsumerWidget {
   final BaseAsset asset;

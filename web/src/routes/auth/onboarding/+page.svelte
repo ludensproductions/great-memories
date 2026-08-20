@@ -15,7 +15,7 @@
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
   import { Route } from '$lib/route';
   import { OnboardingRole } from '$lib/types';
-  import { setUserOnboarding, updateAdminOnboarding } from '@immich/sdk';
+  import { setUserOnboarding, updateAdminOnboarding } from '@great-memories/sdk';
   import {
     mdiCellphoneArrowDownVariant,
     mdiCloudCheckOutline,

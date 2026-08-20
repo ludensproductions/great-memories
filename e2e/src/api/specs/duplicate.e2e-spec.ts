@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, utils } from 'src/utils';

@@ -8,7 +8,7 @@ import {
   type UserAdminDeleteDto,
   type UserAdminResponseDto,
   type UserAdminUpdateDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import {
   mdiDeleteRestore,

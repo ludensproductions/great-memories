@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/services/search.service.dart';
-import 'package:immich_mobile/models/search/search_filter.model.dart';
-import 'package:immich_mobile/providers/infrastructure/search.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/services/search.service.dart';
+import 'package:great_memories_mobile/models/search/search_filter.model.dart';
+import 'package:great_memories_mobile/providers/infrastructure/search.provider.dart';
 
 final searchPreFilterProvider = NotifierProvider<SearchFilterProvider, SearchFilter?>(SearchFilterProvider.new);
 

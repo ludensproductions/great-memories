@@ -20,13 +20,13 @@ RUN --mount=type=cache,id=pnpm-server,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter immich build && \
-  SHARP_FORCE_GLOBAL_LIBVIPS=true  pnpm --filter immich --prod --no-optional deploy /output/server-pruned
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter great-memories build && \
+  SHARP_FORCE_GLOBAL_LIBVIPS=true  pnpm --filter great-memories --prod --no-optional deploy /output/server-pruned
 
 FROM builder AS web
 
 ARG BUILD_ID
-ENV IMMICH_BUILD=${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD=${BUILD_ID}
 
 WORKDIR /usr/src/app
 COPY ./web ./web/
@@ -37,8 +37,8 @@ RUN --mount=type=cache,id=pnpm-web,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @immich/sdk --filter immich-web install --frozen-lockfile --force && \
-  pnpm --filter @immich/sdk --filter immich-web build
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter @great-memories/sdk --filter great-memories-web install --frozen-lockfile --force && \
+  pnpm --filter @great-memories/sdk --filter great-memories-web build
 
 FROM builder AS cli
 
@@ -48,9 +48,9 @@ RUN --mount=type=cache,id=pnpm-cli,target=/buildcache/pnpm-store \
   --mount=type=bind,source=.pnpmfile.cjs,target=.pnpmfile.cjs \
   --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
   --mount=type=bind,source=pnpm-workspace.yaml,target=pnpm-workspace.yaml \
-  pnpm --filter @immich/sdk --filter @immich/cli install --frozen-lockfile && \
-  pnpm --filter @immich/sdk --filter @immich/cli build && \
-  pnpm --filter @immich/cli --prod --no-optional deploy /output/cli-pruned
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli install --frozen-lockfile && \
+  pnpm --filter @great-memories/sdk --filter @great-memories/cli build && \
+  pnpm --filter @great-memories/cli --prod --no-optional deploy /output/cli-pruned
 
 FROM builder AS plugins
 
@@ -90,9 +90,9 @@ ENV NODE_ENV=production \
 COPY --from=server /output/server-pruned ./server
 COPY --from=web /usr/src/app/web/build /build/www
 COPY --from=cli /output/cli-pruned ./cli
-COPY --from=plugins /app/packages/plugin-core/dist /build/plugins/immich-plugin-core/dist
-COPY --from=plugins /app/packages/plugin-core/manifest.json /build/plugins/immich-plugin-core/manifest.json
-RUN ln -s ../../cli/bin/immich server/bin/immich
+COPY --from=plugins /app/packages/plugin-core/dist /build/plugins/great-memories-plugin-core/dist
+COPY --from=plugins /app/packages/plugin-core/manifest.json /build/plugins/great-memories-plugin-core/manifest.json
+RUN ln -s ../../cli/bin/great-memories server/bin/great-memories
 COPY LICENSE /licenses/LICENSE.txt
 COPY LICENSE /LICENSE
 
@@ -103,19 +103,19 @@ ARG BUILD_IMAGE
 ARG BUILD_SOURCE_REF
 ARG BUILD_SOURCE_COMMIT
 
-ENV IMMICH_BUILD=${BUILD_ID}
-ENV IMMICH_BUILD_URL=https://github.com/immich-app/immich/actions/runs/${BUILD_ID}
-ENV IMMICH_BUILD_IMAGE=${BUILD_IMAGE}
-ENV IMMICH_BUILD_IMAGE_URL=https://github.com/immich-app/immich/pkgs/container/immich-server
-ENV IMMICH_REPOSITORY=immich-app/immich
-ENV IMMICH_REPOSITORY_URL=https://github.com/immich-app/immich
-ENV IMMICH_SOURCE_REF=${BUILD_SOURCE_REF}
-ENV IMMICH_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
-ENV IMMICH_SOURCE_URL=https://github.com/immich-app/immich/commit/${BUILD_SOURCE_COMMIT}
+ENV GREAT_MEMORIES_BUILD=${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD_URL=https://github.com/ludensproductions/great-memories/actions/runs/${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD_IMAGE=${BUILD_IMAGE}
+ENV GREAT_MEMORIES_BUILD_IMAGE_URL=https://github.com/ludensproductions/great-memories/pkgs/container/great-memories-server
+ENV GREAT_MEMORIES_REPOSITORY=ludensproductions/great-memories
+ENV GREAT_MEMORIES_REPOSITORY_URL=https://github.com/ludensproductions/great-memories
+ENV GREAT_MEMORIES_SOURCE_REF=${BUILD_SOURCE_REF}
+ENV GREAT_MEMORIES_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
+ENV GREAT_MEMORIES_SOURCE_URL=https://github.com/ludensproductions/great-memories/commit/${BUILD_SOURCE_COMMIT}
 
 VOLUME /data
 EXPOSE 2283
 ENTRYPOINT ["tini", "--", "/bin/bash", "-c"]
 CMD ["start.sh"]
 
-HEALTHCHECK CMD immich-healthcheck
+HEALTHCHECK CMD great-memories-healthcheck

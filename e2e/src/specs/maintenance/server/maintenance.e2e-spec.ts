@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, utils } from 'src/utils';
@@ -87,7 +87,7 @@ describe('/admin/maintenance', () => {
 
       cookie = headers['set-cookie'][0].split(';', 1)[0];
       expect(cookie).toEqual(
-        expect.stringMatching(/^immich_maintenance_token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/),
+        expect.stringMatching(/^great_memories_maintenance_token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/),
       );
 
       await expect
@@ -140,7 +140,7 @@ describe('/admin/maintenance', () => {
         expect(status).toBe(201);
         expect(body).toEqual(
           expect.objectContaining({
-            username: 'Immich Admin',
+            username: 'Great Memories Admin',
           }),
         );
       });
@@ -154,7 +154,7 @@ describe('/admin/maintenance', () => {
         expect(status).toBe(201);
         expect(body).toEqual(
           expect.objectContaining({
-            username: 'Immich Admin',
+            username: 'Great Memories Admin',
           }),
         );
       });

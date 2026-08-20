@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@great-memories/plugin-sdk';
 import { ShallowDehydrateObject } from 'kysely';
 import { SystemConfig } from 'src/config';
 import { VECTOR_EXTENSIONS } from 'src/constants';
@@ -482,7 +482,7 @@ export interface ExtensionVersion {
   installedVersion: string | null;
 }
 
-export interface ImmichFile extends Express.Multer.File {
+export interface GreatMemoriesFile extends Express.Multer.File {
   uuid: string;
   /** sha1 hash of file */
   checksum: Buffer;
@@ -509,8 +509,8 @@ export type UploadRequest = {
 };
 
 export interface UploadFiles {
-  assetData: ImmichFile[];
-  sidecarData: ImmichFile[];
+  assetData: GreatMemoriesFile[];
+  sidecarData: GreatMemoriesFile[];
 }
 
 export interface IBulkAsset {

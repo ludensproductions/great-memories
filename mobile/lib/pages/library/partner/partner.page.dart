@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/partner.action.dart';
-import 'package:immich_mobile/presentation/widgets/people/partner_user_avatar.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/presentation/actions/action.widget.dart';
+import 'package:great_memories_mobile/presentation/actions/partner.action.dart';
+import 'package:great_memories_mobile/presentation/widgets/people/partner_user_avatar.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/user.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 
 @visibleForTesting
 final partnersStateProvider = StreamProvider.autoDispose<Iterable<Partner>>((ref) {

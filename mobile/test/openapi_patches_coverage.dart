@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/openapi_patching.dart';
+import 'package:great_memories_mobile/utils/openapi_patching.dart';
 
 void main() {
   test('every newly-required response field has a backward-compat patch', () {

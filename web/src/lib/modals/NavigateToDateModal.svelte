@@ -48,11 +48,11 @@
 >
   <VStack fullWidth>
     <HStack fullWidth>
-      <label class="immich-form-label" for="datetime">{$t('date_and_time')}</label>
+      <label class="great-memories-form-label" for="datetime">{$t('date_and_time')}</label>
     </HStack>
     <HStack fullWidth>
       <DateInput
-        class="immich-form-input w-full text-gray-700"
+        class="great-memories-form-input w-full text-gray-700"
         id="datetime"
         type="datetime-local"
         bind:value={selectedDate}

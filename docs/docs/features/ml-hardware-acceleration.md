@@ -61,7 +61,7 @@ You do not need to redo any machine learning jobs after enabling hardware accele
 
 #### OpenVINO-WSL
 
-- Ensure your container can access the /dev/dri directory, you can verify this by doing `docker exec -t immich_machine_learning ls -la /dev/dri`. If this is not the case execute `getent group render` and `getent group video` on the WSL host, then add those groups to hwaccel.ml.yaml
+- Ensure your container can access the /dev/dri directory, you can verify this by doing `docker exec -t great_memories_machine_learning ls -la /dev/dri`. If this is not the case execute `getent group render` and `getent group video` on the WSL host, then add those groups to hwaccel.ml.yaml
   ```yaml
   openvino-wsl:
     devices:
@@ -88,19 +88,19 @@ You do not need to redo any machine learning jobs after enabling hardware accele
 ## Setup
 
 1. If you do not already have it, download the latest [`hwaccel.ml.yml`][hw-file] file and ensure it's in the same folder as the `docker-compose.yml`.
-2. In `immich-machine-learning`, add one of -[armnn, cuda, rocm, openvino, rknn] to the `image` section's tag at the end of the line.
-3. Still in the `docker-compose.yml` under `immich-machine-learning`, uncomment the `extends` section and change `cpu` to the appropriate backend.
-4. Redeploy the `immich-machine-learning` container with these updated settings.
+2. In `great-memories-machine-learning`, add one of -[armnn, cuda, rocm, openvino, rknn] to the `image` section's tag at the end of the line.
+3. Still in the `docker-compose.yml` under `great-memories-machine-learning`, uncomment the `extends` section and change `cpu` to the appropriate backend.
+4. Redeploy the `great-memories-machine-learning` container with these updated settings.
 
 ### Confirming Device Usage
 
 You can confirm the device is being recognized and used by checking its utilization. There are many tools to display this, such as `nvtop` for NVIDIA or Intel, `intel_gpu_top` for Intel, and `radeontop` for AMD.
 
-You can also check the logs of the `immich-machine-learning` container. When a Smart Search or Face Detection job begins, or when you search with text in Immich, you should either see a log for `Available ORT providers` containing the relevant provider (e.g. `CUDAExecutionProvider` in the case of CUDA), or a `Loaded ANN model` log entry without errors in the case of ARM NN.
+You can also check the logs of the `great-memories-machine-learning` container. When a Smart Search or Face Detection job begins, or when you search with text in Great Memories, you should either see a log for `Available ORT providers` containing the relevant provider (e.g. `CUDAExecutionProvider` in the case of CUDA), or a `Loaded ANN model` log entry without errors in the case of ARM NN.
 
 #### Single Compose File
 
-Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.ml.yml`][hw-file] file into the `immich-machine-learning` service directly.
+Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.ml.yml`][hw-file] file into the `great-memories-machine-learning` service directly.
 
 For example, the `cuda` section in this file is:
 
@@ -115,13 +115,13 @@ deploy:
             - gpu
 ```
 
-You can add this to the `immich-machine-learning` service instead of extending from `hwaccel.ml.yml`:
+You can add this to the `great-memories-machine-learning` service instead of extending from `hwaccel.ml.yml`:
 
 ```yaml
-immich-machine-learning:
-  container_name: immich_machine_learning
+great-memories-machine-learning:
+  container_name: great_memories_machine_learning
   # Note the `-cuda` at the end
-  image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}-cuda
+  image: ghcr.io/immich-app/immich-machine-learning:${GREAT_MEMORIES_VERSION:-release}-cuda
   # Note the lack of an `extends` section
   deploy:
     resources:
@@ -138,7 +138,7 @@ immich-machine-learning:
   restart: always
 ```
 
-Once this is done, you can redeploy the `immich-machine-learning` container.
+Once this is done, you can redeploy the `great-memories-machine-learning` container.
 
 #### Multi-GPU
 
@@ -157,7 +157,7 @@ This approach can be used to simply specify a particular device as well. For exa
 
 Note that you should increase job concurrencies to increase overall utilization and more effectively distribute work across multiple GPUs. Additionally, each GPU must be able to load all models. It is not possible to distribute a single model to multiple GPUs that individually have insufficient VRAM, or to delegate a specific model to one GPU.
 
-[hw-file]: https://github.com/immich-app/immich/releases/latest/download/hwaccel.ml.yml
+[hw-file]: https://github.com/ludensproductions/great-memories/releases/latest/download/hwaccel.ml.yml
 [nvct]: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 
 ## Tips

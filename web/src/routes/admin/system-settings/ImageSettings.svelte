@@ -1,6 +1,6 @@
 <script lang="ts">
   import SettingSelect from './SettingSelect.svelte';
-  import { Colorspace, ImageFormat } from '@immich/sdk';
+  import { Colorspace, ImageFormat } from '@great-memories/sdk';
   import { fade } from 'svelte/transition';
 
   import SettingAccordion from '$lib/components/shared-components/settings/SettingAccordion.svelte';

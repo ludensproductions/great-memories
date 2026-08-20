@@ -50,7 +50,7 @@
           isEdited={configToEdit.backup.database.cronExpression !== config.backup.database.cronExpression}
         >
           {#snippet descriptionSnippet()}
-            <p class="text-sm dark:text-immich-dark-fg">
+            <p class="text-sm dark:text-great-memories-dark-fg">
               <FormatMessage key="admin.cron_expression_description">
                 {#snippet children({ message })}
                   <Link href="https://crontab.guru/#{configToEdit.backup.database.cronExpression.replaceAll(' ', '_')}">

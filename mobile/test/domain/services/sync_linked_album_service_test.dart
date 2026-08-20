@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/sync_linked_album.service.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/store.provider.dart';
-import 'package:immich_mobile/repositories/drift_album_api_repository.dart';
+import 'package:great_memories_mobile/domain/services/sync_linked_album.service.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/store.provider.dart';
+import 'package:great_memories_mobile/repositories/drift_album_api_repository.dart';
 
 import '../../infrastructure/repository.mock.dart';
 import '../service.mock.dart';

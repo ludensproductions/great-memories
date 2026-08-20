@@ -81,7 +81,7 @@ class LocalImageApiSetup {
   /// Sets up an instance of `LocalImageApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: LocalImageApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let requestImageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.LocalImageApi.requestImage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let requestImageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.LocalImageApi.requestImage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       requestImageChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -103,7 +103,7 @@ class LocalImageApiSetup {
     } else {
       requestImageChannel.setMessageHandler(nil)
     }
-    let cancelRequestChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.LocalImageApi.cancelRequest\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let cancelRequestChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.LocalImageApi.cancelRequest\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       cancelRequestChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -118,7 +118,7 @@ class LocalImageApiSetup {
     } else {
       cancelRequestChannel.setMessageHandler(nil)
     }
-    let getThumbhashChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.LocalImageApi.getThumbhash\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let getThumbhashChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.LocalImageApi.getThumbhash\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       getThumbhashChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]

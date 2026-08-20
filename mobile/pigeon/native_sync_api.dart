@@ -5,10 +5,10 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/native_sync_api.g.dart',
     swiftOut: 'ios/Runner/Sync/Messages.g.swift',
     swiftOptions: SwiftOptions(),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/immich/sync/Messages.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.immich.sync'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/sync/Messages.g.kt',
+    kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.sync'),
     dartOptions: DartOptions(),
-    dartPackageName: 'immich_mobile',
+    dartPackageName: 'great_memories_mobile',
   ),
 )
 enum PlatformAssetPlaybackStyle { unknown, image, video, imageAnimated, livePhoto, videoLooping }

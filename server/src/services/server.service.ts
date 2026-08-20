@@ -185,24 +185,7 @@ export class ServerService extends BaseService {
     return license;
   }
 
-  async setLicense(dto: LicenseKeyDto): Promise<LicenseResponseDto> {
-    if (!dto.licenseKey.startsWith('IMSV-')) {
-      throw new BadRequestException('Invalid license key');
-    }
-    const { licensePublicKey } = this.configRepository.getEnv();
-    const isLicenseValid = this.cryptoRepository.verifySha256(
-      dto.licenseKey,
-      dto.activationKey,
-      licensePublicKey.server,
-    );
-    if (!isLicenseValid) {
-      throw new BadRequestException('Invalid license key');
-    }
-
-    const licenseData = { ...dto, activatedAt: new Date() };
-
-    await this.systemMetadataRepository.set(SystemMetadataKey.License, licenseData);
-
-    return licenseData;
+  async setLicense(_dto: LicenseKeyDto): Promise<LicenseResponseDto> {
+    throw new BadRequestException('Invalid license key');
   }
 }

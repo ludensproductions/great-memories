@@ -4,7 +4,7 @@
   import NotificationItem from '$lib/components/shared-components/navigation-bar/NotificationItem.svelte';
   import { notificationManager } from '$lib/stores/notification-manager.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { NotificationType, type NotificationDto } from '@immich/sdk';
+  import { NotificationType, type NotificationDto } from '@great-memories/sdk';
   import { Button, Icon, Scrollable, Stack, Text, toastManager } from '@immich/ui';
   import { mdiBellOutline, mdiCheckAll } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -66,7 +66,7 @@
   in:fade={{ duration: 100 }}
   out:fade={{ duration: 100 }}
   id="notification-panel"
-  class="absolute top-17.5 right-6 z-1 w-[min(360px,100vw-50px)] rounded-3xl border border-gray-200 bg-gray-100 text-light shadow-lg dark:border dark:border-light dark:bg-immich-dark-gray"
+  class="absolute top-17.5 right-6 z-1 w-[min(360px,100vw-50px)] rounded-3xl border border-gray-200 bg-gray-100 text-light shadow-lg dark:border dark:border-light dark:bg-great-memories-dark-gray"
   use:focusTrap
 >
   <Stack class="max-h-125">

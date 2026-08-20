@@ -1,18 +1,18 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/services/action.service.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/services/action.service.dart';
+import 'package:great_memories_mobile/services/foreground_upload.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockActionService extends Mock implements ActionService {}

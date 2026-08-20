@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/timeline.action.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/presentation/actions/action.dart';
+import 'package:great_memories_mobile/presentation/actions/action.widget.dart';
+import 'package:great_memories_mobile/presentation/actions/timeline.action.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
 
 import '../../factories/remote_asset_factory.dart';
 import '../presentation_context.dart';

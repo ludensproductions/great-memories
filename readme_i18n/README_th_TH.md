@@ -1,22 +1,19 @@
 <p align="center"> 
   <br/>  
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="License: AGPLv3"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" alt="Discord"/>
-  </a>
   <br/>  
   <br/>   
 </p>
 
 <p align="center">
-  <img src="../design/immich-logo-stacked-light.svg" width="300" title="การเข้าสู่ระบบด้วย URL แบบกำหนดเอง">
+  <img src="../design/great-memories-logo-stacked-light.svg" width="300" title="การเข้าสู่ระบบด้วย URL แบบกำหนดเอง">
 </p>
 
 <h3 align="center">โซลูชันการจัดการภาพถ่ายและวิดีโอแบบโฮสต์เองที่มีประสิทธิภาพสูง</h3>
 <br/>
 
 <a href="https://immich.app">
-  <img src="../design/immich-screenshots.png" title="ภาพหน้าจอหลัก">
+  <img src="../design/great-memories-screenshots.png" title="ภาพหน้าจอหลัก">
 </a>
 <br/>
 
@@ -54,14 +51,14 @@
 
 ## ลิงก์
 
-- [คู่มือ](https://docs.immich.app)
-- [เกี่ยวกับ](https://docs.immich.app/overview/introduction)
-- [การติดตั้ง](https://docs.immich.app/install/requirements)
+- คู่มือ
+- เกี่ยวกับ
+- การติดตั้ง
 - [โรดแมป](https://immich.app/roadmap)
 - [สาธิต](#สาธิต)
 - [คุณสมบัติ](#คุณสมบัติ)
-- [การแปลภาษา](https://docs.immich.app/developer/translations)
-- [สนับสนุนโพรเจกต์](https://docs.immich.app/overview/support-the-project)
+- การแปลภาษา
+- สนับสนุนโพรเจกต์
 
 ## สาธิต
 
@@ -108,7 +105,7 @@
 
 ## การแปลภาษา
 
-อ่านเพิ่มเติมเกี่ยวกับการแปล [ที่นี่](https://docs.immich.app/developer/translations)
+อ่านเพิ่มเติมเกี่ยวกับการแปล ที่นี่
 
 <a href="https://hosted.weblate.org/engage/immich/">
   <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="สถานะการแปล" />
@@ -130,6 +127,6 @@
 
 ## ผู้ร่วมพัฒนา
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

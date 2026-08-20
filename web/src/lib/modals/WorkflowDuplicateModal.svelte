@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import { Route } from '$lib/route';
   import { handleCreateWorkflow } from '$lib/services/workflow.service';
-  import { WorkflowTrigger, type WorkflowResponseDto } from '@immich/sdk';
+  import { WorkflowTrigger, type WorkflowResponseDto } from '@great-memories/sdk';
   import { Field, FormModal, Input, Textarea, VStack } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

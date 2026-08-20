@@ -1,20 +1,17 @@
 <p align="center"> 
   <br/>  
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=Llicència&logoColor=000000&labelColor=ececec" alt="Llicència: MIT"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" atl="Discord"/>
-  </a>
   <br/>  
   <br/>   
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Iniciar sessió amb URL personalitzada">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Iniciar sessió amb URL personalitzada">
 </p>
-<h3 align="center">Immich - Solució de còpia de seguretat d'alta rendiment per a fotos i vídeos auto-allotjada</h3>
+<h3 align="center">Great Memories - Solució de còpia de seguretat d'alta rendiment per a fotos i vídeos auto-allotjada</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Captura de pantalla principal">
+<img src="../design/great-memories-screenshots.png" title="Captura de pantalla principal">
 </a>
 <br/>
 <p align="center">
@@ -48,14 +45,14 @@
 
 ## Contingut
 
-- [Documentació](https://docs.immich.app/)
-- [Introducció](https://docs.immich.app/overview/introduction)
-- [Instal·lació](https://docs.immich.app/install/requirements)
+- Documentació
+- Introducció
+- Instal·lació
 - [Mapa de ruta](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Funcionalitats](#funcionalitats)
-- [Traduccions](https://docs.immich.app/developer/translations)
-- [Directrius de contribució](https://docs.immich.app/overview/support-the-project)
+- Traduccions
+- Directrius de contribució
 
 ## Demo
 

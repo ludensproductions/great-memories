@@ -1,20 +1,17 @@
 <p align="center">
   <br/>
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=授權條款&logoColor=000000&labelColor=ececec" alt="授權條款：AGPLv3"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" alt="Discord"/>
-  </a>
   <br/>
   <br/>
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="以自訂 URL 登入">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="以自訂 URL 登入">
 </p>
 <h3 align="center">高效能的自架照片和影片管理解決方案</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="主要螢幕截圖">
+<img src="../design/great-memories-screenshots.png" title="主要螢幕截圖">
 </a>
 <br/>
 
@@ -51,18 +48,18 @@
 
 ## 連結
 
-- [說明文件](https://docs.immich.app/)
-- [關於](https://docs.immich.app/overview/introduction)
-- [安裝](https://docs.immich.app/install/requirements)
+- 說明文件
+- 關於
+- 安裝
 - [發展藍圖](https://immich.app/roadmap)
 - [線上體驗](#線上體驗)
 - [功能](#功能)
-- [翻譯](https://docs.immich.app/developer/translations)
-- [貢獻指南](https://docs.immich.app/overview/support-the-project)
+- 翻譯
+- 貢獻指南
 
 ## 線上體驗
 
-請前往 [Demoo 網站](https://demo.immich.app) 立即體驗 Immich。若要在手機 App 試用，請在 `伺服器端點 URL` 欄位輸入 `https://demo.immich.app`。
+請前往 [Demoo 網站](https://demo.immich.app) 立即體驗 Great Memories。若要在手機 App 試用，請在 `伺服器端點 URL` 欄位輸入 `https://demo.immich.app`。
 
 ### 登入資訊
 
@@ -107,7 +104,7 @@
 
 ## 翻譯
 
-更多翻譯相關資訊請見 [此處](https://docs.immich.app/developer/translations)。
+更多翻譯相關資訊請見 此處。
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="翻譯狀態" />
@@ -129,6 +126,6 @@
 
 ## 貢獻者
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

@@ -3,20 +3,20 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/models/sync_event.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_asset.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_api.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_migration.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_stream.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
-import 'package:immich_mobile/repositories/asset_media.repository.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/models/sync_event.model.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/sync_api.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/sync_migration.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/sync_stream.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:great_memories_mobile/repositories/asset_media.repository.dart';
+import 'package:great_memories_mobile/repositories/permission.repository.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
-class ImmichTextButton extends StatefulWidget {
+class GreatMemoriesTextButton extends StatefulWidget {
   final String labelText;
   final IconData? icon;
   final FutureOr<void> Function() onPressed;
-  final ImmichVariant variant;
+  final GreatMemoriesVariant variant;
   final bool expanded;
   final bool disabled;
   final bool? loading;
 
-  const ImmichTextButton({
+  const GreatMemoriesTextButton({
     super.key,
     required this.labelText,
     this.icon,
@@ -25,10 +25,10 @@ class ImmichTextButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichTextButton> createState() => _ImmichTextButtonState();
+  State<GreatMemoriesTextButton> createState() => _GreatMemoriesTextButtonState();
 }
 
-class _ImmichTextButtonState extends State<ImmichTextButton> {
+class _GreatMemoriesTextButtonState extends State<GreatMemoriesTextButton> {
   bool _loading = false;
   bool get _isLoading => widget.loading ?? _loading;
 
@@ -47,8 +47,8 @@ class _ImmichTextButtonState extends State<ImmichTextButton> {
   Widget build(BuildContext context) {
     final Widget? icon = _isLoading
         ? const SizedBox.square(
-            dimension: ImmichIconSize.md,
-            child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+            dimension: GreatMemoriesIconSize.md,
+            child: CircularProgressIndicator(strokeWidth: GreatMemoriesBorderWidth.lg),
           )
         : widget.icon != null
         ? Icon(widget.icon, fontWeight: .w600)
@@ -56,14 +56,14 @@ class _ImmichTextButtonState extends State<ImmichTextButton> {
 
     final label = Text(
       widget.labelText,
-      style: const .new(fontSize: ImmichTextSize.body, fontWeight: .bold),
+      style: const .new(fontSize: GreatMemoriesTextSize.body, fontWeight: .bold),
     );
-    final style = ElevatedButton.styleFrom(padding: const .symmetric(vertical: ImmichSpacing.md));
+    final style = ElevatedButton.styleFrom(padding: const .symmetric(vertical: GreatMemoriesSpacing.md));
     final onPressed = widget.disabled || _isLoading ? null : _onPressed;
 
     final button = switch (widget.variant) {
-      ImmichVariant.filled => ElevatedButton.icon(style: style, onPressed: onPressed, icon: icon, label: label),
-      ImmichVariant.ghost => TextButton.icon(style: style, onPressed: onPressed, icon: icon, label: label),
+      GreatMemoriesVariant.filled => ElevatedButton.icon(style: style, onPressed: onPressed, icon: icon, label: label),
+      GreatMemoriesVariant.ghost => TextButton.icon(style: style, onPressed: onPressed, icon: icon, label: label),
     };
 
     if (widget.expanded) {

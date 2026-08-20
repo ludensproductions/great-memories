@@ -22,7 +22,7 @@
     getAssetInfo,
     type AlbumResponseDto,
     type AssetResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, IconButton, Link, LoadingSpinner, Text } from '@immich/ui';
   import { mdiCamera, mdiCameraIris, mdiClose, mdiImageOutline, mdiInformationOutline } from '@mdi/js';
   import { onDestroy } from 'svelte';
@@ -125,7 +125,7 @@
         color="secondary"
         variant="ghost"
       />
-      <p class="text-lg text-immich-fg dark:text-immich-dark-fg">{$t('info')}</p>
+      <p class="text-lg text-great-memories-fg dark:text-great-memories-dark-fg">{$t('info')}</p>
     </div>
 
     {#if asset.isOffline}
@@ -325,7 +325,7 @@
   {/if}
 
   {#if currentAlbum && currentAlbum.albumUsers.length > 0 && asset.owner}
-    <section class="mt-4 px-6 dark:text-immich-dark-fg">
+    <section class="mt-4 px-6 dark:text-great-memories-dark-fg">
       <Text size="small" color="muted">{$t('shared_by')}</Text>
       <div class="flex gap-4 pt-4">
         <div>
@@ -343,7 +343,7 @@
 
   {#await albums then albums}
     {#if albums.length > 0}
-      <section class="p-6 dark:text-immich-dark-fg">
+      <section class="p-6 dark:text-great-memories-dark-fg">
         <div class="pb-4">
           <Text size="small" color="muted">{$t('appears_in')}</Text>
         </div>
@@ -361,7 +361,7 @@
               </div>
 
               <div class="my-auto">
-                <p class="dark:text-immich-dark-primary">{album.albumName}</p>
+                <p class="dark:text-great-memories-dark-primary">{album.albumName}</p>
                 <div class="flex flex-col gap-0 text-sm">
                   <div>
                     <AlbumListItemDetails {album} />
@@ -376,7 +376,7 @@
   {/await}
 
   {#if authManager.authenticated && authManager.preferences.tags.enabled}
-    <section class="relative px-2 pb-12 dark:bg-immich-dark-bg dark:text-immich-dark-fg">
+    <section class="relative px-2 pb-12 dark:bg-great-memories-dark-bg dark:text-great-memories-dark-fg">
       <DetailPanelTags {asset} {isOwner} />
     </section>
   {/if}

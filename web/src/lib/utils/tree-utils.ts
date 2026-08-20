@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 /* eslint-disable unicorn/no-this-assignment */
 /* eslint-disable unicorn/prefer-at */
-import type { TagResponseDto } from '@immich/sdk';
+import type { TagResponseDto } from '@great-memories/sdk';
 
 export class TreeNode extends Map<string, TreeNode> {
   value: string;

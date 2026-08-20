@@ -21,37 +21,37 @@
   ];
 </script>
 
-<div class="rounded-3xl border border-gray-300 pt-1 pb-6 dark:border-immich-dark-gray dark:text-white">
+<div class="rounded-3xl border border-gray-300 pt-1 pb-6 dark:border-great-memories-dark-gray dark:text-white">
   <Text size="tiny" color="muted" fontWeight="medium" class="p-4">{$t('organize_your_library')}</Text>
 
   {#each links as link (link.href)}
-    <a href={link.href} class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-immich-dark-gray">
+    <a href={link.href} class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-great-memories-dark-gray">
       <span><Icon icon={link.icon} class="text-primary" size="24" /> </span>
       {link.label}
     </a>
   {/each}
 </div>
 <br />
-<div class="rounded-3xl border border-gray-300 pt-1 pb-6 dark:border-immich-dark-gray dark:text-white">
+<div class="rounded-3xl border border-gray-300 pt-1 pb-6 dark:border-great-memories-dark-gray dark:text-white">
   <Text size="tiny" color="muted" fontWeight="medium" class="p-4">{$t('download')}</Text>
 
   <button
     type="button"
     onclick={() => modalManager.show(ObtainiumConfigModal, {})}
-    class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-immich-dark-gray"
+    class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-great-memories-dark-gray"
   >
     <span>
-      <Icon icon={mdiLinkEdit} class="text-immich-primary dark:text-immich-dark-primary" size="24" />
+      <Icon icon={mdiLinkEdit} class="text-great-memories-primary dark:text-great-memories-dark-primary" size="24" />
     </span>
     {$t('obtainium_configurator')}
   </button>
   <button
     type="button"
     onclick={() => modalManager.show(AppDownloadModal, {})}
-    class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-immich-dark-gray"
+    class="flex w-full items-center gap-4 p-4 hover:bg-gray-100 dark:hover:bg-great-memories-dark-gray"
   >
     <span>
-      <Icon icon={mdiCellphoneArrowDownVariant} class="text-immich-primary dark:text-immich-dark-primary" size="24" />
+      <Icon icon={mdiCellphoneArrowDownVariant} class="text-great-memories-primary dark:text-great-memories-dark-primary" size="24" />
     </span>
     {$t('app_download_links')}
   </button>

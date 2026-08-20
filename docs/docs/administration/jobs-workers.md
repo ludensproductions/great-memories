@@ -4,7 +4,7 @@
 
 ### Architecture
 
-The `immich-server` container contains multiple workers:
+The `great-memories-server` container contains multiple workers:
 
 - `api`: responds to API requests for data and files for the web and mobile app.
 - `microservices`: handles most other work, such as thumbnail generation and video encoding, in the form of _jobs_. Simply put, a job is a request to process data in the background.
@@ -15,31 +15,31 @@ If you prefer to throttle or distribute the workers, you can do this using the [
 
 For example, for a simple setup with one container for the Web/API and one for all other microservices, you can do the following:
 
-Copy the entire `immich-server` block as a new service and make the following changes to the **copy**:
+Copy the entire `great-memories-server` block as a new service and make the following changes to the **copy**:
 
 ```diff
-- immich-server:
--   container_name: immich_server
+- great-memories-server:
+-   container_name: great_memories_server
 ...
 -   ports:
 -     - 2283:2283
-+ immich-microservices:
-+   container_name: immich_microservices
++ great-memories-microservices:
++   container_name: great_memories_microservices
 ```
 
-Once you have two copies of the immich-server service, make the following changes to each one. This will allow one container to only serve the web UI and API, and the other one to handle all other tasks.
+Once you have two copies of the great-memories-server service, make the following changes to each one. This will allow one container to only serve the web UI and API, and the other one to handle all other tasks.
 
 ```diff
 services:
-  immich-server:
+  great-memories-server:
     ...
 +   environment:
-+     IMMICH_WORKERS_INCLUDE: 'api'
++     GREAT_MEMORIES_WORKERS_INCLUDE: 'api'
 
-  immich-microservices:
+  great-memories-microservices:
     ...
 +   environment:
-+     IMMICH_WORKERS_EXCLUDE: 'api'
++     GREAT_MEMORIES_WORKERS_EXCLUDE: 'api'
 ```
 
 ## Jobs

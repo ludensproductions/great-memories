@@ -1,4 +1,4 @@
-import { MaintenanceAction, setMaintenanceMode, type SetMaintenanceModeDto } from '@immich/sdk';
+import { MaintenanceAction, setMaintenanceMode, type SetMaintenanceModeDto } from '@great-memories/sdk';
 import type { ActionItem } from '@immich/ui';
 import { mdiProgressWrench } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NotificationLevel, NotificationType, type NotificationDto } from '@immich/sdk';
+  import { NotificationLevel, NotificationType, type NotificationDto } from '@great-memories/sdk';
   import { IconButton, Stack, Text } from '@immich/ui';
   import {
     mdiBackupRestore,
@@ -100,7 +100,7 @@
 </script>
 
 <button
-  class="min-h-20 w-full border-b border-gray-200 p-2 py-3 hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:hover:bg-immich-dark-primary/10"
+  class="min-h-20 w-full border-b border-gray-200 p-2 py-3 hover:bg-great-memories-primary/10 dark:border-great-memories-dark-gray dark:hover:bg-great-memories-dark-primary/10"
   type="button"
   onclick={() => onclick(notification)}
   title={notification.createdAt}

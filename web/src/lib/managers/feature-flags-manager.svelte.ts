@@ -1,4 +1,4 @@
-import { getServerFeatures, type ServerFeaturesDto } from '@immich/sdk';
+import { getServerFeatures, type ServerFeaturesDto } from '@great-memories/sdk';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 
 class FeatureFlagsManager {

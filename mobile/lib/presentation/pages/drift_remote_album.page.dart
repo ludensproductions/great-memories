@@ -4,22 +4,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/album/pending_uploads_banner.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/remote_album_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/remote_album/drift_album_option.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/remote_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/remote_album_sliver_app_bar.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/pending_uploads_banner.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/remote_album_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/remote_album/drift_album_option.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/widgets/common/remote_album_sliver_app_bar.dart';
 
 @RoutePage()
 class RemoteAlbumPage extends ConsumerStatefulWidget {
@@ -54,7 +54,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
     final added = await notifier.addAssetsToAlbum(_album.id, newAssets);
 
     if (added > 0 && context.mounted) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "assets_added_to_album_count".t(context: context, args: {'count': added.toString()}),
         toastType: ToastType.success,
@@ -73,7 +73,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
       await ref.read(remoteAlbumProvider.notifier).addUsers(_album.id, newUsers);
 
       if (newUsers.isNotEmpty) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "users_added_to_album_count".t(context: context, args: {'count': newUsers.length}),
           toastType: ToastType.success,
@@ -82,7 +82,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
 
       ref.invalidate(remoteAlbumSharedUsersProvider(_album.id));
     } catch (e) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: "Failed to add users to album: ${e.toString()}",
         toastType: ToastType.error,
@@ -129,7 +129,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
       try {
         await ref.read(remoteAlbumProvider.notifier).deleteAlbum(_album.id);
 
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_deleted'.t(context: context),
           toastType: ToastType.success,
@@ -137,7 +137,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
 
         unawaited(context.pushRoute(const DriftAlbumsRoute()));
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_viewer_appbar_share_err_delete'.t(context: context),
           toastType: ToastType.error,
@@ -259,7 +259,7 @@ class _EditAlbumDialogState extends ConsumerState<_EditAlbumDialog> {
       }
     } catch (e) {
       if (mounted) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'album_update_error'.t(context: context),
           toastType: ToastType.error,

@@ -1,4 +1,4 @@
-import type { PersonResponseDto } from '@immich/sdk';
+import type { PersonResponseDto } from '@great-memories/sdk';
 import { searchNameLocal } from './person';
 
 const makePerson = (overrides: Partial<PersonResponseDto> = {}): PersonResponseDto => ({

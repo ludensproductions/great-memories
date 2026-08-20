@@ -292,8 +292,8 @@ export const defaults = Object.freeze<SystemConfig>({
     level: LogLevel.Log,
   },
   machineLearning: {
-    enabled: process.env.IMMICH_MACHINE_LEARNING_ENABLED !== 'false',
-    urls: [process.env.IMMICH_MACHINE_LEARNING_URL || 'http://immich-machine-learning:3003'],
+    enabled: process.env.GREAT_MEMORIES_MACHINE_LEARNING_ENABLED !== 'false',
+    urls: [process.env.GREAT_MEMORIES_MACHINE_LEARNING_URL || 'http://great-memories-machine-learning:3003'],
     availabilityChecks: {
       enabled: true,
       timeout: 2000,
@@ -352,8 +352,8 @@ export const defaults = Object.freeze<SystemConfig>({
     signingAlgorithm: 'RS256',
     profileSigningAlgorithm: 'none',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'immich_quota',
-    roleClaim: 'immich_role',
+    storageQuotaClaim: 'great_memories_quota',
+    roleClaim: 'great_memories_role',
     tokenEndpointAuthMethod: OAuthTokenEndpointAuthMethod.ClientSecretPost,
     timeout: 30_000,
     allowInsecureRequests: false,
@@ -389,7 +389,7 @@ export const defaults = Object.freeze<SystemConfig>({
     },
   },
   newVersionCheck: {
-    enabled: true,
+    enabled: false,
     channel: ReleaseChannel.Stable,
   },
   nightlyTasks: {

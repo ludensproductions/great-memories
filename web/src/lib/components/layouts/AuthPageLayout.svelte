@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, CardBody, CardHeader, Heading, immichLogo, Logo, VStack } from '@immich/ui';
+  import { Card, CardBody, CardHeader, Heading, VStack } from '@immich/ui';
   import type { Snippet } from 'svelte';
   interface Props {
     title?: string;
@@ -15,12 +15,12 @@
   {#if withBackdrop}
     <div class="absolute -z-10 flex size-full place-content-center place-items-center">
       <img
-        src={immichLogo}
+        src="/manifest-icon-512.maskable.png?v=great-memories-20260729"
         class="mx-auto mb-2 h-full max-w-(--breakpoint-md) overflow-hidden antialiased"
-        alt="Immich logo"
+        alt="Great Memories logo"
       />
       <div
-        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-immich-dark-bg/20"
+        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-great-memories-dark-bg/20"
       ></div>
     </div>
   {/if}
@@ -29,7 +29,7 @@
     {#if withHeader}
       <CardHeader class="mt-6">
         <VStack>
-          <Logo variant="icon" size="giant" />
+          <img src="/manifest-icon-512.maskable.png?v=great-memories-20260729" alt="Great Memories logo" class="h-20 w-20" />
           <Heading size="large" class="font-semibold" color="primary" tag="h1">{title}</Heading>
         </VStack>
       </CardHeader>

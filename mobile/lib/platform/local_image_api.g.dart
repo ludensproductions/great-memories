@@ -69,7 +69,7 @@ class LocalImageApi {
     required bool preferEncoded,
   }) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.LocalImageApi.requestImage$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.LocalImageApi.requestImage$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -95,7 +95,7 @@ class LocalImageApi {
 
   Future<void> cancelRequest(int requestId) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.LocalImageApi.cancelRequest$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.LocalImageApi.cancelRequest$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -109,7 +109,7 @@ class LocalImageApi {
 
   Future<Map<String, int>> getThumbhash(String thumbhash) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.LocalImageApi.getThumbhash$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.LocalImageApi.getThumbhash$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

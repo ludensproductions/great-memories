@@ -1,4 +1,4 @@
-import { createJob, type JobCreateDto } from '@immich/sdk';
+import { createJob, type JobCreateDto } from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 import { handleError } from '$lib/utils/handle-error';

@@ -29,7 +29,7 @@
     type OnLink,
     type OnUnlink,
   } from '$lib/utils/actions';
-  import { AssetVisibility } from '@immich/sdk';
+  import { AssetVisibility } from '@great-memories/sdk';
   import { ActionButton, CloseButton, CommandPaletteDefaultProvider, Icon } from '@immich/ui';
   import { mdiDotsVertical, mdiImageMultiple } from '@mdi/js';
   import { ceil, floor } from 'lodash-es';
@@ -94,11 +94,11 @@
   });
 </script>
 
-<aside class="flex size-full flex-col overflow-hidden bg-immich-bg contain-content dark:bg-immich-dark-bg">
-  <div class="flex items-center justify-between border-b border-gray-200 pe-1 pb-1 dark:border-immich-dark-gray">
+<aside class="flex size-full flex-col overflow-hidden bg-great-memories-bg contain-content dark:bg-great-memories-dark-bg">
+  <div class="flex items-center justify-between border-b border-gray-200 pe-1 pb-1 dark:border-great-memories-dark-gray">
     <div class="flex items-center gap-2">
       <Icon icon={mdiImageMultiple} size="20" />
-      <p class="text-sm font-medium text-immich-fg dark:text-immich-dark-fg">
+      <p class="text-sm font-medium text-great-memories-fg dark:text-great-memories-dark-fg">
         {$t('assets_count', { values: { count: assetCount } })}
       </p>
     </div>

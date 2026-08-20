@@ -1,7 +1,7 @@
-import 'package:immich_mobile/mixins/error_logger.mixin.dart';
-import 'package:immich_mobile/models/map/map_marker.model.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/user_agent.dart';
+import 'package:great_memories_mobile/mixins/error_logger.mixin.dart';
+import 'package:great_memories_mobile/models/map/map_marker.model.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/utils/user_agent.dart';
 import 'package:logging/logging.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
@@ -15,7 +15,7 @@ class MapService with ErrorLoggerMixin {
   }
 
   Future<void> _setMapUserAgentHeader() async {
-    final userAgent = await getUserAgentString();
+    final userAgent = await getGreatMemoriesUserAgentString();
     await setHttpHeaders({'User-Agent': userAgent});
   }
 

@@ -2,7 +2,7 @@
   import ApiKeyPermissionsPicker from '$lib/components/ApiKeyPermissionsPicker.svelte';
   import ApiKeySecretModal from '$lib/modals/ApiKeySecretModal.svelte';
   import { handleCreateApiKey } from '$lib/services/api-key.service';
-  import { Permission } from '@immich/sdk';
+  import { Permission } from '@great-memories/sdk';
   import { Field, FormModal, Input, modalManager } from '@immich/ui';
   import { mdiKeyVariant } from '@mdi/js';
   import { t } from 'svelte-i18n';

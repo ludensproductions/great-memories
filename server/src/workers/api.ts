@@ -7,7 +7,7 @@ import { ApiService } from 'src/services/api.service';
 import { isStartUpError } from 'src/utils/misc';
 
 async function bootstrap() {
-  process.title = 'immich-api';
+  process.title = 'great-memories-api';
 
   configureTelemetry();
 

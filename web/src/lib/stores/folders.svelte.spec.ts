@@ -1,4 +1,4 @@
-import { getUniqueOriginalPaths } from '@immich/sdk';
+import { getUniqueOriginalPaths } from '@great-memories/sdk';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { foldersStore } from '$lib/stores/folders.svelte';
 
@@ -8,7 +8,7 @@ vi.mock('$lib/managers/event-manager.svelte', () => ({
   },
 }));
 
-vi.mock('@immich/sdk', () => ({
+vi.mock('@great-memories/sdk', () => ({
   getAssetsByOriginalPath: vi.fn(),
   getUniqueOriginalPaths: vi.fn(),
 }));

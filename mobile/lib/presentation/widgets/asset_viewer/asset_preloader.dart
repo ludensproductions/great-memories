@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/image_provider.dart';
 
 class AssetPreloader {
   static final _dummyListener = ImageStreamListener((image, _) => image.dispose());

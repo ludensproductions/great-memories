@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_album.repository.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/store.provider.dart';
-import 'package:immich_mobile/repositories/drift_album_api_repository.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/remote_album.repository.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/store.provider.dart';
+import 'package:great_memories_mobile/repositories/drift_album_api_repository.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
 
 final syncLinkedAlbumServiceProvider = Provider(

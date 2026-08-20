@@ -1,14 +1,20 @@
 <script lang="ts">
+  import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Route } from '$lib/route';
   import { userInteraction } from '$lib/stores/user.svelte';
   import { getAssetMediaUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { getAllAlbums } from '@immich/sdk';
+  import { getAllAlbums } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
 
   let albums = $state(userInteraction.recentAlbums);
 
   const refreshAlbums = async () => {
+    if (!authManager.authenticated) {
+      albums = [];
+      return;
+    }
+
     try {
       const allAlbums = await getAllAlbums({});
       albums = allAlbums.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()).slice(0, 3);
@@ -19,6 +25,11 @@
   };
 
   $effect(() => {
+    if (!authManager.authenticated) {
+      albums = [];
+      return;
+    }
+
     if (!userInteraction.recentAlbums) {
       void refreshAlbums();
     }
@@ -29,7 +40,7 @@
   <a
     href={Route.viewAlbum(album)}
     title={album.albumName}
-    class="flex w-full place-items-center justify-between gap-4 rounded-e-full py-3 ps-10 transition-[padding] delay-100 duration-100 hover:cursor-pointer hover:bg-subtle hover:text-immich-primary group-hover:sm:px-10 md:px-10 dark:text-immich-dark-fg dark:hover:bg-immich-dark-gray dark:hover:text-immich-dark-primary"
+    class="flex w-full place-items-center justify-between gap-4 rounded-e-full py-3 ps-10 transition-[padding] delay-100 duration-100 hover:cursor-pointer hover:bg-subtle hover:text-great-memories-primary group-hover:sm:px-10 md:px-10 dark:text-great-memories-dark-fg dark:hover:bg-great-memories-dark-gray dark:hover:text-great-memories-dark-primary"
   >
     <div>
       <div

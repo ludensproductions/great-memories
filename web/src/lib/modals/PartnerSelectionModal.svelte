@@ -1,7 +1,7 @@
 <script lang="ts">
   import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { getPartners, PartnerDirection, searchUsers, type UserResponseDto } from '@immich/sdk';
+  import { getPartners, PartnerDirection, searchUsers, type UserResponseDto } from '@great-memories/sdk';
   import { Button, ListButton, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
@@ -41,7 +41,7 @@
       </div>
     {:then _}
       {#if availableUsers.length > 0}
-        <div class="flex max-h-75 immich-scrollbar flex-col gap-2 overflow-y-auto">
+        <div class="flex max-h-75 great-memories-scrollbar flex-col gap-2 overflow-y-auto">
           {#each availableUsers as user (user.id)}
             <ListButton onclick={() => selectUser(user)} selected={selectedUsers.includes(user)}>
               <UserAvatar {user} size="md" />

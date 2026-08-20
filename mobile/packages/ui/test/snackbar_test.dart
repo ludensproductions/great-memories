@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/snackbar.dart';
+import 'package:great_memories_ui/src/snackbar.dart';
 
 import 'test_utils.dart';
 

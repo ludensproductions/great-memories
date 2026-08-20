@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/services/shared_link.service.dart';
+import 'package:great_memories_mobile/models/shared_link/shared_link.model.dart';
+import 'package:great_memories_mobile/services/shared_link.service.dart';
 
 class SharedLinksNotifier extends StateNotifier<AsyncValue<List<SharedLink>>> {
   final SharedLinkService _sharedLinkService;

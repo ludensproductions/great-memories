@@ -6,7 +6,7 @@
   import type { OnLink, OnUnlink } from '$lib/utils/actions';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { getAssetInfo, updateAsset } from '@immich/sdk';
+  import { getAssetInfo, updateAsset } from '@great-memories/sdk';
   import { IconButton } from '@immich/ui';
   import { mdiLinkOff, mdiMotionPlayOutline, mdiTimerSand } from '@mdi/js';
   import { t } from 'svelte-i18n';

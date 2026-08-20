@@ -13,19 +13,19 @@ In our `.env` file, we will define the paths we want to use. Note that you don't
 
 # Custom location where your uploaded, thumbnails, and transcoded video files are stored
 - UPLOAD_LOCATION=./library
-+ UPLOAD_LOCATION=/custom/path/immich/immich_files
-+ THUMB_LOCATION=/custom/path/immich/thumbs
-+ ENCODED_VIDEO_LOCATION=/custom/path/immich/encoded-video
-+ PROFILE_LOCATION=/custom/path/immich/profile
-+ BACKUP_LOCATION=/custom/path/immich/backups
++ UPLOAD_LOCATION=/custom/path/great-memories/great_memories_files
++ THUMB_LOCATION=/custom/path/great-memories/thumbs
++ ENCODED_VIDEO_LOCATION=/custom/path/great-memories/encoded-video
++ PROFILE_LOCATION=/custom/path/great-memories/profile
++ BACKUP_LOCATION=/custom/path/great-memories/backups
 ...
 ```
 
-After defining the locations of these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `immich-server` container. These paths are where the mount attaches inside of the container, so don't change those.
+After defining the locations of these files, we will edit the `docker-compose.yml` file accordingly and add the new variables to the `great-memories-server` container. These paths are where the mount attaches inside of the container, so don't change those.
 
 ```diff title="docker-compose.yml"
 services:
-  immich-server:
+  great-memories-server:
       volumes:
       - ${UPLOAD_LOCATION}:/data
 +     - ${THUMB_LOCATION}:/data/thumbs
@@ -35,8 +35,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
 ```
 
-After making this change, you have to move the files over to the new folders to make sure Immich can find everything it needs. If you haven't uploaded anything important yet, you can also reset Immich entirely by deleting the database folder.
-Then restart Immich to register the changes:
+After making this change, you have to move the files over to the new folders to make sure Great Memories can find everything it needs. If you haven't uploaded anything important yet, you can also reset Great Memories entirely by deleting the database folder.
+Then restart Great Memories to register the changes:
 
 ```
 docker compose up -d
@@ -48,5 +48,5 @@ For this reason, we mount the HDD or the network storage (NAS) to `/data` and th
 
 The `thumbs/` folder contains both the small thumbnails displayed in the timeline and the larger previews shown when clicking into an image. These cannot be separated.
 
-The storage metrics of the Immich server will track available storage at `UPLOAD_LOCATION`, so the administrator must set up some sort of monitoring to ensure the storage does not run out of space. The `profile/` folder is much smaller, usually less than 1 MB.
+The storage metrics of the Great Memories server will track available storage at `UPLOAD_LOCATION`, so the administrator must set up some sort of monitoring to ensure the storage does not run out of space. The `profile/` folder is much smaller, usually less than 1 MB.
 :::

@@ -1,4 +1,4 @@
-import type { AlbumResponseDto } from '@immich/sdk';
+import type { AlbumResponseDto } from '@great-memories/sdk';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { sortAlbums } from '$lib/utils/album-utils';

@@ -1,8 +1,8 @@
-import 'package:immich_mobile/domain/models/search_result.model.dart';
-import 'package:immich_mobile/extensions/asset_extensions.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/search_api.repository.dart';
-import 'package:immich_mobile/models/search/search_filter.model.dart';
+import 'package:great_memories_mobile/domain/models/search_result.model.dart';
+import 'package:great_memories_mobile/extensions/asset_extensions.dart';
+import 'package:great_memories_mobile/extensions/string_extensions.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/search_api.repository.dart';
+import 'package:great_memories_mobile/models/search/search_filter.model.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart' hide AssetVisibility;
 

@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_album.repository.dart';
-import 'package:immich_mobile/models/albums/album_search.model.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
-import 'package:immich_mobile/repositories/drift_album_api_repository.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/remote_album.repository.dart';
+import 'package:great_memories_mobile/models/albums/album_search.model.dart';
+import 'package:great_memories_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:great_memories_mobile/repositories/drift_album_api_repository.dart';
+import 'package:great_memories_mobile/services/foreground_upload.service.dart';
 import 'package:logging/logging.dart';
 
 /// Categorizes a heterogeneous asset selection into the candidates that can

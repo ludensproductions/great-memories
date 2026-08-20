@@ -54,11 +54,11 @@ export class ChangeMediaLocationCommand extends CommandRunner {
 
       const successMessage = `Matching database file paths were updated successfully! 🎉
 
-  You may now set IMMICH_MEDIA_LOCATION=${newValue} and restart!
+  You may now set GREAT_MEMORIES_MEDIA_LOCATION=${newValue} and restart!
 
   (please remember to update applicable volume mounts e.g
     services:
-      immich-server:
+      great-memories-server:
         ...
         volumes:
           - \${UPLOAD_LOCATION}:/data
@@ -75,10 +75,10 @@ export class ChangeMediaLocationCommand extends CommandRunner {
   }
 }
 
-const currentValue = process.env.IMMICH_MEDIA_LOCATION || '';
+const currentValue = process.env.GREAT_MEMORIES_MEDIA_LOCATION || '';
 
 const makePrompt = (which: string) => {
-  return `Enter the ${which} value of IMMICH_MEDIA_LOCATION:${currentValue ? ` [${currentValue}]` : ''}`;
+  return `Enter the ${which} value of GREAT_MEMORIES_MEDIA_LOCATION:${currentValue ? ` [${currentValue}]` : ''}`;
 };
 
 @QuestionSet({ name: 'prompt-media-location' })

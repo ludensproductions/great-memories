@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/auth/biometric_status.model.dart';
-import 'package:immich_mobile/repositories/biometric.repository.dart';
+import 'package:great_memories_mobile/models/auth/biometric_status.model.dart';
+import 'package:great_memories_mobile/repositories/biometric.repository.dart';
 
 final localAuthServiceProvider = Provider((ref) => LocalAuthService(ref.watch(biometricRepositoryProvider)));
 

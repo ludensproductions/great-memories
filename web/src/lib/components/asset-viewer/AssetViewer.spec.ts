@@ -1,4 +1,4 @@
-import { updateAsset } from '@immich/sdk';
+import { updateAsset } from '@great-memories/sdk';
 import { fireEvent, waitFor } from '@testing-library/svelte';
 import { getAnimateMock } from '$lib/__mocks__/animate.mock';
 import { getResizeObserverMock } from '$lib/__mocks__/resize-observer.mock';
@@ -27,8 +27,8 @@ vi.mock('$lib/stores/ocr.svelte', () => ({
   },
 }));
 
-vi.mock('@immich/sdk', async () => {
-  const sdk = await vi.importActual<typeof import('@immich/sdk')>('@immich/sdk');
+vi.mock('@great-memories/sdk', async () => {
+  const sdk = await vi.importActual<typeof import('@great-memories/sdk')>('@great-memories/sdk');
   return {
     ...sdk,
     updateAsset: vi.fn(),

@@ -2,7 +2,7 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
-struct ImmichMemoryProvider: TimelineProvider {
+struct GreatMemoriesMemoryProvider: TimelineProvider {
   func getYearDifferenceSubtitle(assetYear: Int) -> String {
     let currentYear = Calendar.current.component(.year, from: Date.now)
     // construct a "X years ago" subtitle
@@ -22,7 +22,7 @@ struct ImmichMemoryProvider: TimelineProvider {
     let cacheKey = "memory_\(context.family.rawValue)"
 
     Task {
-      guard let api = try? await ImmichAPI() else {
+      guard let api = try? await GreatMemoriesAPI() else {
         completion(
           ImageEntry.handleError(for: cacheKey, error: .noLogin).entries.first!
         )
@@ -76,7 +76,7 @@ struct ImmichMemoryProvider: TimelineProvider {
 
       let cacheKey = "memory_\(context.family.rawValue)"
 
-      guard let api = try? await ImmichAPI() else {
+      guard let api = try? await GreatMemoriesAPI() else {
         completion(
           ImageEntry.handleError(for: cacheKey, error: .noLogin)
         )
@@ -149,15 +149,15 @@ struct ImmichMemoryProvider: TimelineProvider {
   }
 }
 
-struct ImmichMemoryWidget: Widget {
-  let kind: String = "com.immich.widget.memory"
+struct GreatMemoriesMemoryWidget: Widget {
+  let kind: String = "com.greatmemories.app.widget.memory"
 
   var body: some WidgetConfiguration {
     StaticConfiguration(
       kind: kind,
-      provider: ImmichMemoryProvider()
+      provider: GreatMemoriesMemoryProvider()
     ) { entry in
-      ImmichWidgetView(entry: entry)
+      GreatMemoriesWidgetView(entry: entry)
         .containerBackground(.regularMaterial, for: .widget)
     }
     // allow image to take up entire widget
@@ -165,6 +165,6 @@ struct ImmichMemoryWidget: Widget {
 
     // widget picker info
     .configurationDisplayName("Memories")
-    .description("See memories from Immich.")
+    .description("See memories from Great Memories.")
   }
 }

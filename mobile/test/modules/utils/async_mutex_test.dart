@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/async_mutex.dart';
+import 'package:great_memories_mobile/utils/async_mutex.dart';
 
 void main() {
   group('Test AsyncMutex grouped', () {

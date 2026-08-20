@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/auth/login_response.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/repositories/api.repository.dart';
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:great_memories_mobile/models/auth/login_response.model.dart';
+import 'package:great_memories_mobile/providers/api.provider.dart';
+import 'package:great_memories_mobile/repositories/api.repository.dart';
+import 'package:great_memories_mobile/services/api.service.dart';
 import 'package:openapi/api.dart';
 
 final authApiRepositoryProvider = Provider((ref) => AuthApiRepository(ref.watch(apiServiceProvider)));

@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
-import 'package:immich_mobile/presentation/actions/timeline.action.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/delete_local_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/edit_date_time_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/edit_location_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_link_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/stack_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/trash_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/unstack_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/actions/action.widget.dart';
+import 'package:great_memories_mobile/presentation/actions/favorite.action.dart';
+import 'package:great_memories_mobile/presentation/actions/timeline.action.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/delete_local_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/edit_date_time_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/edit_location_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_link_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/stack_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/trash_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/unstack_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 class FavoriteBottomSheet extends ConsumerWidget {
   const FavoriteBottomSheet({super.key});
@@ -46,7 +46,7 @@ class FavoriteBottomSheet extends ConsumerWidget {
           .addAssets(album.id, remoteAssets.map((e) => e.id).toList());
 
       if (selectedAssets.length != remoteAssets.length) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_some_local_assets'.t(context: context),
         );
@@ -54,18 +54,18 @@ class FavoriteBottomSheet extends ConsumerWidget {
 
       // Only report the failure when nothing was added; if some succeeded we show "added".
       if (result.added > 0) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_added'.t(args: {"album": album.name}),
         );
       } else if (result.failed > 0) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'assets_cannot_be_added_to_album_count'.t(context: context, args: {'count': result.failed}),
           toastType: ToastType.error,
         );
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'add_to_album_bottom_sheet_already_exists'.t(args: {"album": album.name}),
         );

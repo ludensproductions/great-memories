@@ -2,7 +2,7 @@
   import { assetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
   import type { OnRestore } from '$lib/utils/actions';
   import { handleError } from '$lib/utils/handle-error';
-  import { restoreAssets } from '@immich/sdk';
+  import { restoreAssets } from '@great-memories/sdk';
   import { Button, toastManager } from '@immich/ui';
   import { mdiHistory } from '@mdi/js';
   import { t } from 'svelte-i18n';

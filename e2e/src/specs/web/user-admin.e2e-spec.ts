@@ -1,4 +1,4 @@
-import { getUserAdmin } from '@immich/sdk';
+import { getUserAdmin } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { asBearerAuth, utils } from 'src/utils';
 
@@ -31,7 +31,7 @@ test.describe('User Administration', () => {
     await page.getByLabel('Email').fill('user@immich.cloud');
     await page.getByLabel('Password', { exact: true }).fill('password');
     await page.getByLabel('Confirm Password').fill('password');
-    await page.getByLabel('Name').fill('Immich User');
+    await page.getByLabel('Name').fill('Great Memories User');
     await page.getByRole('button', { name: 'Create', exact: true }).click();
 
     // Verify the user exists in the user list

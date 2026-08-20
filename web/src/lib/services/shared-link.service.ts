@@ -7,7 +7,7 @@ import {
   type SharedLinkCreateDto,
   type SharedLinkEditDto,
   type SharedLinkResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiContentCopy, mdiLink, mdiPencilOutline, mdiQrcode, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

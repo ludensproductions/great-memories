@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/pages/edit/editor.provider.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/pages/edit/editor.provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
 
 class EditImageActionButton extends ConsumerWidget {
   const EditImageActionButton({super.key});

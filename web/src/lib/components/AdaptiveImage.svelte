@@ -61,7 +61,7 @@
   import { scaleToCover, scaleToFit, type Size } from '$lib/utils/container-utils';
   import { getAltText } from '$lib/utils/thumbnail-util';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import type { AssetResponseDto, SharedLinkResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto, SharedLinkResponseDto } from '@great-memories/sdk';
   import { untrack, type Snippet } from 'svelte';
 
   type Props = {

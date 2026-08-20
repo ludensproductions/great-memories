@@ -1,20 +1,17 @@
 <p align="center">
   <br/>
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="License: AGPLv3"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" atl="Discord"/>
-  </a>
   <br/>
   <br/>
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
-<h3 align="center">Immich - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
+<h3 align="center">Great Memories - 高性能なセルフホスト 写真/ビデオバックアップソリューション</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<img src="../design/great-memories-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -47,14 +44,14 @@
 
 ## コンテンツ
 
-- [公式ドキュメント](https://docs.immich.app/)
-- [紹介](https://docs.immich.app/overview/introduction)
-- [インストール](https://docs.immich.app/install/requirements)
+- 公式ドキュメント
+- 紹介
+- インストール
 - [ロードマップ](https://immich.app/roadmap)
 - [デモ](#デモ)
 - [機能](#機能)
-- [翻訳](https://docs.immich.app/developer/translations)
-- [コントリビューションガイド](https://docs.immich.app/overview/support-the-project)
+- 翻訳
+- コントリビューションガイド
 
 ## デモ
 

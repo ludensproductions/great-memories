@@ -21,7 +21,7 @@
     subtitle = '',
     icon,
     activeColor = 'bg-slate-300',
-    textColor = 'text-immich-fg dark:text-immich-dark-bg',
+    textColor = 'text-great-memories-fg dark:text-great-memories-dark-bg',
     onClick,
     shortcut = null,
     shortcutLabel = '',

@@ -5,7 +5,7 @@
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { updateAsset, type AssetResponseDto } from '@immich/sdk';
+  import { updateAsset, type AssetResponseDto } from '@great-memories/sdk';
   import { t } from 'svelte-i18n';
 
   type Props = {

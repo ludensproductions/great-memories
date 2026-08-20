@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/providers/haptic_feedback.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 class SheetTile extends ConsumerWidget {
   final String title;
@@ -27,7 +27,7 @@ class SheetTile extends ConsumerWidget {
 
   void copyTitle(BuildContext context, WidgetRef ref) {
     Clipboard.setData(ClipboardData(text: title));
-    ImmichToast.show(
+    GreatMemoriesToast.show(
       context: context,
       msg: 'copied_to_clipboard'.t(context: context),
       toastType: ToastType.info,

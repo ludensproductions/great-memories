@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import type { MemoryResponseDto } from '@immich/sdk';
+import type { MemoryResponseDto } from '@great-memories/sdk';
 import { test } from '@playwright/test';
 import { generateMemoriesFromTimeline } from 'src/ui/generators/memory';
 import {

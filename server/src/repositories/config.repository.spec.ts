@@ -1,4 +1,4 @@
-import { ImmichTelemetry } from 'src/enum';
+import { GreatMemoriesTelemetry } from 'src/enum';
 import { clearEnvCache, ConfigRepository } from 'src/repositories/config.repository';
 
 const getEnv = () => {
@@ -8,17 +8,17 @@ const getEnv = () => {
 
 const resetEnv = () => {
   for (const env of [
-    'IMMICH_ALLOW_EXTERNAL_PLUGINS',
-    'IMMICH_ALLOW_SETUP',
-    'IMMICH_ENV',
-    'IMMICH_WORKERS_INCLUDE',
-    'IMMICH_WORKERS_EXCLUDE',
-    'IMMICH_TRUSTED_PROXIES',
-    'IMMICH_API_METRICS_PORT',
-    'IMMICH_MEDIA_LOCATION',
-    'IMMICH_MICROSERVICES_METRICS_PORT',
-    'IMMICH_TELEMETRY_INCLUDE',
-    'IMMICH_TELEMETRY_EXCLUDE',
+    'GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS',
+    'GREAT_MEMORIES_ALLOW_SETUP',
+    'GREAT_MEMORIES_ENV',
+    'GREAT_MEMORIES_WORKERS_INCLUDE',
+    'GREAT_MEMORIES_WORKERS_EXCLUDE',
+    'GREAT_MEMORIES_TRUSTED_PROXIES',
+    'GREAT_MEMORIES_API_METRICS_PORT',
+    'GREAT_MEMORIES_MEDIA_LOCATION',
+    'GREAT_MEMORIES_MICROSERVICES_METRICS_PORT',
+    'GREAT_MEMORIES_TELEMETRY_INCLUDE',
+    'GREAT_MEMORIES_TELEMETRY_EXCLUDE',
 
     'DB_URL',
     'DB_HOSTNAME',
@@ -82,36 +82,36 @@ describe('getEnv', () => {
     expect(config.setup).toEqual({ allow: true });
   });
 
-  describe('IMMICH_MEDIA_LOCATION', () => {
+  describe('GREAT_MEMORIES_MEDIA_LOCATION', () => {
     it('should throw an error for relative paths', () => {
-      process.env.IMMICH_MEDIA_LOCATION = './relative/path';
-      expect(() => getEnv()).toThrowError('[IMMICH_MEDIA_LOCATION] Must be an absolute path');
+      process.env.GREAT_MEMORIES_MEDIA_LOCATION = './relative/path';
+      expect(() => getEnv()).toThrowError('[GREAT_MEMORIES_MEDIA_LOCATION] Must be an absolute path');
     });
   });
 
-  describe('IMMICH_ALLOW_EXTERNAL_PLUGINS', () => {
+  describe('GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS', () => {
     it('should disable plugins', () => {
-      process.env.IMMICH_ALLOW_EXTERNAL_PLUGINS = 'false';
+      process.env.GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS = 'false';
       const config = getEnv();
       expect(config.plugins.external).toEqual({ allow: false });
     });
 
     it('should throw an error for invalid value', () => {
-      process.env.IMMICH_ALLOW_EXTERNAL_PLUGINS = 'invalid';
-      expect(() => getEnv()).toThrowError('[IMMICH_ALLOW_EXTERNAL_PLUGINS] Invalid option: expected one of');
+      process.env.GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS = 'invalid';
+      expect(() => getEnv()).toThrowError('[GREAT_MEMORIES_ALLOW_EXTERNAL_PLUGINS] Invalid option: expected one of');
     });
   });
 
-  describe('IMMICH_ALLOW_SETUP', () => {
+  describe('GREAT_MEMORIES_ALLOW_SETUP', () => {
     it('should disable setup', () => {
-      process.env.IMMICH_ALLOW_SETUP = 'false';
+      process.env.GREAT_MEMORIES_ALLOW_SETUP = 'false';
       const { setup } = getEnv();
       expect(setup).toEqual({ allow: false });
     });
 
     it('should throw an error for invalid value', () => {
-      process.env.IMMICH_ALLOW_SETUP = 'invalid';
-      expect(() => getEnv()).toThrowError('[IMMICH_ALLOW_SETUP] Invalid option: expected one of');
+      process.env.GREAT_MEMORIES_ALLOW_SETUP = 'invalid';
+      expect(() => getEnv()).toThrowError('[GREAT_MEMORIES_ALLOW_SETUP] Invalid option: expected one of');
     });
   });
 
@@ -123,7 +123,7 @@ describe('getEnv', () => {
           connectionType: 'parts',
           host: 'database',
           port: 5432,
-          database: 'immich',
+          database: 'great-memories',
           username: 'postgres',
           password: 'postgres',
         },
@@ -150,11 +150,11 @@ describe('getEnv', () => {
     });
 
     it('should use DB_URL', () => {
-      process.env.DB_URL = 'postgres://postgres1:postgres2@database1:54320/immich';
+      process.env.DB_URL = 'postgres://postgres1:postgres2@database1:54320/great-memories';
       const { database } = getEnv();
       expect(database.config).toMatchObject({
         connectionType: 'url',
-        url: 'postgres://postgres1:postgres2@database1:54320/immich',
+        url: 'postgres://postgres1:postgres2@database1:54320/great-memories',
       });
     });
   });
@@ -217,45 +217,45 @@ describe('getEnv', () => {
     });
 
     it('should return included workers', () => {
-      process.env.IMMICH_WORKERS_INCLUDE = 'api';
+      process.env.GREAT_MEMORIES_WORKERS_INCLUDE = 'api';
       const { workers } = getEnv();
       expect(workers).toEqual(['api']);
     });
 
     it('should excluded workers from defaults', () => {
-      process.env.IMMICH_WORKERS_EXCLUDE = 'api';
+      process.env.GREAT_MEMORIES_WORKERS_EXCLUDE = 'api';
       const { workers } = getEnv();
       expect(workers).toEqual(['microservices']);
     });
 
     it('should exclude workers from include list', () => {
-      process.env.IMMICH_WORKERS_INCLUDE = 'api,microservices,randomservice';
-      process.env.IMMICH_WORKERS_EXCLUDE = 'randomservice,microservices';
+      process.env.GREAT_MEMORIES_WORKERS_INCLUDE = 'api,microservices,randomservice';
+      process.env.GREAT_MEMORIES_WORKERS_EXCLUDE = 'randomservice,microservices';
       const { workers } = getEnv();
       expect(workers).toEqual(['api']);
     });
 
     it('should remove whitespace from included workers before parsing', () => {
-      process.env.IMMICH_WORKERS_INCLUDE = 'api, microservices';
+      process.env.GREAT_MEMORIES_WORKERS_INCLUDE = 'api, microservices';
       const { workers } = getEnv();
       expect(workers).toEqual(['api', 'microservices']);
     });
 
     it('should remove whitespace from excluded workers before parsing', () => {
-      process.env.IMMICH_WORKERS_EXCLUDE = 'api, microservices';
+      process.env.GREAT_MEMORIES_WORKERS_EXCLUDE = 'api, microservices';
       const { workers } = getEnv();
       expect(workers).toEqual([]);
     });
 
     it('should remove whitespace from included and excluded workers before parsing', () => {
-      process.env.IMMICH_WORKERS_INCLUDE = 'api, microservices, randomservice,randomservice2';
-      process.env.IMMICH_WORKERS_EXCLUDE = 'randomservice,microservices, randomservice2';
+      process.env.GREAT_MEMORIES_WORKERS_INCLUDE = 'api, microservices, randomservice,randomservice2';
+      process.env.GREAT_MEMORIES_WORKERS_EXCLUDE = 'randomservice,microservices, randomservice2';
       const { workers } = getEnv();
       expect(workers).toEqual(['api']);
     });
 
     it('should throw error for invalid workers', () => {
-      process.env.IMMICH_WORKERS_INCLUDE = 'api,microservices,randomservice';
+      process.env.GREAT_MEMORIES_WORKERS_INCLUDE = 'api,microservices,randomservice';
       expect(getEnv).toThrowError('Invalid worker(s) found: api,microservices,randomservice');
     });
   });
@@ -269,7 +269,7 @@ describe('getEnv', () => {
     });
 
     it('should parse trusted proxies', () => {
-      process.env.IMMICH_TRUSTED_PROXIES = '10.1.0.0,10.2.0.0, 169.254.0.0/16';
+      process.env.GREAT_MEMORIES_TRUSTED_PROXIES = '10.1.0.0,10.2.0.0, 169.254.0.0/16';
       const { network } = getEnv();
       expect(network).toEqual({
         trustedProxies: ['10.1.0.0', '10.2.0.0', '169.254.0.0/16'],
@@ -277,8 +277,8 @@ describe('getEnv', () => {
     });
 
     it('should reject invalid trusted proxies', () => {
-      process.env.IMMICH_TRUSTED_PROXIES = '10.1';
-      expect(() => getEnv()).toThrow('[IMMICH_TRUSTED_PROXIES] Must be an ip address or ip address range');
+      process.env.GREAT_MEMORIES_TRUSTED_PROXIES = '10.1';
+      expect(() => getEnv()).toThrow('[GREAT_MEMORIES_TRUSTED_PROXIES] Must be an ip address or ip address range');
     });
   });
 
@@ -293,8 +293,8 @@ describe('getEnv', () => {
     });
 
     it('should parse custom ports', () => {
-      process.env.IMMICH_API_METRICS_PORT = '2001';
-      process.env.IMMICH_MICROSERVICES_METRICS_PORT = '2002';
+      process.env.GREAT_MEMORIES_API_METRICS_PORT = '2001';
+      process.env.GREAT_MEMORIES_MICROSERVICES_METRICS_PORT = '2002';
       const { telemetry } = getEnv();
       expect(telemetry).toMatchObject({
         apiPort: 2001,
@@ -304,24 +304,24 @@ describe('getEnv', () => {
     });
 
     it('should run with telemetry enabled', () => {
-      process.env.IMMICH_TELEMETRY_INCLUDE = 'all';
+      process.env.GREAT_MEMORIES_TELEMETRY_INCLUDE = 'all';
       const { telemetry } = getEnv();
-      expect(telemetry.metrics).toEqual(new Set(Object.values(ImmichTelemetry)));
+      expect(telemetry.metrics).toEqual(new Set(Object.values(GreatMemoriesTelemetry)));
     });
 
     it('should run with telemetry enabled and jobs disabled', () => {
-      process.env.IMMICH_TELEMETRY_INCLUDE = 'all';
-      process.env.IMMICH_TELEMETRY_EXCLUDE = 'job';
+      process.env.GREAT_MEMORIES_TELEMETRY_INCLUDE = 'all';
+      process.env.GREAT_MEMORIES_TELEMETRY_EXCLUDE = 'job';
       const { telemetry } = getEnv();
       expect(telemetry.metrics).toEqual(
-        new Set([ImmichTelemetry.Api, ImmichTelemetry.Host, ImmichTelemetry.Io, ImmichTelemetry.Repo]),
+        new Set([GreatMemoriesTelemetry.Api, GreatMemoriesTelemetry.Host, GreatMemoriesTelemetry.Io, GreatMemoriesTelemetry.Repo]),
       );
     });
 
     it('should run with specific telemetry metrics', () => {
-      process.env.IMMICH_TELEMETRY_INCLUDE = 'io, host, api';
+      process.env.GREAT_MEMORIES_TELEMETRY_INCLUDE = 'io, host, api';
       const { telemetry } = getEnv();
-      expect(telemetry.metrics).toEqual(new Set([ImmichTelemetry.Api, ImmichTelemetry.Host, ImmichTelemetry.Io]));
+      expect(telemetry.metrics).toEqual(new Set([GreatMemoriesTelemetry.Api, GreatMemoriesTelemetry.Host, GreatMemoriesTelemetry.Io]));
     });
   });
 });

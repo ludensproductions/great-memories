@@ -1,15 +1,15 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/domain/models/stack.model.dart';
-import 'package:immich_mobile/infrastructure/entities/asset_edit.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/exif.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/exif.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/entities/stack.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/domain/models/stack.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/asset_edit.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/exif.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/entities/stack.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class RemoteAssetRepository extends DriftDatabaseRepository {

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 
 /// Guards against duplicate navigation to this route
 class DuplicateGuard extends AutoRouteGuard {

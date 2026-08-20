@@ -1,4 +1,4 @@
-import { getAllPeople, getExploreData } from '@immich/sdk';
+import { getAllPeople, getExploreData } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';
 import type { PageLoad } from './$types';

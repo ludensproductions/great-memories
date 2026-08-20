@@ -44,7 +44,7 @@
       {/if}
     </div>
 
-    <p class="text-sm dark:text-immich-dark-fg">{subtitle}</p>
+    <p class="text-sm dark:text-great-memories-dark-fg">{subtitle}</p>
     {@render children?.()}
   </div>
   <div class="w-fit">

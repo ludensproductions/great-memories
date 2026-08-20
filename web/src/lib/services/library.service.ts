@@ -9,7 +9,7 @@ import {
   type CreateLibraryDto,
   type LibraryResponseDto,
   type UpdateLibraryDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiInformationOutline, mdiPencilOutline, mdiPlusBoxOutline, mdiSync, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

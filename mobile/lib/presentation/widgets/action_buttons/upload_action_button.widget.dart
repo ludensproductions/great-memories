@@ -4,18 +4,18 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/providers/backup/asset_upload_progress.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_file_path.provider.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
-import 'package:immich_mobile/services/view_intent.service.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/providers/backup/asset_upload_progress.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/providers/view_intent/view_intent_file_path.provider.dart';
+import 'package:great_memories_mobile/services/foreground_upload.service.dart';
+import 'package:great_memories_mobile/services/view_intent.service.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 
 class UploadActionButton extends ConsumerWidget {
   final ActionSource source;
@@ -87,7 +87,7 @@ class UploadActionButton extends ConsumerWidget {
     }
 
     if (context.mounted && !success && !wasUploadCancelled) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,
@@ -137,7 +137,7 @@ class _UploadProgressDialog extends ConsumerWidget {
         ],
       ),
       actions: [
-        ImmichTextButton(
+        GreatMemoriesTextButton(
           onPressed: () {
             ref.read(manualUploadCancelTokenProvider)?.complete();
             ref.read(manualUploadCancelTokenProvider.notifier).state = null;

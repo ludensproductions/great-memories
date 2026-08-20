@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.state.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.state.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
 
 // A first fetch that never delivers - the state a suspended or storm-starved
 // bucket watch is stuck in when the timeline mounts on a zero-sized first frame

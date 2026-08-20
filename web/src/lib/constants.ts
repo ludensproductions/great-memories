@@ -66,7 +66,6 @@ export enum OpenQueryParam {
   JOB = 'job',
   STORAGE_TEMPLATE = 'storage-template',
   NOTIFICATIONS = 'notifications',
-  PURCHASE_SETTINGS = 'user-purchase-settings',
 }
 
 export const maximumLengthSearchPeople = 100;
@@ -245,9 +244,9 @@ export interface Lang {
 
 export const defaultLang: Lang = { name: 'English', code: 'en', loader: () => import('$i18n/en.json') };
 
-export enum ImmichProduct {
-  Client = 'immich-client',
-  Server = 'immich-server',
+export enum GreatMemoriesProduct {
+  Client = 'great-memories-client',
+  Server = 'great-memories-server',
 }
 
 export enum SettingInputFieldType {

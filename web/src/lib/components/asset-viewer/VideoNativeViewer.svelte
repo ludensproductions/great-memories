@@ -9,7 +9,7 @@
   import { mediaCapabilitiesManager } from '$lib/managers/media-capabilities-manager.svelte';
   import { autoPlayVideo, lang, loopVideo as loopVideoPreference } from '$lib/stores/preferences.store';
   import { getAssetHlsSessionUrl, getAssetHlsUrl, getAssetMediaUrl, getAssetPlaybackUrl } from '$lib/utils';
-  import { AssetMediaSize, type AssetResponseDto } from '@immich/sdk';
+  import { AssetMediaSize, type AssetResponseDto } from '@great-memories/sdk';
   import { Icon, LoadingSpinner, shortcuts } from '@immich/ui';
   import {
     mdiCheck,
@@ -44,7 +44,7 @@
   import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
-  import './immich-time-range';
+  import './great-memories-time-range';
 
   interface Props {
     asset: AssetResponseDto;
@@ -479,7 +479,7 @@
               <media-settings-menu-button class="shrink-0 rounded-full p-2 outline-none"></media-settings-menu-button>
             {/if}
           </media-control-bar>
-          <immich-time-range class="h-8 w-full rounded-lg px-2 pb-3 outline-none"></immich-time-range>
+          <great-memories-time-range class="h-8 w-full rounded-lg px-2 pb-3 outline-none"></great-memories-time-range>
         </div>
       </media-controller>
 
@@ -499,18 +499,18 @@
 <style>
   media-controller {
     --media-control-background: none;
-    --media-control-hover-background: var(--immich-ui-light-100);
-    --media-focus-box-shadow: 0 0 0 2px var(--immich-ui-dark);
+    --media-control-hover-background: var(--great-memories-ui-light-100);
+    --media-focus-box-shadow: 0 0 0 2px var(--great-memories-ui-dark);
     --media-font-family: var(--font-sans);
     --media-font-size: var(--text-base);
     --media-font-weight: var(--font-weight-medium);
     --media-menu-border-radius: var(--radius-xl);
     --media-menu-gap: var(--spacing);
-    --media-menu-item-hover-background: var(--immich-ui-light-200);
+    --media-menu-item-hover-background: var(--great-memories-ui-light-200);
     --media-menu-item-icon-height: 1em;
     --media-menu-item-indicator-height: 1em;
-    --media-primary-color: var(--immich-ui-dark);
-    --media-time-range-buffered-color: var(--immich-ui-dark-400);
+    --media-primary-color: var(--great-memories-ui-dark);
+    --media-time-range-buffered-color: var(--great-memories-ui-dark-400);
     --media-time-range-hover-bottom: 0;
     --media-time-range-hover-height: 100%;
     --media-range-thumb-box-shadow: none;
@@ -519,11 +519,11 @@
     --media-range-track-border-radius: 2px;
     --media-range-track-height: 3.5px;
     --media-range-padding: 0;
-    --media-settings-menu-background: var(--immich-ui-light-100);
+    --media-settings-menu-background: var(--great-memories-ui-light-100);
     --media-text-content-height: var(--text-base--line-height);
     --media-tooltip-arrow-display: none;
     --media-tooltip-border-radius: var(--radius-lg);
-    --media-tooltip-background-color: var(--immich-ui-light-200);
+    --media-tooltip-background-color: var(--great-memories-ui-light-200);
     --media-tooltip-distance: 8px;
     --media-tooltip-padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3.5);
   }
@@ -532,12 +532,12 @@
     font-variant-numeric: tabular-nums;
   }
 
-  immich-time-range,
+  great-memories-time-range,
   media-volume-range {
     --media-control-hover-background: none;
   }
 
-  immich-time-range:hover,
+  great-memories-time-range:hover,
   media-volume-range:hover {
     --media-range-thumb-opacity: 1;
   }

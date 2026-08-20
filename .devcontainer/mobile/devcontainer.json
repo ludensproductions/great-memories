@@ -1,12 +1,12 @@
 {
-  "name": "Immich - Mobile",
-  "service": "immich-server",
+  "name": "Great Memories - Mobile",
+  "service": "great-memories-server",
   "runServices": [
-    "immich-init",
-    "immich-server",
+    "great-memories-init",
+    "great-memories-server",
     "redis",
     "database",
-    "immich-machine-learning"
+    "great-memories-machine-learning"
   ],
   "dockerComposeFile": [
     "../../docker/docker-compose.dev.yml",
@@ -48,6 +48,6 @@
     //  The database username
     "DB_USERNAME": "${localEnv:DB_USERNAME:postgres}",
     //  The database name
-    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:immich}"
+    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:great-memories}"
   }
 }

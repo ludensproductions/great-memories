@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/sdk';
+import { WorkflowTrigger } from '@great-memories/sdk';
 import type { MessageFormatter } from 'svelte-i18n';
 import type { JSONSchemaProperty } from '$lib/types';
 

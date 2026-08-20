@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/map/map_state.model.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/models/map/map_state.model.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
 
 final mapStateNotifierProvider = NotifierProvider<MapStateNotifier, MapState>(MapStateNotifier.new);
 

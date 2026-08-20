@@ -4,21 +4,21 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/colors.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/feature_message.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/settings.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:great_memories_mobile/constants/colors.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/domain/models/log.model.dart';
+import 'package:great_memories_mobile/domain/models/settings_key.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/services/feature_message.service.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/settings.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/models/auth/auxilary_endpoint.model.dart';
+import 'package:great_memories_mobile/providers/album/album_sort_by_options.provider.dart';
 
 const int targetVersion = 26;
 
@@ -84,7 +84,7 @@ Future<void> _migrateTo26(Drift drift) async {
   await migrator.migrateEnumIndex(StoreKey.legacyLogLevel, SettingsKey.logLevel, LogLevel.values);
   // Theme
   await migrator.migrateEnumName(StoreKey.legacyThemeMode, SettingsKey.themeMode, ThemeMode.values);
-  await migrator.migrateEnumName(StoreKey.legacyPrimaryColor, SettingsKey.themePrimaryColor, ImmichColorPreset.values);
+  await migrator.migrateEnumName(StoreKey.legacyPrimaryColor, SettingsKey.themePrimaryColor, GreatMemoriesColorPreset.values);
   await migrator.migrateBool(StoreKey.legacyDynamicTheme, SettingsKey.themeDynamic);
   await migrator.migrateBool(StoreKey.legacyColorfulInterface, SettingsKey.themeColorfulInterface);
   // Cleanup

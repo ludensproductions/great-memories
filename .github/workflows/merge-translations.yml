@@ -20,7 +20,7 @@ permissions: {}
 
 env:
   WEBLATE_HOST: 'https://hosted.weblate.org'
-  WEBLATE_COMPONENT: 'immich/immich'
+  WEBLATE_COMPONENT: 'great-memories/great-memories'
 
 jobs:
   merge:

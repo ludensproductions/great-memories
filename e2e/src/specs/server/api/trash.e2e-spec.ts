@@ -1,4 +1,4 @@
-import { LoginResponseDto, getAssetInfo, getAssetStatistics } from '@immich/sdk';
+import { LoginResponseDto, getAssetInfo, getAssetStatistics } from '@great-memories/sdk';
 import { existsSync } from 'node:fs';
 import { Socket } from 'socket.io-client';
 import { errorDto } from 'src/responses';

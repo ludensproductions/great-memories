@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/upload/share_intent_attachment.model.dart';
-import 'package:immich_mobile/repositories/share_handler.repository.dart';
+import 'package:great_memories_mobile/models/upload/share_intent_attachment.model.dart';
+import 'package:great_memories_mobile/repositories/share_handler.repository.dart';
 
 final shareIntentServiceProvider = Provider((ref) => ShareIntentService(ref.watch(shareHandlerRepositoryProvider)));
 

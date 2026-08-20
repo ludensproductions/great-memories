@@ -8,7 +8,7 @@
   import { getWorkflowActions, handleUpdateWorkflow } from '$lib/services/workflow.service';
   import { generateId } from '$lib/utils/generate-id';
   import { getTriggerDescription, getTriggerName } from '$lib/utils/workflow';
-  import type { WorkflowResponseDto, WorkflowUpdateDto } from '@immich/sdk';
+  import type { WorkflowResponseDto, WorkflowUpdateDto } from '@great-memories/sdk';
   import {
     ActionBar,
     AppShell,

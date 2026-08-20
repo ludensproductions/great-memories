@@ -38,15 +38,15 @@ const String kWidgetCustomHeaders = "widget_custom_headers";
 // these are used to force a widget refresh
 // (iOSName, androidFQDN)
 const List<(String, String)> kWidgetNames = [
-  ('com.immich.widget.random', 'app.alextran.immich.widget.RandomReceiver'),
-  ('com.immich.widget.memory', 'app.alextran.immich.widget.MemoryReceiver'),
+  ('com.greatmemories.app.widget.random', 'com.greatmemories.app.widget.RandomReceiver'),
+  ('com.greatmemories.app.widget.memory', 'com.greatmemories.app.widget.MemoryReceiver'),
 ];
 
 const int kMinMonthsToEnableScrubberSnap = 12;
 
-const String kImmichAppStoreLink = "https://apps.apple.com/app/immich/id1613945652";
-const String kImmichPlayStoreLink = "https://play.google.com/store/apps/details?id=app.alextran.immich";
-const String kImmichLatestRelease = "https://github.com/immich-app/immich/releases/latest";
+const String kGreatMemoriesAppStoreLink = "https://apps.apple.com/app/great-memories/id1613945652";
+const String kGreatMemoriesPlayStoreLink = "https://play.google.com/store/apps/details?id=com.greatmemories.app";
+const String kGreatMemoriesLatestRelease = "https://github.com/ludensproductions/great-memories/releases/latest";
 
 const int kPhotoTabIndex = 0;
 const int kSearchTabIndex = 1;

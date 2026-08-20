@@ -1,21 +1,16 @@
 <p align="center"> 
   <br/>
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="License: AGPLv3"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" alt="Discord"/>
-  </a>
   <br/>
   <br/>
 </p>
 
 <p align="center">
-<img src="design/immich-logo-stacked-light.svg" width="300" title="Login With Custom URL">
+<img src="design/great-memories-logo-stacked-light.svg" width="300" title="Login With Custom URL">
 </p>
 <h3 align="center">High performance self-hosted photo and video management solution</h3>
 <br/>
-<a href="https://immich.app">
-<img src="design/immich-screenshots.png" title="Main Screenshot">
-</a>
+<img src="design/great-memories-screenshots.png" title="Main Screenshot">
 <br/>
 
 <p align="center">
@@ -47,29 +42,15 @@
 > 
  
 
-> [!NOTE]
-> You can find the main documentation, including installation guides, at https://immich.app/.
-
 ## Links
 
-- [Documentation](https://docs.immich.app/)
-- [About](https://docs.immich.app/overview/introduction)
-- [Installation](https://docs.immich.app/install/requirements)
-- [Roadmap](https://immich.app/roadmap)
-- [Demo](#demo)
+- Documentation
+- About
+- Installation
+- Roadmap
 - [Features](#features)
-- [Translations](https://docs.immich.app/developer/translations)
-- [Contributing](https://docs.immich.app/overview/support-the-project)
-
-## Demo
-
-Access the demo [here](https://demo.immich.app). For the mobile app, you can use `https://demo.immich.app` for the `Server Endpoint URL`.
-
-### Login credentials
-
-| Email           | Password |
-| --------------- | -------- |
-| demo@immich.app | demo     |
+- Translations
+- Contributing
 
 ## Features
 
@@ -108,7 +89,7 @@ Access the demo [here](https://demo.immich.app). For the mobile app, you can use
 
 ## Translations
 
-Read more about translations [here](https://docs.immich.app/developer/translations).
+Read more about translations in the developer documentation.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Translation status" />

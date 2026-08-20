@@ -6,7 +6,7 @@ import {
   type WorkflowCreateDto,
   type WorkflowResponseDto,
   type WorkflowUpdateDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import {
   mdiCodeJson,

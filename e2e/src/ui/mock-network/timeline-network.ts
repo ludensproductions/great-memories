@@ -1,4 +1,4 @@
-import { AssetResponseDto } from '@immich/sdk';
+import { AssetResponseDto } from '@great-memories/sdk';
 import { BrowserContext, Page, Request, Route } from '@playwright/test';
 import { basename } from 'node:path';
 import {

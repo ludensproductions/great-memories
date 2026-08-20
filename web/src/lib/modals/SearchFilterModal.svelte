@@ -13,7 +13,7 @@
   import type { SearchFilter } from '$lib/types';
   import { asLocalTimeISO, parseUtcDate } from '$lib/utils/date-time';
   import { generateId } from '$lib/utils/generate-id';
-  import { AssetTypeEnum, AssetVisibility, type MetadataSearchDto, type SmartSearchDto } from '@immich/sdk';
+  import { AssetTypeEnum, AssetVisibility, type MetadataSearchDto, type SmartSearchDto } from '@great-memories/sdk';
   import { Button, HStack, Modal, ModalBody, ModalFooter } from '@immich/ui';
   import { mdiTune } from '@mdi/js';
   import type { DateTime } from 'luxon';

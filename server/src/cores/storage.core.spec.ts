@@ -6,29 +6,29 @@ vitest.mock('src/constants', () => ({
 }));
 
 describe('StorageCore', () => {
-  describe('isImmichPath', () => {
+  describe('isManagedMediaPath', () => {
     beforeAll(() => {
       StorageCore.setMediaLocation('/photos');
     });
 
     it('should return true for APP_MEDIA_LOCATION path', () => {
-      const immichPath = '/photos';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const greatMemoriesPath = '/photos';
+      expect(StorageCore.isManagedMediaPath(greatMemoriesPath)).toBe(true);
     });
 
     it('should return true for paths within the APP_MEDIA_LOCATION', () => {
-      const immichPath = '/photos/new/';
-      expect(StorageCore.isImmichPath(immichPath)).toBe(true);
+      const greatMemoriesPath = '/photos/new/';
+      expect(StorageCore.isManagedMediaPath(greatMemoriesPath)).toBe(true);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION and same starts', () => {
-      const nonImmichPath = '/photos_new';
-      expect(StorageCore.isImmichPath(nonImmichPath)).toBe(false);
+      const nonManagedMediaPath = '/photos_new';
+      expect(StorageCore.isManagedMediaPath(nonManagedMediaPath)).toBe(false);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION', () => {
-      const nonImmichPath = '/some/other/path';
-      expect(StorageCore.isImmichPath(nonImmichPath)).toBe(false);
+      const nonManagedMediaPath = '/some/other/path';
+      expect(StorageCore.isManagedMediaPath(nonManagedMediaPath)).toBe(false);
     });
   });
 });

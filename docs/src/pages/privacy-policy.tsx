@@ -3,13 +3,13 @@ import Layout from '@theme/Layout';
 function HomepageHeader() {
   return (
     <header>
-      <section className="max-w-[900px] m-4 p-4 md:p-6 md:m-auto md:my-12 border border-red-400 rounded-2xl  bg-slate-200 dark:bg-immich-dark-gray">
+      <section className="max-w-[900px] m-4 p-4 md:p-6 md:m-auto md:my-12 border border-red-400 rounded-2xl  bg-slate-200 dark:bg-great-memories-dark-gray">
         <section>
           <h1>Privacy Policy</h1>
           <p>Last updated: July 31st 2024</p>
           <p>
-            Welcome to Immich. We are committed to respecting your privacy. This Privacy Policy sets out how we collect,
-            use, and share information when you use our Immich app.
+            Welcome to Great Memories. We are committed to respecting your privacy. This Privacy Policy sets out how we collect,
+            use, and share information when you use our Great Memories app.
           </p>
         </section>
 
@@ -17,9 +17,9 @@ function HomepageHeader() {
         <section>
           <h2>1. Scope of This Policy</h2>
           <p>
-            This Privacy Policy applies to the Immich app ("we", "our", or "us") and covers our collection, use, and
+            This Privacy Policy applies to the Great Memories app ("we", "our", or "us") and covers our collection, use, and
             disclosure of your information. This Policy does not cover any third-party websites, services, or
-            applications that can be accessed through our app, or third-party services you may access through Immich.
+            applications that can be accessed through our app, or third-party services you may access through Great Memories.
           </p>
         </section>
 
@@ -28,7 +28,7 @@ function HomepageHeader() {
           <h2>2. Information We Collect</h2>
           <div>
             <p>
-              <strong>Locally Stored Data</strong>: Immich stores all your photos, albums, settings, and locally on your
+              <strong>Locally Stored Data</strong>: Great Memories stores all your photos, albums, settings, and locally on your
               device. We do not have access to this data, nor do we transmit or store it on any of our servers.
             </p>
           </div>
@@ -85,7 +85,7 @@ function HomepageHeader() {
           <h2>6. Contact Us</h2>
           <p>
             If you have any questions about this Privacy Policy, please contact us at{' '}
-            <a href="mailto:immich@futo.org">immich@futo.org</a>
+            <a href="mailto:great-memories@futo.org">great-memories@futo.org</a>
           </p>
         </section>
       </section>
@@ -97,7 +97,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="Home"
-      description="immich Self-hosted photo and video backup solution directly from your mobile phone "
+      description="Great Memories self-hosted photo and video backup solution directly from your mobile phone "
       noFooter={true}
     >
       <HomepageHeader />

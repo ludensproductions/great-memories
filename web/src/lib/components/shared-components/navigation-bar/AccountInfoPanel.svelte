@@ -3,13 +3,9 @@
   import { focusTrap } from '$lib/actions/focus-trap';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import AvatarEditModal from '$lib/modals/AvatarEditModal.svelte';
-  import HelpAndFeedbackModal from '$lib/modals/HelpAndFeedbackModal.svelte';
   import { Route } from '$lib/route';
-  import { userInteraction } from '$lib/stores/user.svelte';
-  import { getAboutInfo, type ServerAboutResponseDto } from '@immich/sdk';
   import { Button, Icon, IconButton, modalManager } from '@immich/ui';
   import { mdiCog, mdiLogout, mdiPencil, mdiWrench } from '@mdi/js';
-  import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
   import UserAvatar from '../UserAvatar.svelte';
@@ -19,23 +15,17 @@
   };
 
   let { onClose }: Props = $props();
-
-  let info: ServerAboutResponseDto | undefined = $state();
-
-  onMount(async () => {
-    info = userInteraction.aboutInfo ?? (await getAboutInfo());
-  });
 </script>
 
 <div
   in:fade={{ duration: 100 }}
   out:fade={{ duration: 100 }}
   id="account-info-panel"
-  class="absolute inset-e-6 top-19 z-1 w-[min(360px,100vw-50px)] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-immich-dark-gray dark:bg-immich-dark-gray"
+  class="absolute inset-e-6 top-19 z-1 w-[min(360px,100vw-50px)] rounded-3xl bg-gray-200 shadow-lg dark:border dark:border-great-memories-dark-gray dark:bg-great-memories-dark-gray"
   use:focusTrap
 >
   <div
-    class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-t-3xl bg-white p-4 dark:bg-immich-dark-primary/10"
+    class="mx-4 mt-4 flex flex-col items-center justify-center gap-4 rounded-t-3xl bg-white p-4 dark:bg-great-memories-dark-primary/10"
   >
     <div class="relative">
       <UserAvatar user={authManager.user} size="xl" />
@@ -57,7 +47,7 @@
       <p class="text-center text-lg font-medium text-primary">
         {authManager.user.name}
       </p>
-      <p class="text-sm text-gray-500 dark:text-immich-dark-fg">{authManager.user.email}</p>
+      <p class="text-sm text-gray-500 dark:text-great-memories-dark-fg">{authManager.user.email}</p>
     </div>
 
     <div class="flex flex-col gap-1">
@@ -68,7 +58,7 @@
         color="secondary"
         variant="ghost"
         shape="round"
-        class="border hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-immich-dark-primary/50"
+        class="border hover:bg-great-memories-primary/10 dark:border-great-memories-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-great-memories-dark-primary/50"
       >
         <div class="flex place-content-center place-items-center gap-2 px-2 text-center">
           <Icon icon={mdiCog} size="18" aria-hidden />
@@ -84,7 +74,7 @@
           size="small"
           color="secondary"
           aria-current={page.url.pathname.includes('/admin') ? 'page' : undefined}
-          class="border hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-immich-dark-primary/50"
+          class="border hover:bg-great-memories-primary/10 dark:border-great-memories-dark-gray dark:bg-gray-500 dark:text-white dark:hover:bg-great-memories-dark-primary/50"
         >
           <div class="flex place-content-center place-items-center gap-2 px-2 text-center">
             <Icon icon={mdiWrench} size="18" aria-hidden />
@@ -97,24 +87,11 @@
 
   <div class="mb-4 flex flex-col">
     <Button
-      class="m-1 mx-4 rounded-none rounded-b-3xl bg-white p-3 dark:bg-immich-dark-primary/10"
+      class="m-1 mx-4 rounded-none rounded-b-3xl bg-white p-3 dark:bg-great-memories-dark-primary/10"
       href={Route.logout()}
       leadingIcon={mdiLogout}
       variant="ghost"
       color="secondary">{$t('sign_out')}</Button
     >
-
-    <button
-      type="button"
-      class="mt-4 text-center text-xs text-primary underline"
-      onclick={async () => {
-        onClose?.();
-        if (info) {
-          await modalManager.show(HelpAndFeedbackModal, { info });
-        }
-      }}
-    >
-      {$t('support_and_feedback')}
-    </button>
   </div>
 </div>

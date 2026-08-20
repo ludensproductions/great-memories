@@ -3,7 +3,7 @@
   import { Route } from '$lib/route';
   import { websocketStore } from '$lib/stores/websocket';
   import { handleError } from '$lib/utils/handle-error';
-  import { startDatabaseRestoreFlow } from '@immich/sdk';
+  import { startDatabaseRestoreFlow } from '@great-memories/sdk';
   import { Button, Heading, Stack } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
@@ -22,7 +22,7 @@
 
 <AuthPageLayout>
   <div class="flex flex-col place-items-center gap-12 text-center">
-    <Heading size="large" color="primary" tag="h1">{$t('welcome_to_immich')}</Heading>
+    <Heading size="large" color="primary" tag="h1">{$t('welcome_to_great_memories')}</Heading>
     <Stack>
       <Button href={Route.register()} size="large" shape="round">
         <span class="px-2 font-semibold">{$t('getting_started')}</span>

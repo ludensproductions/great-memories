@@ -8,7 +8,7 @@
   import { assetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
   import { Route } from '$lib/route';
   import { getAssetBulkActions } from '$lib/services/asset.service';
-  import { AssetVisibility } from '@immich/sdk';
+  import { AssetVisibility } from '@great-memories/sdk';
   import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
   import { mdiArrowLeft } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -51,7 +51,7 @@
 {:else}
   <ControlAppBar backIcon={mdiArrowLeft} onClose={() => goto(Route.sharing())}>
     {#snippet leading()}
-      <p class="whitespace-nowrap text-immich-fg dark:text-immich-dark-fg">
+      <p class="whitespace-nowrap text-great-memories-fg dark:text-great-memories-dark-fg">
         {$t('partner_list_user_photos', { values: { user: data.partner.name } })}
       </p>
     {/snippet}

@@ -4,7 +4,7 @@ import { LoggingRepository } from 'src/repositories/logging.repository';
 const logger = LoggingRepository.create('Migrations');
 
 export async function up(db: Kysely<any>): Promise<void> {
-  if (process.env.IMMICH_MEDIA_LOCATION) {
+  if (process.env.GREAT_MEMORIES_MEDIA_LOCATION) {
     // do not automatically convert paths for a custom location/setting
     return;
   }

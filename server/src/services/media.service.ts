@@ -13,7 +13,7 @@ import {
   AudioCodec,
   Colorspace,
   ImageFormat,
-  ImmichWorker,
+  GreatMemoriesWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -61,7 +61,7 @@ type ThumbnailAsset = NonNullable<Awaited<ReturnType<AssetJobRepository['getForG
 export class MediaService extends BaseService {
   videoInterfaces: VideoInterfaces = { dri: [], mali: false };
 
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [GreatMemoriesWorker.Microservices] })
   async onBootstrap() {
     this.videoInterfaces = await this.storageCore.getVideoInterfaces();
   }
@@ -265,7 +265,7 @@ export class MediaService extends BaseService {
     const colorspace = this.isSRGB(exifInfo) ? Colorspace.Srgb : image.colorspace;
     const decodeOptions: DecodeToBufferOptions = {
       colorspace,
-      processInvalidImages: process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true',
+      processInvalidImages: process.env.GREAT_MEMORIES_PROCESS_INVALID_IMAGES === 'true',
       size: targetSize,
       orientation: exifInfo.orientation ? Number(exifInfo.orientation) : undefined,
     };
@@ -438,7 +438,7 @@ export class MediaService extends BaseService {
 
     const { data: decodedImage, info } = await this.mediaRepository.decodeImage(inputImage, {
       colorspace: image.colorspace,
-      processInvalidImages: process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true',
+      processInvalidImages: process.env.GREAT_MEMORIES_PROCESS_INVALID_IMAGES === 'true',
       // if this is an extracted image, it may not have orientation metadata
       orientation: Buffer.isBuffer(inputImage) && exifOrientation ? Number(exifOrientation) : undefined,
     });
@@ -541,7 +541,7 @@ export class MediaService extends BaseService {
 
     const thumbhash = await this.mediaRepository.generateThumbhash(previewFile.path, {
       colorspace: image.colorspace,
-      processInvalidImages: process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true',
+      processInvalidImages: process.env.GREAT_MEMORIES_PROCESS_INVALID_IMAGES === 'true',
     });
 
     return {

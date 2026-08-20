@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
 
 class SettingsActionTile extends StatelessWidget {
   const SettingsActionTile({

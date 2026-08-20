@@ -4,7 +4,7 @@
   import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
   import { getPreferredTimeZone, getTimezones, toIsoDate } from '$lib/modals/timezone-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { updateAsset } from '@immich/sdk';
+  import { updateAsset } from '@great-memories/sdk';
   import { FormModal, Label } from '@immich/ui';
   import { mdiCalendarEdit } from '@mdi/js';
   import { DateTime } from 'luxon';
@@ -63,7 +63,7 @@
 >
   <Label for="datetime" class="mb-1 block">{$t('date_and_time')}</Label>
   <DateInput
-    class="mb-2 immich-form-input w-full"
+    class="mb-2 great-memories-form-input w-full"
     id="datetime"
     type="datetime-local"
     bind:value={() => selectedDate, updateSelectedDate}

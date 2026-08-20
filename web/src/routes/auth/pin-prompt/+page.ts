@@ -1,4 +1,4 @@
-import { getAuthStatus } from '@immich/sdk';
+import { getAuthStatus } from '@great-memories/sdk';
 import { Route } from '$lib/route';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';

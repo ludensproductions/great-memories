@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/map_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/map/map.state.dart';
-import 'package:immich_mobile/presentation/widgets/map/map_utils.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/utils/async_mutex.dart';
-import 'package:immich_mobile/utils/debounce.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/map/map_theme_override.dart';
+import 'package:great_memories_mobile/domain/models/events.model.dart';
+import 'package:great_memories_mobile/domain/utils/event_stream.dart';
+import 'package:great_memories_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/map_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/map/map.state.dart';
+import 'package:great_memories_mobile/presentation/widgets/map/map_utils.dart';
+import 'package:great_memories_mobile/providers/routes.provider.dart';
+import 'package:great_memories_mobile/utils/async_mutex.dart';
+import 'package:great_memories_mobile/utils/debounce.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/widgets/map/map_theme_override.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class CustomSourceProperties implements SourceProperties {
@@ -160,7 +160,7 @@ class _DriftMapState extends ConsumerState<DriftMap> {
     final (location, error) = await MapUtils.checkPermAndGetLocation(context: context);
     if (error != null) {
       if (error == LocationPermission.unableToDetermine && context.mounted) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

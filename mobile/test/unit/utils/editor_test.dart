@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/utils/editor.utils.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/utils/editor.utils.dart';
 import 'package:openapi/api.dart' show MirrorAxis, MirrorParameters, RotateParameters;
 
 List<AssetEdit> normalizedToEdits(NormalizedTransform transform) {

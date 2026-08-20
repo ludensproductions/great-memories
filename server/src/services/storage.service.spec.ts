@@ -1,6 +1,6 @@
 import { SystemMetadataKey } from 'src/enum';
 import { StorageService } from 'src/services/storage.service';
-import { ImmichStartupError } from 'src/utils/misc';
+import { GreatMemoriesStartupError } from 'src/utils/misc';
 import { mockEnvData } from 'test/repositories/config.repository.mock';
 import { newTestService, ServiceMocks } from 'test/utils';
 
@@ -48,27 +48,27 @@ describe(StorageService.name, () => {
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/upload'));
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/backups'));
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/encoded-video/.immich'),
+        expect.stringContaining('/data/encoded-video/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/library/.immich'),
+        expect.stringContaining('/data/library/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/profile/.immich'),
+        expect.stringContaining('/data/profile/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/thumbs/.immich'),
+        expect.stringContaining('/data/thumbs/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/upload/.immich'),
+        expect.stringContaining('/data/upload/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/backups/.immich'),
+        expect.stringContaining('/data/backups/.great-memories'),
         expect.any(Buffer),
       );
     });
@@ -111,18 +111,18 @@ describe(StorageService.name, () => {
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/backups'));
       expect(mocks.storage.createFile).toHaveBeenCalledTimes(2);
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/library/.immich'),
+        expect.stringContaining('/data/library/.great-memories'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/backups/.immich'),
+        expect.stringContaining('/data/backups/.great-memories'),
         expect.any(Buffer),
       );
     });
 
-    it('should throw an error if .immich is missing', async () => {
+    it('should throw an error if .great-memories is missing', async () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: { upload: true } });
-      mocks.storage.readFile.mockRejectedValue(new Error("ENOENT: no such file or directory, open '/app/.immich'"));
+      mocks.storage.readFile.mockRejectedValue(new Error("ENOENT: no such file or directory, open '/app/.great-memories'"));
 
       await expect(sut.onBootstrap()).rejects.toThrow('Failed to read');
 
@@ -130,10 +130,10 @@ describe(StorageService.name, () => {
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();
     });
 
-    it('should throw an error if .immich is present but read-only', async () => {
+    it('should throw an error if .great-memories is present but read-only', async () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: { upload: true } });
       mocks.storage.overwriteFile.mockRejectedValue(
-        new Error("ENOENT: no such file or directory, open '/app/.immich'"),
+        new Error("ENOENT: no such file or directory, open '/app/.great-memories'"),
       );
 
       await expect(sut.onBootstrap()).rejects.toThrow('Failed to write');
@@ -157,7 +157,7 @@ describe(StorageService.name, () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: {} });
       mocks.storage.createFile.mockRejectedValue(new Error('Error creating file'));
 
-      await expect(sut.onBootstrap()).rejects.toBeInstanceOf(ImmichStartupError);
+      await expect(sut.onBootstrap()).rejects.toBeInstanceOf(GreatMemoriesStartupError);
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();
     });
 
@@ -170,7 +170,7 @@ describe(StorageService.name, () => {
       );
       mocks.asset.getFileSamples.mockResolvedValue([]);
       mocks.storage.overwriteFile.mockRejectedValue(
-        new Error("ENOENT: no such file or directory, open '/app/.immich'"),
+        new Error("ENOENT: no such file or directory, open '/app/.great-memories'"),
       );
 
       await expect(sut.onBootstrap()).resolves.toBeUndefined();

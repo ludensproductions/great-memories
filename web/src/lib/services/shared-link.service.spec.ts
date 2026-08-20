@@ -1,4 +1,4 @@
-import type { ServerConfigDto } from '@immich/sdk';
+import type { ServerConfigDto } from '@great-memories/sdk';
 import { asUrl } from '$lib/services/shared-link.service';
 import { sharedLinkFactory } from '@test-data/factories/shared-link-factory';
 

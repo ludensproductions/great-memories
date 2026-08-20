@@ -172,7 +172,7 @@ class ViewIntentHostApi {
 
   Future<ViewIntentPayload?> consumeViewIntent() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.ViewIntentHostApi.consumeViewIntent$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.ViewIntentHostApi.consumeViewIntent$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

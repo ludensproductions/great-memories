@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/api.repository.dart';
-import 'package:immich_mobile/infrastructure/utils/user.converter.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/api.repository.dart';
+import 'package:great_memories_mobile/infrastructure/utils/user.converter.dart';
 import 'package:openapi/api.dart';
 
 class UserApiRepository extends ApiRepository {

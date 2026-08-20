@@ -20,7 +20,7 @@ import {
   BootstrapEventPriority,
   CronJob,
   DatabaseLock,
-  ImmichWorker,
+  GreatMemoriesWorker,
   JobName,
   QueueCleanType,
   QueueCommand,
@@ -43,7 +43,7 @@ export class QueueService extends BaseService {
 
   @OnEvent({ name: 'ConfigInit' })
   async onConfigInit({ newConfig: config }: ArgOf<'ConfigInit'>) {
-    if (this.worker === ImmichWorker.Microservices) {
+    if (this.worker === GreatMemoriesWorker.Microservices) {
       this.updateConcurrency(config);
       return;
     }
@@ -63,7 +63,7 @@ export class QueueService extends BaseService {
 
   @OnEvent({ name: 'ConfigUpdate', server: true })
   onConfigUpdate({ newConfig: config }: ArgOf<'ConfigUpdate'>) {
-    if (this.worker === ImmichWorker.Microservices) {
+    if (this.worker === GreatMemoriesWorker.Microservices) {
       this.updateConcurrency(config);
       return;
     }
@@ -78,9 +78,9 @@ export class QueueService extends BaseService {
   @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.JobService })
   onBootstrap() {
     this.jobRepository.setup(this.services);
-    if (this.worker === ImmichWorker.Microservices) {
+    if (this.worker === GreatMemoriesWorker.Microservices) {
       this.jobRepository.startWorkers();
-    } else if (this.worker === ImmichWorker.Api) {
+    } else if (this.worker === GreatMemoriesWorker.Api) {
       this.jobRepository.watchWorkers();
     }
   }

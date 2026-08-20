@@ -6,7 +6,7 @@ import { SystemConfig } from 'src/config';
 import { Asset } from 'src/database';
 import { EventConfig } from 'src/decorators';
 import { AuthDto } from 'src/dtos/auth.dto';
-import { ImmichWorker, JobStatus, MetadataKey, QueueName, UserAvatarColor, UserStatus } from 'src/enum';
+import { GreatMemoriesWorker, JobStatus, MetadataKey, QueueName, UserAvatarColor, UserStatus } from 'src/enum';
 import { ConfigRepository } from 'src/repositories/config.repository';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { JobItem, JobSource, UploadFile } from 'src/types';
@@ -187,7 +187,7 @@ export class EventRepository {
           continue;
         }
 
-        const workers = event.workers ?? Object.values(ImmichWorker);
+        const workers = event.workers ?? Object.values(GreatMemoriesWorker);
         if (!workers.includes(worker)) {
           continue;
         }

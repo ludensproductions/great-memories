@@ -7,7 +7,7 @@
   import { getLibrariesActions, getLibraryActions } from '$lib/services/library.service';
   import { locale } from '$lib/stores/preferences.store';
   import { getBytesWithUnit } from '$lib/utils/byte-units';
-  import { type LibraryResponseDto } from '@immich/sdk';
+  import { type LibraryResponseDto } from '@great-memories/sdk';
   import {
     CommandPaletteDefaultProvider,
     Container,

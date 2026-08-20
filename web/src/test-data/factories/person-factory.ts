@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import type { PersonResponseDto } from '@immich/sdk';
+import type { PersonResponseDto } from '@great-memories/sdk';
 import { Sync } from 'factory.ts';
 
 export const personFactory = Sync.makeFactory<PersonResponseDto>({

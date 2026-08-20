@@ -4,7 +4,7 @@
   import AssetUpdateDescriptionConfirmModal from '$lib/modals/AssetUpdateDescriptionConfirmModal.svelte';
   import { getOwnedAssetsWithWarning } from '$lib/utils/asset-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { updateAssets } from '@immich/sdk';
+  import { updateAssets } from '@great-memories/sdk';
   import { modalManager } from '@immich/ui';
   import { mdiText } from '@mdi/js';
   import { t } from 'svelte-i18n';

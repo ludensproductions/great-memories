@@ -1,7 +1,7 @@
 import { Img, Link, Section, Text } from '@react-email/components';
 import * as React from 'react';
-import { ImmichButton } from 'src/emails/components/button.component';
-import ImmichLayout from 'src/emails/components/immich.layout';
+import { GreatMemoriesButton } from 'src/emails/components/button.component';
+import GreatMemoriesLayout from 'src/emails/components/great-memories.layout';
 import { AlbumUpdateEmailProps } from 'src/repositories/email.repository';
 import { replaceTemplateTags } from 'src/utils/replace-template-tags';
 
@@ -36,7 +36,7 @@ export const AlbumUpdateEmail = ({
   );
 
   return (
-    <ImmichLayout preview={customTemplate ? emailContent.toString() : 'New media has been added to a shared album.'}>
+    <GreatMemoriesLayout preview={customTemplate ? emailContent.toString() : 'New media has been added to a shared album.'}>
       {customTemplate && (
         <Text className="m-0">
           <div dangerouslySetInnerHTML={{ __html: emailContent }}></div>
@@ -58,7 +58,7 @@ export const AlbumUpdateEmail = ({
       )}
 
       <Section className="flex justify-center my-6">
-        <ImmichButton href={`${baseUrl}/albums/${albumId}`}>View Album</ImmichButton>
+        <GreatMemoriesButton href={`${baseUrl}/albums/${albumId}`}>View Album</GreatMemoriesButton>
       </Section>
 
       <Text className="text-xs">
@@ -66,7 +66,7 @@ export const AlbumUpdateEmail = ({
         <br />
         <Link href={`${baseUrl}/albums/${albumId}`}>{`${baseUrl}/albums/${albumId}`}</Link>
       </Text>
-    </ImmichLayout>
+    </GreatMemoriesLayout>
   );
 };
 

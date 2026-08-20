@@ -8,7 +8,7 @@ import {
   getAlbumInfo,
   LoginResponseDto,
   SharedLinkType,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

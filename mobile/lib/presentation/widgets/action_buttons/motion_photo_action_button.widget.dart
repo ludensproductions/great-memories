@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/is_motion_video_playing.provider.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/is_motion_video_playing.provider.dart';
 
 class MotionPhotoActionButton extends ConsumerWidget {
   const MotionPhotoActionButton({super.key, this.iconOnly = false, this.menuItem = false});

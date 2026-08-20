@@ -17,7 +17,7 @@
   import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
   import { Route } from '$lib/route';
   import { getUserActions } from '$lib/services/user.service';
-  import { AssetVisibility } from '@immich/sdk';
+  import { AssetVisibility } from '@great-memories/sdk';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

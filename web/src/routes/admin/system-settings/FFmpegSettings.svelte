@@ -18,7 +18,7 @@
     TranscodePolicy,
     VideoCodec,
     VideoContainer,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, Link } from '@immich/ui';
   import { mdiHelpCircleOutline } from '@mdi/js';
   import { isEqual, sortBy } from 'lodash-es';
@@ -34,7 +34,7 @@
   <div in:fade={{ duration: 500 }}>
     <form autocomplete="off" onsubmit={(event) => event.preventDefault()}>
       <div class="ms-4 mt-4 flex flex-col gap-4">
-        <p class="text-sm dark:text-immich-dark-fg">
+        <p class="text-sm dark:text-great-memories-dark-fg">
           <Icon icon={mdiHelpCircleOutline} class="inline" size="15" />
           <FormatMessage key="admin.transcoding_codecs_learn_more">
             {#snippet children({ tag, message })}

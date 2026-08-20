@@ -1,4 +1,4 @@
-import { getStorage } from '@immich/sdk';
+import { getStorage } from '@great-memories/sdk';
 import { redirect } from '@sveltejs/kit';
 import { DateTime } from 'luxon';
 import { authManager } from '$lib/managers/auth-manager.svelte';
@@ -32,7 +32,12 @@ export const requestServerInfo = async () => {
     return;
   }
 
-  const data = await getStorage();
+  const data = await getStorage().catch(() => undefined);
+  if (!data) {
+    userInteraction.serverInfo = undefined;
+    return;
+  }
+
   userInteraction.serverInfo = data;
 };
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@great-memories/sdk';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
 
   interface Props {
@@ -37,14 +37,14 @@
     class:rounded-full={circle}
     class:rounded-lg={!circle}
     class:border-transparent={!border}
-    class:dark:border-immich-dark-primary={border}
-    class:border-immich-primary={border}
+    class:dark:border-great-memories-dark-primary={border}
+    class:border-great-memories-primary={border}
   >
     <ImageThumbnail {circle} url={getPeopleThumbnailUrl(person)} altText={person.name} widthStyle="100%" shadow />
   </div>
 
   <div
-    class="absolute inset-s-0 top-0 size-full bg-immich-primary/30 opacity-0"
+    class="absolute inset-s-0 top-0 size-full bg-great-memories-primary/30 opacity-0"
     class:hover:opacity-100={selectable}
     class:rounded-full={circle}
     class:rounded-lg={!circle}

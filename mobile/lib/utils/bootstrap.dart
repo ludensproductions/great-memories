@@ -1,15 +1,15 @@
 import 'package:background_downloader/background_downloader.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/log.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/logger_db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/services/log.service.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/log.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/logger_db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:sqlite3/common.dart';
@@ -47,7 +47,7 @@ void configureFileDownloaderNotifications() {
 abstract final class Bootstrap {
   static Future<(Drift, DriftLogger)> initDomain({bool listenStoreUpdates = true, bool shouldBufferLogs = true}) async {
     await configureSqliteCache();
-    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'immich');
+    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'great-memories');
     final drift = Drift.sqlite(db, updatePool);
     final DriftStoreRepository storeRepo = DriftStoreRepository(drift);
 
@@ -64,7 +64,7 @@ abstract final class Bootstrap {
 }
 
 Future<DriftLogger> _initLogger({required SettingsRepository settingsRepository, bool shouldBufferLogs = true}) async {
-  Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'immich_logs'));
+  Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'great_memories_logs'));
 
   DriftLogger logDb = await open();
   bool wasCorrupt = false;
@@ -77,7 +77,7 @@ Future<DriftLogger> _initLogger({required SettingsRepository settingsRepository,
     }
     dPrint(() => 'Logs database is corrupt, recreating it');
     await logDb.close();
-    await deleteSqliteDatabase(name: 'immich_logs');
+    await deleteSqliteDatabase(name: 'great_memories_logs');
     logDb = await open();
     wasCorrupt = true;
   }

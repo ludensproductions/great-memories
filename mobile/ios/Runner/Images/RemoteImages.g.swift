@@ -81,7 +81,7 @@ class RemoteImageApiSetup {
   /// Sets up an instance of `RemoteImageApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: RemoteImageApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let requestImageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.RemoteImageApi.requestImage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let requestImageChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.requestImage\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       requestImageChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -100,7 +100,7 @@ class RemoteImageApiSetup {
     } else {
       requestImageChannel.setMessageHandler(nil)
     }
-    let cancelRequestChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.RemoteImageApi.cancelRequest\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let cancelRequestChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.cancelRequest\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       cancelRequestChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -115,7 +115,7 @@ class RemoteImageApiSetup {
     } else {
       cancelRequestChannel.setMessageHandler(nil)
     }
-    let clearCacheChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.RemoteImageApi.clearCache\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let clearCacheChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.clearCache\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       clearCacheChannel.setMessageHandler { _, reply in
         api.clearCache { result in

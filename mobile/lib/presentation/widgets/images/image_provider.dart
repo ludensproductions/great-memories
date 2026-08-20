@@ -3,12 +3,12 @@ import 'dart:ui' as ui;
 
 import 'package:async/async.dart';
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/loaders/image_request.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/presentation/widgets/images/local_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/infrastructure/loaders/image_request.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/local_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/constants.dart';
 import 'package:logging/logging.dart';
 
 abstract class CancellableImageProvider<T extends Object> extends ImageProvider<T> {

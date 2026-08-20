@@ -25,7 +25,7 @@
       },
       disabled: {
         true: 'cursor-not-allowed',
-        false: 'hover:bg-immich-primary hover:text-white dark:hover:bg-immich-dark-primary dark:hover:text-black',
+        false: 'hover:bg-great-memories-primary hover:text-white dark:hover:bg-great-memories-dark-primary dark:hover:text-black',
       },
     },
   });

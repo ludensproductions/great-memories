@@ -1,4 +1,4 @@
-import { AssetOrder, AssetOrderBy } from '@immich/sdk';
+import { AssetOrder, AssetOrderBy } from '@great-memories/sdk';
 import { SvelteSet } from 'svelte/reactivity';
 import type { CommonLayoutOptions, CommonPosition } from '$lib/utils/layout-utils';
 import { getJustifiedLayoutFromAssets } from '$lib/utils/layout-utils';

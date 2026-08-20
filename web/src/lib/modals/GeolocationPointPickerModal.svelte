@@ -10,7 +10,7 @@
   import type { LatLng } from '$lib/types';
   import { delay } from '$lib/utils/asset-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { searchPlaces, type AssetResponseDto, type PlacesResponseDto } from '@immich/sdk';
+  import { searchPlaces, type AssetResponseDto, type PlacesResponseDto } from '@great-memories/sdk';
   import { ConfirmModal, LoadingSpinner } from '@immich/ui';
   import { mdiMapMarkerMultipleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -173,7 +173,7 @@
             {#each suggestedPlaces as place (place.latitude + place.longitude)}
               <button
                 type="button"
-                class="flex h-12 w-full place-items-center border-t border-gray-400 px-5 last:rounded-b-lg last:border-b hover:bg-gray-300 focus:bg-gray-300 dark:border-immich-dark-gray hover:dark:bg-[#232932] focus:dark:bg-[#232932]"
+                class="flex h-12 w-full place-items-center border-t border-gray-400 px-5 last:rounded-b-lg last:border-b hover:bg-gray-300 focus:bg-gray-300 dark:border-great-memories-dark-gray hover:dark:bg-[#232932] focus:dark:bg-[#232932]"
                 onclick={() => handleUseSuggested(place.latitude, place.longitude)}
               >
                 <p class="truncate text-sm text-gray-700 dark:text-gray-100">

@@ -2,15 +2,15 @@
 
 ## Overview
 
-Immich provides a variety of performance metrics to allow for local monitoring and insights. This integration is primarily in the form of Prometheus metrics. However, exporting traces is also possible due to the use of OpenTelemetry instrumentation.
+Great Memories provides a variety of performance metrics to allow for local monitoring and insights. This integration is primarily in the form of Prometheus metrics. However, exporting traces is also possible due to the use of OpenTelemetry instrumentation.
 
 :::note
-This is an opt-in feature intended for you to monitor immich's performance. This data isn't sent anywhere beyond what you've configured.
+This is an opt-in feature intended for you to monitor great-memories's performance. This data isn't sent anywhere beyond what you've configured.
 :::
 
 ## Prometheus
 
-Prometheus is a tool that collects metrics from a number of sources you configure. It operates in a "pull" strategy - that is, it periodically requests metrics from each defined source. This means that the source doesn't send anything until it's requested. It also means that the source -- immich, in this case -- has to expose an endpoint for Prometheus to target when it requests metrics.
+Prometheus is a tool that collects metrics from a number of sources you configure. It operates in a "pull" strategy - that is, it periodically requests metrics from each defined source. This means that the source doesn't send anything until it's requested. It also means that the source -- great-memories, in this case -- has to expose an endpoint for Prometheus to target when it requests metrics.
 
 ### Metrics
 
@@ -21,14 +21,14 @@ These metrics come in a variety of forms:
 - Histograms, where each observation is assigned to a certain number of "buckets". Example: response time, where each bucket is a number of milliseconds. This one is a bit more complicated.
   - Buckets in this case are _cumulative_; that is, an observation is placed not only into the smallest bucket that contains it, but also to all buckets larger than this. For example, if a histogram has three buckets for 1ms, 5ms and 10ms, an observation of 3ms will be bucketed into both 5ms and 10ms.
 
-The metrics in immich are grouped into API (endpoint calls and response times), host (memory and CPU utilization), and IO (internal database queries, image processing, and so on). Each group of metrics can be enabled or disabled independently.
+The metrics in great-memories are grouped into API (endpoint calls and response times), host (memory and CPU utilization), and IO (internal database queries, image processing, and so on). Each group of metrics can be enabled or disabled independently.
 
 ### Configuration
 
-Immich will not expose an endpoint for metrics by default. To enable this endpoint, you can add the `IMMICH_TELEMETRY_INCLUDE=all` environmental variable to your `.env` file. Note that only the server container currently use this variable.
+Great Memories will not expose an endpoint for metrics by default. To enable this endpoint, you can add the `GREAT_MEMORIES_TELEMETRY_INCLUDE=all` environmental variable to your `.env` file. Note that only the server container currently use this variable.
 
 :::tip
-`IMMICH_TELEMETRY_INCLUDE=all` enables all metrics. For a more granular configuration you can enumerate the telemetry metrics that should be included as a comma separated list (e.g. `IMMICH_TELEMETRY_INCLUDE=repo,api`). Alternatively, you can also exclude specific metrics with `IMMICH_TELEMETRY_EXCLUDE`. For more information refer to the [environment section](/install/environment-variables.md#prometheus).
+`GREAT_MEMORIES_TELEMETRY_INCLUDE=all` enables all metrics. For a more granular configuration you can enumerate the telemetry metrics that should be included as a comma separated list (e.g. `GREAT_MEMORIES_TELEMETRY_INCLUDE=repo,api`). Alternatively, you can also exclude specific metrics with `GREAT_MEMORIES_TELEMETRY_EXCLUDE`. For more information refer to the [environment section](/install/environment-variables.md#prometheus).
 :::
 
 The next step is to configure a new or existing Prometheus instance to scrape this endpoint. The following steps assume that you do not have an existing Prometheus instance, but the steps will be similar either way.
@@ -36,8 +36,8 @@ The next step is to configure a new or existing Prometheus instance to scrape th
 You can start by defining a Prometheus service in the Compose file:
 
 ```yaml
-immich-prometheus:
-  container_name: immich_prometheus
+great-memories-prometheus:
+  container_name: great_memories_prometheus
   ports:
     # this exposes the default port for Prometheus so you can interact with it
     - 9090:9090
@@ -63,12 +63,12 @@ The last piece is the [configuration file][prom-file]. This file defines (among 
 The provided file is just a starting point. There are a ton of ways to configure Prometheus, so feel free to experiment!
 :::
 
-After bringing down the containers with `docker compose down` and back up with `docker compose up -d`, a Prometheus instance will now collect metrics from the immich server and microservices containers. Note that we didn't need to expose any new ports for these containers - the communication is handled in the internal Docker network.
+After bringing down the containers with `docker compose down` and back up with `docker compose up -d`, a Prometheus instance will now collect metrics from the great-memories server and microservices containers. Note that we didn't need to expose any new ports for these containers - the communication is handled in the internal Docker network.
 
 :::note
-To see exactly what metrics are made available, you can additionally add `8081:8081` (API metrics) and `8082:8082` (microservices metrics) to the immich_server container's ports.
+To see exactly what metrics are made available, you can additionally add `8081:8081` (API metrics) and `8082:8082` (microservices metrics) to the great_memories_server container's ports.
 Visiting the `/metrics` endpoint for these services will show the same raw data that Prometheus collects.
-To configure these ports see [`IMMICH_API_METRICS_PORT` & `IMMICH_MICROSERVICES_METRICS_PORT`](/install/environment-variables/#general).
+To configure these ports see [`GREAT_MEMORIES_API_METRICS_PORT` & `GREAT_MEMORIES_MICROSERVICES_METRICS_PORT`](/install/environment-variables/#general).
 :::
 
 ### Usage
@@ -82,8 +82,8 @@ For a dedicated tool with nice presentation, you can use Grafana instead. This c
 Setting up Grafana is similar to Prometheus. You can add a service for it:
 
 ```yaml
-immich-grafana:
-  container_name: immich_grafana
+great-memories-grafana:
+  container_name: great_memories_grafana
   command: ['./run.sh', '-disable-reporting'] # this is to disable Grafana's telemetry
   ports:
     - 3000:3000
@@ -102,7 +102,7 @@ volumes:
   grafana-data:
 ```
 
-After bringing down the services and back up again, you can now visit Grafana to view your metrics. On the first login, enter `admin` for both username and password and update your password. You can then go to the settings and add a data source with `http://immich-prometheus:9090` to point Grafana to your Prometheus instance.
+After bringing down the services and back up again, you can now visit Grafana to view your metrics. On the first login, enter `admin` for both username and password and update your password. You can then go to the settings and add a data source with `http://great-memories-prometheus:9090` to point Grafana to your Prometheus instance.
 
 ### Usage
 
@@ -114,18 +114,18 @@ You can then make a new panel, specifying Prometheus as the data source for it.
 
 ## Structured Logging
 
-In addition to Prometheus metrics, Immich supports structured JSON logging which is ideal for log aggregation systems like Grafana Loki, ELK Stack, Datadog, Splunk, and others.
+In addition to Prometheus metrics, Great Memories supports structured JSON logging which is ideal for log aggregation systems like Grafana Loki, ELK Stack, Datadog, Splunk, and others.
 
 ### Configuration
 
-By default, Immich outputs human-readable console logs. To enable JSON logging, set the `IMMICH_LOG_FORMAT` environment variable:
+By default, Great Memories outputs human-readable console logs. To enable JSON logging, set the `GREAT_MEMORIES_LOG_FORMAT` environment variable:
 
 ```bash
-IMMICH_LOG_FORMAT=json
+GREAT_MEMORIES_LOG_FORMAT=json
 ```
 
 :::tip
-The default is `IMMICH_LOG_FORMAT=console` for human-readable logs with colors during development. For production deployments using log aggregation, use `IMMICH_LOG_FORMAT=json`.
+The default is `GREAT_MEMORIES_LOG_FORMAT=console` for human-readable logs with colors during development. For production deployments using log aggregation, use `GREAT_MEMORIES_LOG_FORMAT=json`.
 :::
 
 ### JSON Log Format
@@ -135,7 +135,7 @@ When enabled, logs are output in structured JSON format:
 ```json
 {"level":"log","pid":36,"timestamp":1766533331507,"message":"Initialized websocket server","context":"WebsocketRepository"}
 {"level":"warn","pid":48,"timestamp":1766533331629,"message":"Unable to open /build/www/index.html, skipping SSR.","context":"ApiService"}
-{"level":"error","pid":36,"timestamp":1766533331690,"message":"Failed to load plugin immich-core:","context":"Error"}
+{"level":"error","pid":36,"timestamp":1766533331690,"message":"Failed to load plugin great-memories-core:","context":"Error"}
 ```
 
 This format includes:
@@ -146,6 +146,6 @@ This format includes:
 - `message`: Log message
 - `context`: Service or component that generated the log
 
-For more information on log formats, see [`IMMICH_LOG_FORMAT`](/install/environment-variables.md#general).
+For more information on log formats, see [`GREAT_MEMORIES_LOG_FORMAT`](/install/environment-variables.md#general).
 
-[prom-file]: https://github.com/immich-app/immich/releases/latest/download/prometheus.yml
+[prom-file]: https://github.com/ludensproductions/great-memories/releases/latest/download/prometheus.yml

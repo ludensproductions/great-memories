@@ -1,7 +1,7 @@
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/partner.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/user.repository.dart';
-import 'package:immich_mobile/repositories/partner_api.repository.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/partner.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/user.repository.dart';
+import 'package:great_memories_mobile/repositories/partner_api.repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../api.mocks.dart';

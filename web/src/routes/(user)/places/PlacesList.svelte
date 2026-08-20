@@ -1,7 +1,7 @@
 <script lang="ts">
   import { PlacesGroupBy, type PlacesViewSettings } from '$lib/stores/preferences.store';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@great-memories/sdk';
   import { mdiMapMarkerOff } from '@mdi/js';
   import { groupBy } from 'lodash-es';
   import PlacesCardGroup from './PlacesCardGroup.svelte';

@@ -12,17 +12,17 @@ enum BackgroundTaskType { case refresh, processing }
  
  ## For background refresh (short-running sync):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.immich.background.refreshUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.greatmemories.app.background.refreshUpload"]
  
  ## For background processing (long-running upload):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.immich.background.processingUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.greatmemories.app.background.processingUpload"]
 
  * To simulate task expiration (useful for testing expiration handlers):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.immich.background.refreshUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"com.greatmemories.app.background.refreshUpload"]
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.immich.background.processingUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"com.greatmemories.app.background.processingUpload"]
  
  * 3. Resume the application to see the background code execute
  * 
@@ -48,7 +48,7 @@ class BackgroundWorker: BackgroundWorkerBgHostApi {
   /// This is a separate instance from the main Flutter engine that handles the UI.
   /// It operates in its own isolate and doesn't share memory with the main engine.
   /// Must be properly started, registered, and torn down during background execution.
-  private let engine = FlutterEngine(name: "BackgroundImmich")
+  private let engine = FlutterEngine(name: "BackgroundGreatMemories")
   
   /// Used to call methods on the flutter side
   private var flutterApi: BackgroundWorkerFlutterApi?
@@ -83,7 +83,7 @@ class BackgroundWorker: BackgroundWorkerBgHostApi {
     // Start the Flutter engine with the specified callback as the entry point
     let isRunning = engine.run(
       withEntrypoint: "backgroundSyncNativeEntrypoint",
-      libraryURI: "package:immich_mobile/domain/services/background_worker.service.dart"
+      libraryURI: "package:great_memories_mobile/domain/services/background_worker.service.dart"
     )
     
     // Verify that the Flutter engine started successfully

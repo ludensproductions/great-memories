@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/people.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/deep_link.service.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart';
+import 'package:great_memories_mobile/domain/services/memory.service.dart';
+import 'package:great_memories_mobile/domain/services/people.service.dart';
+import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/services/deep_link.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockTimelineFactory extends Mock implements TimelineFactory {}
@@ -112,7 +112,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => _album);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, _album);
@@ -122,7 +122,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => null);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, isNull);
@@ -131,7 +131,7 @@ void main() {
   test('plain photo link has no album', () async {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
 
-    final route = await sut.handleMyImmichApp(link('/photos/$_assetId'), ref);
+    final route = await sut.handleMyGreatMemoriesApp(link('/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args as AssetViewerRouteArgs).currentAlbum, isNull);

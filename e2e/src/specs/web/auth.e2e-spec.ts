@@ -20,7 +20,7 @@ test.describe('Registration', () => {
     await page.getByLabel('Admin Email').fill('admin@immich.app');
     await page.getByLabel('Admin Password', { exact: true }).fill('password');
     await page.getByLabel('Confirm Admin Password').fill('password');
-    await page.getByLabel('Name').fill('Immich Admin');
+    await page.getByLabel('Name').fill('Great Memories Admin');
     await page.getByRole('button', { name: 'Sign up' }).click();
 
     // login
@@ -56,7 +56,7 @@ test.describe('Registration', () => {
     await page.getByLabel('Email').fill('user@immich.cloud');
     await page.getByLabel('Password', { exact: true }).fill('password');
     await page.getByLabel('Confirm Password').fill('password');
-    await page.getByLabel('Name').fill('Immich User');
+    await page.getByLabel('Name').fill('Great Memories User');
     await page.getByRole('button', { name: 'Create', exact: true }).click();
 
     // logout

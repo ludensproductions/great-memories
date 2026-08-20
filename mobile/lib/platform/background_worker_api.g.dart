@@ -175,7 +175,7 @@ class BackgroundWorkerFgHostApi {
 
   Future<void> enable() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.enable$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.enable$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -189,7 +189,7 @@ class BackgroundWorkerFgHostApi {
 
   Future<void> saveNotificationMessage(String title, String body) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.saveNotificationMessage$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.saveNotificationMessage$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -203,7 +203,7 @@ class BackgroundWorkerFgHostApi {
 
   Future<void> configure(BackgroundWorkerSettings settings) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.configure$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.configure$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -217,7 +217,7 @@ class BackgroundWorkerFgHostApi {
 
   Future<void> disable() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFgHostApi.disable$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFgHostApi.disable$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -245,7 +245,7 @@ class BackgroundWorkerBgHostApi {
 
   Future<void> onInitialized() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerBgHostApi.onInitialized$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerBgHostApi.onInitialized$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -259,7 +259,7 @@ class BackgroundWorkerBgHostApi {
 
   Future<void> close() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerBgHostApi.close$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerBgHostApi.close$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -289,7 +289,7 @@ abstract class BackgroundWorkerFlutterApi {
     messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
     {
       final pigeonVar_channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.onIosUpload$messageChannelSuffix',
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.onIosUpload$messageChannelSuffix',
         pigeonChannelCodec,
         binaryMessenger: binaryMessenger,
       );
@@ -315,7 +315,7 @@ abstract class BackgroundWorkerFlutterApi {
     }
     {
       final pigeonVar_channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.onAndroidUpload$messageChannelSuffix',
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.onAndroidUpload$messageChannelSuffix',
         pigeonChannelCodec,
         binaryMessenger: binaryMessenger,
       );
@@ -340,7 +340,7 @@ abstract class BackgroundWorkerFlutterApi {
     }
     {
       final pigeonVar_channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.immich_mobile.BackgroundWorkerFlutterApi.cancel$messageChannelSuffix',
+        'dev.flutter.pigeon.great_memories_mobile.BackgroundWorkerFlutterApi.cancel$messageChannelSuffix',
         pigeonChannelCodec,
         binaryMessenger: binaryMessenger,
       );

@@ -1,11 +1,11 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_asset.repository.dart';
-import 'package:immich_mobile/models/view_intent/view_intent_payload.extension.dart';
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/services/timeline.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:great_memories_mobile/models/view_intent/view_intent_payload.extension.dart';
+import 'package:great_memories_mobile/platform/view_intent_api.g.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
 import 'package:logging/logging.dart';
 
 class ViewIntentResolvedAsset {

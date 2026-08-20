@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { MemoryType, type MemoryResponseDto, type OnThisDayDto } from '@immich/sdk';
+import { MemoryType, type MemoryResponseDto, type OnThisDayDto } from '@great-memories/sdk';
 import { DateTime } from 'luxon';
 import { toAssetResponseDto } from 'src/ui/generators/timeline/rest-response';
 import type { MockTimelineAsset } from 'src/ui/generators/timeline/timeline-config';

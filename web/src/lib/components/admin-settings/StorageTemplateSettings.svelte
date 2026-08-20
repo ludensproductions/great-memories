@@ -11,8 +11,8 @@
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
   import { Route } from '$lib/route';
   import { handleSystemConfigSave } from '$lib/services/system-config.service';
-  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
-  import { Heading, Link, LoadingSpinner, Text } from '@immich/ui';
+  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@great-memories/sdk';
+  import { Heading, LoadingSpinner, Text } from '@immich/ui';
   import handlebar from 'handlebars';
   import * as luxon from 'luxon';
   import { onDestroy } from 'svelte';
@@ -106,18 +106,12 @@
   });
 </script>
 
-<section class="mt-2 dark:text-immich-dark-fg">
+<section class="mt-2 dark:text-great-memories-dark-fg">
   <div in:fade={{ duration }} class="mx-4 flex flex-col gap-4 py-4">
-    <p class="text-sm dark:text-immich-dark-fg">
+    <p class="text-sm dark:text-great-memories-dark-fg">
       <FormatMessage key="admin.storage_template_more_details">
-        {#snippet children({ tag, message })}
-          {#if tag === 'template-link'}
-            <Link href="https://docs.immich.app/administration/storage-template">{message}</Link>
-          {:else if tag === 'implications-link'}
-            <Link href="https://docs.immich.app/administration/backup-and-restore#asset-types-and-storage-locations">
-              {message}
-            </Link>
-          {/if}
+        {#snippet children({ message })}
+          {message}
         {/snippet}
       </FormatMessage>
     </p>
@@ -198,8 +192,8 @@
             </FormatMessage>
           </p>
 
-          <p class="mt-2 rounded-lg bg-gray-200 p-4 py-2 text-xs dark:bg-gray-700 dark:text-immich-dark-fg">
-            <span class="text-immich-fg/25 dark:text-immich-dark-fg/50"
+          <p class="mt-2 rounded-lg bg-gray-200 p-4 py-2 text-xs dark:bg-gray-700 dark:text-great-memories-dark-fg">
+            <span class="text-great-memories-fg/25 dark:text-great-memories-dark-fg/50"
               >UPLOAD_LOCATION/library/{authManager.user.storageLabel || authManager.user.id}</span
             >/{parsedTemplate()}.jpg
           </p>
@@ -211,7 +205,7 @@
                   {$t('preset')}
                 </label>
                 <select
-                  class="mt-2 immich-form-input rounded-lg bg-slate-200 p-2 text-sm hover:cursor-pointer dark:bg-gray-600"
+                  class="mt-2 great-memories-form-input rounded-lg bg-slate-200 p-2 text-sm hover:cursor-pointer dark:bg-gray-600"
                   disabled={disabled || !configToEdit.storageTemplate.enabled}
                   name="presets"
                   id="preset-select"

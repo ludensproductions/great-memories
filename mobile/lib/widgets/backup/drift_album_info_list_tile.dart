@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/providers/backup/backup_album.provider.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/providers/backup/backup_album.provider.dart';
+import 'package:great_memories_mobile/providers/haptic_feedback.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 class DriftAlbumInfoListTile extends HookConsumerWidget {
   final LocalAlbum album;
@@ -57,7 +57,7 @@ class DriftAlbumInfoListTile extends HookConsumerWidget {
           ref.read(backupAlbumProvider.notifier).deselectAlbum(album);
         } else {
           if (album.id == 'isAll' || album.name == 'Recents') {
-            ImmichToast.show(
+            GreatMemoriesToast.show(
               context: context,
               msg: 'Cannot exclude album contains all assets',
               toastType: ToastType.error,

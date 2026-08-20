@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/events.model.dart';
+import 'package:great_memories_mobile/domain/utils/event_stream.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 // Reusable helper: move to locked folder from any source (e.g called from menu)
 Future<void> performMoveToLockFolderAction(BuildContext context, WidgetRef ref, {required ActionSource source}) async {
@@ -29,7 +29,7 @@ Future<void> performMoveToLockFolderAction(BuildContext context, WidgetRef ref, 
   );
 
   if (context.mounted) {
-    ImmichToast.show(
+    GreatMemoriesToast.show(
       context: context,
       msg: result.success ? successMessage : 'scaffold_body_error_occurred'.t(context: context),
       gravity: ToastGravity.BOTTOM,

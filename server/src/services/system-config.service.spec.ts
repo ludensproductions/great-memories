@@ -108,7 +108,7 @@ const updatedConfig = Object.freeze<SystemConfig>({
   },
   machineLearning: {
     enabled: true,
-    urls: ['http://immich-machine-learning:3003'],
+    urls: ['http://great-memories-machine-learning:3003'],
     availabilityChecks: {
       enabled: true,
       interval: 30_000,
@@ -173,8 +173,8 @@ const updatedConfig = Object.freeze<SystemConfig>({
     timeout: 30_000,
     allowInsecureRequests: false,
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'immich_quota',
-    roleClaim: 'immich_role',
+    storageQuotaClaim: 'great_memories_quota',
+    roleClaim: 'great_memories_role',
   },
   passwordLogin: {
     enabled: true,
@@ -293,16 +293,16 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should load the config from a json file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
       await expect(sut.getSystemConfig()).resolves.toEqual(updatedConfig);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('immich-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('great-memories-config.json');
     });
 
     it('should transform booleans', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ ffmpeg: { twoPass: 'false' } }));
 
       await expect(sut.getSystemConfig()).resolves.toMatchObject({
@@ -311,7 +311,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should transform numbers', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ ffmpeg: { threads: '42' } }));
 
       await expect(sut.getSystemConfig()).resolves.toMatchObject({
@@ -320,7 +320,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should accept valid cron expressions', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(
         JSON.stringify({ library: { scan: { cronExpression: '0 0 */3 * *' } } }),
       );
@@ -336,7 +336,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should reject an invalid issuer URL', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ oauth: { issuerUrl: 'accounts.google.com' } }));
 
       await expect(sut.getSystemConfig()).rejects.toThrow(
@@ -345,29 +345,29 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should reject invalid cron expressions', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ library: { scan: { cronExpression: 'foo' } } }));
 
       await expect(sut.getSystemConfig()).rejects.toThrow('[library.scan.cronExpression] Invalid cron expression');
     });
 
     it('should log errors with the config file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
 
       mocks.systemMetadata.readFile.mockResolvedValue(`{ "ffmpeg2": true, "ffmpeg2": true }`);
 
       await expect(sut.getSystemConfig()).rejects.toBeInstanceOf(Error);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('immich-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('great-memories-config.json');
       expect(mocks.logger.error).toHaveBeenCalledTimes(2);
-      expect(mocks.logger.error.mock.calls[0][0]).toEqual('Unable to load configuration file: immich-config.json');
+      expect(mocks.logger.error.mock.calls[0][0]).toEqual('Unable to load configuration file: great-memories-config.json');
       expect(mocks.logger.error.mock.calls[1][0].toString()).toEqual(
         expect.stringContaining('YAMLException: duplicated mapping key (1:20)'),
       );
     });
 
     it('should load the config from a yaml file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.yaml' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.yaml' }));
       const partialConfig = `
         ffmpeg:
           crf: 30
@@ -382,25 +382,25 @@ describe(SystemConfigService.name, () => {
 
       await expect(sut.getSystemConfig()).resolves.toEqual(updatedConfig);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('immich-config.yaml');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('great-memories-config.yaml');
     });
 
     it('should accept an empty configuration file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({}));
 
       await expect(sut.getSystemConfig()).resolves.toEqual(defaults);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('immich-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('great-memories-config.json');
     });
 
     it('should allow underscores in the machine learning url', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
-      const partialConfig = { machineLearning: { urls: ['immich_machine_learning'] } };
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
+      const partialConfig = { machineLearning: { urls: ['great_memories_machine_learning'] } };
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
       const config = await sut.getSystemConfig();
-      expect(config.machineLearning.urls).toEqual(['immich_machine_learning']);
+      expect(config.machineLearning.urls).toEqual(['great_memories_machine_learning']);
     });
 
     const externalDomainTests = [
@@ -416,7 +416,7 @@ describe(SystemConfigService.name, () => {
 
     for (const { should, externalDomain, result } of externalDomainTests) {
       it(`should normalize an external domain ${should}`, async () => {
-        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
         const partialConfig = { server: { externalDomain } };
         mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
@@ -426,7 +426,7 @@ describe(SystemConfigService.name, () => {
     }
 
     it('should warn for unknown options in yaml', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.yaml' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.yaml' }));
       const partialConfig = `
         unknownOption: true
       `;
@@ -463,7 +463,7 @@ describe(SystemConfigService.name, () => {
 
     for (const test of tests) {
       it(`should ${test.should}`, async () => {
-        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
         mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(test.config));
 
         if (test.throws) {
@@ -490,7 +490,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should throw an error if a config file is in use', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'immich-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'great-memories-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({}));
       await expect(sut.updateSystemConfig(defaults)).rejects.toBeInstanceOf(BadRequestException);
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();

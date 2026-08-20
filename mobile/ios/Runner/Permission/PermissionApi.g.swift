@@ -108,7 +108,7 @@ class PermissionApiSetup {
   /// Sets up an instance of `PermissionApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: PermissionApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let isIgnoringBatteryOptimizationsChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.PermissionApi.isIgnoringBatteryOptimizations\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let isIgnoringBatteryOptimizationsChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.PermissionApi.isIgnoringBatteryOptimizations\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       isIgnoringBatteryOptimizationsChannel.setMessageHandler { _, reply in
         do {
@@ -121,7 +121,7 @@ class PermissionApiSetup {
     } else {
       isIgnoringBatteryOptimizationsChannel.setMessageHandler(nil)
     }
-    let hasManageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.PermissionApi.hasManageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let hasManageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.PermissionApi.hasManageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       hasManageMediaPermissionChannel.setMessageHandler { _, reply in
         do {
@@ -134,7 +134,7 @@ class PermissionApiSetup {
     } else {
       hasManageMediaPermissionChannel.setMessageHandler(nil)
     }
-    let requestManageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.PermissionApi.requestManageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let requestManageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.PermissionApi.requestManageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       requestManageMediaPermissionChannel.setMessageHandler { _, reply in
         api.requestManageMediaPermission { result in
@@ -149,7 +149,7 @@ class PermissionApiSetup {
     } else {
       requestManageMediaPermissionChannel.setMessageHandler(nil)
     }
-    let manageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.PermissionApi.manageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let manageMediaPermissionChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.PermissionApi.manageMediaPermission\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       manageMediaPermissionChannel.setMessageHandler { _, reply in
         api.manageMediaPermission { result in

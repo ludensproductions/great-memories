@@ -1,6 +1,6 @@
 # System Settings
 
-The admin user can manage settings for the Immich instance here.
+The admin user can manage settings for the Great Memories instance here.
 
 :::tip
 You can always return to the default settings by clicking the `Reset to default` button.
@@ -12,7 +12,7 @@ Manage password, OAuth, and other authentication settings
 
 ### OAuth Authentication
 
-Immich supports OAuth Authentication. Read more about this feature and its configuration [here](/administration/oauth).
+Great Memories supports OAuth Authentication. Read more about this feature and its configuration [here](/administration/oauth).
 
 ### Password Authentication
 
@@ -27,7 +27,7 @@ You can always use the [Server CLI](/administration/server-commands) to re-enabl
 - Thumbnails - Used in the main timeline.
 - Previews - Used in the asset viewer.
 
-By default Immich creates 3 thumbnails for each asset,
+By default Great Memories creates 3 thumbnails for each asset,
 Blurred (thumbhash) , Small - thumbnails (webp) , and Large - previews (jpeg/webp), using these settings you can change the quality for the thumbnails and previews files that are created.
 
 **Thumbnail format**  
@@ -91,28 +91,28 @@ You can set the scanning interval using the preset or cron format. For more info
 
 ## Logging
 
-The default Immich log level is `Log` (commonly known as `Info`). The Immich administrator can choose a higher or lower log level according to personal preference or as requested by the Immich support team.
+The default Great Memories log level is `Log` (commonly known as `Info`). The Great Memories administrator can choose a higher or lower log level according to personal preference or as requested by the Great Memories support team.
 
 ## Machine Learning Settings
 
-Through this setting, you can manage all the settings related to machine learning in Immich, from the setting of remote machine learning to the model and its parameters
+Through this setting, you can manage all the settings related to machine learning in Great Memories, from the setting of remote machine learning to the model and its parameters
 You can choose to disable a certain type of machine learning, for example smart search or facial recognition.
 
 ### URL
 
-The built in (`http://immich-machine-learning:3003`) machine learning server will be configured by default, but you can change this or add additional servers.
+The built in (`http://great-memories-machine-learning:3003`) machine learning server will be configured by default, but you can change this or add additional servers.
 
-Hosting the `immich-machine-learning` container on a machine with a more powerful GPU can be helpful to for processing a large number of photos (such as during batch import) or for faster search.
+Hosting the `great-memories-machine-learning` container on a machine with a more powerful GPU can be helpful to for processing a large number of photos (such as during batch import) or for faster search.
 
 If more than one URL is provided, each server will be attempted one-at-a-time until one responds successfully, in order from first to last. Servers that don't respond will be temporarily ignored until they come back online.
 
 ### Smart Search
 
-The [smart search](/features/searching) settings allow you to change the [CLIP model](https://openai.com/research/clip). Larger models will typically provide [more accurate search results](https://github.com/immich-app/immich/discussions/11862) but consume more processing power and RAM. When [changing the CLIP model](/FAQ#can-i-use-a-custom-clip-model) it is mandatory to re-run the Smart Search job on all images to fully apply the change.
+The [smart search](/features/searching) settings allow you to change the [CLIP model](https://openai.com/research/clip). Larger models will typically provide [more accurate search results](https://github.com/ludensproductions/great-memories/discussions/11862) but consume more processing power and RAM. When [changing the CLIP model](/FAQ#can-i-use-a-custom-clip-model) it is mandatory to re-run the Smart Search job on all images to fully apply the change.
 
 :::info Internet connection
 Changing models requires a connection to the Internet to download the model.
-After downloading, there is no need for Immich to connect to the network
+After downloading, there is no need for Great Memories to connect to the network
 Unless version checking has been enabled in the settings.
 :::
 
@@ -154,7 +154,7 @@ The map can be adjusted via [OpenMapTiles](https://openmaptiles.org/styles/) for
 
 ### Reverse Geocoding Settings
 
-Immich supports [Reverse Geocoding](/features/reverse-geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
+Great Memories supports [Reverse Geocoding](/features/reverse-geocoding) using data from the [GeoNames](https://www.geonames.org/) geographical database.
 
 ## Notification Settings
 
@@ -176,7 +176,7 @@ The administrator can set a custom message on the login screen (the message will
 
 ## Storage Template
 
-Immich supports a custom [Storage Template](/administration/storage-template). Learn more about this feature and its configuration [here](/administration/storage-template).
+Great Memories supports a custom [Storage Template](/administration/storage-template). Learn more about this feature and its configuration [here](/administration/storage-template).
 
 ## Theme Settings
 
@@ -208,7 +208,7 @@ The system administrator can choose to delete users through the administration p
 
 ## Version Check
 
-When this option is enabled the `immich-server` will periodically make requests to GitHub to check for new releases.
+When this option is enabled the `great-memories-server` will periodically make requests to GitHub to check for new releases.
 
 ## Video Transcoding Settings
 

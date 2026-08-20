@@ -3,7 +3,7 @@
   import { Route } from '$lib/route';
   import { getSharedLinkActions } from '$lib/services/shared-link.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { SharedLinkType, type SharedLinkResponseDto } from '@immich/sdk';
+  import { SharedLinkType, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { ActionButton, ContextMenuButton, MenuItemType, Text } from '@immich/ui';
   import { DateTime, type ToRelativeUnit } from 'luxon';
   import { t } from 'svelte-i18n';
@@ -56,7 +56,7 @@
 </script>
 
 <div
-  class="flex w-full border-b border-gray-200 transition-all hover:border-immich-primary dark:border-gray-600 dark:text-immich-gray dark:hover:border-immich-dark-primary"
+  class="flex w-full border-b border-gray-200 transition-all hover:border-great-memories-primary dark:border-gray-600 dark:text-great-memories-gray dark:hover:border-great-memories-dark-primary"
 >
   <svelte:element
     this={isExpired ? 'div' : 'a'}

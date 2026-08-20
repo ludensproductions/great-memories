@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/fixed/segment_builder.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/segment.model.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/fixed/segment_builder.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/segment.model.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
 
 class TimelineArgs {
   final double maxWidth;

@@ -7,7 +7,7 @@
   import { type SharedLinkTab } from '$lib/constants';
   import GroupTab from '$lib/elements/GroupTab.svelte';
   import { Route } from '$lib/route';
-  import { getAllSharedLinks, SharedLinkType, type SharedLinkResponseDto } from '@immich/sdk';
+  import { getAllSharedLinks, SharedLinkType, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { Container } from '@immich/ui';
   import { onMount, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -85,7 +85,7 @@
   <Container center size="medium">
     {#if sharedLinks.length === 0}
       <div
-        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-immich-dark-gray dark:text-immich-gray"
+        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-great-memories-dark-gray dark:text-great-memories-gray"
       >
         <p>{$t('you_dont_have_any_shared_links')}</p>
       </div>

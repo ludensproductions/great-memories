@@ -11,30 +11,30 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/feature_message.provider.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/providers/oauth.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/provider_utils.dart';
-import 'package:immich_mobile/utils/semver.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
-import 'package:immich_mobile/utils/version_compatibility.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/forms/login/server_discovery.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/feature_message.provider.dart';
+import 'package:great_memories_mobile/providers/gallery_permission.provider.dart';
+import 'package:great_memories_mobile/providers/oauth.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:great_memories_mobile/providers/websocket.provider.dart';
+import 'package:great_memories_mobile/repositories/permission.repository.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/utils/provider_utils.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/utils/url_helper.dart';
+import 'package:great_memories_mobile/utils/version_compatibility.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_title_text.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/widgets/forms/login/server_discovery.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -107,7 +107,7 @@ class LoginForm extends HookConsumerWidget {
 
       // Guard empty URL
       if (serverUrl.isEmpty) {
-        ImmichToast.show(context: context, msg: "login_form_server_empty".tr(), toastType: ToastType.error);
+        GreatMemoriesToast.show(context: context, msg: "login_form_server_empty".tr(), toastType: ToastType.error);
       }
 
       try {
@@ -126,7 +126,7 @@ class LoginForm extends HookConsumerWidget {
 
         serverEndpoint.value = endpoint;
       } on ApiException catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: e.message ?? 'login_form_api_exception'.tr(),
           toastType: ToastType.error,
@@ -135,7 +135,7 @@ class LoginForm extends HookConsumerWidget {
         isOauthEnable.value = false;
         isPasswordLoginEnable.value = true;
       } on HandshakeException {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'login_form_handshake_exception'.tr(),
           toastType: ToastType.error,
@@ -144,7 +144,7 @@ class LoginForm extends HookConsumerWidget {
         isOauthEnable.value = false;
         isPasswordLoginEnable.value = true;
       } catch (e) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'login_form_server_error'.tr(),
           toastType: ToastType.error,
@@ -162,12 +162,6 @@ class LoginForm extends HookConsumerWidget {
       }
       return null;
     }, []);
-
-    populateTestLoginInfo() {
-      emailController.text = 'demo@immich.app';
-      passwordController.text = 'demo';
-      serverEndpointController.text = 'https://demo.immich.app';
-    }
 
     populateTestLoginInfo1() {
       emailController.text = 'testuser@email.com';
@@ -261,7 +255,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
       } catch (error) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_login".tr(),
           toastType: ToastType.error,
@@ -315,7 +309,7 @@ class LoginForm extends HookConsumerWidget {
       } catch (error, stack) {
         log.severe('Error getting OAuth server Url: $error', stack);
 
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_config".tr(),
           toastType: ToastType.error,
@@ -351,7 +345,7 @@ class LoginForm extends HookConsumerWidget {
         } catch (error, stack) {
           log.severe('Error logging in with OAuth: $error', stack);
 
-          ImmichToast.show(
+          GreatMemoriesToast.show(
             context: context,
             msg: error.toString(),
             toastType: ToastType.error,
@@ -359,7 +353,7 @@ class LoginForm extends HookConsumerWidget {
           );
         } finally {}
       } else {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: "login_form_failed_get_oauth_server_disable".tr(),
           toastType: ToastType.info,
@@ -402,15 +396,15 @@ class LoginForm extends HookConsumerWidget {
 
     final serverSelectionOrLogin = serverEndpoint.value == null
         ? Padding(
-            padding: const EdgeInsets.only(top: ImmichSpacing.md),
+            padding: const EdgeInsets.only(top: GreatMemoriesSpacing.md),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                ImmichForm(
+                GreatMemoriesForm(
                   onSubmit: getServerAuthSettings,
                   submitText: 'next'.t(context: context),
                   submitIcon: Icons.arrow_forward_rounded,
-                  builder: (_, form) => ImmichURLInput(
+                  builder: (_, form) => GreatMemoriesURLInput(
                     controller: serverEndpointController,
                     label: 'login_form_endpoint_url'.t(context: context),
                     hintText: 'login_form_endpoint_hint'.t(context: context),
@@ -420,10 +414,10 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 ),
                 ServerDiscovery(onServerFound: (url) => serverEndpointController.text = url),
-                ImmichTextButton(
+                GreatMemoriesTextButton(
                   labelText: 'settings'.t(context: context),
                   icon: Icons.settings,
-                  variant: ImmichVariant.ghost,
+                  variant: GreatMemoriesVariant.ghost,
                   onPressed: () => context.pushRoute(const SettingsRoute()),
                 ),
               ],
@@ -436,7 +430,7 @@ class LoginForm extends HookConsumerWidget {
               children: [
                 buildVersionCompatWarning(),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: ImmichSpacing.md),
+                  padding: const EdgeInsets.only(bottom: GreatMemoriesSpacing.md),
                   child: Text(
                     sanitizeUrl(serverEndpointController.text),
                     style: context.textTheme.displaySmall,
@@ -444,14 +438,14 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 ),
                 if (isPasswordLoginEnable.value)
-                  ImmichForm(
+                  GreatMemoriesForm(
                     onSubmit: login,
                     submitText: 'login'.t(context: context),
                     submitIcon: Icons.login_rounded,
                     builder: (context, form) => Column(
-                      spacing: ImmichSpacing.md,
+                      spacing: GreatMemoriesSpacing.md,
                       children: [
-                        ImmichTextInput(
+                        GreatMemoriesTextInput(
                           controller: emailController,
                           label: 'email'.t(context: context),
                           hintText: 'login_form_email_hint'.t(context: context),
@@ -461,7 +455,7 @@ class LoginForm extends HookConsumerWidget {
                           autofillHints: const [AutofillHints.email],
                           onSubmit: (_) => passwordFocusNode.requestFocus(),
                         ),
-                        ImmichPasswordInput(
+                        GreatMemoriesPasswordInput(
                           controller: passwordController,
                           focusNode: passwordFocusNode,
                           label: 'password'.t(context: context),
@@ -473,7 +467,7 @@ class LoginForm extends HookConsumerWidget {
                     ),
                   ),
                 if (isOauthEnable.value)
-                  ImmichForm(
+                  GreatMemoriesForm(
                     onSubmit: oAuthLogin,
                     submitText: oAuthButtonLabel.value,
                     submitIcon: Icons.pin_outlined,
@@ -486,10 +480,10 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 if (!isOauthEnable.value && !isPasswordLoginEnable.value)
                   Center(child: const Text('login_disabled').tr()),
-                ImmichTextButton(
+                GreatMemoriesTextButton(
                   labelText: 'back'.t(context: context),
                   icon: Icons.arrow_back,
-                  variant: ImmichVariant.ghost,
+                  variant: GreatMemoriesVariant.ghost,
                   onPressed: () => serverEndpoint.value = null,
                 ),
               ],
@@ -512,14 +506,13 @@ class LoginForm extends HookConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
-                        onDoubleTap: () => populateTestLoginInfo(),
                         onLongPress: () => populateTestLoginInfo1(),
                         child: RotationTransition(
                           turns: logoAnimationController,
-                          child: const ImmichLogo(heroTag: 'logo'),
+                          child: const GreatMemoriesLogo(heroTag: 'logo'),
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: ImmichTitleText()),
+                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: GreatMemoriesTitleText()),
                     ],
                   ),
 

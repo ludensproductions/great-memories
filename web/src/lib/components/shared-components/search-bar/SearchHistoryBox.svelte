@@ -95,7 +95,7 @@
   {#if isOpen && isSearchSuggestions}
     <div
       transition:fly={{ y: 25, duration: 150 }}
-      class="absolute z-1 w-full rounded-b-3xl border-2 border-t-0 border-gray-200 bg-white pb-5 shadow-2xl transition-all dark:border-gray-700 dark:bg-immich-dark-gray dark:text-gray-300"
+      class="absolute z-1 w-full rounded-b-3xl border-2 border-t-0 border-gray-200 bg-white pb-5 shadow-2xl transition-all dark:border-gray-700 dark:bg-great-memories-dark-gray dark:text-gray-300"
     >
       <div class="flex items-center justify-between px-5 pt-5 text-xs">
         <Text class="py-2" color="muted" aria-hidden={true}>{$t('recent_searches')}</Text>
@@ -103,7 +103,7 @@
           <button
             id={getId(0)}
             type="button"
-            class="rounded-lg p-2 font-semibold text-primary hover:bg-immich-primary/25 aria-selected:bg-immich-primary/25"
+            class="rounded-lg p-2 font-semibold text-primary hover:bg-great-memories-primary/25 aria-selected:bg-great-memories-primary/25"
             role="option"
             onclick={() => handleClearAll()}
             tabindex="-1"

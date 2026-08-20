@@ -1,4 +1,4 @@
-import { LoginResponseDto } from '@immich/sdk';
+import { LoginResponseDto } from '@great-memories/sdk';
 import { createUserDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, utils } from 'src/utils';
@@ -36,15 +36,15 @@ describe('/server', () => {
       expect(body).toEqual({
         version: expect.any(String),
         versionUrl: expect.any(String),
-        repository: 'immich-app/immich',
-        repositoryUrl: 'https://github.com/immich-app/immich',
+        repository: 'ludensproductions/great-memories',
+        repositoryUrl: 'https://github.com/ludensproductions/great-memories',
         build: '1234567890',
-        buildUrl: 'https://github.com/immich-app/immich/actions/runs/1234567890',
+        buildUrl: 'https://github.com/ludensproductions/great-memories/actions/runs/1234567890',
         buildImage: 'e2e',
-        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/immich-server',
+        buildImageUrl: 'https://github.com/ludensproductions/great-memories/pkgs/container/great-memories-server',
         sourceRef: 'e2e',
         sourceCommit: 'e2eeeeeeeeeeeeeeeeee',
-        sourceUrl: 'https://github.com/immich-app/immich/commit/e2eeeeeeeeeeeeeeeeee',
+        sourceUrl: 'https://github.com/ludensproductions/great-memories/commit/e2eeeeeeeeeeeeeeeeee',
         nodejs: expect.any(String),
         ffmpeg: expect.any(String),
         imagemagick: expect.any(String),
@@ -180,7 +180,7 @@ describe('/server', () => {
             usage: 0,
             usagePhotos: 0,
             usageVideos: 0,
-            userName: 'Immich Admin',
+            userName: 'Great Memories Admin',
             userId: admin.userId,
             videos: 0,
           },

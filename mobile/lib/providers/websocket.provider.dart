@@ -1,18 +1,16 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/utils/debounce.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/domain/models/store.model.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/utils/debounce.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
-import 'package:openapi/api.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
 class WebsocketState {
@@ -105,7 +103,6 @@ class WebsocketNotifier extends StateNotifier<WebsocketState> {
         socket.on('AssetEditReadyV2', _handleSyncAssetEditReadyV2);
         socket.on('on_album_update', _handleAlbumUpdate);
         socket.on('on_config_update', _handleOnConfigUpdate);
-        socket.on('on_new_release', _handleReleaseUpdates);
       } catch (e) {
         dPrint(() => "[WEBSOCKET] Catch Websocket Error - ${e.toString()}");
       }
@@ -145,30 +142,6 @@ class WebsocketNotifier extends StateNotifier<WebsocketState> {
   void _handleOnConfigUpdate(dynamic _) {
     _ref.read(serverInfoProvider.notifier).getServerFeatures();
     _ref.read(serverInfoProvider.notifier).getServerConfig();
-  }
-
-  _handleReleaseUpdates(dynamic data) {
-    // Json guard
-    if (data is! Map) {
-      return;
-    }
-
-    final json = data.cast<String, dynamic>();
-    final serverVersionJson = json.containsKey('serverVersion') ? json['serverVersion'] : null;
-    final releaseVersionJson = json.containsKey('releaseVersion') ? json['releaseVersion'] : null;
-    if (serverVersionJson == null || releaseVersionJson == null) {
-      return;
-    }
-
-    final serverVersionDto = ServerVersionResponseDto.fromJson(serverVersionJson);
-    final releaseVersionDto = ServerVersionResponseDto.fromJson(releaseVersionJson);
-    if (serverVersionDto == null || releaseVersionDto == null) {
-      return;
-    }
-
-    final serverVersion = ServerVersion.fromDto(serverVersionDto);
-    final releaseVersion = ServerVersion.fromDto(releaseVersionDto);
-    _ref.read(serverInfoProvider.notifier).handleReleaseInfo(serverVersion, releaseVersion);
   }
 
   void _handleSyncAssetUploadReadyV1(dynamic data) {

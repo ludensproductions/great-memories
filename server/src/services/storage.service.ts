@@ -14,7 +14,7 @@ import {
 } from 'src/enum';
 import { BaseService } from 'src/services/base.service';
 import { JobOf, SystemFlags } from 'src/types';
-import { ImmichStartupError } from 'src/utils/misc';
+import { GreatMemoriesStartupError } from 'src/utils/misc';
 
 const docsMessage = `Please see https://docs.immich.app/administration/system-integrity#folder-checks for more information.`;
 
@@ -158,7 +158,7 @@ export class StorageService extends BaseService {
       await this.storageRepository.readFile(internalPath);
     } catch (error) {
       this.logger.error(`Failed to read (${internalPath}): ${error}`);
-      throw new ImmichStartupError(`Failed to read: "${externalPath} (${internalPath}) - ${docsMessage}"`);
+      throw new GreatMemoriesStartupError(`Failed to read: "${externalPath} (${internalPath}) - ${docsMessage}"`);
     }
   }
 
@@ -173,7 +173,7 @@ export class StorageService extends BaseService {
         return;
       }
       this.logger.error(`Failed to create ${internalPath}: ${error}`);
-      throw new ImmichStartupError(`Failed to create "${externalPath} - ${docsMessage}"`);
+      throw new GreatMemoriesStartupError(`Failed to create "${externalPath} - ${docsMessage}"`);
     }
   }
 
@@ -183,14 +183,14 @@ export class StorageService extends BaseService {
       await this.storageRepository.overwriteFile(internalPath, Buffer.from(Date.now().toString()));
     } catch (error) {
       this.logger.error(`Failed to write ${internalPath}: ${error}`);
-      throw new ImmichStartupError(`Failed to write "${externalPath} - ${docsMessage}"`);
+      throw new GreatMemoriesStartupError(`Failed to write "${externalPath} - ${docsMessage}"`);
     }
   }
 
   private getMountFilePaths(folder: StorageFolder) {
     const folderPath = StorageCore.getBaseFolder(folder);
-    const internalPath = join(folderPath, '.immich');
-    const externalPath = `<UPLOAD_LOCATION>/${folder}/.immich`;
+    const internalPath = join(folderPath, '.great-memories');
+    const externalPath = `<UPLOAD_LOCATION>/${folder}/.great-memories`;
 
     return { folderPath, internalPath, externalPath };
   }

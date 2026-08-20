@@ -36,7 +36,7 @@ export async function detectPriorInstall(
       Object.values(StorageFolder).map(async (folder) => {
         const path = StorageCore.getBaseFolder(folder);
         const files = await storageRepository.readdir(path);
-        const filename = join(StorageCore.getBaseFolder(folder), '.immich');
+        const filename = join(StorageCore.getBaseFolder(folder), '.great-memories');
 
         let isReadable = false,
           isWritable = false;
@@ -55,7 +55,7 @@ export async function detectPriorInstall(
           folder,
           readable: isReadable,
           writable: isWritable,
-          files: files.filter((fn) => fn !== '.immich').length,
+          files: files.filter((fn) => fn !== '.great-memories').length,
         };
       }),
     ),

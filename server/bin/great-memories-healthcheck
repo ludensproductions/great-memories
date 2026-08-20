@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+log_container_verbose() {
+  if [[ $GREAT_MEMORIES_LOG_LEVEL == verbose ]]; then
+    echo "$1" > /proc/1/fd/2
+  fi
+}
+
+if [[ ( $GREAT_MEMORIES_WORKERS_INCLUDE != '' && $GREAT_MEMORIES_WORKERS_INCLUDE != *api* ) || $GREAT_MEMORIES_WORKERS_EXCLUDE == *api* ]]; then
+  echo "API worker excluded, skipping"
+  exit 0
+fi
+
+GREAT_MEMORIES_HOST="${GREAT_MEMORIES_HOST:-localhost}"
+GREAT_MEMORIES_PORT="${GREAT_MEMORIES_PORT:-2283}"
+
+result=$(curl -fsS -m 2 http://"$GREAT_MEMORIES_HOST":"$GREAT_MEMORIES_PORT"/api/server/ping)
+result_exit=$?
+
+if [ $result_exit != 0 ]; then
+  echo "Fail: exit code is $result_exit"
+  log_container_verbose "Healthcheck failed: exit code $result_exit"
+  exit 1
+fi
+
+if [ "$result" != '{"res":"pong"}' ]; then
+  echo "Fail: didn't reply with pong"
+  log_container_verbose "Healthcheck failed: didn't reply with pong"
+  exit 1
+fi

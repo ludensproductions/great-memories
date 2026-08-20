@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/components/formatted_text.dart';
+import 'package:great_memories_ui/src/components/formatted_text.dart';
 
 import 'test_utils.dart';
 
-/// Text.rich creates a nested structure: root (DefaultTextStyle) -> wrapper (ImmichFormattedText) -> actual children
+/// Text.rich creates a nested structure: root (DefaultTextStyle) -> wrapper (GreatMemoriesFormattedText) -> actual children
 List<InlineSpan> _getContentSpans(WidgetTester tester) {
   final richText = tester.widget<RichText>(find.byType(RichText));
   final root = richText.text as TextSpan;
@@ -35,10 +35,10 @@ void _triggerTap(TextSpan span) {
 }
 
 void main() {
-  group('ImmichFormattedText', () {
+  group('GreatMemoriesFormattedText', () {
     testWidgets('renders plain text without HTML tags', (tester) async {
       await tester.pumpTestWidget(
-        const ImmichFormattedText('This is plain text'),
+        const GreatMemoriesFormattedText('This is plain text'),
       );
 
       expect(find.text('This is plain text'), findsOneWidget);
@@ -46,7 +46,7 @@ void main() {
 
     testWidgets('applies text style properties', (tester) async {
       await tester.pumpTestWidget(
-        const ImmichFormattedText(
+        const GreatMemoriesFormattedText(
           'Test text',
           style: TextStyle(
             fontSize: 16,
@@ -70,7 +70,7 @@ void main() {
 
     testWidgets('handles text with special characters', (tester) async {
       await tester.pumpTestWidget(
-        const ImmichFormattedText('Text with & < > " \' characters'),
+        const GreatMemoriesFormattedText('Text with & < > " \' characters'),
       );
 
       expect(find.byType(RichText), findsOneWidget);
@@ -82,7 +82,7 @@ void main() {
     group('bold', () {
       testWidgets('renders bold text with <b> tag', (tester) async {
         await tester.pumpTestWidget(
-          const ImmichFormattedText('This is <b>bold</b> text'),
+          const GreatMemoriesFormattedText('This is <b>bold</b> text'),
         );
 
         final spans = _getContentSpans(tester);
@@ -96,7 +96,7 @@ void main() {
     group('link', () {
       testWidgets('renders link text with <link> tag', (tester) async {
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'This is a <link>custom link</link> text',
             spanBuilder: (tag) => FormattedSpan(onTap: switch (tag) { 'link' => () {}, _ => null }),
           ),
@@ -113,7 +113,7 @@ void main() {
         var linkTapped = false;
 
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'Tap <link>here</link>',
             spanBuilder: (tag) => FormattedSpan(onTap: switch (tag) { 'link' => () => linkTapped = true, _ => null }),
           ),
@@ -129,7 +129,7 @@ void main() {
 
       testWidgets('handles custom prefixed link tags', (tester) async {
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'Refer to <docs-link>docs</docs-link> and <other-link>other</other-link>',
             spanBuilder: (tag) => FormattedSpan(onTap: switch (tag) {
               'docs-link' => () {},
@@ -154,7 +154,7 @@ void main() {
         );
 
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'Click <link>here</link>',
             spanBuilder: (tag) => FormattedSpan(style: customLinkStyle, onTap: () {}),
           ),
@@ -169,7 +169,7 @@ void main() {
 
       testWidgets('link without handler renders but is not tappable', (tester) async {
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'Link without handler: <link>click me</link>',
             spanBuilder: (tag) => FormattedSpan(onTap: switch (tag) { 'other-link' => () {}, _ => null }),
           ),
@@ -187,7 +187,7 @@ void main() {
         var secondLinkTapped = false;
 
         await tester.pumpTestWidget(
-          ImmichFormattedText(
+          GreatMemoriesFormattedText(
             'Go to <docs-link>docs</docs-link> or <help-link>help</help-link>',
             spanBuilder: (tag) => FormattedSpan(onTap: switch (tag) {
               'docs-link' => () => firstLinkTapped = true,

@@ -1,10 +1,10 @@
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/partner.service.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
+import 'package:great_memories_mobile/domain/services/asset.service.dart';
+import 'package:great_memories_mobile/domain/services/partner.service.dart';
+import 'package:great_memories_mobile/domain/services/store.service.dart';
+import 'package:great_memories_mobile/domain/services/user.service.dart';
+import 'package:great_memories_mobile/domain/utils/background_sync.dart';
+import 'package:great_memories_mobile/platform/native_sync_api.g.dart';
+import 'package:great_memories_mobile/services/app_settings.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockStoreService extends Mock implements StoreService {}

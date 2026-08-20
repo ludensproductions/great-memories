@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/bottom_bar.widget.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/asset_viewer/bottom_bar.widget.dart';
 
 class ViewerBottomAppBar extends ConsumerWidget {
   const ViewerBottomAppBar({super.key});

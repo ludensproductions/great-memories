@@ -4,12 +4,11 @@
   import DownloadSettings from './DownloadSettings.svelte';
   import FeatureSettings from './FeatureSettings.svelte';
   import NotificationsSettings from './NotificationsSettings.svelte';
-  import UserPurchaseSettings from './UserPurchaseSettings.svelte';
   import UserUsageStatistic from './UserUsageStatistic.svelte';
   import { OpenQueryParam, QueryParameter } from '$lib/constants';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
   import { oauth } from '$lib/utils';
-  import { type ApiKeyResponseDto, type SessionResponseDto } from '@immich/sdk';
+  import { type ApiKeyResponseDto, type SessionResponseDto } from '@great-memories/sdk';
   import {
     mdiAccountGroupOutline,
     mdiAccountOutline,
@@ -20,7 +19,6 @@
     mdiDownload,
     mdiFeatureSearchOutline,
     mdiFormTextboxPassword,
-    mdiKeyOutline,
     mdiLockSmart,
     mdiServerOutline,
     mdiTwoFactorAuthentication,
@@ -146,14 +144,4 @@
   autoScrollTo={true}
 >
   <ChangePinCodeSettings />
-</SettingAccordion>
-
-<SettingAccordion
-  icon={mdiKeyOutline}
-  key={OpenQueryParam.PURCHASE_SETTINGS}
-  title={$t('user_purchase_settings')}
-  subtitle={$t('user_purchase_settings_description')}
-  autoScrollTo={true}
->
-  <UserPurchaseSettings />
 </SettingAccordion>

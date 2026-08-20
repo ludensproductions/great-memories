@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 
-class ImmichTranslations {
+class GreatMemoriesTranslations {
   late String submit;
   late String password;
 
-  ImmichTranslations({String? submit, String? password}) {
+  GreatMemoriesTranslations({String? submit, String? password}) {
     this.submit = submit ?? 'Submit';
     this.password = password ?? 'Password';
   }
 }
 
-class ImmichTranslationProvider extends InheritedWidget {
-  final ImmichTranslations? translations;
+class GreatMemoriesTranslationProvider extends InheritedWidget {
+  final GreatMemoriesTranslations? translations;
 
-  const ImmichTranslationProvider({
+  const GreatMemoriesTranslationProvider({
     super.key,
     this.translations,
     required super.child,
   });
 
-  static ImmichTranslations of(BuildContext context) {
-    final provider = context.dependOnInheritedWidgetOfExactType<ImmichTranslationProvider>();
-    return provider?.translations ?? ImmichTranslations();
+  static GreatMemoriesTranslations of(BuildContext context) {
+    final provider = context.dependOnInheritedWidgetOfExactType<GreatMemoriesTranslationProvider>();
+    return provider?.translations ?? GreatMemoriesTranslations();
   }
 
   @override
-  bool updateShouldNotify(covariant ImmichTranslationProvider oldWidget) {
+  bool updateShouldNotify(covariant GreatMemoriesTranslationProvider oldWidget) {
     return oldWidget.translations != translations;
   }
 }

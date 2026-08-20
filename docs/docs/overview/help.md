@@ -9,8 +9,7 @@ Running into an issue or have a question? Try the following:
 1. Check the [FAQs](/FAQ.mdx).
 2. Read through the [Release Notes][github-releases].
 3. Search through existing [GitHub Issues][github-issues].
-4. Open a help ticket on [Discord][discord-link].
+4. Open a new [GitHub Issue][github-issues] if you can't find an answer.
 
-[github-issues]: https://github.com/immich-app/immich/issues
-[github-releases]: https://github.com/immich-app/immich/releases
-[discord-link]: https://discord.immich.app
+[github-issues]: https://github.com/ludensproductions/great-memories/issues
+[github-releases]: https://github.com/ludensproductions/great-memories/releases

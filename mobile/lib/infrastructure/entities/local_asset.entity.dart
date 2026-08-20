@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/entities/local_asset.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/utils/asset.mixin.dart';
-import 'package:immich_mobile/infrastructure/utils/drift_default.mixin.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/local_asset.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/utils/asset.mixin.dart';
+import 'package:great_memories_mobile/infrastructure/utils/drift_default.mixin.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_local_asset_checksum ON local_asset_entity (checksum)')
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_local_asset_cloud_id ON local_asset_entity (i_cloud_id)')

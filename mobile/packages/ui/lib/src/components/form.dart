@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
+import 'package:great_memories_ui/src/internal.dart';
 
-class ImmichFormController extends ChangeNotifier {
-  ImmichFormController({this.onSubmit});
+class GreatMemoriesFormController extends ChangeNotifier {
+  GreatMemoriesFormController({this.onSubmit});
 
   FutureOr<void> Function()? onSubmit;
   final formKey = GlobalKey<FormState>();
@@ -41,29 +41,29 @@ class ImmichFormController extends ChangeNotifier {
   }
 }
 
-class ImmichForm extends StatefulWidget {
+class GreatMemoriesForm extends StatefulWidget {
   final FutureOr<void> Function()? onSubmit;
-  final Widget Function(BuildContext context, ImmichFormController form) builder;
+  final Widget Function(BuildContext context, GreatMemoriesFormController form) builder;
   final String? submitText;
   final IconData? submitIcon;
 
-  const ImmichForm({super.key, this.onSubmit, this.submitText, this.submitIcon, required this.builder});
+  const GreatMemoriesForm({super.key, this.onSubmit, this.submitText, this.submitIcon, required this.builder});
 
   @override
-  State<ImmichForm> createState() => _ImmichFormState();
+  State<GreatMemoriesForm> createState() => _GreatMemoriesFormState();
 }
 
-class _ImmichFormState extends State<ImmichForm> {
-  late final ImmichFormController _controller;
+class _GreatMemoriesFormState extends State<GreatMemoriesForm> {
+  late final GreatMemoriesFormController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = ImmichFormController(onSubmit: widget.onSubmit);
+    _controller = GreatMemoriesFormController(onSubmit: widget.onSubmit);
   }
 
   @override
-  void didUpdateWidget(ImmichForm oldWidget) {
+  void didUpdateWidget(GreatMemoriesForm oldWidget) {
     super.didUpdateWidget(oldWidget);
     _controller.onSubmit = widget.onSubmit;
   }
@@ -80,12 +80,12 @@ class _ImmichFormState extends State<ImmichForm> {
     return Form(
       key: _controller.formKey,
       child: Column(
-        spacing: ImmichSpacing.md,
+        spacing: GreatMemoriesSpacing.md,
         children: [
           widget.builder(context, _controller),
           ListenableBuilder(
             listenable: _controller,
-            builder: (context, _) => ImmichTextButton(
+            builder: (context, _) => GreatMemoriesTextButton(
               labelText: submitText,
               icon: widget.submitIcon,
               variant: .filled,

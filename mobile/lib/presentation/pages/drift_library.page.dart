@@ -2,22 +2,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/images/local_album_thumbnail.widget.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/people/partner_user_avatar.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/people.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
-import 'package:immich_mobile/widgets/common/immich_sliver_app_bar.dart';
-import 'package:immich_mobile/widgets/map/map_thumbnail.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/local_album_thumbnail.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/people/partner_user_avatar.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/people.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/user.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/utils/image_url_builder.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_sliver_app_bar.dart';
+import 'package:great_memories_mobile/widgets/map/map_thumbnail.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 @RoutePage()
@@ -29,7 +29,7 @@ class DriftLibraryPage extends ConsumerWidget {
     return const Scaffold(
       body: CustomScrollView(
         slivers: [
-          ImmichSliverAppBar(snap: false, floating: false, pinned: true, showUploadButton: false),
+          GreatMemoriesSliverAppBar(snap: false, floating: false, pinned: true, showUploadButton: false),
           _ActionButtonGrid(),
           _CollectionCards(),
           _QuickAccessButtonList(),

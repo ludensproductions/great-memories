@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/datetime_helpers.dart';
+import 'package:great_memories_mobile/utils/datetime_helpers.dart';
 
 void main() {
   group('tryFromSecondsSinceEpoch', () {

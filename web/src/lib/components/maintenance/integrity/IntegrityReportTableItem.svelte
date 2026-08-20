@@ -1,7 +1,7 @@
 <script lang="ts">
   import OnEvents from '$lib/components/OnEvents.svelte';
   import { getIntegrityReportItemActions } from '$lib/services/integrity.service';
-  import type { IntegrityReport } from '@immich/sdk';
+  import type { IntegrityReport } from '@great-memories/sdk';
   import { ContextMenuButton, TableCell, TableRow } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

@@ -1,5 +1,5 @@
-enum ImmichVariant { filled, ghost }
+enum GreatMemoriesVariant { filled, ghost }
 
-enum ImmichColor { primary, secondary }
+enum GreatMemoriesColor { primary, secondary }
 
 enum SnackbarType { info, success, error }

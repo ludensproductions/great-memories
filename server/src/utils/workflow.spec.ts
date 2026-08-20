@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@great-memories/plugin-sdk';
 import { WorkflowType } from 'src/enum';
 import { isMethodCompatible } from 'src/utils/workflow';
 

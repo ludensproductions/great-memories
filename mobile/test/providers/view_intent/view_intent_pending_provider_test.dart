@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_pending.provider.dart';
+import 'package:great_memories_mobile/platform/view_intent_api.g.dart';
+import 'package:great_memories_mobile/providers/view_intent/view_intent_pending.provider.dart';
 
 void main() {
   late DateTime now;

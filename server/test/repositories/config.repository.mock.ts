@@ -1,18 +1,18 @@
-import { DatabaseExtension, ImmichEnvironment, ImmichWorker, LogFormat } from 'src/enum';
+import { DatabaseExtension, GreatMemoriesEnvironment, GreatMemoriesWorker, LogFormat } from 'src/enum';
 import { ConfigRepository, EnvData } from 'src/repositories/config.repository';
 import { RepositoryInterface } from 'src/types';
 import { Mocked, vitest } from 'vitest';
 
 export const envData: EnvData = {
   port: 2283,
-  environment: ImmichEnvironment.Production,
+  environment: GreatMemoriesEnvironment.Production,
   logFormat: LogFormat.Console,
 
   buildMetadata: {},
   bull: {
     config: {
       connection: {},
-      prefix: 'immich_bull',
+      prefix: 'great_memories_bull',
     },
     queues: [{ name: 'queue-1' }],
   },
@@ -24,7 +24,7 @@ export const envData: EnvData = {
   database: {
     config: {
       connectionType: 'parts',
-      database: 'immich',
+      database: 'great-memories',
       host: 'database',
       port: 5432,
       username: 'postgres',
@@ -76,7 +76,7 @@ export const envData: EnvData = {
       root: '/build/www',
       indexHtml: '/build/www/index.html',
     },
-    corePlugin: '/build/plugins/immich-plugin-core',
+    corePlugin: '/build/plugins/great-memories-plugin-core',
   },
 
   setup: {
@@ -93,7 +93,7 @@ export const envData: EnvData = {
     metrics: new Set(),
   },
 
-  workers: [ImmichWorker.Api, ImmichWorker.Microservices],
+  workers: [GreatMemoriesWorker.Api, GreatMemoriesWorker.Microservices],
 
   plugins: {
     external: {
@@ -109,7 +109,7 @@ export const mockEnvData = (config: Partial<EnvData>) => ({ ...envData, ...confi
 export const newConfigRepositoryMock = (): Mocked<RepositoryInterface<ConfigRepository>> => {
   return {
     getEnv: vitest.fn().mockReturnValue(mockEnvData({})),
-    getWorker: vitest.fn().mockReturnValue(ImmichWorker.Api),
+    getWorker: vitest.fn().mockReturnValue(GreatMemoriesWorker.Api),
     isDev: vitest.fn().mockReturnValue(false),
   };
 };

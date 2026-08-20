@@ -17,7 +17,7 @@
     type AlbumResponseDto,
     type SharedLinkResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Field, HStack, Modal, ModalBody, Select, Stack, Switch, Text, type SelectOption } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

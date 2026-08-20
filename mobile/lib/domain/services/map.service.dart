@@ -1,6 +1,6 @@
-import 'package:immich_mobile/domain/models/map.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/map.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:great_memories_mobile/domain/models/map.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/map.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/timeline.repository.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 typedef MapMarkerSource = Future<List<Marker>> Function(LatLngBounds? bounds);

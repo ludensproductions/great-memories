@@ -60,11 +60,11 @@ For RKMPP to work:
 #### Basic Setup
 
 1. If you do not already have it, download the latest [`hwaccel.transcoding.yml`][hw-file] file and ensure it's in the same folder as the `docker-compose.yml`.
-2. In the `docker-compose.yml` under `immich-server`, uncomment the `extends` section and change `cpu` to the appropriate backend.
+2. In the `docker-compose.yml` under `great-memories-server`, uncomment the `extends` section and change `cpu` to the appropriate backend.
 
    Note: For VAAPI on WSL2, be sure to use `vaapi-wsl` rather than `vaapi`
 
-3. Redeploy the `immich-server` container with these updated settings.
+3. Redeploy the `great-memories-server` container with these updated settings.
 4. In the Admin page under `Video transcoding settings`, change the hardware acceleration setting to the appropriate option and save.
 
    Note: For Jasper Lake and Elkhart Lake CPUs, you will need to set the `Hardware Acceleration` -> `Constant quality mode` to `CQP`
@@ -72,7 +72,7 @@ For RKMPP to work:
 5. (Optional) Enable hardware decoding for optimal performance.
 
 <details>
-<summary>immich.json</summary>
+<summary>great-memories.json</summary>
 
 If you use a [configuration file](/install/config-file.md), use the `accel` option to select the hardware (e.g. `qsv` for Intel or `nvenc` for Nvidia). Set `accelDecode` to `true` if you want hardware decoding.
 
@@ -89,7 +89,7 @@ If you use a [configuration file](/install/config-file.md), use the `accel` opti
 
 #### Single Compose File
 
-Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `immich-server` service directly.
+Some platforms, including Unraid and Portainer, do not support multiple Compose files as of writing. As an alternative, you can "inline" the relevant contents of the [`hwaccel.transcoding.yml`][hw-file] file into the `great-memories-server` service directly.
 
 For example, the `qsv` section in this file is:
 
@@ -98,12 +98,12 @@ devices:
   - /dev/dri:/dev/dri
 ```
 
-You can add this to the `immich-server` service instead of extending from `hwaccel.transcoding.yml`:
+You can add this to the `great-memories-server` service instead of extending from `hwaccel.transcoding.yml`:
 
 ```yaml
-immich-server:
-  container_name: immich_server
-  image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+great-memories-server:
+  container_name: great_memories_server
+  image: ghcr.io/immich-app/immich-server:${GREAT_MEMORIES_VERSION:-release}
   # Note the lack of an `extends` section
   devices:
     - /dev/dri:/dev/dri
@@ -117,7 +117,7 @@ Once this is done, you can continue to step 3 of "Basic Setup".
 
 ##### QSV
 
-1. Unraid > Docker > (Stop) Immich container > Edit
+1. Unraid > Docker > (Stop) Great Memories container > Edit
 2. Scroll down and select `Add another Path, Port, Variable, Label or Device`
 3. In the drop-down menu, select `Device` and an entry with any name and the value `/dev/dri`.
 4. Continue to step 4 of "Basic Setup".
@@ -135,7 +135,7 @@ Once this is done, you can continue to step 3 of "Basic Setup".
 - While you can use VAAPI with NVIDIA and Intel devices, prefer the more specific APIs since they're more optimized for their respective devices
 - You can confirm the device is being recognized and used by checking its utilization (via `nvtop` for NVIDIA, `intel_gpu_top` for Intel, etc.) when transcoding. A lack of error logs when transcoding also indicates that it's being used.
 
-[hw-file]: https://github.com/immich-app/immich/releases/latest/download/hwaccel.transcoding.yml
+[hw-file]: https://github.com/ludensproductions/great-memories/releases/latest/download/hwaccel.transcoding.yml
 [nvct]: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 [jellyfin-lp]: https://jellyfin.org/docs/general/post-install/transcoding/hardware-acceleration/intel#low-power-encoding
 [jellyfin-kernel-bug]: https://jellyfin.org/docs/general/post-install/transcoding/hardware-acceleration/intel#known-issues-and-limitations-on-linux

@@ -11,7 +11,7 @@ import {
   OAuthConfigDto,
 } from 'src/dtos/auth.dto';
 import { UserAdminResponseDto } from 'src/dtos/user.dto';
-import { ApiTag, AuthType, ImmichCookie } from 'src/enum';
+import { ApiTag, AuthType, GreatMemoriesCookie } from 'src/enum';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard';
 import { AuthService, LoginDetails } from 'src/services/auth.service';
 import { respondWithCookie } from 'src/utils/response';
@@ -54,8 +54,8 @@ export class OAuthController {
       {
         isSecure: loginDetails.isSecure,
         values: [
-          { key: ImmichCookie.OAuthState, value: state },
-          { key: ImmichCookie.OAuthCodeVerifier, value: codeVerifier },
+          { key: GreatMemoriesCookie.OAuthState, value: state },
+          { key: GreatMemoriesCookie.OAuthCodeVerifier, value: codeVerifier },
         ],
       },
     );
@@ -74,14 +74,14 @@ export class OAuthController {
     @GetLoginDetails() loginDetails: LoginDetails,
   ): Promise<LoginResponseDto> {
     const body = await this.service.callback(dto, request.headers, loginDetails);
-    res.clearCookie(ImmichCookie.OAuthState);
-    res.clearCookie(ImmichCookie.OAuthCodeVerifier);
+    res.clearCookie(GreatMemoriesCookie.OAuthState);
+    res.clearCookie(GreatMemoriesCookie.OAuthCodeVerifier);
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.AccessToken, value: body.accessToken },
-        { key: ImmichCookie.AuthType, value: AuthType.OAuth },
-        { key: ImmichCookie.IsAuthenticated, value: 'true' },
+        { key: GreatMemoriesCookie.AccessToken, value: body.accessToken },
+        { key: GreatMemoriesCookie.AuthType, value: AuthType.OAuth },
+        { key: GreatMemoriesCookie.IsAuthenticated, value: 'true' },
       ],
     });
   }

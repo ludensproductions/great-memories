@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:package_info_plus/package_info_plus.dart';
 
-Future<String> getUserAgentString() async {
+Future<String> getGreatMemoriesUserAgentString() async {
   final packageInfo = await PackageInfo.fromPlatform();
   String platform;
   if (Platform.isAndroid) {
@@ -12,5 +12,7 @@ Future<String> getUserAgentString() async {
   } else {
     platform = 'unknown';
   }
-  return 'immich-$platform/${packageInfo.version}';
+  return 'great-memories-$platform/${packageInfo.version}';
 }
+
+Future<String> getUserAgentString() => getGreatMemoriesUserAgentString();

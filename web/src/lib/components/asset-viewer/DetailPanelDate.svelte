@@ -3,7 +3,7 @@
   import AssetChangeDateModal from '$lib/modals/AssetChangeDateModal.svelte';
   import { locale } from '$lib/stores/preferences.store';
   import { fromISODateTime, fromISODateTimeUTC, toTimelineAsset } from '$lib/utils/timeline-util';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@great-memories/sdk';
   import { Icon, modalManager } from '@immich/ui';
   import { mdiCalendar, mdiPencil } from '@mdi/js';
   import { t } from 'svelte-i18n';

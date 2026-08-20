@@ -462,7 +462,7 @@ class NativeSyncApi {
 
   Future<bool> shouldFullSync() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.shouldFullSync$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.shouldFullSync$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -481,7 +481,7 @@ class NativeSyncApi {
 
   Future<SyncDelta> getMediaChanges() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getMediaChanges$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getMediaChanges$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -500,7 +500,7 @@ class NativeSyncApi {
 
   Future<void> checkpointSync() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.checkpointSync$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.checkpointSync$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -514,7 +514,7 @@ class NativeSyncApi {
 
   Future<void> clearSyncCheckpoint() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.clearSyncCheckpoint$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.clearSyncCheckpoint$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -528,7 +528,7 @@ class NativeSyncApi {
 
   Future<List<String>> getAssetIdsForAlbum(String albumId) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getAssetIdsForAlbum$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getAssetIdsForAlbum$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -547,7 +547,7 @@ class NativeSyncApi {
 
   Future<List<PlatformAlbum>> getAlbums() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getAlbums$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getAlbums$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -566,7 +566,7 @@ class NativeSyncApi {
 
   Future<int> getAssetsCountSince(String albumId, int timestamp) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getAssetsCountSince$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getAssetsCountSince$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -585,7 +585,7 @@ class NativeSyncApi {
 
   Future<List<PlatformAsset>> getAssetsForAlbum(String albumId, {int? updatedTimeCond}) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getAssetsForAlbum$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getAssetsForAlbum$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -604,7 +604,7 @@ class NativeSyncApi {
 
   Future<List<HashResult>> hashAssets(List<String> assetIds, {bool allowNetworkAccess = false}) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.hashAssets$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.hashAssets$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -623,7 +623,7 @@ class NativeSyncApi {
 
   Future<void> cancelHashing() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.cancelHashing$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.cancelHashing$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -637,7 +637,7 @@ class NativeSyncApi {
 
   Future<void> cancelSync() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.cancelSync$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.cancelSync$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -651,7 +651,7 @@ class NativeSyncApi {
 
   Future<Map<String, List<PlatformAsset>>> getTrashedAssets() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getTrashedAssets$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getTrashedAssets$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -670,7 +670,7 @@ class NativeSyncApi {
 
   Future<bool> restoreFromTrashById(String mediaId, int type) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.restoreFromTrashById$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.restoreFromTrashById$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -689,7 +689,7 @@ class NativeSyncApi {
 
   Future<List<CloudIdResult>> getCloudIdForAssetIds(List<String> assetIds) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.NativeSyncApi.getCloudIdForAssetIds$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.NativeSyncApi.getCloudIdForAssetIds$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

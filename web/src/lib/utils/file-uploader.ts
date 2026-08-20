@@ -5,7 +5,7 @@ import {
   checkBulkUpload,
   getBaseUrl,
   type AssetMediaResponseDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 import { tick } from 'svelte';
 import { t } from 'svelte-i18n';

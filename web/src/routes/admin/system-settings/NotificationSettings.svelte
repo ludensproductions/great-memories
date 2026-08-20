@@ -10,7 +10,7 @@
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
   import { handleSystemConfigSave } from '$lib/services/system-config.service';
   import { handleError } from '$lib/utils/handle-error';
-  import { sendTestEmailAdmin } from '@immich/sdk';
+  import { sendTestEmailAdmin } from '@great-memories/sdk';
   import { Button, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

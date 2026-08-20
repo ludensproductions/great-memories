@@ -4,8 +4,8 @@ import dotenv from 'dotenv';
 
 dotenv.config({ quiet: true });
 
-process.env.PUBLIC_IMMICH_BUY_HOST = process.env.PUBLIC_IMMICH_BUY_HOST || 'https://buy.immich.app';
-process.env.PUBLIC_IMMICH_PAY_HOST = process.env.PUBLIC_IMMICH_PAY_HOST || 'https://pay.futo.org';
+process.env.PUBLIC_GREAT_MEMORIES_BUY_HOST = process.env.PUBLIC_GREAT_MEMORIES_BUY_HOST || 'https://buy.immich.app';
+process.env.PUBLIC_GREAT_MEMORIES_PAY_HOST = process.env.PUBLIC_GREAT_MEMORIES_PAY_HOST || 'https://pay.futo.org';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -16,7 +16,7 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     version: {
-      name: process.env.IMMICH_BUILD || process.env.npm_package_version || 'local',
+      name: process.env.GREAT_MEMORIES_BUILD || process.env.npm_package_version || 'local',
     },
     paths: {
       relative: false,

@@ -1,4 +1,4 @@
-import type { AssetOcrResponseDto, AssetResponseDto } from '@immich/sdk';
+import type { AssetOcrResponseDto, AssetResponseDto } from '@great-memories/sdk';
 import { expect, test } from '@playwright/test';
 import { toAssetResponseDto } from 'src/ui/generators/timeline';
 import {
@@ -15,7 +15,7 @@ test.describe.configure({ mode: 'parallel' });
 
 const PRIMARY_OCR_BOXES = [
   { text: 'Hello World', x1: 0.1, y1: 0.1, x2: 0.4, y2: 0.1, x3: 0.4, y3: 0.15, x4: 0.1, y4: 0.15 },
-  { text: 'Immich Photo', x1: 0.2, y1: 0.3, x2: 0.6, y2: 0.3, x3: 0.6, y3: 0.36, x4: 0.2, y4: 0.36 },
+  { text: 'Great Memories Photo', x1: 0.2, y1: 0.3, x2: 0.6, y2: 0.3, x3: 0.6, y3: 0.36, x4: 0.2, y4: 0.36 },
 ];
 
 const SECONDARY_OCR_BOXES = [
@@ -46,7 +46,7 @@ test.describe('OCR bounding boxes', () => {
     await expect(ocrBoxes).toHaveCount(2);
 
     await expect(ocrBoxes.nth(0)).toContainText('Hello World');
-    await expect(ocrBoxes.nth(1)).toContainText('Immich Photo');
+    await expect(ocrBoxes.nth(1)).toContainText('Great Memories Photo');
   });
 
   test('OCR bounding boxes toggle off on second click', async ({ page }) => {

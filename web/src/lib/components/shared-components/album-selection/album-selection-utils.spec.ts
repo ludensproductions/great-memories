@@ -1,4 +1,4 @@
-import type { AlbumResponseDto } from '@immich/sdk';
+import type { AlbumResponseDto } from '@great-memories/sdk';
 import {
   type AlbumModalRow,
   AlbumModalRowConverter,

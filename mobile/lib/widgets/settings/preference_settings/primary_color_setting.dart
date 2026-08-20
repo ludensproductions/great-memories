@@ -1,20 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/colors.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/theme.provider.dart';
-import 'package:immich_mobile/theme/color_scheme.dart';
-import 'package:immich_mobile/theme/dynamic_theme.dart';
+import 'package:great_memories_mobile/constants/colors.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/theme.provider.dart';
+import 'package:great_memories_mobile/theme/color_scheme.dart';
+import 'package:great_memories_mobile/theme/dynamic_theme.dart';
 
 class PrimaryColorSetting extends HookConsumerWidget {
   const PrimaryColorSetting({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeProvider = ref.read(immichThemeProvider);
+    final themeProvider = ref.read(greatMemoriesThemeProvider);
     final themeConfig = ref.watch(appConfigProvider.select((config) => config.theme));
 
     const tileSize = 55.0;
@@ -30,7 +30,7 @@ class PrimaryColorSetting extends HookConsumerWidget {
       popBottomSheet();
     }
 
-    onPrimaryColorChange(ImmichColorPreset colorPreset) {
+    onPrimaryColorChange(GreatMemoriesColorPreset colorPreset) {
       ref.read(settingsProvider).write(.themePrimaryColor, colorPreset);
 
       //turn off system color setting
@@ -116,7 +116,7 @@ class PrimaryColorSetting extends HookConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
-              children: ImmichColorPreset.values.map((preset) {
+              children: GreatMemoriesColorPreset.values.map((preset) {
                 final theme = preset.themeOfPreset;
 
                 return GestureDetector(

@@ -143,24 +143,24 @@ RUN echo "hard core 0" >> /etc/security/limits.conf && \
 
 COPY --from=builder /opt/venv /opt/venv
 COPY scripts/healthcheck.py .
-COPY immich_ml immich_ml
+COPY great_memories_ml great_memories_ml
 
 ARG BUILD_ID
 ARG BUILD_IMAGE
 ARG BUILD_SOURCE_REF
 ARG BUILD_SOURCE_COMMIT
 
-ENV IMMICH_BUILD=${BUILD_ID}
-ENV IMMICH_BUILD_URL=https://github.com/immich-app/immich/actions/runs/${BUILD_ID}
-ENV IMMICH_BUILD_IMAGE=${BUILD_IMAGE}
-ENV IMMICH_BUILD_IMAGE_URL=https://github.com/immich-app/immich/pkgs/container/immich-machine-learning
-ENV IMMICH_REPOSITORY=immich-app/immich
-ENV IMMICH_REPOSITORY_URL=https://github.com/immich-app/immich
-ENV IMMICH_SOURCE_REF=${BUILD_SOURCE_REF}
-ENV IMMICH_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
-ENV IMMICH_SOURCE_URL=https://github.com/immich-app/immich/commit/${BUILD_SOURCE_COMMIT}
+ENV GREAT_MEMORIES_BUILD=${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD_URL=https://github.com/ludensproductions/great-memories/actions/runs/${BUILD_ID}
+ENV GREAT_MEMORIES_BUILD_IMAGE=${BUILD_IMAGE}
+ENV GREAT_MEMORIES_BUILD_IMAGE_URL=https://github.com/ludensproductions/great-memories/pkgs/container/great-memories-machine-learning
+ENV GREAT_MEMORIES_REPOSITORY=ludensproductions/great-memories
+ENV GREAT_MEMORIES_REPOSITORY_URL=https://github.com/ludensproductions/great-memories
+ENV GREAT_MEMORIES_SOURCE_REF=${BUILD_SOURCE_REF}
+ENV GREAT_MEMORIES_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
+ENV GREAT_MEMORIES_SOURCE_URL=https://github.com/ludensproductions/great-memories/commit/${BUILD_SOURCE_COMMIT}
 
 ENTRYPOINT ["tini", "--"]
-CMD ["python", "-m", "immich_ml"]
+CMD ["python", "-m", "great_memories_ml"]
 
 HEALTHCHECK CMD python3 healthcheck.py

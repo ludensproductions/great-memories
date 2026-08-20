@@ -1,4 +1,4 @@
-import { AssetVisibility, deleteAssets as deleteBulk, restoreAssets } from '@immich/sdk';
+import { AssetVisibility, deleteAssets as deleteBulk, restoreAssets } from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';

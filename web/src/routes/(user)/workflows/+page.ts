@@ -1,4 +1,4 @@
-import { searchWorkflows } from '@immich/sdk';
+import { searchWorkflows } from '@great-memories/sdk';
 import { pluginManager } from '$lib/managers/plugin-manager.svelte';
 import { authenticate } from '$lib/utils/auth';
 import { getFormatter } from '$lib/utils/i18n';

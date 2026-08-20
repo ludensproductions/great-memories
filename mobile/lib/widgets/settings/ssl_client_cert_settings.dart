@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/platform/network_api.g.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/platform/network_api.g.dart';
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
 import 'package:logging/logging.dart';
 
 class SslClientCertSettings extends StatefulWidget {

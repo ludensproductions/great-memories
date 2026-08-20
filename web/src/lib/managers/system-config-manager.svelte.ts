@@ -1,4 +1,4 @@
-import { getConfig, getConfigDefaults, type SystemConfigDto } from '@immich/sdk';
+import { getConfig, getConfigDefaults, type SystemConfigDto } from '@great-memories/sdk';
 import { cloneDeep } from 'lodash-es';
 import { eventManager } from '$lib/managers/event-manager.svelte';
 

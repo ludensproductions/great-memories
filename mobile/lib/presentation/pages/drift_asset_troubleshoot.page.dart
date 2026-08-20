@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
 
 @RoutePage()
 class AssetTroubleshootPage extends ConsumerWidget {

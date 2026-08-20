@@ -5,7 +5,7 @@
   import { systemConfigManager } from '$lib/managers/system-config-manager.svelte';
   import EmailTemplatePreviewModal from '$lib/modals/EmailTemplatePreviewModal.svelte';
   import { handleError } from '$lib/utils/handle-error';
-  import { type SystemConfigDto, type SystemConfigTemplateEmailsDto, getNotificationTemplateAdmin } from '@immich/sdk';
+  import { type SystemConfigDto, type SystemConfigTemplateEmailsDto, getNotificationTemplateAdmin } from '@great-memories/sdk';
   import { Button, Icon, LoadingSpinner, modalManager } from '@immich/ui';
   import { mdiEyeOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -69,7 +69,7 @@
         subtitle={$t('admin.template_settings_description')}
       >
         <div class="ms-4 mt-4 flex flex-col gap-4">
-          <p class="text-sm dark:text-immich-dark-fg">
+          <p class="text-sm dark:text-great-memories-dark-fg">
             <FormatMessage key="admin.template_email_if_empty">
               {$t('admin.template_email_if_empty')}
             </FormatMessage>

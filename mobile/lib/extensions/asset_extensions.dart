@@ -1,6 +1,6 @@
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/infrastructure/utils/exif.converter.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/infrastructure/utils/exif.converter.dart';
 import 'package:openapi/api.dart' as api;
 
 extension DTOToAsset on api.AssetResponseDto {

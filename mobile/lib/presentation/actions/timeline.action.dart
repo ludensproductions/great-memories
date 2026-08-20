@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/presentation/actions/action.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
 
 class TimelineAction extends BaseAction {
   final BaseAction action;

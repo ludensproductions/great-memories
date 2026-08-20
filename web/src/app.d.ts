@@ -22,8 +22,8 @@ declare namespace App {
 }
 
 declare module '$env/static/public' {
-  export const PUBLIC_IMMICH_PAY_HOST: string;
-  export const PUBLIC_IMMICH_BUY_HOST: string;
+  export const PUBLIC_GREAT_MEMORIES_PAY_HOST: string;
+  export const PUBLIC_GREAT_MEMORIES_BUY_HOST: string;
 }
 
 interface Element {

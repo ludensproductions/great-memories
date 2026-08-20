@@ -12,7 +12,7 @@
   import { getAssetType } from '$lib/utils/asset-utils';
   import { handleError } from '$lib/utils/handle-error';
   import { isTenMinutesApart } from '$lib/utils/timesince';
-  import { ReactionType, type ActivityResponseDto, type AlbumUserResponseDto, type AssetTypeEnum } from '@immich/sdk';
+  import { ReactionType, type ActivityResponseDto, type AlbumUserResponseDto, type AssetTypeEnum } from '@great-memories/sdk';
   import { Icon, IconButton, LoadingSpinner, Textarea, toastManager } from '@immich/ui';
   import { mdiClose, mdiDeleteOutline, mdiDotsVertical, mdiSend, mdiThumbUp } from '@mdi/js';
   import * as luxon from 'luxon';
@@ -112,7 +112,7 @@
 
 <div class="relative h-full overflow-y-hidden border-l border-subtle bg-subtle" bind:offsetHeight={innerHeight}>
   <div class="size-full">
-    <div class="flex h-fit w-full bg-subtle p-2 dark:text-immich-dark-fg" bind:clientHeight={activityHeight}>
+    <div class="flex h-fit w-full bg-subtle p-2 dark:text-great-memories-dark-fg" bind:clientHeight={activityHeight}>
       <div class="flex place-items-center gap-2">
         <IconButton
           shape="round"
@@ -123,12 +123,12 @@
           aria-label={$t('close')}
         />
 
-        <p class="text-lg text-immich-fg dark:text-immich-dark-fg">{$t('activity')}</p>
+        <p class="text-lg text-great-memories-fg dark:text-great-memories-dark-fg">{$t('activity')}</p>
       </div>
     </div>
     {#if innerHeight}
       <div
-        class="relative w-full immich-scrollbar overflow-y-auto px-2"
+        class="relative w-full great-memories-scrollbar overflow-y-auto px-2"
         style="height: {divHeight}px;padding-bottom: {chatHeight}px"
       >
         {#each activityManager.activities as reaction, index (reaction.id)}
@@ -234,7 +234,7 @@
 
   <div class="absolute bottom-0 w-full">
     <div class="flex items-center justify-center p-2" bind:clientHeight={chatHeight}>
-      <div class="flex h-fit w-full gap-4 rounded-3xl bg-gray-200 p-2 text-immich-dark-gray">
+      <div class="flex h-fit w-full gap-4 rounded-3xl bg-gray-200 p-2 text-great-memories-dark-gray">
         <div>
           <UserAvatar user={authManager.user} size="md" noTitle />
         </div>

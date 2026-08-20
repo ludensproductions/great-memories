@@ -1,4 +1,4 @@
-import { createJob, deleteIntegrityReport, IntegrityReport, ManualJobName } from '@immich/sdk';
+import { createJob, deleteIntegrityReport, IntegrityReport, ManualJobName } from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import { mdiDownload, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

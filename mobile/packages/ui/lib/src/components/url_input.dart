@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:immich_ui/src/components/text_input.dart';
+import 'package:great_memories_ui/src/components/text_input.dart';
 
-class ImmichURLInput extends ImmichTextInput {
-  ImmichURLInput({
+class GreatMemoriesURLInput extends GreatMemoriesTextInput {
+  GreatMemoriesURLInput({
     super.key,
     super.controller,
     super.focusNode,

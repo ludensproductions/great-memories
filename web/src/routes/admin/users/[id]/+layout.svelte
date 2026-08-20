@@ -12,7 +12,7 @@
   import { locale } from '$lib/stores/preferences.store';
   import { createDateFormatter, findLocale } from '$lib/utils';
   import { getBytesWithUnit } from '$lib/utils/byte-units';
-  import { CalendarHeatmapType, getUserCalendarHeatmapAdmin, type UserAdminResponseDto } from '@immich/sdk';
+  import { CalendarHeatmapType, getUserCalendarHeatmapAdmin, type UserAdminResponseDto } from '@great-memories/sdk';
   import {
     Alert,
     Badge,
@@ -173,7 +173,6 @@
             <FeatureSetting title={$t('people')} state={userPreferences.people.enabled} />
             <FeatureSetting title={$t('rating')} state={userPreferences.ratings.enabled} />
             <FeatureSetting title={$t('shared_links')} state={userPreferences.sharedLinks.enabled} />
-            <FeatureSetting title={$t('show_supporter_badge')} state={userPreferences.purchase.showSupportBadge} />
             <FeatureSetting title={$t('tags')} state={userPreferences.tags.enabled} />
             <FeatureSetting title={$t('gcast_enabled')} state={userPreferences.cast.gCastEnabled} />
           </Stack>

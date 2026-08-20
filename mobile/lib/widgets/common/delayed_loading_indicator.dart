@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_loading_indicator.dart';
 
 class DelayedLoadingIndicator extends StatelessWidget {
   /// The delay to avoid showing the loading indicator
   final Duration delay;
 
-  /// Defaults to using the [ImmichLoadingIndicator]
+  /// Defaults to using the [GreatMemoriesLoadingIndicator]
   final Widget? child;
 
   /// An optional fade in duration to animate the loading
@@ -20,7 +20,7 @@ class DelayedLoadingIndicator extends StatelessWidget {
       builder: (context, snapshot) {
         late Widget c;
         if (snapshot.connectionState == ConnectionState.done) {
-          c = child ?? const ImmichLoadingIndicator(key: ValueKey('loading'));
+          c = child ?? const GreatMemoriesLoadingIndicator(key: ValueKey('loading'));
         } else {
           c = Container(key: const ValueKey('hiding'));
         }

@@ -1,4 +1,4 @@
-import { getAlbumInfo } from '@immich/sdk';
+import { getAlbumInfo } from '@great-memories/sdk';
 import { authenticate } from '$lib/utils/auth';
 import type { PageLoad } from './$types';
 

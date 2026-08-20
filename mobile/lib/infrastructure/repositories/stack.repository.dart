@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/stack.model.dart';
-import 'package:immich_mobile/infrastructure/entities/stack.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/domain/models/stack.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/stack.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 
 class DriftStackRepository extends DriftDatabaseRepository {
   final Drift _db;

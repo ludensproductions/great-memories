@@ -1,15 +1,15 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/asset_face.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/asset_face.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/infrastructure/entities/asset_face.entity.dart'
+import 'package:great_memories_mobile/infrastructure/entities/asset_face.entity.dart'
     as i2;
 import 'package:drift/src/runtime/query_builder/query_builder.dart' as i3;
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.drift.dart'
     as i4;
 import 'package:drift/internal/modular.dart' as i5;
-import 'package:immich_mobile/infrastructure/entities/person.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/person.entity.drift.dart'
     as i6;
 
 typedef $$AssetFaceEntityTableCreateCompanionBuilder =

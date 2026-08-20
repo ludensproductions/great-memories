@@ -18,21 +18,21 @@ from PIL import Image
 from pytest import MonkeyPatch
 from pytest_mock import MockerFixture
 
-from immich_ml.config import MaxBatchSize, Settings, settings
-from immich_ml.main import load, preload_models
-from immich_ml.models.base import InferenceModel
-from immich_ml.models.cache import ModelCache
-from immich_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
-from immich_ml.models.clip.visual import OpenClipVisualEncoder
-from immich_ml.models.facial_recognition.detection import FaceDetector
-from immich_ml.models.facial_recognition.recognition import FaceRecognizer
-from immich_ml.models.ocr.detection import TextDetector
-from immich_ml.models.ocr.recognition import TextRecognizer
-from immich_ml.models.ocr.schemas import OcrOptions
-from immich_ml.schemas import ModelFormat, ModelPrecision, ModelTask, ModelType
-from immich_ml.sessions.ann import AnnSession
-from immich_ml.sessions.ort import OrtSession
-from immich_ml.sessions.rknn import RknnSession, run_inference
+from great_memories_ml.config import MaxBatchSize, Settings, settings
+from great_memories_ml.main import load, preload_models
+from great_memories_ml.models.base import InferenceModel
+from great_memories_ml.models.cache import ModelCache
+from great_memories_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
+from great_memories_ml.models.clip.visual import OpenClipVisualEncoder
+from great_memories_ml.models.facial_recognition.detection import FaceDetector
+from great_memories_ml.models.facial_recognition.recognition import FaceRecognizer
+from great_memories_ml.models.ocr.detection import TextDetector
+from great_memories_ml.models.ocr.recognition import TextRecognizer
+from great_memories_ml.models.ocr.schemas import OcrOptions
+from great_memories_ml.schemas import ModelFormat, ModelPrecision, ModelTask, ModelType
+from great_memories_ml.sessions.ann import AnnSession
+from great_memories_ml.sessions.ort import OrtSession
+from great_memories_ml.sessions.rknn import RknnSession, run_inference
 
 
 class FakeLock:
@@ -79,7 +79,7 @@ class TestBase:
 
     def test_sets_default_model_format(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", True)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", False)
+        mocker.patch("great_memories_ml.sessions.ann.loader.is_available", False)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai")
 
@@ -87,7 +87,7 @@ class TestBase:
 
     def test_sets_default_model_format_to_armnn_if_available(self, path: mock.Mock, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", True)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", True)
+        mocker.patch("great_memories_ml.sessions.ann.loader.is_available", True)
         path.suffix = ".armnn"
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai", cache_dir=path)
@@ -96,7 +96,7 @@ class TestBase:
 
     def test_sets_model_format_kwarg(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", False)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", False)
+        mocker.patch("great_memories_ml.sessions.ann.loader.is_available", False)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai", model_format=ModelFormat.ARMNN)
 
@@ -104,7 +104,7 @@ class TestBase:
 
     def test_sets_default_model_format_to_rknn_if_available(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "rknn", True)
-        mocker.patch("immich_ml.sessions.rknn.is_available", True)
+        mocker.patch("great_memories_ml.sessions.rknn.is_available", True)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai")
 
@@ -333,7 +333,7 @@ class TestOrtSession:
     def test_sets_provider_options_for_rocm(self, mocker: MockerFixture) -> None:
         model_path = "/cache/ViT-B-32__openai/textual/model.onnx"
         os.environ["MACHINE_LEARNING_DEVICE_ID"] = "1"
-        mkdir = mocker.patch("immich_ml.sessions.ort.Path.mkdir")
+        mkdir = mocker.patch("great_memories_ml.sessions.ort.Path.mkdir")
 
         session = OrtSession(model_path, providers=["MIGraphXExecutionProvider"])
 
@@ -350,7 +350,7 @@ class TestOrtSession:
         model_path = "/cache/ViT-B-32__openai/textual/model.onnx"
         os.environ["MACHINE_LEARNING_DEVICE_ID"] = "1"
         mocker.patch.object(settings, "rocm_precision", ModelPrecision.FP16)
-        mkdir = mocker.patch("immich_ml.sessions.ort.Path.mkdir")
+        mkdir = mocker.patch("great_memories_ml.sessions.ort.Path.mkdir")
 
         session = OrtSession(model_path, providers=["MIGraphXExecutionProvider"])
 
@@ -403,7 +403,7 @@ class TestOrtSession:
         assert session.sess_options.intra_op_num_threads == 0
 
     def test_sets_default_sess_options_sets_threads_if_non_cpu_and_set_threads(self, mocker: MockerFixture) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("great_memories_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 2
         mock_settings.model_intra_op_threads = 4
 
@@ -413,7 +413,7 @@ class TestOrtSession:
         assert session.sess_options.intra_op_num_threads == 4
 
     def test_uses_arena_if_enabled(self, mocker: MockerFixture) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("great_memories_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 0
         mock_settings.model_intra_op_threads = 0
         mock_settings.model_arena = True
@@ -423,7 +423,7 @@ class TestOrtSession:
         assert session.sess_options.enable_cpu_mem_arena
 
     def test_does_not_use_arena_if_disabled(self, mocker: MockerFixture) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("great_memories_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 0
         mock_settings.model_intra_op_threads = 0
         mock_settings.model_arena = False
@@ -445,9 +445,9 @@ class TestOrtSession:
 
     def test_serializes_rocm_first_run_for_new_input_signature(self, mocker: MockerFixture) -> None:
         lock = FakeLock()
-        get_model_lock = mocker.patch("immich_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
-        mocker.patch("immich_ml.sessions.ort._migraphx_compiled_inputs", set())
-        mocker.patch("immich_ml.sessions.ort.Path.mkdir")
+        get_model_lock = mocker.patch("great_memories_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
+        mocker.patch("great_memories_ml.sessions.ort._migraphx_compiled_inputs", set())
+        mocker.patch("great_memories_ml.sessions.ort.Path.mkdir")
         session = OrtSession("/cache/ViT-B-32__openai/model.onnx", providers=["MIGraphXExecutionProvider"])
         input_feed = {"input": np.random.rand(1, 3, 224, 224).astype(np.float32)}
 
@@ -461,9 +461,9 @@ class TestOrtSession:
 
     def test_serializes_rocm_run_for_each_new_input_signature(self, mocker: MockerFixture) -> None:
         lock = FakeLock()
-        mocker.patch("immich_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
-        mocker.patch("immich_ml.sessions.ort._migraphx_compiled_inputs", set())
-        mocker.patch("immich_ml.sessions.ort.Path.mkdir")
+        mocker.patch("great_memories_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
+        mocker.patch("great_memories_ml.sessions.ort._migraphx_compiled_inputs", set())
+        mocker.patch("great_memories_ml.sessions.ort.Path.mkdir")
         session = OrtSession("/cache/ViT-B-32__openai/model.onnx", providers=["MIGraphXExecutionProvider"])
         input_feed = {"input": np.random.rand(1, 3, 224, 224).astype(np.float32)}
         new_shape_input_feed = {"input": np.random.rand(2, 3, 224, 224).astype(np.float32)}
@@ -479,7 +479,7 @@ class TestOrtSession:
 
     def test_does_not_serialize_non_rocm_run(self, mocker: MockerFixture) -> None:
         lock = FakeLock()
-        get_model_lock = mocker.patch("immich_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
+        get_model_lock = mocker.patch("great_memories_ml.sessions.ort._migraphx_get_model_lock", return_value=lock)
         session = OrtSession("/cache/ViT-B-32__openai/model.onnx", providers=["CPUExecutionProvider"])
         input_feed = {"input": np.random.rand(1, 3, 224, 224).astype(np.float32)}
 
@@ -548,8 +548,8 @@ class TestRknnSession:
     def test_creates_rknn_session(self, rknn_session: mock.Mock, info: mock.Mock, mocker: MockerFixture) -> None:
         model_path = mock.MagicMock(spec=Path)
         tpe = 1
-        mocker.patch("immich_ml.sessions.rknn.soc_name", "rk3566")
-        mocker.patch("immich_ml.sessions.rknn.is_available", True)
+        mocker.patch("great_memories_ml.sessions.rknn.soc_name", "rk3566")
+        mocker.patch("great_memories_ml.sessions.rknn.is_available", True)
         RknnSession(model_path)
 
         rknn_session.assert_called_once_with(model_path=model_path.as_posix(), tpes=tpe, func=run_inference)
@@ -559,7 +559,7 @@ class TestRknnSession:
     def test_run_rknn(self, rknn_session: mock.Mock, mocker: MockerFixture) -> None:
         rknn_session.return_value.load.return_value = 123
         np_spy = mocker.spy(np, "ascontiguousarray")
-        mocker.patch("immich_ml.sessions.rknn.soc_name", "rk3566")
+        mocker.patch("great_memories_ml.sessions.rknn.soc_name", "rk3566")
         session = RknnSession(Path("ViT-B-32__openai"))
         [input1, input2] = [np.random.rand(1, 3, 224, 224).astype(np.float32) for _ in range(2)]
         input_feed = {"input.1": input1, "input.2": input2}
@@ -609,7 +609,7 @@ class TestCLIP:
 
         mocked = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         mocked.run.return_value = [[self.embedding]]
-        mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
+        mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
 
         clip_encoder = OpenClipTextualEncoder("ViT-B-32__openai", cache_dir="test_cache")
         embedding_str = clip_encoder.predict("test search query")
@@ -629,7 +629,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -655,7 +655,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -680,7 +680,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -700,7 +700,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -721,7 +721,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -742,7 +742,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -762,7 +762,7 @@ class TestCLIP:
         mocker.patch.object(MClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(MClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("great_memories_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_attention_mask = [randint(0, 1) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids, attention_mask=mock_attention_mask)
@@ -817,7 +817,7 @@ class TestFaceRecognition:
     def test_recognition(self, cv_image: cv2.Mat, mocker: MockerFixture) -> None:
         mocker.patch.object(FaceRecognizer, "load")
         mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.ort.get_available_providers",
+            "great_memories_ml.models.facial_recognition.recognition.ort.get_available_providers",
             return_value=["CPUExecutionProvider"],
         )
         face_recognizer = FaceRecognizer("buffalo_s", min_score=0.0, cache_dir="test_cache")
@@ -858,14 +858,14 @@ class TestFaceRecognition:
     def test_recognition_adds_batch_axis_for_ort(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        onnx = mocker.patch("immich_ml.models.facial_recognition.recognition.onnx", autospec=True)
+        onnx = mocker.patch("great_memories_ml.models.facial_recognition.recognition.onnx", autospec=True)
         update_dims = mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
+            "great_memories_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
         )
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.models.facial_recognition.recognition.ArcFaceONNX")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        mocker.patch("great_memories_ml.models.facial_recognition.recognition.ArcFaceONNX")
         mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.ort.get_available_providers",
+            "great_memories_ml.models.facial_recognition.recognition.ort.get_available_providers",
             return_value=["CPUExecutionProvider"],
         )
         ort_session.return_value.get_inputs.return_value = [SimpleNamespace(name="input.1", shape=(1, 3, 224, 224))]
@@ -896,14 +896,14 @@ class TestFaceRecognition:
     def test_recognition_does_not_add_batch_axis_if_exists(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        onnx = mocker.patch("immich_ml.models.facial_recognition.recognition.onnx", autospec=True)
+        onnx = mocker.patch("great_memories_ml.models.facial_recognition.recognition.onnx", autospec=True)
         update_dims = mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
+            "great_memories_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
         )
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.models.facial_recognition.recognition.ArcFaceONNX")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        mocker.patch("great_memories_ml.models.facial_recognition.recognition.ArcFaceONNX")
         mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.ort.get_available_providers",
+            "great_memories_ml.models.facial_recognition.recognition.ort.get_available_providers",
             return_value=["CPUExecutionProvider"],
         )
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
@@ -924,12 +924,12 @@ class TestFaceRecognition:
     def test_recognition_does_not_add_batch_axis_for_armnn(
         self, ann_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        onnx = mocker.patch("immich_ml.models.facial_recognition.recognition.onnx", autospec=True)
+        onnx = mocker.patch("great_memories_ml.models.facial_recognition.recognition.onnx", autospec=True)
         update_dims = mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
+            "great_memories_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
         )
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.models.facial_recognition.recognition.ArcFaceONNX")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        mocker.patch("great_memories_ml.models.facial_recognition.recognition.ArcFaceONNX")
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".armnn"
 
         inputs = [SimpleNamespace(name="input.1", shape=("batch", 3, 224, 224))]
@@ -948,12 +948,12 @@ class TestFaceRecognition:
     def test_recognition_does_not_add_batch_axis_for_openvino(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        onnx = mocker.patch("immich_ml.models.facial_recognition.recognition.onnx", autospec=True)
+        onnx = mocker.patch("great_memories_ml.models.facial_recognition.recognition.onnx", autospec=True)
         update_dims = mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
+            "great_memories_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
         )
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.models.facial_recognition.recognition.ArcFaceONNX")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        mocker.patch("great_memories_ml.models.facial_recognition.recognition.ArcFaceONNX")
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
 
         inputs = [SimpleNamespace(name="input.1", shape=("batch", 3, 224, 224))]
@@ -974,14 +974,14 @@ class TestFaceRecognition:
     def test_recognition_does_not_add_batch_axis_for_migraphx(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        onnx = mocker.patch("immich_ml.models.facial_recognition.recognition.onnx", autospec=True)
+        onnx = mocker.patch("great_memories_ml.models.facial_recognition.recognition.onnx", autospec=True)
         update_dims = mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
+            "great_memories_ml.models.facial_recognition.recognition.update_inputs_outputs_dims", autospec=True
         )
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.models.facial_recognition.recognition.ArcFaceONNX")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        mocker.patch("great_memories_ml.models.facial_recognition.recognition.ArcFaceONNX")
         mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.ort.get_available_providers",
+            "great_memories_ml.models.facial_recognition.recognition.ort.get_available_providers",
             return_value=["MIGraphXExecutionProvider", "CPUExecutionProvider"],
         )
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
@@ -1009,7 +1009,7 @@ class TestFaceRecognition:
     def test_ignore_other_custom_max_batch_size(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(ocr=2))
         mocker.patch(
-            "immich_ml.models.facial_recognition.recognition.ort.get_available_providers",
+            "great_memories_ml.models.facial_recognition.recognition.ort.get_available_providers",
             return_value=["CPUExecutionProvider"],
         )
 
@@ -1037,8 +1037,8 @@ class TestOcr:
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        rapid_recognizer = mocker.patch("immich_ml.models.ocr.recognition.RapidTextRecognizer")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        rapid_recognizer = mocker.patch("great_memories_ml.models.ocr.recognition.RapidTextRecognizer")
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
         text_recognizer.load()
@@ -1054,8 +1054,8 @@ class TestOcr:
 
     def test_set_custom_max_batch_size(self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture) -> None:
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        rapid_recognizer = mocker.patch("immich_ml.models.ocr.recognition.RapidTextRecognizer")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        rapid_recognizer = mocker.patch("great_memories_ml.models.ocr.recognition.RapidTextRecognizer")
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(ocr=4))
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
@@ -1074,8 +1074,8 @@ class TestOcr:
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
         path.return_value.__truediv__.return_value.__truediv__.return_value.suffix = ".onnx"
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        rapid_recognizer = mocker.patch("immich_ml.models.ocr.recognition.RapidTextRecognizer")
+        mocker.patch("great_memories_ml.models.base.InferenceModel.download")
+        rapid_recognizer = mocker.patch("great_memories_ml.models.ocr.recognition.RapidTextRecognizer")
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(facial_recognition=3))
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
@@ -1121,13 +1121,13 @@ class TestCache:
         )
         assert len(model_cache.cache._cache) == 2
 
-    @mock.patch("immich_ml.models.cache.OptimisticLock", autospec=True)
+    @mock.patch("great_memories_ml.models.cache.OptimisticLock", autospec=True)
     async def test_model_ttl(self, mock_lock_cls: mock.Mock, mock_get_model: mock.Mock) -> None:
         model_cache = ModelCache()
         await model_cache.get("test_model_name", ModelType.RECOGNITION, ModelTask.FACIAL_RECOGNITION, ttl=100)
         mock_lock_cls.return_value.__aenter__.return_value.cas.assert_called_with(mock.ANY, ttl=100)
 
-    @mock.patch("immich_ml.models.cache.SimpleMemoryCache.expire")
+    @mock.patch("great_memories_ml.models.cache.SimpleMemoryCache.expire")
     async def test_revalidate_get(self, mock_cache_expire: mock.Mock, mock_get_model: mock.Mock) -> None:
         model_cache = ModelCache(revalidate=True)
         await model_cache.get("test_model_name", ModelType.RECOGNITION, ModelTask.FACIAL_RECOGNITION, ttl=100)
@@ -1172,7 +1172,7 @@ class TestCache:
         assert settings.preload.clip.visual == "ViT-B-32__openai"
 
         model_cache = ModelCache()
-        monkeypatch.setattr("immich_ml.main.model_cache", model_cache)
+        monkeypatch.setattr("great_memories_ml.main.model_cache", model_cache)
 
         await preload_models(settings.preload)
         mock_get_model.assert_has_calls(
@@ -1195,7 +1195,7 @@ class TestCache:
         assert settings.preload.facial_recognition.recognition == "buffalo_s"
 
         model_cache = ModelCache()
-        monkeypatch.setattr("immich_ml.main.model_cache", model_cache)
+        monkeypatch.setattr("great_memories_ml.main.model_cache", model_cache)
 
         await preload_models(settings.preload)
         mock_get_model.assert_has_calls(
@@ -1216,7 +1216,7 @@ class TestCache:
         assert settings.preload.ocr.recognition == "PP-OCRv5_mobile"
 
         model_cache = ModelCache()
-        monkeypatch.setattr("immich_ml.main.model_cache", model_cache)
+        monkeypatch.setattr("great_memories_ml.main.model_cache", model_cache)
 
         await preload_models(settings.preload)
         mock_get_model.assert_has_calls(
@@ -1245,7 +1245,7 @@ class TestCache:
         assert settings.preload.ocr.recognition == "PP-OCRv5_mobile"
 
         model_cache = ModelCache()
-        monkeypatch.setattr("immich_ml.main.model_cache", model_cache)
+        monkeypatch.setattr("great_memories_ml.main.model_cache", model_cache)
 
         await preload_models(settings.preload)
         mock_get_model.assert_has_calls(
@@ -1335,7 +1335,7 @@ class TestLoad:
 
 @pytest.mark.parametrize("size", [(0, 100), (100, 0), (0, 0)])
 def test_predict_rejects_empty_image(size: tuple[int, int], deployed_app: TestClient) -> None:
-    with mock.patch("immich_ml.main.decode_pil", return_value=Image.new("RGB", size)):
+    with mock.patch("great_memories_ml.main.decode_pil", return_value=Image.new("RGB", size)):
         response = deployed_app.post(
             "http://localhost:3003/predict",
             data={"entries": json.dumps({"clip": {"visual": {"modelName": "ViT-B-32__openai"}}})},
@@ -1351,7 +1351,7 @@ def test_root_endpoint(deployed_app: TestClient) -> None:
 
     body = response.json()
     assert response.status_code == 200
-    assert body == {"message": "Immich ML"}
+    assert body == {"message": "Great Memories ML"}
 
 
 def test_ping_endpoint(deployed_app: TestClient) -> None:

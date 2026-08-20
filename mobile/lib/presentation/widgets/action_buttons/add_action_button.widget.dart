@@ -1,25 +1,25 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/unarchive_action_button.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/unarchive_action_button.widget.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/routes.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
 
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
 
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
 
 enum AddToMenuItem { album, archive, unarchive, lockedFolder }
 
@@ -109,7 +109,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
   void _openAlbumSelector() {
     final currentAsset = ref.read(assetViewerProvider).currentAsset;
     if (currentAsset == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -140,7 +140,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     final latest = ref.read(assetViewerProvider).currentAsset;
 
     if (latest == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -151,13 +151,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     }
 
     if (!result.success) {
-      ImmichToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
+      GreatMemoriesToast.show(context: context, msg: 'scaffold_body_error_occurred'.tr(), toastType: ToastType.error);
       return;
     }
 
     // Only report the failure when nothing was added; if some succeeded we show "added".
     if (result.count > 0) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'add_to_album_bottom_sheet_added'.tr(namedArgs: {'album': album.name}),
       );
@@ -165,13 +165,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
       // Refresh the "Appears in" list on the asset's info panel.
       ref.invalidate(albumsContainingAssetProvider(latest.remoteId!));
     } else if (result.failedCount > 0) {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'assets_cannot_be_added_to_album_count'.t(context: context, args: {'count': result.failedCount}),
         toastType: ToastType.error,
       );
     } else {
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'add_to_album_bottom_sheet_already_exists'.tr(namedArgs: {'album': album.name}),
       );

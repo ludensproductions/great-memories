@@ -1,6 +1,6 @@
 <script lang="ts">
   import { handleUpdatePersonBirthDate } from '$lib/services/person.service';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@great-memories/sdk';
   import { Button, DatePicker, Field, FormModal, HelperText } from '@immich/ui';
   import { mdiCake } from '@mdi/js';
   import { DateTime } from 'luxon';

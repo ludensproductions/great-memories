@@ -4,7 +4,7 @@ import {
   type BulkIdResponseDto,
   type BulkIdsDto,
   type CreateAlbumDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 
 declare module 'extism:host' {
   interface user extends Record<

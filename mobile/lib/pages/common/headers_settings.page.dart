@@ -3,9 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/providers/api.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
 
 class SettingsHeader {
   String key = "";

@@ -8,26 +8,26 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/download_status_floating_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/general_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/scrubber.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/segment.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.state.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline_drag_region.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_sliver_app_bar.dart';
-import 'package:immich_mobile/widgets/common/mesmerizing_sliver_app_bar.dart';
-import 'package:immich_mobile/widgets/common/selection_sliver_app_bar.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/events.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/utils/event_stream.dart';
+import 'package:great_memories_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/download_status_floating_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/general_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/scrubber.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/segment.model.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline.state.dart';
+import 'package:great_memories_mobile/presentation/widgets/timeline/timeline_drag_region.dart';
+import 'package:great_memories_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_sliver_app_bar.dart';
+import 'package:great_memories_mobile/widgets/common/mesmerizing_sliver_app_bar.dart';
+import 'package:great_memories_mobile/widgets/common/selection_sliver_app_bar.dart';
 
 class Timeline extends ConsumerWidget {
   const Timeline({
@@ -37,7 +37,7 @@ class Timeline extends ConsumerWidget {
     this.bottomSliverWidget,
     this.showStorageIndicator = false,
     this.withStack = false,
-    this.appBar = const ImmichSliverAppBar(floating: true, pinned: false, snap: false),
+    this.appBar = const GreatMemoriesSliverAppBar(floating: true, pinned: false, snap: false),
     this.bottomSheet = const GeneralBottomSheet(minChildSize: 0.23),
     this.groupBy,
     this.withScrubber = true,

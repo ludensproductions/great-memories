@@ -4,7 +4,7 @@
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { getAllPeople, type PersonResponseDto } from '@great-memories/sdk';
   import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -64,7 +64,7 @@
     <div class="flex flex-col gap-4">
       <SearchBar bind:name={searchName} placeholder={$t('search_people')} showLoadingSpinner={false} />
 
-      <div class="max-h-96 immich-scrollbar overflow-y-auto">
+      <div class="max-h-96 great-memories-scrollbar overflow-y-auto">
         {#if loading}
           <div class="flex justify-center p-8">
             <LoadingSpinner />

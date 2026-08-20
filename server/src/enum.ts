@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@great-memories/plugin-sdk';
 import z from 'zod';
 
 export enum AuthType {
@@ -6,29 +6,29 @@ export enum AuthType {
   OAuth = 'oauth',
 }
 
-export enum ImmichCookie {
-  AccessToken = 'immich_access_token',
-  MaintenanceToken = 'immich_maintenance_token',
-  AuthType = 'immich_auth_type',
-  IsAuthenticated = 'immich_is_authenticated',
-  SharedLinkToken = 'immich_shared_link_token',
-  OAuthState = 'immich_oauth_state',
-  OAuthCodeVerifier = 'immich_oauth_code_verifier',
+export enum GreatMemoriesCookie {
+  AccessToken = 'great_memories_access_token',
+  MaintenanceToken = 'great_memories_maintenance_token',
+  AuthType = 'great_memories_auth_type',
+  IsAuthenticated = 'great_memories_is_authenticated',
+  SharedLinkToken = 'great_memories_shared_link_token',
+  OAuthState = 'great_memories_oauth_state',
+  OAuthCodeVerifier = 'great_memories_oauth_code_verifier',
 }
 
-export enum ImmichHeader {
+export enum GreatMemoriesHeader {
   ApiKey = 'x-api-key',
-  UserToken = 'x-immich-user-token',
-  SessionToken = 'x-immich-session-token',
-  SharedLinkKey = 'x-immich-share-key',
-  SharedLinkSlug = 'x-immich-share-slug',
-  Checksum = 'x-immich-checksum',
+  UserToken = 'x-great-memories-user-token',
+  SessionToken = 'x-great-memories-session-token',
+  SharedLinkKey = 'x-great-memories-share-key',
+  SharedLinkSlug = 'x-great-memories-share-slug',
+  Checksum = 'x-great-memories-checksum',
   CorrelationId = 'X-Correlation-ID',
-  HlsInitSegment = 'x-immich-hls-msn',
-  HlsPosition = 'x-immich-hls-pos',
+  HlsInitSegment = 'x-great-memories-hls-msn',
+  HlsPosition = 'x-great-memories-hls-pos',
 }
 
-export enum ImmichQuery {
+export enum GreatMemoriesQuery {
   SharedLinkKey = 'key',
   SharedLinkSlug = 'slug',
   ApiKey = 'apiKey',
@@ -580,10 +580,10 @@ export enum LogFormat {
 export const LogFormatSchema = z.enum(LogFormat).describe('Log format').meta({ id: 'LogFormat' });
 
 export enum ApiCustomExtension {
-  Permission = 'x-immich-permission',
-  AdminOnly = 'x-immich-admin-only',
-  History = 'x-immich-history',
-  State = 'x-immich-state',
+  Permission = 'x-great-memories-permission',
+  AdminOnly = 'x-great-memories-admin-only',
+  History = 'x-great-memories-history',
+  State = 'x-great-memories-state',
 }
 
 export enum MetadataKey {
@@ -605,24 +605,24 @@ export enum CacheControl {
   None = 'none',
 }
 
-export enum ImmichEnvironment {
+export enum GreatMemoriesEnvironment {
   Development = 'development',
   Testing = 'testing',
   Production = 'production',
 }
 
-export const ImmichEnvironmentSchema = z
-  .enum(ImmichEnvironment)
-  .describe('Immich environment')
-  .meta({ id: 'ImmichEnvironment' });
+export const GreatMemoriesEnvironmentSchema = z
+  .enum(GreatMemoriesEnvironment)
+  .describe('Great Memories environment')
+  .meta({ id: 'GreatMemoriesEnvironment' });
 
-export enum ImmichWorker {
+export enum GreatMemoriesWorker {
   Api = 'api',
   Maintenance = 'maintenance',
   Microservices = 'microservices',
 }
 
-export enum ImmichTelemetry {
+export enum GreatMemoriesTelemetry {
   Host = 'host',
   Api = 'api',
   Io = 'io',

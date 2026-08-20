@@ -1,4 +1,4 @@
-import type { AssetTypeEnum, AssetVisibility, WorkflowType } from '@immich/sdk';
+import type { AssetTypeEnum, AssetVisibility, WorkflowType } from '@great-memories/sdk';
 
 type DeepPartial<T> = T extends Date
   ? T

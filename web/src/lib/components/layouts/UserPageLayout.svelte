@@ -42,7 +42,7 @@
       .filter((action) => action.$if?.() ?? true),
   );
 
-  let scrollbarClass = $derived(scrollbar ? 'immich-scrollbar' : 'scrollbar-hidden');
+  let scrollbarClass = $derived(scrollbar ? 'great-memories-scrollbar' : 'scrollbar-hidden');
   let hasTitleClass = $derived(title ? 'top-16 h-[calc(100%-(--spacing(16)))]' : 'top-0 h-full');
 </script>
 

@@ -7,7 +7,7 @@
   import { deleteAssets as deleteAssetsUtil, type OnUndoDelete } from '$lib/utils/actions';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { deleteAssets, type AssetResponseDto } from '@immich/sdk';
+  import { deleteAssets, type AssetResponseDto } from '@great-memories/sdk';
   import { IconButton, modalManager, toastManager } from '@immich/ui';
   import { mdiDeleteForeverOutline, mdiDeleteOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';

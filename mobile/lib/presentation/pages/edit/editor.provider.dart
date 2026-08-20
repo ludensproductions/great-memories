@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/aspect_ratios.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/utils/editor.utils.dart';
+import 'package:great_memories_mobile/constants/aspect_ratios.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart';
+import 'package:great_memories_mobile/domain/models/exif.model.dart';
+import 'package:great_memories_mobile/utils/editor.utils.dart';
 
 final editorStateProvider = NotifierProvider<EditorProvider, EditorState>(EditorProvider.new);
 

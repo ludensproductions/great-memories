@@ -1,4 +1,4 @@
-import { getAssetInfo } from '@immich/sdk';
+import { getAssetInfo } from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 import { vitest } from 'vitest';
 import { authManager } from '$lib/managers/auth-manager.svelte';
@@ -21,7 +21,7 @@ vitest.mock('$lib/utils/i18n', () => ({
   getPreferredLocale: vitest.fn(),
 }));
 
-vitest.mock('@immich/sdk');
+vitest.mock('@great-memories/sdk');
 
 vitest.mock('$lib/utils', async () => {
   const originalModule = await vitest.importActual('$lib/utils');

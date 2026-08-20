@@ -1,4 +1,4 @@
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 
 class SyncMigrationRepository extends DriftDatabaseRepository {
   final Drift _db;

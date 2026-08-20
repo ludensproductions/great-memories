@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WorkflowTrigger, type WorkflowStepDto, type WorkflowUpdateDto } from '@immich/sdk';
+  import { WorkflowTrigger, type WorkflowStepDto, type WorkflowUpdateDto } from '@great-memories/sdk';
   import {
     Card,
     CardBody,

@@ -1,25 +1,25 @@
 {
-  "name": "@immich/cli",
+  "name": "@great-memories/cli",
   "version": "3.0.3",
-  "description": "Command Line Interface (CLI) for Immich",
+  "description": "Command Line Interface (CLI) for Great Memories",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/immich-app/immich.git",
+    "url": "git+https://github.com/ludensproductions/great-memories.git",
     "directory": "packages/cli"
   },
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "immich": "./bin/immich"
+    "great-memories": "./bin/great-memories"
   },
   "license": "GNU Affero General Public License version 3",
   "keywords": [
-    "immich",
+    "great-memories",
     "cli"
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.0",
-    "@immich/sdk": "workspace:*",
+    "@great-memories/sdk": "workspace:*",
     "@types/byte-size": "^8.1.0",
     "@types/cli-progress": "^3.11.0",
     "@types/lodash-es": "^4.17.12",

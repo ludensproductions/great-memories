@@ -40,21 +40,21 @@ lockfile = true
 
 [tasks.release]
 run = [
-  "pnpm --filter @immich/scripts install --frozen-lockfile",
-  "pnpm --filter @immich/scripts build",
-  "pnpm --filter @immich/scripts cli release {{arg(name='args', var=true)}}",
+  "pnpm --filter @great-memories/scripts install --frozen-lockfile",
+  "pnpm --filter @great-memories/scripts build",
+  "pnpm --filter @great-memories/scripts cli release {{arg(name='args', var=true)}}",
   { task = "//:open-api" },
 ]
 
 [tasks.plugins]
 run = [
-  "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core install --frozen-lockfile",
-  "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core build",
+  "pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter @great-memories/plugin-core install --frozen-lockfile",
+  "pnpm --filter @great-memories/sdk --filter @great-memories/plugin-sdk --filter @great-memories/plugin-core build",
 ]
 
 [tasks.open-api-typescript]
 run = [
-  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/immich-openapi-specs.json packages/sdk/src/fetch-client.ts",
+  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/great-memories-openapi-specs.json packages/sdk/src/fetch-client.ts",
   { task = "//:sdk:install" },
   { task = "//:sdk:build" },
 ]
@@ -91,7 +91,7 @@ depends_post = "//:dev-down"
 run = { task = "//:dev", args = ["--build", "-V"] }
 
 [tasks.dev-scale]
-run = { task = "//:dev", args = ["--build", "-V", "--scale immich-server=3"] }
+run = { task = "//:dev", args = ["--build", "-V", "--scale great-memories-server=3"] }
 
 [tasks.dev-down]
 dir = "docker"
@@ -109,8 +109,8 @@ depends_post = "//:prod-down"
 run = { task = "//:prod", args = [
   "--build",
   "-V",
-  "--scale immich-server=3",
-  "--scale immich-microservices",
+  "--scale great-memories-server=3",
+  "--scale great-memories-microservices",
 ] }
 
 [tasks.prod-down]
@@ -147,7 +147,7 @@ run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
 # SDK tasks
 [tasks."sdk:install"]
 dir = "packages/sdk"
-run = "pnpm --filter @immich/sdk install --frozen-lockfile"
+run = "pnpm --filter @great-memories/sdk install --frozen-lockfile"
 
 [tasks."sdk:build"]
 dir = "packages/sdk"

@@ -3,24 +3,24 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/memory.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/storage.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/trash_sync.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/sync_status.provider.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/widgets/settings/beta_sync_settings/entity_count_tile.dart';
-import 'package:immich_mobile/widgets/settings/setting_group_title.dart';
-import 'package:immich_mobile/widgets/settings/setting_list_tile.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/platform_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/providers/app_settings.provider.dart';
+import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/storage.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/trash_sync.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/sync_status.provider.dart';
+import 'package:great_memories_mobile/services/app_settings.service.dart';
+import 'package:great_memories_mobile/widgets/settings/beta_sync_settings/entity_count_tile.dart';
+import 'package:great_memories_mobile/widgets/settings/setting_group_title.dart';
+import 'package:great_memories_mobile/widgets/settings/setting_list_tile.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -37,7 +37,7 @@ class SyncStatusAndActions extends HookConsumerWidget {
         // WAL Checkpoint to ensure all changes are written to the database
         await ref.read(driftProvider).customStatement("pragma wal_checkpoint(truncate)");
         final documentsDir = await getApplicationDocumentsDirectory();
-        final dbFile = File(path.join(documentsDir.path, 'immich.sqlite'));
+        final dbFile = File(path.join(documentsDir.path, 'great-memories.sqlite'));
 
         if (!await dbFile.exists()) {
           if (context.mounted) {
@@ -49,14 +49,14 @@ class SyncStatusAndActions extends HookConsumerWidget {
         }
 
         final timestamp = DateTime.now().millisecondsSinceEpoch;
-        final exportFile = File(path.join(documentsDir.path, 'immich_export_$timestamp.sqlite'));
+        final exportFile = File(path.join(documentsDir.path, 'great_memories_export_$timestamp.sqlite'));
 
         await dbFile.copy(exportFile.path);
 
         final size = MediaQuery.of(context).size;
         await Share.shareXFiles(
           [XFile(exportFile.path)],
-          text: 'Immich Database Export',
+          text: 'Great Memories Database Export',
           sharePositionOrigin: Rect.fromPoints(Offset.zero, Offset(size.width / 3, size.height)),
         );
 

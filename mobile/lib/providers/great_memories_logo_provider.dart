@@ -1,0 +1,10 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final greatMemoriesLogoProvider = FutureProvider.autoDispose<Uint8List>((ref) async {
+  final json = await rootBundle.loadString('assets/great-memories-logo.json');
+  final j = jsonDecode(json);
+  return base64Decode(j['content']);
+});

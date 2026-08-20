@@ -53,7 +53,7 @@
   </div>
 
   {#if desc}
-    <p class="pb-2 text-sm immich-form-label" id="{name}-desc">
+    <p class="pb-2 text-sm great-memories-form-label" id="{name}-desc">
       {desc}
     </p>
   {/if}
@@ -64,11 +64,11 @@
       size="1.2em"
       aria-hidden
       class="pointer-events-none relative inset-e-1 col-start-1 row-start-1 self-center justify-self-end {disabled
-        ? 'text-immich-bg'
-        : 'text-immich-fg dark:text-immich-bg'}"
+        ? 'text-great-memories-bg'
+        : 'text-great-memories-fg dark:text-great-memories-bg'}"
     />
     <select
-      class="col-start-1 row-start-1 immich-form-input w-full appearance-none pe-6!"
+      class="col-start-1 row-start-1 great-memories-form-input w-full appearance-none pe-6!"
       {disabled}
       aria-describedby={desc ? `${name}-desc` : undefined}
       {name}

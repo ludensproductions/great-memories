@@ -6,7 +6,7 @@ import {
   SharedLinkType,
   createAlbum,
   deleteUserAdmin,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, baseUrl, shareUrl, utils } from 'src/utils';
@@ -252,7 +252,7 @@ describe('/shared-links', () => {
 
       const cookies = response.get('Set-Cookie') ?? [];
       expect(cookies).toHaveLength(1);
-      expect(cookies[0]).toContain('immich_shared_link_token');
+      expect(cookies[0]).toContain('great_memories_shared_link_token');
 
       const { status, body } = await request(app)
         .get('/shared-links/me')

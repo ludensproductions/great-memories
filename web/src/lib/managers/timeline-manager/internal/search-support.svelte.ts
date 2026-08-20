@@ -1,4 +1,4 @@
-import { AssetOrder, AssetOrderBy, type AssetResponseDto } from '@immich/sdk';
+import { AssetOrder, AssetOrderBy, type AssetResponseDto } from '@great-memories/sdk';
 import { DateTime } from 'luxon';
 import { getOrderingDate, plainDateTimeCompare, type TimelineYearMonth } from '$lib/utils/timeline-util';
 import { TimelineManager } from '../timeline-manager.svelte';

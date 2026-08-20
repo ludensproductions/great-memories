@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/debounce.dart';
+import 'package:great_memories_mobile/utils/debounce.dart';
 
 class _Counter {
   int _count = 0;

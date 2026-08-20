@@ -1,4 +1,4 @@
-import { getConfig, updateConfig, type ServerFeaturesDto, type SystemConfigDto } from '@immich/sdk';
+import { getConfig, updateConfig, type ServerFeaturesDto, type SystemConfigDto } from '@great-memories/sdk';
 import { toastManager, type ActionItem } from '@immich/ui';
 import { mdiContentCopy, mdiDownload, mdiUpload } from '@mdi/js';
 import { isEqual } from 'lodash-es';
@@ -25,7 +25,7 @@ export const getSystemConfigActions = (
     title: $t('export_as_json'),
     description: $t('admin.export_config_as_json_description'),
     icon: mdiDownload,
-    onAction: () => downloadJson(config, 'immich-config.json'),
+    onAction: () => downloadJson(config, 'great-memories-config.json'),
     shortcuts: [
       { shift: true, key: 's' },
       { shift: true, key: 'd' },

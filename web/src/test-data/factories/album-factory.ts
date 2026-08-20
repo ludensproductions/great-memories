@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { AssetOrder, type AlbumResponseDto } from '@immich/sdk';
+import { AssetOrder, type AlbumResponseDto } from '@great-memories/sdk';
 import { Sync } from 'factory.ts';
 
 export const albumFactory = Sync.makeFactory<AlbumResponseDto>({

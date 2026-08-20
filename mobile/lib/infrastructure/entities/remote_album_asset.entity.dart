@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_album.entity.dart';
-import 'package:immich_mobile/infrastructure/entities/remote_asset.entity.dart';
-import 'package:immich_mobile/infrastructure/utils/drift_default.mixin.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_album.entity.dart';
+import 'package:great_memories_mobile/infrastructure/entities/remote_asset.entity.dart';
+import 'package:great_memories_mobile/infrastructure/utils/drift_default.mixin.dart';
 
 @TableIndex.sql(
   'CREATE INDEX IF NOT EXISTS idx_remote_album_asset_album_asset ON remote_album_asset_entity (album_id, asset_id)',

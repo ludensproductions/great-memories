@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/preferences.store';
-  import type { CalendarHeatmapResponseDto } from '@immich/sdk';
+  import type { CalendarHeatmapResponseDto } from '@great-memories/sdk';
   import { Text } from '@immich/ui';
   import { DateTime, Info } from 'luxon';
   import { t } from 'svelte-i18n';
@@ -24,18 +24,18 @@
     }
 
     if (count <= Math.ceil(maxCount * 0.25)) {
-      return 'bg-immich-primary/30';
+      return 'bg-great-memories-primary/30';
     }
 
     if (count <= Math.ceil(maxCount * 0.5)) {
-      return 'bg-immich-primary/50';
+      return 'bg-great-memories-primary/50';
     }
 
     if (count <= Math.ceil(maxCount * 0.75)) {
-      return 'bg-immich-primary/70';
+      return 'bg-great-memories-primary/70';
     }
 
-    return 'bg-immich-primary';
+    return 'bg-great-memories-primary';
   };
 
   const weekdays = $derived([
@@ -87,10 +87,10 @@
     <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
       <span>{$t('less')}</span>
       <span class="size-3 rounded-sm bg-gray-200 dark:bg-gray-700"></span>
-      <span class="size-3 rounded-sm bg-immich-primary/30"></span>
-      <span class="size-3 rounded-sm bg-immich-primary/50"></span>
-      <span class="size-3 rounded-sm bg-immich-primary/70"></span>
-      <span class="size-3 rounded-sm bg-immich-primary"></span>
+      <span class="size-3 rounded-sm bg-great-memories-primary/30"></span>
+      <span class="size-3 rounded-sm bg-great-memories-primary/50"></span>
+      <span class="size-3 rounded-sm bg-great-memories-primary/70"></span>
+      <span class="size-3 rounded-sm bg-great-memories-primary"></span>
       <span>{$t('more')}</span>
       <span class="ml-4">{totalLabel(data.totalCount)}</span>
     </div>

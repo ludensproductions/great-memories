@@ -1,5 +1,5 @@
 [tasks.install]
-run = "pnpm install --filter immich-web --frozen-lockfile"
+run = "pnpm install --filter great-memories-web --frozen-lockfile"
 
 [tasks.build]
 run = "pnpm run build"
@@ -15,7 +15,7 @@ depends = [":install", "//:sdk:install", "//:sdk:build"]
 run = "pnpm run dev"
 
 [tasks."start-demo"]
-env.IMMICH_SERVER_URL = "https://demo.immich.app"
+env.GREAT_MEMORIES_SERVER_URL = "https://demo.immich.app"
 run = { task = ":start" }
 
 [tasks.test]

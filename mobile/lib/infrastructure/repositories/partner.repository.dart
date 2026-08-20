@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/entities/partner.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/mapper.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/partner.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/mapper.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 
 class PartnerRepository {
   final Drift _db;

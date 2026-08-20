@@ -4,7 +4,7 @@
   import { dateFormats } from '$lib/constants';
   import { getApiKeyActions, getApiKeysActions } from '$lib/services/api-key.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { getApiKeys, type ApiKeyResponseDto } from '@immich/sdk';
+  import { getApiKeys, type ApiKeyResponseDto } from '@great-memories/sdk';
   import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

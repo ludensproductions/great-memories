@@ -62,7 +62,7 @@ class RemoteImageApi {
 
   Future<Map<String, int>?> requestImage(String url, {required int requestId, required bool preferEncoded}) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.RemoteImageApi.requestImage$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.requestImage$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -81,7 +81,7 @@ class RemoteImageApi {
 
   Future<void> cancelRequest(int requestId) async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.RemoteImageApi.cancelRequest$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.cancelRequest$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -95,7 +95,7 @@ class RemoteImageApi {
 
   Future<int> clearCache() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.RemoteImageApi.clearCache$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.RemoteImageApi.clearCache$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

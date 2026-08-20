@@ -25,7 +25,7 @@ Object.defineProperty(globalThis, 'matchMedia', {
 vi.mock('$env/dynamic/public', () => {
   return {
     env: {
-      PUBLIC_IMMICH_HOSTNAME: '',
+      PUBLIC_GREAT_MEMORIES_HOSTNAME: '',
     },
   };
 });

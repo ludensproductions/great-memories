@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/loaders/image_request.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/presentation/widgets/images/animated_image_stream_completer.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/infrastructure/loaders/image_request.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/animated_image_stream_completer.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:great_memories_mobile/utils/image_url_builder.dart';
 import 'package:openapi/api.dart';
 
 class RemoteImageProvider extends CancellableImageProvider<RemoteImageProvider>

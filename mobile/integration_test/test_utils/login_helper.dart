@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'general_helper.dart';
 
-class ImmichTestLoginHelper {
+class GreatMemoriesTestLoginHelper {
   final WidgetTester tester;
 
-  const ImmichTestLoginHelper(this.tester);
+  const GreatMemoriesTestLoginHelper(this.tester);
 
   Future<void> waitForLoginScreen() async {
     await pumpUntilFound(tester, find.text("Login"));

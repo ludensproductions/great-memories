@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/log.repository.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/config/app_config.dart';
+import 'package:great_memories_mobile/domain/models/log.model.dart';
+import 'package:great_memories_mobile/domain/models/settings_key.dart';
+import 'package:great_memories_mobile/domain/services/log.service.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/log.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:mocktail/mocktail.dart';
 

@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/infrastructure/repositories/log.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/log.model.dart';
+import 'package:great_memories_mobile/domain/models/settings_key.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/log.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
 
 /// Service responsible for handling application logging.

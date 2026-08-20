@@ -1,20 +1,17 @@
 <p align="center"> 
   <br/>  
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="License: AGPLv3"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" atl="Discord"/>
-  </a>
   <br/>  
   <br/>   
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Login met aangepaste URL">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Login met aangepaste URL">
 </p>
-<h3 align="center">Immich - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
+<h3 align="center">Great Memories - Hoogwaardige, self-hosted back-up oplossing voor foto's en video's</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Main Screenshot">
+<img src="../design/great-memories-screenshots.png" title="Main Screenshot">
 </a>
 <br/>
 <p align="center">
@@ -48,14 +45,14 @@
 
 ## Inhoud
 
-- [Officiële documentatie](https://docs.immich.app/)
-- [Introductie](https://docs.immich.app/overview/introduction)
-- [Installatie](https://docs.immich.app/install/requirements)
+- Officiële documentatie
+- Introductie
+- Installatie
 - [Toekomstplannen](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Functies](#functies)
-- [Vertalingen](https://docs.immich.app/developer/translations)
-- [Richtlijnen voor bijdragen](https://docs.immich.app/overview/support-the-project)
+- Vertalingen
+- Richtlijnen voor bijdragen
 
 ## Demo
 
@@ -102,7 +99,7 @@ Je kunt de demo [hier](https://demo.immich.app/) bekijken. Voor de mobiele app k
 
 ## Vertalingen
 
-Je kunt [hier](https://docs.immich.app/developer/translations) meer over vertalingen lezen.
+Je kunt meer over vertalingen lezen in `docs/docs/developer/translations.md`.
 
 ## Repository activiteit
 
@@ -120,6 +117,6 @@ Je kunt [hier](https://docs.immich.app/developer/translations) meer over vertali
 
 ## Contributie-leden
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

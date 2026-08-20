@@ -6,7 +6,7 @@ import {
   LoginResponseDto,
   SharedLinkType,
   updateAsset,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { DateTime } from 'luxon';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';

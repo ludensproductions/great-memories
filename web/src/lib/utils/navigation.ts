@@ -90,7 +90,7 @@ interface AssetGridRoute extends Route {
   assetGridRouteSearchParams: AssetGridRouteSearchParams | null | undefined;
 }
 
-type ImmichRoute = AssetRoute | AssetGridRoute;
+type GreatMemoriesRoute = AssetRoute | AssetGridRoute;
 
 type NavOptions = {
   /* navigate even if url is the same */
@@ -129,7 +129,7 @@ async function navigateAssetGridRoute(route: AssetGridRoute, options?: NavOption
   }
 }
 
-export function navigate(change: ImmichRoute, options?: NavOptions): Promise<void> {
+export function navigate(change: GreatMemoriesRoute, options?: NavOptions): Promise<void> {
   if (isAssetGridRoute(change)) {
     return navigateAssetGridRoute(change, options);
   }

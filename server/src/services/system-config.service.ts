@@ -37,7 +37,7 @@ export class SystemConfigService extends BaseService {
     const configLevel = logging.enabled ? logging.level : false;
     const level = envLevel ?? configLevel;
     this.logger.setLogLevel(level);
-    this.logger.log(`LogLevel=${level} ${envLevel ? '(set via IMMICH_LOG_LEVEL)' : '(set via system config)'}`);
+    this.logger.log(`LogLevel=${level} ${envLevel ? '(set via GREAT_MEMORIES_LOG_LEVEL)' : '(set via system config)'}`);
 
     this.machineLearningRepository.setup(machineLearning);
   }
@@ -52,14 +52,14 @@ export class SystemConfigService extends BaseService {
   onConfigValidate({ newConfig, oldConfig }: ArgOf<'ConfigValidate'>) {
     const { logLevel } = this.configRepository.getEnv();
     if (logLevel && !_.isEqual(toPlainObject(newConfig.logging), oldConfig.logging)) {
-      throw new Error('Logging cannot be changed while the environment variable IMMICH_LOG_LEVEL is set.');
+      throw new Error('Logging cannot be changed while the environment variable GREAT_MEMORIES_LOG_LEVEL is set.');
     }
   }
 
   async updateSystemConfig(dto: SystemConfigDto): Promise<SystemConfigDto> {
     const { configFile } = this.configRepository.getEnv();
     if (configFile) {
-      throw new BadRequestException('Cannot update configuration while IMMICH_CONFIG_FILE is in use');
+      throw new BadRequestException('Cannot update configuration while GREAT_MEMORIES_CONFIG_FILE is in use');
     }
 
     const oldConfig = await this.getConfig({ withCache: false });

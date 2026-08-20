@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
-import 'package:immich_mobile/presentation/widgets/images/local_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumb_hash_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/local_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumb_hash_provider.dart';
 
 /// [ImageCache] that uses two caches for small and large images
 /// so that a single large image does not evict all small images
@@ -45,7 +45,7 @@ final class CustomImageCache implements ImageCache {
 
   @override
   bool containsKey(Object key) {
-    // [ImmichLocalImageProvider] and [ImmichRemoteImageProvider] are both
+    // [GreatMemoriesLocalImageProvider] and [GreatMemoriesRemoteImageProvider] are both
     // large size images while the other thumbnail providers are small
     return _cacheForKey(key).containsKey(key);
   }

@@ -16,7 +16,7 @@
   <Icon {icon} size="16" class="self-center text-dark/25" />
 
   {#if title}
-    <Text size="tiny" class="self-center truncate px-1 pr-2 text-immich-fg/40 dark:text-immich-dark-fg/40">
+    <Text size="tiny" class="self-center truncate px-1 pr-2 text-great-memories-fg/40 dark:text-great-memories-dark-fg/40">
       {title}
     </Text>
   {/if}

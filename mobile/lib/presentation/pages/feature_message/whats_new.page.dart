@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/feature_message.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/feature_message/feature_message_placeholder.widget.dart';
+import 'package:great_memories_mobile/domain/models/feature_message.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/presentation/widgets/feature_message/feature_message_placeholder.widget.dart';
 
 @RoutePage()
 class WhatsNewPage extends StatelessWidget {

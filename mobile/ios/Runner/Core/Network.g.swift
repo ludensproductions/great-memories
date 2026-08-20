@@ -297,7 +297,7 @@ class NetworkApiSetup {
   /// Sets up an instance of `NetworkApi` to handle messages through the `binaryMessenger`.
   static func setUp(binaryMessenger: FlutterBinaryMessenger, api: NetworkApi?, messageChannelSuffix: String = "") {
     let channelSuffix = messageChannelSuffix.count > 0 ? ".\(messageChannelSuffix)" : ""
-    let addCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.addCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let addCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.addCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       addCertificateChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -314,7 +314,7 @@ class NetworkApiSetup {
     } else {
       addCertificateChannel.setMessageHandler(nil)
     }
-    let selectCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.selectCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let selectCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.selectCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       selectCertificateChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -331,7 +331,7 @@ class NetworkApiSetup {
     } else {
       selectCertificateChannel.setMessageHandler(nil)
     }
-    let removeCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.removeCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let removeCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.removeCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       removeCertificateChannel.setMessageHandler { _, reply in
         api.removeCertificate { result in
@@ -346,7 +346,7 @@ class NetworkApiSetup {
     } else {
       removeCertificateChannel.setMessageHandler(nil)
     }
-    let hasCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.hasCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let hasCertificateChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.hasCertificate\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       hasCertificateChannel.setMessageHandler { _, reply in
         do {
@@ -359,7 +359,7 @@ class NetworkApiSetup {
     } else {
       hasCertificateChannel.setMessageHandler(nil)
     }
-    let getClientPointerChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.getClientPointer\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let getClientPointerChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.getClientPointer\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       getClientPointerChannel.setMessageHandler { _, reply in
         do {
@@ -372,7 +372,7 @@ class NetworkApiSetup {
     } else {
       getClientPointerChannel.setMessageHandler(nil)
     }
-    let setRequestHeadersChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.setRequestHeaders\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let setRequestHeadersChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.setRequestHeaders\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       setRequestHeadersChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
@@ -389,7 +389,7 @@ class NetworkApiSetup {
     } else {
       setRequestHeadersChannel.setMessageHandler(nil)
     }
-    let getAppGroupIdChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.immich_mobile.NetworkApi.getAppGroupId\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
+    let getAppGroupIdChannel = FlutterBasicMessageChannel(name: "dev.flutter.pigeon.great_memories_mobile.NetworkApi.getAppGroupId\(channelSuffix)", binaryMessenger: binaryMessenger, codec: codec)
     if let api = api {
       getAppGroupIdChannel.setMessageHandler { _, reply in
         do {

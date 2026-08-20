@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/backup.repository.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:great_memories_mobile/domain/models/album/local_album.model.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/backup.repository.dart';
+import 'package:great_memories_mobile/utils/option.dart';
 
 import '../repository_context.dart';
 

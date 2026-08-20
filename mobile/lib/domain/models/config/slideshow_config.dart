@@ -1,4 +1,4 @@
-import 'package:immich_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
 
 class SlideshowConfig {
   final bool repeat;

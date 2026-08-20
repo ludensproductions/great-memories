@@ -4,7 +4,7 @@ import {
   MaintenanceAction,
   setMaintenanceMode,
   type DatabaseBackupUploadDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { modalManager, type ActionItem } from '@immich/ui';
 import { mdiDownload, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

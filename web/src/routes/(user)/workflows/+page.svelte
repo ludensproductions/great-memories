@@ -6,7 +6,7 @@
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
   import { Route } from '$lib/route';
   import { getWorkflowActions, getWorkflowsActions, getWorkflowShowSchemaAction } from '$lib/services/workflow.service';
-  import { getWorkflowForShare, type WorkflowResponseDto } from '@immich/sdk';
+  import { getWorkflowForShare, type WorkflowResponseDto } from '@great-memories/sdk';
   import {
     Badge,
     Button,
@@ -87,7 +87,7 @@
                   <div
                     class={`flex size-11 shrink-0 items-center justify-center rounded-xl ${
                       workflow.enabled
-                        ? 'bg-immich-primary/10 text-immich-primary dark:bg-immich-dark-primary/15 dark:text-immich-dark-primary'
+                        ? 'bg-great-memories-primary/10 text-great-memories-primary dark:bg-great-memories-dark-primary/15 dark:text-great-memories-dark-primary'
                         : 'bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500'
                     }`}
                   >

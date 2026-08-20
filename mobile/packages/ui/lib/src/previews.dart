@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-import 'package:immich_ui/src/theme.dart';
+import 'package:great_memories_ui/src/theme.dart';
 
 const ColorScheme _lightColorScheme = ColorScheme.light(
   primary: Color(0xFF4250AF),
@@ -34,14 +34,14 @@ const ColorScheme _darkColorScheme = ColorScheme.dark(
   outlineVariant: Color(0xFF43464F),
 );
 
-PreviewThemeData immichPreviewTheme() => PreviewThemeData(
+PreviewThemeData greatMemoriesPreviewTheme() => PreviewThemeData(
       materialLight: ThemeData(colorScheme: _lightColorScheme, useMaterial3: true),
       materialDark: ThemeData(colorScheme: _darkColorScheme, useMaterial3: true),
     );
 
-Widget immichPreviewWrapper(Widget child) {
+Widget greatMemoriesPreviewWrapper(Widget child) {
   return Builder(
-    builder: (context) => ImmichThemeProvider(
+    builder: (context) => GreatMemoriesThemeProvider(
       colorScheme: Theme.of(context).colorScheme,
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
@@ -54,7 +54,7 @@ Widget immichPreviewWrapper(Widget child) {
   );
 }
 
-final class ImmichPreview extends Preview {
-  const ImmichPreview({super.name, super.group, super.size, super.textScaleFactor})
-      : super(theme: immichPreviewTheme, wrapper: immichPreviewWrapper);
+final class GreatMemoriesPreview extends Preview {
+  const GreatMemoriesPreview({super.name, super.group, super.size, super.textScaleFactor})
+      : super(theme: greatMemoriesPreviewTheme, wrapper: greatMemoriesPreviewWrapper);
 }

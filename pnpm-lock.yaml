@@ -111,13 +111,13 @@ importers:
       '@faker-js/faker':
         specifier: ^10.1.0
         version: 10.5.0
-      '@immich/cli':
+      '@great-memories/cli':
         specifier: workspace:*
         version: link:../packages/cli
-      '@immich/e2e-auth-server':
+      '@great-memories/e2e-auth-server':
         specifier: workspace:*
         version: link:../packages/e2e-auth-server
-      '@immich/sdk':
+      '@great-memories/sdk':
         specifier: workspace:*
         version: link:../packages/sdk
       '@playwright/test':
@@ -223,7 +223,7 @@ importers:
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.7.0(jiti@2.7.0))
-      '@immich/sdk':
+      '@great-memories/sdk':
         specifier: workspace:*
         version: link:../sdk
       '@types/byte-size':
@@ -322,10 +322,10 @@ importers:
       '@extism/js-pdk':
         specifier: ^1.0.1
         version: 1.1.1
-      '@immich/plugin-sdk':
+      '@great-memories/plugin-sdk':
         specifier: workspace:*
         version: link:../plugin-sdk
-      '@immich/sdk':
+      '@great-memories/sdk':
         specifier: workspace:*
         version: link:../sdk
       esbuild:
@@ -344,7 +344,7 @@ importers:
       '@extism/js-pdk':
         specifier: ^1.1.1
         version: 1.1.1
-      '@immich/sdk':
+      '@great-memories/sdk':
         specifier: workspace:*
         version: link:../sdk
       '@types/node':
@@ -400,7 +400,7 @@ importers:
       '@extism/extism':
         specifier: 2.0.0-rc13
         version: 2.0.0-rc13
-      '@immich/plugin-sdk':
+      '@great-memories/plugin-sdk':
         specifier: workspace:*
         version: link:../packages/plugin-sdk
       '@immich/sql-tools':
@@ -794,7 +794,7 @@ importers:
       '@immich/justified-layout-wasm':
         specifier: ^0.4.3
         version: 0.4.3
-      '@immich/sdk':
+      '@great-memories/sdk':
         specifier: workspace:*
         version: link:../packages/sdk
       '@immich/ui':

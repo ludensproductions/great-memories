@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/infrastructure/entities/store.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/entities/store.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 import 'package:sqlite3_connection_pool/sqlite3_connection_pool.dart';
 import 'package:sqlite_async/sqlite_async.dart';
 
@@ -13,7 +13,7 @@ void main() {
   late String path;
 
   Future<(Drift, SqliteDatabase, SqliteConnectionPool)> openDb() async {
-    final sqliteDb = SqliteDatabase.withFactory(ImmichSqliteOpenFactory(path: path));
+    final sqliteDb = SqliteDatabase.withFactory(GreatMemoriesSqliteOpenFactory(path: path));
     await sqliteDb.initialize();
     final pool = SqliteConnectionPool.open(
       name: path,
@@ -24,7 +24,7 @@ void main() {
 
   setUp(() async {
     dir = await Directory.systemTemp.createTemp('drift_pool_stream');
-    path = '${dir.path}/immich.sqlite';
+    path = '${dir.path}/great-memories.sqlite';
   });
 
   tearDown(() async {
@@ -62,7 +62,7 @@ Future<void> _writerTask(String path) async {
 }
 
 Future<(Drift, SqliteDatabase, SqliteConnectionPool)> _openDb(String path) async {
-  final sqliteDb = SqliteDatabase.withFactory(ImmichSqliteOpenFactory(path: path));
+  final sqliteDb = SqliteDatabase.withFactory(GreatMemoriesSqliteOpenFactory(path: path));
   await sqliteDb.initialize();
   final pool = SqliteConnectionPool.open(
     name: path,

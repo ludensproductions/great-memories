@@ -1,20 +1,17 @@
 <p align="center">
   <br/>
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="Licencia: MIT"></a>
-  <a href="https://discord.immich.app">
-    <img src="https://img.shields.io/discord/979116623879368755.svg?label=Discord&logo=Discord&style=for-the-badge&logoColor=000000&labelColor=ececec" atl="Discord"/>
-  </a>
   <br/>
   <br/>
 </p>
 
 <p align="center">
-<img src="../design/immich-logo-stacked-light.svg" width="300" title="Iniciar sesión con URL personalizada">
+<img src="../design/great-memories-logo-stacked-light.svg" width="300" title="Iniciar sesión con URL personalizada">
 </p>
-<h3 align="center">Immich: Una solución Self-Hosted de alto rendimiento para la copia de seguridad de fotos y videos</h3>
+<h3 align="center">Great Memories: Una solución Self-Hosted de alto rendimiento para la copia de seguridad de fotos y videos</h3>
 <br/>
 <a href="https://immich.app">
-<img src="../design/immich-screenshots.png" title="Captura de pantalla principal">
+<img src="../design/great-memories-screenshots.png" title="Captura de pantalla principal">
 </a>
 <br/>
 <p align="center">
@@ -48,14 +45,14 @@
 
 ## Contenido
 
-- [Documentación](https://docs.immich.app/)
-- [Introducción](https://docs.immich.app/overview/introduction)
-- [Instalación](https://docs.immich.app/install/requirements)
+- Documentación
+- Introducción
+- Instalación
 - [Hoja de ruta](https://immich.app/roadmap)
 - [Demo](#demo)
 - [Funciones](#funciones)
-- [Traducciones](https://docs.immich.app/developer/translations)
-- [Directrices para contribuir](https://docs.immich.app/overview/support-the-project)
+- Traducciones
+- Directrices para contribuir
 
 ## Demo
 
@@ -99,7 +96,7 @@ contraseña: demo
 
 ## Traducciones
 
-Lea mas acerca de las traducciones [acá](https://docs.immich.app/developer/translations).
+Lea más acerca de las traducciones en `docs/docs/developer/translations.md`.
 
 <a href="https://hosted.weblate.org/engage/immich/">
 <img src="https://hosted.weblate.org/widget/immich/immich/multi-auto.svg" alt="Translation status" />
@@ -121,6 +118,6 @@ Lea mas acerca de las traducciones [acá](https://docs.immich.app/developer/tran
 
 ## Contribuidores
 
-<a href="https://github.com/alextran1502/immich/graphs/contributors">
+<a href="https://github.com/alextran1502/great-memories/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=immich-app/immich" width="100%"/>
 </a>

@@ -3,25 +3,25 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/main.dart' as app;
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
+import 'package:great_memories_mobile/entities/store.entity.dart';
+import 'package:great_memories_mobile/main.dart' as app;
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/utils/bootstrap.dart';
 import 'package:integration_test/integration_test.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 import 'login_helper.dart';
 
-class ImmichTestHelper {
+class GreatMemoriesTestHelper {
   final WidgetTester tester;
 
-  ImmichTestHelper(this.tester);
+  GreatMemoriesTestHelper(this.tester);
 
-  ImmichTestLoginHelper? _loginHelper;
+  GreatMemoriesTestLoginHelper? _loginHelper;
 
-  ImmichTestLoginHelper get loginHelper {
-    _loginHelper ??= ImmichTestLoginHelper(tester);
+  GreatMemoriesTestLoginHelper get loginHelper {
+    _loginHelper ??= GreatMemoriesTestLoginHelper(tester);
     return _loginHelper!;
   }
 
@@ -50,10 +50,10 @@ class ImmichTestHelper {
 }
 
 @isTest
-void immichWidgetTest(String description, Future<void> Function(WidgetTester, ImmichTestHelper) test) {
+void greatMemoriesWidgetTest(String description, Future<void> Function(WidgetTester, GreatMemoriesTestHelper) test) {
   testWidgets(description, (widgetTester) async {
-    await ImmichTestHelper.loadApp(widgetTester);
-    await test(widgetTester, ImmichTestHelper(widgetTester));
+    await GreatMemoriesTestHelper.loadApp(widgetTester);
+    await test(widgetTester, GreatMemoriesTestHelper(widgetTester));
   }, semanticsEnabled: false);
 }
 

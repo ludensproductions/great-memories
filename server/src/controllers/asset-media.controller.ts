@@ -30,14 +30,14 @@ import {
 } from 'src/dtos/asset-media.dto';
 import { AssetDownloadOriginalDto } from 'src/dtos/asset.dto';
 import { AuthDto } from 'src/dtos/auth.dto';
-import { ApiTag, ImmichHeader, Permission, RouteKey } from 'src/enum';
+import { ApiTag, GreatMemoriesHeader, Permission, RouteKey } from 'src/enum';
 import { AssetUploadInterceptor } from 'src/middleware/asset-upload.interceptor';
 import { Auth, Authenticated, FileResponse } from 'src/middleware/auth.guard';
 import { FileUploadInterceptor, getFiles } from 'src/middleware/file-upload.interceptor';
 import { LoggingRepository } from 'src/repositories/logging.repository';
 import { AssetMediaService } from 'src/services/asset-media.service';
 import { UploadFiles } from 'src/types';
-import { ImmichFileResponse, sendFile } from 'src/utils/file';
+import { GreatMemoriesFileResponse, sendFile } from 'src/utils/file';
 import { FileNotEmptyValidator, UUIDParamDto } from 'src/validation';
 
 @ApiTags(ApiTag.Assets)
@@ -53,7 +53,7 @@ export class AssetMediaController {
   @UseInterceptors(AssetUploadInterceptor, FileUploadInterceptor)
   @ApiConsumes('multipart/form-data')
   @ApiHeader({
-    name: ImmichHeader.Checksum,
+    name: GreatMemoriesHeader.Checksum,
     description: 'sha1 checksum that can be used for duplicate detection before the file is uploaded',
     required: false,
   })
@@ -136,7 +136,7 @@ export class AssetMediaController {
 
     const viewThumbnailRes = await this.service.viewThumbnail(auth, id, dto);
 
-    if (viewThumbnailRes instanceof ImmichFileResponse) {
+    if (viewThumbnailRes instanceof GreatMemoriesFileResponse) {
       await sendFile(res, next, () => Promise.resolve(viewThumbnailRes), this.logger);
     } else {
       // viewThumbnailRes is a AssetMediaRedirectResponse

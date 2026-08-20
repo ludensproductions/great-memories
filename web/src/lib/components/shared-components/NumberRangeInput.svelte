@@ -41,7 +41,7 @@
 
 <input
   type="number"
-  class="immich-form-input w-full"
+  class="great-memories-form-input w-full"
   {id}
   {min}
   {max}

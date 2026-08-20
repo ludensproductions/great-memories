@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
+import 'package:great_memories_mobile/platform/view_intent_api.g.dart';
 
 final viewIntentNowProvider = Provider<DateTime Function()>((ref) => DateTime.now);
 

@@ -4,7 +4,7 @@ import {
   resetPinCode,
   type ChangePasswordDto,
   type PinCodeResetDto,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { toastManager, type ActionItem } from '@immich/ui';
 import { mdiLockOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';

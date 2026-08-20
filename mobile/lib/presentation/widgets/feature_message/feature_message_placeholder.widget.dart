@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
 
 class _SplatColors {
   static const primary = Color(0xFF4250AF);
@@ -69,7 +69,7 @@ class FeatureMessagePlaceholder extends StatelessWidget {
                         alignment: Alignment.center,
                         children: [
                           Positioned(left: 12, top: 12, child: _dot(12, _SplatColors.warning)),
-                          const ImmichLogo(size: 40),
+                          const GreatMemoriesLogo(size: 40),
                         ],
                       ),
                     ),

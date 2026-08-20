@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/repositories/person_api.repository.dart';
+import 'package:great_memories_mobile/domain/models/person.model.dart';
+import 'package:great_memories_mobile/repositories/person_api.repository.dart';
 import 'package:logging/logging.dart';
 
 final personServiceProvider = Provider.autoDispose<PersonService>(

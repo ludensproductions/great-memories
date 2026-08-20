@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common';
 import { defaults, SystemConfig } from 'src/config';
-import { ImmichWorker, JobName, QueueCommand, QueueName } from 'src/enum';
+import { GreatMemoriesWorker, JobName, QueueCommand, QueueName } from 'src/enum';
 import { QueueService } from 'src/services/queue.service';
 import { factory } from 'test/small.factory';
 import { newTestService, ServiceMocks } from 'test/utils';
@@ -12,7 +12,7 @@ describe(QueueService.name, () => {
   beforeEach(() => {
     ({ sut, mocks } = newTestService(QueueService));
 
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(GreatMemoriesWorker.Microservices);
   });
 
   it('should work', () => {

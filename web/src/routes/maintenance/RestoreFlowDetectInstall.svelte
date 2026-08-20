@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@immich/sdk';
+  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@great-memories/sdk';
   import { Button, Heading, HStack, Icon, Stack, Text } from '@immich/ui';
   import { mdiAlert, mdiArrowRight, mdiCheck, mdiClose, mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';
@@ -84,7 +84,7 @@
       <Button leadingIcon={mdiRefresh} variant="ghost" onclick={reload}>{$t('refresh')}</Button>
     {:else}
       <HStack>
-        <Icon icon={mdiRefresh} color="rgb(var(--immich-ui-primary))" />
+        <Icon icon={mdiRefresh} color="rgb(var(--great-memories-ui-primary))" />
         <Text>{$t('maintenance_restore_library_loading')}</Text>
       </HStack>
     {/if}

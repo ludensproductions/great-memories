@@ -1,5 +1,5 @@
 import { JustifiedLayout, type LayoutOptions } from '@immich/justified-layout-wasm';
-import type { AssetResponseDto } from '@immich/sdk';
+import type { AssetResponseDto } from '@great-memories/sdk';
 import createJustifiedLayout from 'justified-layout';
 import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
 import { getAssetRatio } from '$lib/utils/asset-utils';

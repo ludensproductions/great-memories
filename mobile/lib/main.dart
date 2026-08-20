@@ -12,44 +12,44 @@ import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/domain/services/background_worker.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/pages/common/splash_screen.page.dart';
-import 'package:immich_mobile/platform/background_worker_lock_api.g.dart';
-import 'package:immich_mobile/providers/app_life_cycle.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/share_intent_upload.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/providers/locale_provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/providers/theme.provider.dart';
-import 'package:immich_mobile/routing/app_navigation_observer.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/deep_link.service.dart';
-import 'package:immich_mobile/theme/dynamic_theme.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/utils/cache/widgets_binding.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_mobile/utils/licenses.dart';
-import 'package:immich_mobile/utils/migration.dart';
-import 'package:immich_mobile/wm_executor.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/constants/locales.dart';
+import 'package:great_memories_mobile/domain/services/background_worker.service.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/generated/codegen_loader.g.dart';
+import 'package:great_memories_mobile/generated/translations.g.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:great_memories_mobile/pages/common/splash_screen.page.dart';
+import 'package:great_memories_mobile/platform/background_worker_lock_api.g.dart';
+import 'package:great_memories_mobile/providers/app_life_cycle.provider.dart';
+import 'package:great_memories_mobile/providers/asset_viewer/share_intent_upload.provider.dart';
+import 'package:great_memories_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/db.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:great_memories_mobile/providers/locale_provider.dart';
+import 'package:great_memories_mobile/providers/routes.provider.dart';
+import 'package:great_memories_mobile/providers/theme.provider.dart';
+import 'package:great_memories_mobile/routing/app_navigation_observer.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/services/deep_link.service.dart';
+import 'package:great_memories_mobile/theme/dynamic_theme.dart';
+import 'package:great_memories_mobile/theme/theme_data.dart';
+import 'package:great_memories_mobile/utils/bootstrap.dart';
+import 'package:great_memories_mobile/utils/cache/widgets_binding.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/utils/licenses.dart';
+import 'package:great_memories_mobile/utils/migration.dart';
+import 'package:great_memories_mobile/wm_executor.dart';
+import 'package:great_memories_ui/great_memories_ui.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:logging/logging.dart';
 import 'package:timezone/data/latest.dart';
 
 void main() async {
   try {
-    ImmichWidgetsBinding();
+    GreatMemoriesWidgetsBinding();
     unawaited(BackgroundWorkerLockService(BackgroundWorkerLockApi()).lock());
     await EasyLocalization.ensureInitialized();
     final (drift, _) = await Bootstrap.initDomain();
@@ -78,7 +78,7 @@ Future<void> initApp() async {
 
   await DynamicTheme.fetchSystemPalette();
 
-  final log = Logger("ImmichErrorLogger");
+  final log = Logger("GreatMemoriesErrorLogger");
 
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
@@ -115,14 +115,14 @@ Future<void> initApp() async {
   });
 }
 
-class ImmichApp extends ConsumerStatefulWidget {
-  const ImmichApp({super.key});
+class GreatMemoriesApp extends ConsumerStatefulWidget {
+  const GreatMemoriesApp({super.key});
 
   @override
-  ImmichAppState createState() => ImmichAppState();
+  GreatMemoriesAppState createState() => GreatMemoriesAppState();
 }
 
-class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserver {
+class GreatMemoriesAppState extends ConsumerState<GreatMemoriesApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
@@ -182,10 +182,10 @@ class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserve
     final isColdStart = currentRouteName == null || currentRouteName == SplashScreenRoute.name;
 
     PageRouteInfo? route;
-    if (deepLink.uri.scheme == "immich") {
+    if (deepLink.uri.scheme == "great-memories") {
       route = await deepLinkHandler.handleScheme(deepLink, ref);
     } else if (deepLink.uri.host == "my.immich.app") {
-      route = await deepLinkHandler.handleMyImmichApp(deepLink, ref);
+      route = await deepLinkHandler.handleMyGreatMemoriesApp(deepLink, ref);
     } else {
       return DeepLink.path(deepLink.path);
     }
@@ -256,26 +256,26 @@ class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserve
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
-    final immichTheme = ref.watch(immichThemeProvider);
+    final greatMemoriesTheme = ref.watch(greatMemoriesThemeProvider);
 
     return ProviderScope(
       overrides: [localeProvider.overrideWithValue(context.locale)],
       child: MaterialApp.router(
-        title: 'Immich',
+        title: 'Great Memories',
         debugShowCheckedModeBanner: true,
         scaffoldMessengerKey: scaffoldMessengerKey,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         themeMode: ref.watch(appConfigProvider.select((config) => config.theme.mode)),
-        darkTheme: getThemeData(colorScheme: immichTheme.dark, locale: context.locale),
-        theme: getThemeData(colorScheme: immichTheme.light, locale: context.locale),
-        builder: (context, child) => ImmichTranslationProvider(
-          translations: ImmichTranslations(
+        darkTheme: getThemeData(colorScheme: greatMemoriesTheme.dark, locale: context.locale),
+        theme: getThemeData(colorScheme: greatMemoriesTheme.light, locale: context.locale),
+        builder: (context, child) => GreatMemoriesTranslationProvider(
+          translations: GreatMemoriesTranslations(
             submit: "submit".t(context: context),
             password: "password".t(context: context),
           ),
-          child: ImmichThemeProvider(colorScheme: context.colorScheme, child: child!),
+          child: GreatMemoriesThemeProvider(colorScheme: context.colorScheme, child: child!),
         ),
         routerConfig: router.config(
           deepLinkBuilder: _deepLinkBuilder,
@@ -297,7 +297,7 @@ class MainWidget extends StatelessWidget {
       useFallbackTranslations: true,
       fallbackLocale: locales.values.first,
       assetLoader: const CodegenLoader(),
-      child: const ImmichApp(),
+      child: const GreatMemoriesApp(),
     );
   }
 }

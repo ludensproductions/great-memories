@@ -2,7 +2,7 @@
   import { shortcuts } from '$lib/actions/shortcut';
   import { editManager, EditToolType } from '$lib/managers/edit/edit-manager.svelte';
   import { websocketEvents } from '$lib/stores/websocket';
-  import { getAssetEdits, type AssetResponseDto } from '@immich/sdk';
+  import { getAssetEdits, type AssetResponseDto } from '@great-memories/sdk';
   import { Button, HStack, IconButton } from '@immich/ui';
   import { mdiClose } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';
@@ -54,7 +54,7 @@
   ]}
 />
 
-<section class="dark relative flex h-full flex-col p-2 pt-3 dark:bg-immich-dark-bg dark:text-immich-dark-fg">
+<section class="dark relative flex h-full flex-col p-2 pt-3 dark:bg-great-memories-dark-bg dark:text-great-memories-dark-fg">
   <HStack class="me-4 justify-between">
     <HStack>
       <IconButton
@@ -65,7 +65,7 @@
         aria-label={$t('close')}
         onclick={closeEditor}
       />
-      <p class="text-lg text-immich-fg capitalize dark:text-immich-dark-fg">{$t('editor')}</p>
+      <p class="text-lg text-great-memories-fg capitalize dark:text-great-memories-dark-fg">{$t('editor')}</p>
     </HStack>
     <Button shape="round" size="small" onclick={applyEdits} loading={editManager.isApplyingEdits}>{$t('save')}</Button>
   </HStack>

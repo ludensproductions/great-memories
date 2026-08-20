@@ -24,7 +24,7 @@
   import { navigate } from '$lib/utils/navigation';
   import { isTimelineAsset, toTimelineAsset } from '$lib/utils/timeline-util';
   import { TUNABLES } from '$lib/utils/tunables';
-  import { AssetVisibility, type AssetResponseDto } from '@immich/sdk';
+  import { AssetVisibility, type AssetResponseDto } from '@great-memories/sdk';
   import { modalManager } from '@immich/ui';
   import { debounce } from 'lodash-es';
   import { t } from 'svelte-i18n';

@@ -1,10 +1,10 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/models/user_metadata.model.dart';
-import 'package:immich_mobile/infrastructure/entities/auth_user.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/mapper.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/user_metadata.repository.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/domain/models/user_metadata.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/auth_user.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/mapper.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/user_metadata.repository.dart';
 
 class UserRepository {
   final Drift _db;

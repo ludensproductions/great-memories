@@ -1,4 +1,4 @@
-# Immich Machine Learning
+# Great Memories Machine Learning
 
 - Clasificación de imágenes
 - Incorporación de CLIP

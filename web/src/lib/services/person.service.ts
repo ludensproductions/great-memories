@@ -1,4 +1,4 @@
-import { updatePerson, type PersonResponseDto } from '@immich/sdk';
+import { updatePerson, type PersonResponseDto } from '@great-memories/sdk';
 import { modalManager, toastManager, type ActionItem } from '@immich/ui';
 import {
   mdiCalendarEditOutline,

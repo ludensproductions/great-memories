@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { mergePerson, type PersonResponseDto } from '@immich/sdk';
+  import { mergePerson, type PersonResponseDto } from '@great-memories/sdk';
   import { FormModal, Icon, IconButton, toastManager } from '@immich/ui';
   import { mdiArrowLeft, mdiCallMerge, mdiSwapHorizontal } from '@mdi/js';
   import { onMount, tick } from 'svelte';
@@ -94,7 +94,7 @@
       <button
         type="button"
         disabled={potentialMergePeople.length === 0}
-        class="flex size-28 items-center rounded-full border-2 border-immich-primary px-1 md:size-32 md:px-2 dark:border-immich-dark-primary"
+        class="flex size-28 items-center rounded-full border-2 border-great-memories-primary px-1 md:size-32 md:px-2 dark:border-great-memories-dark-primary"
         onclick={() => {
           if (potentialMergePeople.length > 0) {
             choosePersonToMerge = !choosePersonToMerge;

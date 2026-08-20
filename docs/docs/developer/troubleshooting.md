@@ -1,14 +1,14 @@
 # Troubleshooting
 
 :::tip
-A great option to get assistance with troubleshooting is to join our [Discord](https://discord.immich.app) server, where we have a dedicated channel for `#contributing`.
+A great option to get assistance with troubleshooting is to open a GitHub discussion.
 :::
 
 ## Known Issues
 
 ### Running on Windows
 
-Running Immich on Windows can be frustrating and there are lots of ways it can go wrong. Where possible we recommend using Docker on Linux. However, several people have had success running Immich on Windows using Docker via WSL2.
+Running Great Memories on Windows can be frustrating and there are lots of ways it can go wrong. Where possible we recommend using Docker on Linux. However, several people have had success running Great Memories on Windows using Docker via WSL2.
 
 ### NTFS Mounted Volumes
 

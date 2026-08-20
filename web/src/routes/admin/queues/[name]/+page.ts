@@ -1,4 +1,4 @@
-import { getQueue, getQueueJobs, QueueJobStatus } from '@immich/sdk';
+import { getQueue, getQueueJobs, QueueJobStatus } from '@great-memories/sdk';
 import { redirect } from '@sveltejs/kit';
 import { fromQueueSlug, Route } from '$lib/route';
 import { authenticate, requestServerInfo } from '$lib/utils/auth';

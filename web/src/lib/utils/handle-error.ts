@@ -1,4 +1,4 @@
-import { isHttpError } from '@immich/sdk';
+import { isHttpError } from '@great-memories/sdk';
 import { toastManager } from '@immich/ui';
 
 export function getServerErrorMessage(error: unknown) {
@@ -47,7 +47,7 @@ export function handleError(error: unknown, localizedMessage: string, options?: 
   try {
     let serverMessage = getServerErrorMessage(error);
     if (serverMessage) {
-      serverMessage = `${serverMessage.slice(0, 75)}\n(Immich Server Error)`;
+      serverMessage = `${serverMessage.slice(0, 75)}\n(Great Memories Server Error)`;
     }
 
     const errorMessage = serverMessage || localizedMessage;

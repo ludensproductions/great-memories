@@ -7,7 +7,6 @@
   import OnEvents from '$lib/components/OnEvents.svelte';
   import NavigationLoadingBar from './NavigationLoadingBar.svelte';
   import UploadPanel from './UploadPanel.svelte';
-  import VersionAnnouncement from './VersionAnnouncement.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { eventManager } from '$lib/managers/event-manager.svelte';
   import { serverConfigManager } from '$lib/managers/server-config-manager.svelte';
@@ -17,7 +16,7 @@
   import { sidebarStore } from '$lib/stores/sidebar.svelte';
   import { closeWebsocketConnection, openWebsocketConnection, websocketStore } from '$lib/stores/websocket';
   import { maintenanceShouldRedirect } from '$lib/utils/maintenance';
-  import { getServerConfig } from '@immich/sdk';
+  import { getServerConfig } from '@great-memories/sdk';
   import {
     CommandPaletteProvider,
     CORE_PAGE_COMMANDS,
@@ -172,7 +171,7 @@
   onMount(() => {
     const element = document.querySelector('#stencil');
     element?.remove();
-    // if the browser theme changes, changes the Immich theme too
+    // if the browser theme changes, changes the Great Memories theme too
   });
 
   eventManager.emit('AppInit');
@@ -232,10 +231,8 @@
 
 <OnEvents {onWebsocketConnect} />
 
-<VersionAnnouncement />
-
 <svelte:head>
-  <title>{page.data.meta?.title || 'Web'} - Immich</title>
+  <title>{page.data.meta?.title || 'Web'} - Great Memories</title>
   <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
   <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="black" media="(prefers-color-scheme: dark)" />

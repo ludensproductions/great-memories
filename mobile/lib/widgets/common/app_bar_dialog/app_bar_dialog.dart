@@ -5,26 +5,25 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/pages/common/settings.page.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/locale_provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/pages/common/settings.page.dart';
+import 'package:great_memories_mobile/providers/auth.provider.dart';
+import 'package:great_memories_mobile/providers/backup/backup.provider.dart';
+import 'package:great_memories_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:great_memories_mobile/providers/locale_provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/providers/websocket.provider.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/utils/bytes_units.dart';
+import 'package:great_memories_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
+import 'package:great_memories_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
+import 'package:great_memories_mobile/widgets/common/confirm_dialog.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_logo.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ImmichAppBarDialog extends HookConsumerWidget {
-  const ImmichAppBarDialog({super.key});
+class GreatMemoriesAppBarDialog extends HookConsumerWidget {
+  const GreatMemoriesAppBarDialog({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -58,7 +57,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 4),
                 child: Image.asset(
-                  context.isDarkTheme ? 'assets/immich-text-dark.png' : 'assets/immich-text-light.png',
+                  context.isDarkTheme ? 'assets/great-memories-text-dark.png' : 'assets/great-memories-text-light.png',
                   height: 16,
                 ),
               ),
@@ -178,22 +177,6 @@ class ImmichAppBarDialog extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {
-                ContextHelper(context).pop();
-                launchUrl(Uri.parse('https://docs.immich.app'), mode: LaunchMode.externalApplication);
-              },
-              child: Text("documentation", style: context.textTheme.bodySmall).tr(),
-            ),
-            const SizedBox(width: 20, child: Text("•", textAlign: TextAlign.center)),
-            InkWell(
-              onTap: () {
-                ContextHelper(context).pop();
-                launchUrl(Uri.parse('https://github.com/immich-app/immich'), mode: LaunchMode.externalApplication);
-              },
-              child: Text("profile_drawer_github", style: context.textTheme.bodySmall).tr(),
-            ),
-            const SizedBox(width: 20, child: Text("•", textAlign: TextAlign.center)),
-            InkWell(
               onTap: () async {
                 ContextHelper(context).pop();
                 final packageInfo = await PackageInfo.fromPlatform();
@@ -201,7 +184,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
                   context: context,
                   applicationIcon: const Padding(
                     padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                    child: ImmichLogo(size: 40),
+                    child: GreatMemoriesLogo(size: 40),
                   ),
                   applicationVersion: packageInfo.version,
                 );

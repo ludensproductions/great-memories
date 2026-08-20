@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:great_memories_mobile/widgets/common/confirm_dialog.dart';
 
 class DismissibleActivity extends StatelessWidget {
   final String activityId;

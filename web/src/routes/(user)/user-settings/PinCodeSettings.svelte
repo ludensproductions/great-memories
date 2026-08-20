@@ -2,7 +2,7 @@
   import OnEvents from '$lib/components/OnEvents.svelte';
   import PinCodeChangeForm from './PinCodeChangeForm.svelte';
   import PinCodeCreateForm from '$lib/components/user-settings-page/PinCodeCreateForm.svelte';
-  import { getAuthStatus } from '@immich/sdk';
+  import { getAuthStatus } from '@great-memories/sdk';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 

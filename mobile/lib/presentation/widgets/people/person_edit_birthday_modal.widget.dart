@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/providers/infrastructure/people.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/domain/models/person.model.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/providers/infrastructure/people.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:great_memories_mobile/utils/debug_print.dart';
 
 class DriftPersonBirthdayEditForm extends ConsumerStatefulWidget {
   final DriftPerson person;
@@ -43,7 +43,7 @@ class _DriftPersonNameEditFormState extends ConsumerState<DriftPersonBirthdayEdi
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: 'scaffold_body_error_occurred'.t(context: context),
         gravity: ToastGravity.BOTTOM,

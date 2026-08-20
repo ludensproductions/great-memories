@@ -16,7 +16,7 @@
   import { fileUploadHandler, openFileUploadDialog } from '$lib/utils/file-uploader';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { getAssetInfo, type SharedLinkResponseDto } from '@immich/sdk';
+  import { getAssetInfo, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { IconButton, Logo, toastManager } from '@immich/ui';
   import { mdiDownload, mdiFileImagePlusOutline, mdiSelectAll } from '@mdi/js';
   import { t } from 'svelte-i18n';
@@ -44,7 +44,7 @@
   });
 
   const downloadAssets = async () => {
-    await downloadArchive(`immich-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
+    await downloadArchive(`great-memories-shared.zip`, { assetIds: assets.map((asset) => asset.id) });
   };
 
   const handleUploadAssets = async (files: File[] = []) => {
@@ -93,7 +93,7 @@
           onclick={handleSelectAll}
         />
         {#if sharedLink?.allowDownload}
-          <DownloadAction filename="immich-shared.zip" />
+          <DownloadAction filename="great-memories-shared.zip" />
         {/if}
         {#if isOwned}
           <RemoveFromSharedLink bind:sharedLink />

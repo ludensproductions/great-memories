@@ -7,7 +7,7 @@ import {
   getUserAdmin,
   getUserPreferencesAdmin,
   login,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { Socket } from 'socket.io-client';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
@@ -132,7 +132,7 @@ describe('/admin/users', () => {
           isAdmin: true,
           email: 'user5@immich.cloud',
           password: 'password123',
-          name: 'Immich',
+          name: 'Great Memories',
         })
         .set('Authorization', `Bearer ${admin.accessToken}`);
       expect(body).toMatchObject({

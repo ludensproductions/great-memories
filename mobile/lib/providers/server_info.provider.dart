@@ -1,12 +1,12 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
-import 'package:immich_mobile/services/server_info.service.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/domain/models/user.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_config.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_features.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_info.model.dart';
+import 'package:great_memories_mobile/models/server_info/server_version.model.dart';
+import 'package:great_memories_mobile/services/server_info.service.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -56,13 +56,13 @@ class ServerInfoNotifier extends StateNotifier<ServerInfo> {
     }
   }
 
-  _checkServerVersionMismatch(ServerVersion serverVersion, {ServerVersion? latestVersion}) async {
-    state = state.copyWith(serverVersion: serverVersion, latestVersion: latestVersion);
+  _checkServerVersionMismatch(ServerVersion serverVersion) async {
+    state = state.copyWith(serverVersion: serverVersion);
 
     var packageInfo = await PackageInfo.fromPlatform();
     SemVer clientVersion = SemVer.fromString(packageInfo.version);
 
-    if (serverVersion < clientVersion || (latestVersion != null && serverVersion < latestVersion)) {
+    if (serverVersion < clientVersion) {
       state = state.copyWith(versionStatus: VersionStatus.serverOutOfDate);
       return;
     }
@@ -73,11 +73,6 @@ class ServerInfoNotifier extends StateNotifier<ServerInfo> {
     }
 
     state = state.copyWith(versionStatus: VersionStatus.upToDate);
-  }
-
-  handleReleaseInfo(ServerVersion serverVersion, ServerVersion? latestVersion) {
-    // Update local server version
-    _checkServerVersionMismatch(serverVersion, latestVersion: latestVersion);
   }
 
   getServerFeatures() async {
@@ -105,7 +100,7 @@ final versionWarningPresentProvider = Provider.family<bool, UserDto?>((ref, user
   final serverInfo = ref.watch(serverInfoProvider);
   return switch (serverInfo.versionStatus) {
     VersionStatus.clientOutOfDate || VersionStatus.error => true,
-    VersionStatus.serverOutOfDate => serverInfo.latestVersion != null && (user?.isAdmin ?? false),
+    VersionStatus.serverOutOfDate => user?.isAdmin ?? false,
     VersionStatus.upToDate => false,
   };
 });

@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:great_memories_ui/src/constants.dart';
+import 'package:great_memories_ui/src/internal.dart';
 
-class ImmichColumnButton extends StatefulWidget {
+class GreatMemoriesColumnButton extends StatefulWidget {
   final IconData icon;
   final String label;
   final FutureOr<void> Function() onPressed;
   final bool disabled;
   final bool? loading;
 
-  const ImmichColumnButton({
+  const GreatMemoriesColumnButton({
     super.key,
     required this.icon,
     required this.label,
@@ -21,10 +21,10 @@ class ImmichColumnButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichColumnButton> createState() => _ImmichColumnButtonState();
+  State<GreatMemoriesColumnButton> createState() => _GreatMemoriesColumnButtonState();
 }
 
-class _ImmichColumnButtonState extends State<ImmichColumnButton> {
+class _GreatMemoriesColumnButtonState extends State<GreatMemoriesColumnButton> {
   bool _loading = false;
   bool get _isLoading => widget.loading ?? _loading;
 
@@ -47,9 +47,9 @@ class _ImmichColumnButtonState extends State<ImmichColumnButton> {
       onPressed: widget.disabled || _isLoading ? null : _onPressed,
       style: TextButton.styleFrom(
         foregroundColor: foreground,
-        padding: const .symmetric(horizontal: ImmichSpacing.sm, vertical: ImmichSpacing.md),
+        padding: const .symmetric(horizontal: GreatMemoriesSpacing.sm, vertical: GreatMemoriesSpacing.md),
         tapTargetSize: .shrinkWrap,
-        shape: const RoundedRectangleBorder(borderRadius: .all(.circular(ImmichRadius.xl))),
+        shape: const RoundedRectangleBorder(borderRadius: .all(.circular(GreatMemoriesRadius.xl))),
       ),
       child: ConstrainedBox(
         constraints: const .new(maxWidth: 90),
@@ -58,17 +58,17 @@ class _ImmichColumnButtonState extends State<ImmichColumnButton> {
           children: [
             _isLoading
                 ? const SizedBox.square(
-                    dimension: ImmichIconSize.md,
-                    child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+                    dimension: GreatMemoriesIconSize.md,
+                    child: CircularProgressIndicator(strokeWidth: GreatMemoriesBorderWidth.lg),
                   )
-                : Icon(widget.icon, size: ImmichIconSize.md),
-            const SizedBox(height: ImmichSpacing.sm),
+                : Icon(widget.icon, size: GreatMemoriesIconSize.md),
+            const SizedBox(height: GreatMemoriesSpacing.sm),
             Text(
               widget.label,
               maxLines: 2,
               textAlign: .center,
               overflow: .ellipsis,
-              style: const .new(fontSize: ImmichTextSize.label, fontWeight: .w500),
+              style: const .new(fontSize: GreatMemoriesTextSize.label, fontWeight: .w500),
             ),
           ],
         ),

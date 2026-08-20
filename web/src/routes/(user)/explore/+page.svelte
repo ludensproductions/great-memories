@@ -7,7 +7,7 @@
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { Route } from '$lib/route';
   import { getAssetMediaUrl, getPeopleThumbnailUrl } from '$lib/utils';
-  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@immich/sdk';
+  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@great-memories/sdk';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Icon } from '@immich/ui';
   import { mdiHeart } from '@mdi/js';
@@ -60,10 +60,10 @@
   {#if hasPeople}
     <div class="mt-2 mb-6">
       <div class="flex justify-between">
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">{$t('people')}</p>
+        <p class="mb-4 font-medium dark:text-great-memories-dark-fg">{$t('people')}</p>
         <a
           href={Route.people()}
-          class="pe-4 text-sm font-medium hover:text-immich-primary dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+          class="pe-4 text-sm font-medium hover:text-great-memories-primary dark:text-great-memories-dark-fg dark:hover:text-great-memories-dark-primary"
           draggable="false">{$t('view_all')}</a
         >
       </div>
@@ -94,10 +94,10 @@
   {#if places.length > 0}
     <div class="mt-2 mb-6">
       <div class="flex justify-between">
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">{$t('places')}</p>
+        <p class="mb-4 font-medium dark:text-great-memories-dark-fg">{$t('places')}</p>
         <a
           href={Route.places()}
-          class="pe-4 text-sm font-medium hover:text-immich-primary dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+          class="pe-4 text-sm font-medium hover:text-great-memories-primary dark:text-great-memories-dark-fg dark:hover:text-great-memories-dark-primary"
           draggable="false">{$t('view_all')}</a
         >
       </div>
@@ -127,10 +127,10 @@
   {#if recents.length > 0}
     <div class="mt-2 mb-6">
       <div class="flex justify-between">
-        <p class="mb-4 font-medium dark:text-immich-dark-fg">{$t('recently_added')}</p>
+        <p class="mb-4 font-medium dark:text-great-memories-dark-fg">{$t('recently_added')}</p>
         <a
           href={Route.recentlyAdded()}
-          class="pe-4 text-sm font-medium hover:text-immich-primary dark:text-immich-dark-fg dark:hover:text-immich-dark-primary"
+          class="pe-4 text-sm font-medium hover:text-great-memories-primary dark:text-great-memories-dark-fg dark:hover:text-great-memories-dark-primary"
           draggable="false">{$t('view_all')}</a
         >
       </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Combobox, { type ComboBoxOption } from '$lib/components/shared-components/Combobox.svelte';
   import { handleCreateJob } from '$lib/services/job.service';
-  import { ManualJobName } from '@immich/sdk';
+  import { ManualJobName } from '@great-memories/sdk';
   import { FormModal } from '@immich/ui';
   import { t } from 'svelte-i18n';
 

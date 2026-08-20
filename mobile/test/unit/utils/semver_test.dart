@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:great_memories_mobile/utils/semver.dart';
 
 void main() {
   group('SemVer', () {

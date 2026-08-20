@@ -34,20 +34,20 @@ const claims = [
     sub: OAuthUser.WITH_USERNAME,
     email: 'oauth-with-username@immich.app',
     email_verified: true,
-    immich_username: 'user-username',
+    great_memories_username: 'user-username',
   },
   {
     sub: OAuthUser.WITH_QUOTA,
     email: 'oauth-with-quota@immich.app',
     email_verified: true,
     preferred_username: 'user-quota',
-    immich_quota: 25,
+    great_memories_quota: 25,
   },
   {
     sub: OAuthUser.WITH_ROLE,
     email: 'oauth-with-role@immich.app',
     email_verified: true,
-    immich_role: 'admin',
+    great_memories_role: 'admin',
   },
 ];
 
@@ -121,9 +121,9 @@ const setup = async () => {
         'given_name',
         'family_name',
         'preferred_username',
-        'immich_quota',
-        'immich_username',
-        'immich_role',
+        'great_memories_quota',
+        'great_memories_username',
+        'great_memories_role',
       ],
     },
     features: {

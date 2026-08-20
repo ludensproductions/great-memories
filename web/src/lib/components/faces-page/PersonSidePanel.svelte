@@ -16,7 +16,7 @@
     reassignFacesById,
     type AssetFaceResponseDto,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Icon, IconButton, LoadingSpinner, modalManager, toastManager } from '@immich/ui';
   import { mdiAccountOff, mdiArrowLeftThin, mdiPencil, mdiRestart, mdiTrashCan } from '@mdi/js';
   import { onMount } from 'svelte';
@@ -202,7 +202,7 @@
 
 <section
   transition:fly={{ x: 360, duration: 100, easing: linear }}
-  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-immich-dark-fg"
+  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-great-memories-dark-fg"
 >
   <div class="flex place-items-center justify-between gap-2">
     <div class="flex items-center gap-2">
@@ -214,12 +214,12 @@
         aria-label={$t('back')}
         onclick={onClose}
       />
-      <p class="flex text-lg text-immich-fg dark:text-immich-dark-fg">{$t('edit_faces')}</p>
+      <p class="flex text-lg text-great-memories-fg dark:text-great-memories-dark-fg">{$t('edit_faces')}</p>
     </div>
     {#if !isShowLoadingDone}
       <button
         type="button"
-        class="justify-self-end rounded-lg p-2 hover:bg-immich-dark-primary hover:dark:bg-immich-dark-primary/50"
+        class="justify-self-end rounded-lg p-2 hover:bg-great-memories-dark-primary hover:dark:bg-great-memories-dark-primary/50"
         onclick={() => handleEditFaces()}
       >
         {$t('done')}

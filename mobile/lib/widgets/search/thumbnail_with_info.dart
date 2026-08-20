@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:immich_mobile/widgets/search/thumbnail_with_info_container.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:great_memories_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:great_memories_mobile/widgets/search/thumbnail_with_info_container.dart';
 
 class ThumbnailWithInfo extends StatelessWidget {
   const ThumbnailWithInfo({

@@ -4,7 +4,7 @@ import { playwrightHost } from 'src/../playwright.config';
 export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserId: string) => {
   await context.addCookies([
     {
-      name: 'immich_is_authenticated',
+      name: 'great_memories_is_authenticated',
       value: 'true',
       domain: playwrightHost,
       path: '/',
@@ -17,7 +17,7 @@ export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserI
       json: {
         id: adminUserId,
         email: 'admin@immich.cloud',
-        name: 'Immich Admin',
+        name: 'Great Memories Admin',
         profileImagePath: '',
         avatarColor: 'orange',
         profileChangedAt: '2025-01-22T21:31:23.996Z',
@@ -94,17 +94,17 @@ export const setupBaseMockApiRoutes = async (context: BrowserContext, adminUserI
       contentType: 'application/json',
       json: {
         version: 'v2.2.3',
-        versionUrl: 'https://github.com/immich-app/immich/releases/tag/v2.2.3',
+        versionUrl: 'https://github.com/ludensproductions/great-memories/releases/tag/v2.2.3',
         licensed: false,
         build: '1234567890',
-        buildUrl: 'https://github.com/immich-app/immich/actions/runs/1234567890',
+        buildUrl: 'https://github.com/ludensproductions/great-memories/actions/runs/1234567890',
         buildImage: 'e2e',
-        buildImageUrl: 'https://github.com/immich-app/immich/pkgs/container/immich-server',
-        repository: 'immich-app/immich',
-        repositoryUrl: 'https://github.com/immich-app/immich',
+        buildImageUrl: 'https://github.com/ludensproductions/great-memories/pkgs/container/great-memories-server',
+        repository: 'ludensproductions/great-memories',
+        repositoryUrl: 'https://github.com/ludensproductions/great-memories',
         sourceRef: 'e2e',
         sourceCommit: 'e2eeeeeeeeeeeeeeeeee',
-        sourceUrl: 'https://github.com/immich-app/immich/commit/e2eeeeeeeeeeeeeeeeee',
+        sourceUrl: 'https://github.com/ludensproductions/great-memories/commit/e2eeeeeeeeeeeeeeeeee',
         nodejs: 'v22.18.0',
         exiftool: '13.41',
         ffmpeg: '7.1.1-6',

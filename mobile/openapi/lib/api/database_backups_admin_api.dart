@@ -174,7 +174,7 @@ class DatabaseBackupsAdminApi {
 
   /// Start database backup restore flow
   ///
-  /// Put Immich into maintenance mode to restore a backup (Immich must not be configured)
+  /// Put Great Memories into maintenance mode to restore a backup (Great Memories must not be configured)
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> startDatabaseRestoreFlowWithHttpInfo({ Future<void>? abortTrigger, }) async {
@@ -205,7 +205,7 @@ class DatabaseBackupsAdminApi {
 
   /// Start database backup restore flow
   ///
-  /// Put Immich into maintenance mode to restore a backup (Immich must not be configured)
+  /// Put Great Memories into maintenance mode to restore a backup (Great Memories must not be configured)
   Future<void> startDatabaseRestoreFlow({ Future<void>? abortTrigger, }) async {
     final response = await startDatabaseRestoreFlowWithHttpInfo(abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {

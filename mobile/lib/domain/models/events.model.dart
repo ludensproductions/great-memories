@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/utils/event_stream.dart';
+import 'package:great_memories_mobile/domain/utils/event_stream.dart';
 
 // Timeline Events
 class TimelineReloadEvent extends Event {

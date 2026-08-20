@@ -103,7 +103,7 @@ jobs:
           flavor: |
             latest=false
           images: |
-            name=ghcr.io/${{ github.repository_owner }}/immich-cli
+            name=ghcr.io/${{ github.repository_owner }}/great-memories-cli
           tags: |
             type=raw,value=${{ steps.package-version.outputs.version }},enable=${{ github.event_name == 'release' }}
             type=raw,value=latest,enable=${{ github.event_name == 'release' && !github.event.release.prerelease }}

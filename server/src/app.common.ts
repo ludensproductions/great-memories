@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import helmetMiddleware from 'helmet';
 import { existsSync } from 'node:fs';
 import sirv from 'sirv';
-import { IMMICH_SERVER_START, excludePaths, serverVersion } from 'src/constants';
+import { GREAT_MEMORIES_SERVER_START, excludePaths, serverVersion } from 'src/constants';
 import { MaintenanceWorkerService } from 'src/maintenance/maintenance-worker.service';
 import { WebSocketAdapter } from 'src/middleware/websocket.adapter';
 import { ConfigRepository } from 'src/repositories/config.repository';
@@ -91,5 +91,5 @@ export async function configureExpress(
   const server = await (host ? app.listen(port, host) : app.listen(port));
   server.requestTimeout = 24 * 60 * 60 * 1000;
 
-  logger.log(`${IMMICH_SERVER_START} on ${await app.getUrl()} [v${serverVersion}] [${environment}] `);
+  logger.log(`${GREAT_MEMORIES_SERVER_START} on ${await app.getUrl()} [v${serverVersion}] [${environment}] `);
 }

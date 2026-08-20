@@ -2,14 +2,14 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:collection/collection.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
-import 'package:immich_mobile/utils/async_mutex.dart';
+import 'package:great_memories_mobile/constants/constants.dart';
+import 'package:great_memories_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:great_memories_mobile/domain/models/events.model.dart';
+import 'package:great_memories_mobile/domain/models/timeline.model.dart';
+import 'package:great_memories_mobile/domain/utils/event_stream.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:great_memories_mobile/utils/async_mutex.dart';
 
 typedef TimelineAssetSource = Future<List<BaseAsset>> Function(int index, int count);
 

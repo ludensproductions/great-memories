@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/extensions/translate_extensions.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
-import 'package:immich_mobile/presentation/actions/timeline.action.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/delete_local_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/edit_date_time_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/edit_location_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/remove_from_album_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/set_album_cover.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/share_link_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/stack_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/trash_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/unstack_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/album/album.model.dart';
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:great_memories_mobile/presentation/actions/action.widget.dart';
+import 'package:great_memories_mobile/presentation/actions/favorite.action.dart';
+import 'package:great_memories_mobile/presentation/actions/timeline.action.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/archive_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/delete_local_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/delete_permanent_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/download_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/edit_date_time_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/edit_location_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/move_to_lock_folder_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/remove_from_album_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/set_album_cover.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/share_link_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/stack_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/trash_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/action_buttons/unstack_action_button.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:great_memories_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
+import 'package:great_memories_mobile/providers/server_info.provider.dart';
+import 'package:great_memories_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:great_memories_mobile/providers/user.provider.dart';
+import 'package:great_memories_mobile/widgets/common/great_memories_toast.dart';
 
 class RemoteAlbumBottomSheet extends ConsumerStatefulWidget {
   final RemoteAlbum album;
@@ -65,7 +65,7 @@ class _RemoteAlbumBottomSheetState extends ConsumerState<RemoteAlbumBottomSheet>
       }
 
       if (!result.success) {
-        ImmichToast.show(
+        GreatMemoriesToast.show(
           context: context,
           msg: 'scaffold_body_error_occurred'.t(context: context),
           toastType: ToastType.error,
@@ -73,7 +73,7 @@ class _RemoteAlbumBottomSheetState extends ConsumerState<RemoteAlbumBottomSheet>
         return;
       }
 
-      ImmichToast.show(
+      GreatMemoriesToast.show(
         context: context,
         msg: result.count == 0
             ? 'add_to_album_bottom_sheet_already_exists'.t(context: context, args: {"album": album.name})

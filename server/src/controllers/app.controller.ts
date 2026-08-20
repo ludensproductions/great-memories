@@ -7,8 +7,18 @@ export class AppController {
   constructor(private service: SystemConfigService) {}
 
   @ApiExcludeEndpoint()
-  @Get('.well-known/immich')
-  getImmichWellKnown() {
+  @Get('.well-known/great-memories')
+  getLegacyWellKnown() {
+    return this.getWellKnown();
+  }
+
+  @ApiExcludeEndpoint()
+  @Get('.well-known/great-memories')
+  getGreatMemoriesWellKnown() {
+    return this.getWellKnown();
+  }
+
+  private getWellKnown() {
     return {
       api: {
         endpoint: '/api',

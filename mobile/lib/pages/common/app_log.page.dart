@@ -3,12 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
+import 'package:great_memories_mobile/domain/models/log.model.dart';
+import 'package:great_memories_mobile/domain/services/log.service.dart';
+import 'package:great_memories_mobile/extensions/build_context_extensions.dart';
+import 'package:great_memories_mobile/extensions/theme_extensions.dart';
+import 'package:great_memories_mobile/routing/router.dart';
+import 'package:great_memories_mobile/services/great_memories_logger.service.dart';
 
 @RoutePage()
 class AppLogPage extends HookConsumerWidget {
@@ -16,9 +16,9 @@ class AppLogPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final immichLogger = LogService.I;
+    final greatMemoriesLogger = LogService.I;
     final shouldReload = useState(false);
-    final logMessages = useFuture(useMemoized(() => immichLogger.getMessages(), [shouldReload.value]));
+    final logMessages = useFuture(useMemoized(() => greatMemoriesLogger.getMessages(), [shouldReload.value]));
 
     Widget colorStatusIndicator(Color color) {
       return Column(
@@ -61,7 +61,7 @@ class AppLogPage extends HookConsumerWidget {
               size: 20.0,
             ),
             onPressed: () {
-              immichLogger.clearLogs();
+              greatMemoriesLogger.clearLogs();
               shouldReload.value = !shouldReload.value;
             },
           ),
@@ -70,7 +70,7 @@ class AppLogPage extends HookConsumerWidget {
               return IconButton(
                 icon: Icon(Icons.share_rounded, color: context.primaryColor, semanticLabel: "Share logs", size: 20.0),
                 onPressed: () {
-                  ImmichLogger.shareLogs(iconContext);
+                  GreatMemoriesLogger.shareLogs(iconContext);
                 },
               );
             },

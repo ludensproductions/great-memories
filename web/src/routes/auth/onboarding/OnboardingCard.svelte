@@ -30,7 +30,7 @@
 
 <div
   id="onboarding-card"
-  class="flex w-full max-w-4xl flex-col gap-4 rounded-3xl border-2 border-gray-500 bg-gray-50 p-8 text-black dark:border-gray-700 dark:bg-immich-dark-gray dark:text-immich-dark-fg"
+  class="flex w-full max-w-4xl flex-col gap-4 rounded-3xl border-2 border-gray-500 bg-gray-50 p-8 text-black dark:border-gray-700 dark:bg-great-memories-dark-gray dark:text-great-memories-dark-fg"
   in:fade={{ duration: 250 }}
 >
   {#if title || icon}

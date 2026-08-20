@@ -8,7 +8,7 @@ import {
   getAllTags,
   tagAssets,
   upsertTags,
-} from '@immich/sdk';
+} from '@great-memories/sdk';
 import { createUserDto, uuidDto } from 'src/fixtures';
 import { errorDto } from 'src/responses';
 import { app, asBearerAuth, utils } from 'src/utils';

@@ -70,7 +70,7 @@ class PermissionApi {
 
   Future<PermissionStatus> isIgnoringBatteryOptimizations() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.PermissionApi.isIgnoringBatteryOptimizations$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.PermissionApi.isIgnoringBatteryOptimizations$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -89,7 +89,7 @@ class PermissionApi {
 
   Future<bool> hasManageMediaPermission() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.PermissionApi.hasManageMediaPermission$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.PermissionApi.hasManageMediaPermission$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -108,7 +108,7 @@ class PermissionApi {
 
   Future<bool> requestManageMediaPermission() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.PermissionApi.requestManageMediaPermission$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.PermissionApi.requestManageMediaPermission$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
@@ -127,7 +127,7 @@ class PermissionApi {
 
   Future<bool> manageMediaPermission() async {
     final pigeonVar_channelName =
-        'dev.flutter.pigeon.immich_mobile.PermissionApi.manageMediaPermission$pigeonVar_messageChannelSuffix';
+        'dev.flutter.pigeon.great_memories_mobile.PermissionApi.manageMediaPermission$pigeonVar_messageChannelSuffix';
     final pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,

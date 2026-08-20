@@ -6,7 +6,7 @@
   import { asQueueItem } from '$lib/services/queue.service';
   import { locale } from '$lib/stores/preferences.store';
   import { transformToTitleCase } from '$lib/utils';
-  import { QueueCommand, type QueueCommandDto, type QueueResponseDto } from '@immich/sdk';
+  import { QueueCommand, type QueueCommandDto, type QueueResponseDto } from '@great-memories/sdk';
   import { Badge, Icon, IconButton, Link } from '@immich/ui';
   import {
     mdiAlertCircle,
@@ -43,7 +43,7 @@
   const commonClasses = 'flex place-items-center justify-between w-full py-2 sm:py-4 pe-4 ps-6';
 </script>
 
-<div class="sm:rounded-9 flex flex-col overflow-hidden rounded-2xl bg-gray-100 sm:flex-row dark:bg-immich-dark-gray">
+<div class="sm:rounded-9 flex flex-col overflow-hidden rounded-2xl bg-gray-100 sm:flex-row dark:bg-great-memories-dark-gray">
   <div class="flex w-full flex-col">
     {#if queue.isPaused}
       <QueueCardBadge color="warning">{$t('paused')}</QueueCardBadge>
@@ -96,7 +96,7 @@
         <div
           class={cleanClass(
             commonClasses,
-            'rounded-t-lg bg-immich-primary text-white dark:bg-immich-dark-primary dark:text-immich-dark-gray sm:rounded-s-lg sm:rounded-e-none',
+            'rounded-t-lg bg-great-memories-primary text-white dark:bg-great-memories-dark-primary dark:text-great-memories-dark-gray sm:rounded-s-lg sm:rounded-e-none',
           )}
         >
           <p>{$t('active')}</p>
@@ -108,7 +108,7 @@
         <div
           class={cleanClass(
             commonClasses,
-            'flex-row-reverse rounded-b-lg bg-gray-200 text-immich-dark-bg dark:bg-gray-700 dark:text-immich-gray sm:rounded-s-none sm:rounded-e-lg',
+            'flex-row-reverse rounded-b-lg bg-gray-200 text-great-memories-dark-bg dark:bg-gray-700 dark:text-great-memories-gray sm:rounded-s-none sm:rounded-e-lg',
           )}
         >
           <p class="text-2xl">

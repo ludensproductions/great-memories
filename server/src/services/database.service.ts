@@ -23,32 +23,32 @@ const messages = {
     Please run 'DROP EXTENSION IF EXISTS ${extension}' and switch to a release version.
     See https://docs.immich.app/guides/database-queries for how to query the database.`,
   outOfRange: ({ name, version, range }: OutOfRangeArgs) =>
-    `The ${name} extension version is ${version}, but Immich only supports ${range}.
+    `The ${name} extension version is ${version}, but Great Memories only supports ${range}.
     Please change ${name} to a compatible version in the Postgres instance.`,
   createFailed: ({ name, extension }: CreateFailedArgs) =>
     `Failed to activate ${name} extension.
     Please ensure the Postgres instance has ${name} installed.
 
-    If the Postgres instance already has ${name} installed, Immich may not have the necessary permissions to activate it.
+    If the Postgres instance already has ${name} installed, Great Memories may not have the necessary permissions to activate it.
     In this case, please run 'CREATE EXTENSION IF NOT EXISTS ${extension} CASCADE' manually as a superuser.
     See https://docs.immich.app/guides/database-queries for how to query the database.`,
   updateFailed: ({ name, extension, availableVersion }: UpdateFailedArgs) =>
     `The ${name} extension can be updated to ${availableVersion}.
-    Immich attempted to update the extension, but failed to do so.
-    This may be because Immich does not have the necessary permissions to update the extension.
+    Great Memories attempted to update the extension, but failed to do so.
+    This may be because Great Memories does not have the necessary permissions to update the extension.
 
     Please run 'ALTER EXTENSION ${extension} UPDATE' manually as a superuser.
     See https://docs.immich.app/guides/database-queries for how to query the database.`,
   dropFailed: ({ name, extension }: DropFailedArgs) =>
     `The ${name} extension is no longer needed, but could not be dropped.
-    This may be because Immich does not have the necessary permissions to drop the extension.
+    This may be because Great Memories does not have the necessary permissions to drop the extension.
 
     Please run 'DROP EXTENSION ${extension};' manually as a superuser.
     See https://docs.immich.app/guides/database-queries for how to query the database.`,
   invalidDowngrade: ({ name, installedVersion, availableVersion }: InvalidDowngradeArgs) =>
     `The database currently has ${name} ${installedVersion} activated, but the Postgres instance only has ${availableVersion} available.
     This most likely means the extension was downgraded.
-    If ${name} ${installedVersion} is compatible with Immich, please ensure the Postgres instance has this available.`,
+    If ${name} ${installedVersion} is compatible with Great Memories, please ensure the Postgres instance has this available.`,
 };
 
 @Injectable()
@@ -120,7 +120,7 @@ export class DatabaseService extends BaseService {
         if (drift.items.length === 0) {
           this.logger.log('No schema drift detected');
         } else {
-          this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`immich-admin schema-check\``);
+          this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`great-memories-admin schema-check\``);
           for (const warning of drift.asHuman()) {
             this.logger.warn(`  - ${warning}`);
           }

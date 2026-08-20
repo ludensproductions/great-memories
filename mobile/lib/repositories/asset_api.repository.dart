@@ -1,10 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart' hide AssetEditAction;
-import 'package:immich_mobile/domain/models/stack.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/repositories/api.repository.dart';
+import 'package:great_memories_mobile/constants/enums.dart';
+import 'package:great_memories_mobile/domain/models/asset_edit.model.dart' hide AssetEditAction;
+import 'package:great_memories_mobile/domain/models/stack.model.dart';
+import 'package:great_memories_mobile/providers/api.provider.dart';
+import 'package:great_memories_mobile/repositories/api.repository.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:openapi/api.dart';
 

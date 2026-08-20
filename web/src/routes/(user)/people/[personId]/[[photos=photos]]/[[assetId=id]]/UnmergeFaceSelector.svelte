@@ -7,7 +7,7 @@
     reassignFaces,
     type AssetFaceUpdateItem,
     type PersonResponseDto,
-  } from '@immich/sdk';
+  } from '@great-memories/sdk';
   import { Button, toastManager } from '@immich/ui';
   import { mdiMerge, mdiPlus } from '@mdi/js';
   import { onMount, type Snippet } from 'svelte';

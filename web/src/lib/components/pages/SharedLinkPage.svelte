@@ -8,7 +8,7 @@
   import { setSharedLink } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
   import { navigate } from '$lib/utils/navigation';
-  import { sharedLinkLogin, SharedLinkType, type AssetResponseDto, type SharedLinkResponseDto } from '@immich/sdk';
+  import { sharedLinkLogin, SharedLinkType, type AssetResponseDto, type SharedLinkResponseDto } from '@great-memories/sdk';
   import { Button, Logo, PasswordInput } from '@immich/ui';
   import { onDestroy, tick } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -45,7 +45,7 @@
       sharedLink = await sharedLinkLogin({ key, slug, sharedLinkLoginDto: { password } });
       setSharedLink(sharedLink);
       passwordRequired = false;
-      title = (sharedLink.album ? sharedLink.album.albumName : $t('public_share')) + ' - Immich';
+      title = (sharedLink.album ? sharedLink.album.albumName : $t('public_share')) + ' - Great Memories';
       description =
         sharedLink.description ||
         $t('shared_photos_and_videos_count', { values: { assetCount: sharedLink.assets.length } });
@@ -109,7 +109,7 @@
   <AlbumViewer {sharedLink} />
 {/if}
 {#if !passwordRequired && sharedLink?.type === SharedLinkType.Individual}
-  <div class="immich-scrollbar">
+  <div class="great-memories-scrollbar">
     <IndividualSharedViewer {sharedLink} {isOwned} />
   </div>
 {/if}

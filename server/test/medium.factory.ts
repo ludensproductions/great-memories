@@ -83,7 +83,7 @@ import { automock, wait } from 'test/utils';
 import { Mocked } from 'vitest';
 
 // eslint-disable-next-line unicorn/prefer-module
-export const testAssetsDir = resolve(__dirname, '../../e2e/test-assets');
+export const testAssetsDir = resolve(__dirname, '../../e2e/assets');
 
 type MediumTestOptions = {
   mock: ClassConstructor<any>[];

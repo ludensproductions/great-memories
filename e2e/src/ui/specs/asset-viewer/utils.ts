@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import type { AssetResponseDto } from '@immich/sdk';
+import type { AssetResponseDto } from '@great-memories/sdk';
 import { BrowserContext, Page, test } from '@playwright/test';
 import {
   Changes,
@@ -84,7 +84,7 @@ export function setupAssetViewerFixture(seed: number): AssetViewerTestFixture {
 }
 
 export async function ensureDetailPanelVisible(page: Page) {
-  await page.waitForSelector('#immich-asset-viewer');
+  await page.waitForSelector('#great-memories-asset-viewer');
 
   const isVisible = await page.locator('#detail-panel').isVisible();
   if (!isVisible) {

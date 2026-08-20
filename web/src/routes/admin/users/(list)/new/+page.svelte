@@ -63,7 +63,7 @@
 
 <FormModal title={$t('create_new_user')} size="small" disabled={!valid} submitText={$t('create')} {onClose} {onSubmit}>
   {#if success}
-    <p class="text-sm text-immich-primary">{$t('new_user_created')}</p>
+    <p class="text-sm text-great-memories-primary">{$t('new_user_created')}</p>
   {/if}
 
   <Stack gap={4}>

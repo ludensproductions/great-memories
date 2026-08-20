@@ -15,7 +15,7 @@ import {
   AssetStatus,
   CacheControl,
   DatabaseLock,
-  ImmichWorker,
+  GreatMemoriesWorker,
   IntegrityReport,
   JobName,
   JobStatus,
@@ -34,7 +34,7 @@ import {
   IIntegrityPathWithReportJob,
   IIntegrityUntrackedFilesJob,
 } from 'src/types';
-import { ImmichFileResponse } from 'src/utils/file';
+import { GreatMemoriesFileResponse } from 'src/utils/file';
 import { handlePromiseError } from 'src/utils/misc';
 
 /**
@@ -65,7 +65,7 @@ import { handlePromiseError } from 'src/utils/misc';
 export class IntegrityService extends BaseService {
   private integrityLock = false;
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [GreatMemoriesWorker.Microservices] })
   async onConfigInit({
     newConfig: {
       integrityChecks: { untrackedFiles, missingFiles, checksumFiles },
@@ -161,10 +161,10 @@ export class IntegrityService extends BaseService {
     return Readable.from(generator());
   }
 
-  async getIntegrityReportFile(id: string): Promise<ImmichFileResponse> {
+  async getIntegrityReportFile(id: string): Promise<GreatMemoriesFileResponse> {
     const { path } = await this.integrityRepository.getById(id);
 
-    return new ImmichFileResponse({
+    return new GreatMemoriesFileResponse({
       path,
       fileName: basename(path),
       contentType: 'application/octet-stream',

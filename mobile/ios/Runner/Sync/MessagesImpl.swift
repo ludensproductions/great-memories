@@ -17,7 +17,7 @@ struct AssetWrapper: Hashable, Equatable {
   }
 }
 
-class NativeSyncApiImpl: ImmichPlugin, NativeSyncApi, FlutterPlugin {
+class NativeSyncApiImpl: GreatMemoriesPlugin, NativeSyncApi, FlutterPlugin {
   static let name = "NativeSyncApi"
   
   static func register(with registrar: any FlutterPluginRegistrar) {
@@ -31,7 +31,7 @@ class NativeSyncApiImpl: ImmichPlugin, NativeSyncApi, FlutterPlugin {
   }
   
   private let defaults: UserDefaults
-  private let changeTokenKey = "immich:changeToken"
+  private let changeTokenKey = "great-memories:changeToken"
   private let albumTypes: [PHAssetCollectionType] = [.album, .smartAlbum]
   private let recoveredAlbumSubType = 1000000219
   

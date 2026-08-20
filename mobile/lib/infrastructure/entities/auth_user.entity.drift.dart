@@ -1,10 +1,10 @@
 // dart format width=80
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:immich_mobile/infrastructure/entities/auth_user.entity.drift.dart'
+import 'package:great_memories_mobile/infrastructure/entities/auth_user.entity.drift.dart'
     as i1;
-import 'package:immich_mobile/domain/models/user.model.dart' as i2;
-import 'package:immich_mobile/infrastructure/entities/auth_user.entity.dart'
+import 'package:great_memories_mobile/domain/models/user.model.dart' as i2;
+import 'package:great_memories_mobile/infrastructure/entities/auth_user.entity.dart'
     as i3;
 import 'package:drift/src/runtime/query_builder/query_builder.dart' as i4;
 

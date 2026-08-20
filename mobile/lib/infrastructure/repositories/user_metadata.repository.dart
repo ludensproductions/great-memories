@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/domain/models/user_metadata.model.dart';
-import 'package:immich_mobile/infrastructure/entities/user_metadata.entity.drift.dart';
-import 'package:immich_mobile/infrastructure/repositories/db.repository.dart';
+import 'package:great_memories_mobile/domain/models/user_metadata.model.dart';
+import 'package:great_memories_mobile/infrastructure/entities/user_metadata.entity.drift.dart';
+import 'package:great_memories_mobile/infrastructure/repositories/db.repository.dart';
 
 class DriftUserMetadataRepository extends DriftDatabaseRepository {
   final Drift _db;
