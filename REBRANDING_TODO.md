@@ -14,7 +14,7 @@ seguir, en vez de dejarlo así indefinidamente.
 
 | # | Punto | Severidad | Afecta a |
 |---|-------|-----------|----------|
-| 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | 🟡 En progreso | Todo usuario que instala/actualiza el server |
+| 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | ✅ Resuelto | Todo usuario que instala/actualiza el server |
 | 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🔴 Crítico | Todo despliegue (server, ML, Postgres) |
 | 3 | [Deep links / Universal Links móviles](#3-deep-links--universal-links-apuntan-a-myimmichapp) | 🔴 Crítico | Usuarios de la app móvil |
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
@@ -63,7 +63,7 @@ sobre un dominio que todavía no existe (ver Paso 3) — hay que confirmarlo o
 rotarlo a un correo real en cuanto exista el dominio propio o se defina un
 contacto alternativo.
 
-### Paso 1 — Repo y releases propias en `ludensproductions` (base de los puntos 1, 2 y parte del 4) 🟡 En progreso (2026-08-20)
+### Paso 1 — Repo y releases propias en `ludensproductions` (base de los puntos 1, 2 y parte del 4) ✅ Hecho (2026-08-20)
 
 Ya existe la organización, así que este paso es solo trabajo de repo/CI, sin
 gestiones externas:
@@ -87,15 +87,32 @@ gestiones externas:
    `docker/docker-compose.yml`, `docker-compose.prod.yml`,
    `docker-compose.rootless.yml`, `docker-compose.dev.yml` y `docker/README.md`
    para apuntar al mismo repo.
-4. ⚠️ **Pendiente real — no confundir con "hecho":** todavía **no existe ningún
-   release publicado** en `ludensproductions/great-memories` con esos assets.
-   `install.sh` apunta a `releases/latest/download/...`, que **fallará** hasta
-   que se dispare `prepare-release.yml` (o un release manual) al menos una vez
-   en ese repo. No anunciar/recomendar `install.sh` a usuarios finales hasta
-   confirmar que existe un release con los assets adjuntos.
-5. Nota: las imágenes de contenedor (`ghcr.io/immich-app/...` en los mismos
+4. ✅ **Hecho:** publicado el release `v1.0.1` (manual, no vía
+   `prepare-release.yml` — ver nota abajo) en
+   `ludensproductions/great-memories` con los assets
+   `docker-compose.yml`, `docker-compose.rootless.yml`, `example.env`,
+   `hwaccel.ml.yml`, `hwaccel.transcoding.yml` y `prometheus.yml`. Verificado
+   con `curl` que `releases/latest/download/docker-compose.yml` y
+   `.../example.env` responden `HTTP 200` y que `releases/latest` resuelve a
+   `v1.0.1`. `install.sh` funciona de punta a punta.
+5. ✅ **Hecho:** bump de versión de `3.0.3` (heredado de Immich) a `1.0.1` en
+   los 6 `package.json` del monorepo, `mobile/pubspec.yaml` (build number
+   `3056` sin cambiar — no se puede bajar sin romper actualizaciones en
+   tiendas), `mobile/ios/Runner/Info.plist`, `mobile/android/fastlane/Fastfile`
+   y `machine-learning/pyproject.toml`. Marca el reinicio de versionado como
+   proyecto independiente.
+6. Nota: las imágenes de contenedor (`ghcr.io/immich-app/...` en los mismos
    `docker-compose*.yml`) **no se tocaron** — eso es el punto 2 / Paso 2, que
-   depende de tener el registro GHCR propio primero.
+   depende de tener el registro GHCR propio primero. Tampoco se tocó
+   `GREAT_MEMORIES_VERSION=v3` en `docker/example.env`: ese tag selecciona la
+   imagen Docker en el registro de Immich, que **sí existe y funciona hoy**;
+   bajarlo a `v1` apuntaría a un Immich v1 antiguo e incompatible.
+7. ⚠️ **Pendiente real:** el release `v1.0.1` se publicó **manualmente**
+   (subiendo los assets a mano desde GitHub UI), no ejecutando
+   `prepare-release.yml`. Ese workflow sigue bloqueado por dependencias de la
+   GitHub App `immich-push-o-matic` (punto 7) y por credenciales de firma
+   móvil sin rotar (punto 12). El pipeline de release automatizado real queda
+   pendiente hasta resolver esos dos puntos.
 
 ### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2)
 
@@ -155,41 +172,34 @@ anteriores en cuanto haya claridad:
 
 ---
 
-## 1. Instalador y Docker Compose apuntan a releases de Immich 🟡 En progreso (2026-08-20)
+## 1. Instalador y Docker Compose apuntan a releases de Immich ✅ Resuelto (2026-08-20)
 
-**Estado actual:** [install.sh:75](install.sh#L75) ya descarga
-`docker-compose.yml` y `.env` desde
-`https://github.com/ludensproductions/great-memories/releases/latest/download/...`.
-Los comentarios en `docker/docker-compose*.yml` (default, rootless, prod, dev) y
-[docker/README.md:3](docker/README.md#L3) ya apuntan a ese mismo repo.
-**Pendiente:** todavía no existe ningún release publicado ahí con esos assets
-adjuntos, así que la URL `releases/latest/download/...` fallará (404) hasta que
-se corra `prepare-release.yml` (o se publique un release manual) al menos una
-vez en `ludensproductions/great-memories`.
+**Estado anterior:** [install.sh:75](install.sh#L75) descargaba
+`docker-compose.yml` y `.env` desde el repo de Immich. Los comentarios en
+`docker/docker-compose*.yml` (default, rootless, prod, dev) y
+[docker/README.md:3](docker/README.md#L3) apuntaban igual al repo de Immich.
 
-**Por qué bloquea:** el script de instalación oficial de Great Memories —el que
-se recomienda a cualquier usuario nuevo— apunta ya al repositorio correcto, pero
-sin un release publicado ahí la instalación falla directamente. No se debe
-recomendar `install.sh` a usuarios finales hasta confirmar que el primer release
-con esos assets existe.
+**Qué se implementó:**
+1. `install.sh` y los comentarios de los `docker-compose*.yml`/`README.md`
+   apuntan a `github.com/ludensproductions/great-memories`.
+2. Publicado el release `v1.0.1` (manual) con los assets
+   `docker-compose.yml`, `docker-compose.rootless.yml`, `example.env`,
+   `hwaccel.ml.yml`, `hwaccel.transcoding.yml`, `prometheus.yml`.
+3. Bump de versión de `3.0.3` a `1.0.1` en todo el monorepo (ver detalle en el
+   Paso 1 del plan de ejecución arriba).
+4. **Verificado end-to-end:** `curl` confirma `HTTP 200` en
+   `releases/latest/download/docker-compose.yml` y `.../example.env`, y que
+   `releases/latest` resuelve a `v1.0.1`. `install.sh` funciona de punta a
+   punta contra el repo propio.
 
-**Qué falta implementar:**
-1. ~~Publicar releases propias de Great Memories en
-   `github.com/<org>/great-memories`~~ → confirmado: es
-   `github.com/ludensproductions/great-memories` (ya es el `origin` de este
-   repo). Falta que corra `prepare-release.yml` (o un release manual) al menos
-   una vez ahí para que existan los assets.
-2. ~~Actualizar `install.sh` para apuntar a
-   `github.com/<org-great-memories>/great-memories/releases/latest/download/...`~~
-   → hecho.
-3. ~~Actualizar los comentarios/instrucciones en todos los
-   `docker/docker-compose*.yml` y en `docker/README.md`~~ → hecho (solo la URL
-   de descarga; el link a `docs.immich.app/install/docker-compose` en esos
-   mismos archivos es el punto 4/5, pendiente de dominio propio).
-4. ~~Verificar que el pipeline de release (`prepare-release.yml`,
-   `release.ts`)~~ → verificado: `prepare-release.yml` líneas 154-170 ya adjunta
-   los assets correctos vía `softprops/action-gh-release`, sin cambios de
-   código necesarios. Falta solo **ejecutarlo** en el repo propio.
+**Qué queda fuera de este punto (tracking en otros puntos/pasos):**
+- Las imágenes de contenedor (`ghcr.io/immich-app/...`) siguen igual —
+  depende del punto 2 (registro GHCR propio).
+- El link a `docs.immich.app/install/docker-compose` en esos mismos archivos
+  — depende del punto 4/5 (dominio propio).
+- El release se publicó **manualmente**, no vía `prepare-release.yml` — ese
+  pipeline sigue bloqueado por los puntos 7 y 12 (GitHub App de Immich y
+  credenciales de firma móvil sin rotar).
 
 ## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app`
 
