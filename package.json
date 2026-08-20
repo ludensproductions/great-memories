@@ -1,6 +1,6 @@
 {
   "name": "great-memories-monorepo",
-  "version": "3.0.3",
+  "version": "1.0.1",
   "description": "Monorepo for Great Memories",
   "type": "module",
   "private": true,

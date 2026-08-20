@@ -1,6 +1,6 @@
 {
   "name": "@great-memories/cli",
-  "version": "3.0.3",
+  "version": "1.0.1",
   "description": "Command Line Interface (CLI) for Great Memories",
   "repository": {
     "type": "git",
