@@ -15,7 +15,7 @@ seguir, en vez de dejarlo así indefinidamente.
 | # | Punto | Severidad | Afecta a |
 |---|-------|-----------|----------|
 | 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | ✅ Resuelto | Todo usuario que instala/actualiza el server |
-| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🟡 En progreso | Todo despliegue (server, ML, Postgres) |
+| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🟡 Casi completo (falta verificar visibilidad) | Todo despliegue (server, ML, Postgres) |
 | 3 | [Deep links / Universal Links móviles](#3-deep-links--universal-links-apuntan-a-myimmichapp) | 🔴 Crítico | Usuarios de la app móvil |
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
 | 5 | [Terraform de documentación](#5-infraestructura-terraform-de-docs-apunta-a-docsimmichapp) | 🔴 Crítico | Publicación de la documentación propia |
@@ -114,7 +114,7 @@ gestiones externas:
    móvil sin rotar (punto 12). El pipeline de release automatizado real queda
    pendiente hasta resolver esos dos puntos.
 
-### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2) 🟡 En progreso (2026-08-20)
+### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2) 🟡 Casi completo, pendiente de verificación manual de visibilidad (2026-08-20)
 
 GHCR funciona igual bajo la organización de GitHub que ya existe — no se
 necesita Docker Hub ni ninguna cuenta nueva:
@@ -140,13 +140,32 @@ necesita Docker Hub ni ninguna cuenta nueva:
    `docs/docs/features/ml-hardware-acceleration.md` (esta última con nota
    explícita de que la variante `-cuda` mostrada como ejemplo aún no se
    publica bajo el registro propio).
-4. ⚠️ **Pendiente real:** el workflow nuevo (`docker.yml`) **no se ha
-   ejecutado todavía** — no hay ninguna imagen publicada aún en
-   `ghcr.io/ludensproductions/great-memories-server` ni
-   `-machine-learning`. Hasta que corra al menos una vez (push a `main` o
-   publicar un release), los `docker-compose.yml` actualizados **fallarán al
-   hacer pull** de una imagen que no existe. No recomendar estos
-   docker-compose a usuarios finales todavía.
+4. ✅ **Hecho:** el workflow corrió por primera vez en push a `main`
+   ([run #1](https://github.com/ludensproductions/great-memories/actions/runs/32418338779),
+   commit `1e87c24`) — ambos jobs (`Build and Push Server`,
+   `Build and Push ML (CPU)`) terminaron con `conclusion: success`
+   (~11 min y ~39 min respectivamente). Las imágenes
+   `ghcr.io/ludensproductions/great-memories-server` y
+   `-machine-learning` ya deberían existir en el registro.
+   ⚠️ **Pendiente real — verificación manual obligatoria antes de recomendar
+   a usuarios:** GHCR crea los paquetes como **privados por defecto** en su
+   primer push. Un `curl` anónimo a la API de paquetes
+   (`api.github.com/orgs/ludensproductions/packages/container/...`) devolvió
+   `401 Requires authentication` en vez de datos públicos, lo cual es
+   consistente con que sigan privados (no se pudo confirmar con certeza sin
+   credenciales). Si es así, `install.sh` y los `docker-compose.yml` **fallarán
+   con "unauthorized"** para cualquier usuario final que intente hacer
+   `docker pull` sin estar autenticado a GHCR — hay que:
+   1. Entrar a GitHub → perfil o página de la organización
+      `ludensproductions` → pestaña **Packages**.
+   2. Abrir `great-memories-server`, luego **Package settings** (⚙️ en la
+      barra lateral) → en **Danger Zone**, cambiar **Visibility** a
+      **Public** si está en Private.
+   3. En la misma página de settings, usar **Connect Repository** para
+      enlazarlo a `ludensproductions/great-memories` si no aparece ya
+      conectado (afecta permisos y quién puede administrar el paquete).
+   4. Repetir los pasos 2-3 para `great-memories-machine-learning`.
+   5. Confirmar con `curl -sSL -o /dev/null -w "%{http_code}" https://ghcr.io/v2/ludensproductions/great-memories-server/manifests/main` (o similar) que responde sin pedir auth, o simplemente probar `docker pull ghcr.io/ludensproductions/great-memories-server:main` desde una máquina sin sesión iniciada en GHCR.
 5. Imagen base de build (`ghcr.io/immich-app/base-server-dev`/`-prod` en
    `server/Dockerfile`) y Postgres (`ghcr.io/immich-app/postgres`) **se
    dejaron sin tocar por decisión**: son imágenes de infraestructura/build,
@@ -237,7 +256,7 @@ anteriores en cuanto haya claridad:
   pipeline sigue bloqueado por los puntos 7 y 12 (GitHub App de Immich y
   credenciales de firma móvil sin rotar).
 
-## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app` 🟡 En progreso (2026-08-20)
+## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app` 🟡 Casi completo, pendiente de verificación manual de visibilidad (2026-08-20)
 
 **Estado anterior:** server, machine-learning y Postgres se descargaban de
 `ghcr.io/immich-app/immich-server`, `ghcr.io/immich-app/immich-machine-learning`
@@ -259,11 +278,22 @@ GitHub App `immich-push-o-matic` (mismo bloqueo del punto 7).
    `remote-machine-learning.md`, `ml-hardware-acceleration.md`) actualizada.
 
 **Qué queda pendiente o fuera de alcance:**
-1. ⚠️ **Bloqueante real:** el workflow nuevo no se ha ejecutado — no existen
-   todavía imágenes en `ghcr.io/ludensproductions/great-memories-server` ni
-   `-machine-learning`. Los `docker-compose*.yml` ya actualizados fallarán al
-   hacer `pull` hasta que el workflow corra al menos una vez (push a `main` o
-   un release).
+1. ✅ **Hecho:** el workflow corrió por primera vez en push a `main`
+   ([run #1](https://github.com/ludensproductions/great-memories/actions/runs/32418338779) —
+   `Build and Push Server` y `Build and Push ML (CPU)`, ambos
+   `conclusion: success`). Las imágenes ya deberían existir en
+   `ghcr.io/ludensproductions/great-memories-server` y `-machine-learning`.
+   ⚠️ **Pendiente real:** GHCR crea paquetes como **privados por defecto** en
+   el primer push — un `curl` anónimo a la API de paquetes devolvió `401
+   Requires authentication`, consistente con (aunque no prueba con certeza)
+   que sigan privados. Falta entrar manualmente a GitHub → organización
+   `ludensproductions` → Packages → `great-memories-server` /
+   `-machine-learning` → Package settings, poner **Visibility: Public** y
+   usar **Connect Repository** para enlazarlos a
+   `ludensproductions/great-memories`. Mientras no se confirme esto,
+   `install.sh` y los `docker-compose*.yml` actualizados **fallarán con
+   "unauthorized"** para cualquier usuario no autenticado a GHCR — no
+   recomendar todavía a usuarios finales.
 2. Variantes GPU (`-cuda`, `-rocm`, `-openvino`, `-armnn`, `-rknn`) no se
    replican todavía — alcance reducido a CPU a propósito. Se pueden agregar
    como jobs adicionales del mismo workflow más adelante si hace falta.
