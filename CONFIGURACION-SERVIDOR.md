@@ -185,6 +185,12 @@ sudo systemctl enable --now great-memories-ble
 ## VerificaciÃ³n
 
 ```bash
+bash check.sh
+```
+
+O manualmente:
+
+```bash
 systemctl is-active avahi-daemon bluetooth great-memories-ble
 curl http://localhost:2283/api/server/ping
 avahi-browse -rt _great_memories._tcp

@@ -16,6 +16,7 @@ BLE_DIR="/opt/great-memories-ble"
 
 echo ">>> 0.1 Sistema base"
 sudo apt update && sudo apt full-upgrade -y
+sleep 3
 sudo apt install -y git curl wget nano
 
 echo ">>> 0.2 Docker"
@@ -145,12 +146,12 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now great-memories-ble
 
 echo ""
-echo "=== Verificacion ==="
-sleep 4
-for svc in avahi-daemon bluetooth great-memories-ble; do
-  systemctl is-active "$svc" &>/dev/null && echo "$svc: OK" || echo "$svc: FALLO"
+echo "=== Esperando que todo arranque ==="
+for i in $(seq 1 12); do
+  sleep 5
+  echo "--- intento $i/12 ---"
+  bash "$GREAT_MEMORIES_DIR/check.sh" && break || true
 done
-curl -sf "http://localhost:${SERVER_PORT}/api/server/ping" && echo "great-memories http: OK" || echo "great-memories http: aun iniciando (esperar 30s)"
 
 echo ""
 echo "============================================================"
