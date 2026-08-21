@@ -20,7 +20,7 @@ seguir, en vez de dejarlo así indefinidamente.
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
 | 5 | [Terraform de documentación](#5-infraestructura-terraform-de-docs-apunta-a-docsimmichapp) | 🔴 Crítico | Publicación de la documentación propia |
 | 6 | [Flujo de compra/licencia](#6-flujo-de-compralicencia-en-buyimmichapp) | 🔴 Crítico | Monetización del proyecto |
-| 7 | [GitHub Actions de `immich-app/devtools`](#7-cicd-depende-de-github-actions-de-immich-appdevtools) | 🟠 Operativo | Pipeline de CI/CD (build, release) |
+| 7 | [GitHub Actions de `immich-app/devtools`](#7-cicd-depende-de-github-actions-de-immich-appdevtools) | 🔴 Crítico (alcance real: 19 workflows, no solo release) | Casi todo el pipeline de CI (lint, tests, docs, OpenAPI, release) |
 | 8 | [Weblate compartido](#8-weblate-posiblemente-compartido-con-immich) | 🟠 Operativo | Flujo de traducciones |
 | 9 | [F-Droid vía FUTO](#9-f-droid-publica-con-identidad-de-immich) | 🟠 Operativo | Distribución en F-Droid |
 | 10 | [security.txt](#10-securitytxt-dirige-reportes-a-immich) | ✅ Resuelto | Reportes de vulnerabilidades |
@@ -166,14 +166,26 @@ necesita Docker Hub ni ninguna cuenta nueva:
 6. ✅ **Hecho (2026-08-21):** agregado un tercer job `cli` a `docker.yml`
    que construye y publica `packages/cli/Dockerfile` (que ya usaba el
    namespace `@great-memories/*`, listo desde antes) como
-   `ghcr.io/ludensproductions/great-memories-cli` (linux/amd64+arm64), en
-   push a `main` (tag `main`) y en cada release publicado (tag `latest` +
-   tag de versión). Actualizada la referencia en
-   `docs/docs/features/command-line-interface.md` (los dos `docker run` de
-   ejemplo) de `ghcr.io/immich-app/immich-cli:latest` a
-   `ghcr.io/ludensproductions/great-memories-cli:latest`. Pendiente: correr
-   el workflow al menos una vez y confirmar visibilidad pública del paquete
-   nuevo, igual que se hizo para server/machine-learning.
+   `ghcr.io/ludensproductions/great-memories-cli`, en push a `main` (tag
+   `main`) y en cada release publicado (tag `latest` + tag de versión).
+   Actualizada la referencia en `docs/docs/features/command-line-interface.md`
+   (los dos `docker run` de ejemplo) de `ghcr.io/immich-app/immich-cli:latest`
+   a `ghcr.io/ludensproductions/great-memories-cli:latest`.
+   ⚠️ **Hallazgo nuevo al correr el workflow por primera vez:** el build
+   `linux/arm64` fallaba con exit code 132 (SIGILL) dentro de QEMU, en el
+   paso `corepack enable pnpm` sobre `node:24.1.0-alpine3.20` — un bug
+   conocido de Node reciente + QEMU en Alpine. El `Dockerfile` del CLI es el
+   original heredado de Immich (no se tocó ni en el Paso 1 ni en este paso),
+   así que el bug ya existía antes; solo nunca se había manifestado porque
+   ningún workflow en este repo lo construía. **Decisión tomada:** reducir
+   el job `cli` a solo `linux/amd64` por ahora (igual que hicieron
+   `server`/`machine-learning` sí soportan arm64 porque parten de
+   `ghcr.io/immich-app/base-server-dev`, una imagen base distinta sin este
+   problema). Pendiente: correr el workflow de nuevo con este fix, confirmar
+   que compila, y luego confirmar visibilidad pública del paquete nuevo
+   igual que se hizo para server/machine-learning. Soporte arm64 para el CLI
+   queda pendiente de investigar aparte (actualizar versión de Node/Alpine
+   en el Dockerfile, o usar runner nativo arm64 en vez de QEMU).
 7. ✅ **Hecho (2026-08-21):** `renovate.json` ya no depende de
    `"extends": ["local>immich-app/.github:renovate-config"]`. Se copiaron
    inline todas las reglas de esa config base (obtenida de
@@ -437,6 +449,26 @@ acciones compuestas alojadas en `immich-app/devtools`
 `success-check`) autenticadas con secretos `PUSH_O_MATIC_APP_CLIENT_ID` /
 `PUSH_O_MATIC_APP_KEY`, que corresponden a una GitHub App
 (`immich-push-o-matic`) de la organización Immich.
+
+⚠️ **Alcance real más amplio de lo documentado (confirmado 2026-08-21):** un
+`grep` de `immich-app/devtools|create-workflow-token` sobre
+`.github/workflows/` encontró **19 workflows** afectados, no solo los 4
+listados arriba: `test.yml`, `sdk.yml`, `prepare-release.yml`,
+`docs-deploy.yml`, `docs-build.yml`, `cli.yml`, `check-openapi.yml`,
+`build-mobile.yml`, `weblate-lock.yml`, `preview-label.yaml`,
+`static_analysis.yml`, `pr-labeler.yml`, `pr-label-validation.yml`,
+`org-zizmor.yml`, `org-pr-require-conventional-commit.yml`,
+`fix-format.yml`, `docs-destroy.yml`, `codeql-analysis.yml`,
+`cache-cleanup.yml`. Esto se confirmó al ver fallar en CI (commit
+`421ac34`) los checks `Docs Build`, `ShellCheck` (dentro de
+`static_analysis.yml`) y `OpenAPI Clients` (dentro de `check-openapi.yml`)
+con el mismo error: *"The 'client-id' (or deprecated 'app-id') input must
+be set to a non-empty string"* — es decir, el paso `create-workflow-token`
+falla porque los secretos `PUSH_O_MATIC_APP_CLIENT_ID`/`KEY` no existen (o
+están vacíos) en este repo. Este es un bloqueador operativo más grande de
+lo que la severidad "🟠 Operativo" original sugiere: no son solo release y
+traducciones, son prácticamente todos los checks de CI del repo (lint,
+tests, docs, OpenAPI) los que dependen de esta GitHub App externa.
 
 **Por qué bloquea:** el pipeline de CI/CD de Great Memories no es autónomo —
 depende de una GitHub App y de actions mantenidas por la organización
