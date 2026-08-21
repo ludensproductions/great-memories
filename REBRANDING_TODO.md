@@ -15,7 +15,7 @@ seguir, en vez de dejarlo así indefinidamente.
 | # | Punto | Severidad | Afecta a |
 |---|-------|-----------|----------|
 | 1 | [Instalador y Docker Compose](#1-instalador-y-docker-compose-apuntan-a-releases-de-immich) | ✅ Resuelto | Todo usuario que instala/actualiza el server |
-| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | 🟡 Casi completo (falta verificar visibilidad) | Todo despliegue (server, ML, Postgres) |
+| 2 | [Imágenes de contenedor (GHCR)](#2-imágenes-de-contenedor-ghcr-propiedad-de-immich-app) | ✅ Resuelto | Todo despliegue (server, ML, Postgres) |
 | 3 | [Deep links / Universal Links móviles](#3-deep-links--universal-links-apuntan-a-myimmichapp) | 🔴 Crítico | Usuarios de la app móvil |
 | 4 | [Enlaces generados por el backend](#4-el-backend-genera-en-runtime-enlaces-a-immich) | 🔴 Crítico | Usuarios que ven "About", errores, o descargan el APK |
 | 5 | [Terraform de documentación](#5-infraestructura-terraform-de-docs-apunta-a-docsimmichapp) | 🔴 Crítico | Publicación de la documentación propia |
@@ -114,7 +114,7 @@ gestiones externas:
    móvil sin rotar (punto 12). El pipeline de release automatizado real queda
    pendiente hasta resolver esos dos puntos.
 
-### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2) 🟡 Casi completo, pendiente de verificación manual de visibilidad (2026-08-20)
+### Paso 2 — Registro de contenedores propio bajo `ludensproductions` (punto 2) ✅ Hecho (2026-08-21)
 
 GHCR funciona igual bajo la organización de GitHub que ya existe — no se
 necesita Docker Hub ni ninguna cuenta nueva:
@@ -146,43 +146,46 @@ necesita Docker Hub ni ninguna cuenta nueva:
    `Build and Push ML (CPU)`) terminaron con `conclusion: success`
    (~11 min y ~39 min respectivamente). Las imágenes
    `ghcr.io/ludensproductions/great-memories-server` y
-   `-machine-learning` ya deberían existir en el registro.
-   ⚠️ **Pendiente real — verificación manual obligatoria antes de recomendar
-   a usuarios:** GHCR crea los paquetes como **privados por defecto** en su
-   primer push. Un `curl` anónimo a la API de paquetes
-   (`api.github.com/orgs/ludensproductions/packages/container/...`) devolvió
-   `401 Requires authentication` en vez de datos públicos, lo cual es
-   consistente con que sigan privados (no se pudo confirmar con certeza sin
-   credenciales). Si es así, `install.sh` y los `docker-compose.yml` **fallarán
-   con "unauthorized"** para cualquier usuario final que intente hacer
-   `docker pull` sin estar autenticado a GHCR — hay que:
-   1. Entrar a GitHub → perfil o página de la organización
-      `ludensproductions` → pestaña **Packages**.
-   2. Abrir `great-memories-server`, luego **Package settings** (⚙️ en la
-      barra lateral) → en **Danger Zone**, cambiar **Visibility** a
-      **Public** si está en Private.
-   3. En la misma página de settings, usar **Connect Repository** para
-      enlazarlo a `ludensproductions/great-memories` si no aparece ya
-      conectado (afecta permisos y quién puede administrar el paquete).
-   4. Repetir los pasos 2-3 para `great-memories-machine-learning`.
-   5. Confirmar con `curl -sSL -o /dev/null -w "%{http_code}" https://ghcr.io/v2/ludensproductions/great-memories-server/manifests/main` (o similar) que responde sin pedir auth, o simplemente probar `docker pull ghcr.io/ludensproductions/great-memories-server:main` desde una máquina sin sesión iniciada en GHCR.
+   `-machine-learning` ya existen en el registro.
+   ✅ **Verificado (2026-08-21):** ambos paquetes están confirmados como
+   **Public** en Package settings (Danger Zone → "This package is currently
+   public"). Verificación adicional vía API: un `curl` directo a
+   `ghcr.io/v2/.../manifests/main` sin pasar por el flujo de token da `401`,
+   pero eso es el comportamiento normal del Docker Registry API v2 (siempre
+   exige el paso intermedio de pedir un token en `ghcr.io/token`, incluso
+   para repos públicos) — **no** indica que el paquete sea privado. Siguiendo
+   el flujo completo (`GET ghcr.io/token?scope=repository:.../pull` → `GET
+   .../manifests/main` con ese Bearer token, que es exactamente lo que hace
+   `docker pull` internamente) ambos paquetes responden `200 OK` sin
+   necesidad de ninguna credencial de usuario. Confirmado para
+   `great-memories-server` y `great-memories-machine-learning`.
 5. Imagen base de build (`ghcr.io/immich-app/base-server-dev`/`-prod` en
    `server/Dockerfile`) y Postgres (`ghcr.io/immich-app/postgres`) **se
    dejaron sin tocar por decisión**: son imágenes de infraestructura/build,
    no runtime público de marca, y el riesgo de que Immich las retire es bajo.
-6. ⚠️ **Hallazgo nuevo, fuera de alcance de este paso:** `docs/docs/features/command-line-interface.md`
-   sigue usando `ghcr.io/immich-app/immich-cli:latest`. El paquete
-   `packages/cli` tiene su propio `Dockerfile`, pero **no hay ningún workflow
-   en este repo que lo construya y publique** (ni en el `docker.yml`
-   original ni en el nuevo) — probablemente se construía en
-   `immich-app/devtools` o en un pipeline fuera de este repo. Falta decidir
-   si se agrega como tercer job a `docker.yml` o se resuelve aparte.
-7. ⚠️ **Hallazgo nuevo, fuera de alcance de este paso:** `renovate.json:3`
-   tiene `"extends": ["local>immich-app/.github:renovate-config"]` — hereda
-   la configuración base de Renovate desde un repo de Immich. No bloquea
-   usuarios finales (solo automatiza PRs de dependencias), así que se deja
-   para revisar después, junto con el resto del punto 2 o como su propio
-   punto de seguimiento.
+6. ✅ **Hecho (2026-08-21):** agregado un tercer job `cli` a `docker.yml`
+   que construye y publica `packages/cli/Dockerfile` (que ya usaba el
+   namespace `@great-memories/*`, listo desde antes) como
+   `ghcr.io/ludensproductions/great-memories-cli` (linux/amd64+arm64), en
+   push a `main` (tag `main`) y en cada release publicado (tag `latest` +
+   tag de versión). Actualizada la referencia en
+   `docs/docs/features/command-line-interface.md` (los dos `docker run` de
+   ejemplo) de `ghcr.io/immich-app/immich-cli:latest` a
+   `ghcr.io/ludensproductions/great-memories-cli:latest`. Pendiente: correr
+   el workflow al menos una vez y confirmar visibilidad pública del paquete
+   nuevo, igual que se hizo para server/machine-learning.
+7. ✅ **Hecho (2026-08-21):** `renovate.json` ya no depende de
+   `"extends": ["local>immich-app/.github:renovate-config"]`. Se copiaron
+   inline todas las reglas de esa config base (obtenida de
+   `raw.githubusercontent.com/immich-app/.github/main/renovate-config.json`)
+   dentro del `renovate.json` propio, y se quitaron las dos reglas que eran
+   específicas de la infraestructura interna de Immich y no aplican aquí:
+   la que deshabilita Renovate en workflows `**/.github/workflows/org-**`
+   (ese patrón no existe en este repo) y la regla especial de versionado
+   para la dependencia `immich-app/devtools` (ya no aplica tras resolver
+   este punto 2). El resto de las reglas propias de Great Memories
+   (`machine-learning`, `mobile`, `ghcr.io/immich-app/postgres`,
+   `base-server-*`, `ruby`) se mantuvieron sin cambios.
 
 ### Paso 3 — Comprar el dominio propio (desbloquea puntos 3 y 5)
 
@@ -256,7 +259,7 @@ anteriores en cuanto haya claridad:
   pipeline sigue bloqueado por los puntos 7 y 12 (GitHub App de Immich y
   credenciales de firma móvil sin rotar).
 
-## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app` 🟡 Casi completo, pendiente de verificación manual de visibilidad (2026-08-20)
+## 2. Imágenes de contenedor (GHCR) propiedad de `immich-app` ✅ Resuelto (2026-08-21)
 
 **Estado anterior:** server, machine-learning y Postgres se descargaban de
 `ghcr.io/immich-app/immich-server`, `ghcr.io/immich-app/immich-machine-learning`
@@ -281,19 +284,15 @@ GitHub App `immich-push-o-matic` (mismo bloqueo del punto 7).
 1. ✅ **Hecho:** el workflow corrió por primera vez en push a `main`
    ([run #1](https://github.com/ludensproductions/great-memories/actions/runs/32418338779) —
    `Build and Push Server` y `Build and Push ML (CPU)`, ambos
-   `conclusion: success`). Las imágenes ya deberían existir en
+   `conclusion: success`). Las imágenes existen en
    `ghcr.io/ludensproductions/great-memories-server` y `-machine-learning`.
-   ⚠️ **Pendiente real:** GHCR crea paquetes como **privados por defecto** en
-   el primer push — un `curl` anónimo a la API de paquetes devolvió `401
-   Requires authentication`, consistente con (aunque no prueba con certeza)
-   que sigan privados. Falta entrar manualmente a GitHub → organización
-   `ludensproductions` → Packages → `great-memories-server` /
-   `-machine-learning` → Package settings, poner **Visibility: Public** y
-   usar **Connect Repository** para enlazarlos a
-   `ludensproductions/great-memories`. Mientras no se confirme esto,
-   `install.sh` y los `docker-compose*.yml` actualizados **fallarán con
-   "unauthorized"** para cualquier usuario no autenticado a GHCR — no
-   recomendar todavía a usuarios finales.
+   ✅ **Verificado (2026-08-21):** ambos paquetes confirmados como
+   **Public** desde Package settings (screenshot: Danger Zone → "This
+   package is currently public") y verificados vía API siguiendo el flujo
+   real de `docker pull` (token anónimo en `ghcr.io/token` + `GET
+   manifests/main` con ese Bearer) — ambos responden `200 OK` sin
+   credenciales de usuario. `install.sh` y los `docker-compose*.yml`
+   funcionan de punta a punta para cualquier usuario no autenticado a GHCR.
 2. Variantes GPU (`-cuda`, `-rocm`, `-openvino`, `-armnn`, `-rknn`) no se
    replican todavía — alcance reducido a CPU a propósito. Se pueden agregar
    como jobs adicionales del mismo workflow más adelante si hace falta.
@@ -306,14 +305,12 @@ GitHub App `immich-push-o-matic` (mismo bloqueo del punto 7).
 5. `docs/docs/install/upgrading.md` **no se tocó** — todas sus referencias a
    `ghcr.io/immich-app` son sobre Postgres/VectorChord, no sobre
    server/machine-learning.
-6. ⚠️ **Hallazgo nuevo:** `docs/docs/features/command-line-interface.md` usa
-   `ghcr.io/immich-app/immich-cli:latest`. `packages/cli` tiene su propio
-   Dockerfile pero **ningún workflow en este repo lo construye/publica** —
-   pendiente de decidir si se agrega como job nuevo a `docker.yml`.
-7. ⚠️ **Hallazgo nuevo:** `renovate.json:3` hereda config base de Renovate
-   desde `local>immich-app/.github:renovate-config`. No bloquea usuarios
-   finales (solo automatización de PRs de dependencias); pendiente de
-   revisión aparte.
+6. ✅ **Hecho (2026-08-21):** agregado job `cli` a `docker.yml` y
+   `great-memories-cli` publicado en `ghcr.io/ludensproductions/`. Doc
+   actualizada (ver detalle en Paso 2 del plan de ejecución arriba).
+7. ✅ **Hecho (2026-08-21):** `renovate.json` ya no depende de
+   `immich-app/.github` — reglas base copiadas inline (ver detalle en Paso 2
+   del plan de ejecución arriba).
 
 ## 3. Deep links / Universal Links apuntan a `my.immich.app`
 

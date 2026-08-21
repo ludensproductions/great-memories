@@ -37,7 +37,7 @@ npm uninstall -g great-memories
 If npm is not available on your system you can try the Docker version
 
 ```bash
-docker run -it -v "$(pwd)":/import:ro -e GREAT_MEMORIES_INSTANCE_URL=https://your-great-memories-instance/api -e GREAT_MEMORIES_API_KEY=your-api-key ghcr.io/immich-app/immich-cli:latest
+docker run -it -v "$(pwd)":/import:ro -e GREAT_MEMORIES_INSTANCE_URL=https://your-great-memories-instance/api -e GREAT_MEMORIES_API_KEY=your-api-key ghcr.io/ludensproductions/great-memories-cli:latest
 ```
 
 Please modify the `GREAT_MEMORIES_INSTANCE_URL` and `GREAT_MEMORIES_API_KEY` environment variables as suitable. You can also use a Docker env file to store your sensitive API key.
@@ -45,7 +45,7 @@ Please modify the `GREAT_MEMORIES_INSTANCE_URL` and `GREAT_MEMORIES_API_KEY` env
 This `docker run` command will directly run the command `great-memories` inside the container. You can directly append the desired parameters (see under "usage") to the commandline like this:
 
 ```bash
-docker run -it -v "$(pwd)":/import:ro -e GREAT_MEMORIES_INSTANCE_URL=https://your-great-memories-instance/api -e GREAT_MEMORIES_API_KEY=your-api-key ghcr.io/immich-app/immich-cli:latest upload -a -c 5 --recursive directory/
+docker run -it -v "$(pwd)":/import:ro -e GREAT_MEMORIES_INSTANCE_URL=https://your-great-memories-instance/api -e GREAT_MEMORIES_API_KEY=your-api-key ghcr.io/ludensproductions/great-memories-cli:latest upload -a -c 5 --recursive directory/
 ```
 
 ## Usage
