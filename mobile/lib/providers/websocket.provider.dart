@@ -1,11 +1,14 @@
 import 'dart:async';
 
+import 'package:great_memories_mobile/extensions/translate_extensions.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:great_memories_mobile/domain/models/store.model.dart';
 import 'package:great_memories_mobile/entities/store.entity.dart';
 import 'package:great_memories_mobile/infrastructure/repositories/network.repository.dart';
 import 'package:great_memories_mobile/providers/auth.provider.dart';
 import 'package:great_memories_mobile/providers/background_sync.provider.dart';
+import 'package:great_memories_mobile/providers/backup/offline_upload_queue.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/settings.provider.dart';
 import 'package:great_memories_mobile/providers/server_info.provider.dart';
 import 'package:great_memories_mobile/utils/debounce.dart';
@@ -51,15 +54,18 @@ class WebsocketNotifier extends StateNotifier<WebsocketState> {
   );
   final List<dynamic> _batchedAssetUploadReady = [];
 
+  static const _connectionNotificationId = 2000;
+  bool _serverLost = false;
+
   @override
   void dispose() {
     _batchDebouncer.dispose();
     super.dispose();
   }
 
-  /// Connects websocket to server unless already connected
+  /// Connects websocket to server unless a socket already exists (connected or reconnecting)
   void connect() {
-    if (state.isConnected) {
+    if (state.socket != null) {
       return;
     }
     final authenticationState = _ref.read(authProvider);
@@ -81,20 +87,42 @@ class WebsocketNotifier extends StateNotifier<WebsocketState> {
               .enableAutoConnect()
               .build(),
         );
+        // Keep the socket while it reconnects so disconnect() can dispose it
+        state = WebsocketState(isConnected: false, socket: socket);
+        // Events from a socket disposed by disconnect() are intentional, not a lost server
+        bool isCurrent() => identical(state.socket, socket);
 
         socket.onConnect((_) {
+          if (!isCurrent()) {
+            return;
+          }
           dPrint(() => "Established Websocket Connection");
           state = WebsocketState(isConnected: true, socket: socket);
+          unawaited(_onServerRestored());
         });
 
         socket.onDisconnect((_) {
+          if (!isCurrent()) {
+            return;
+          }
           dPrint(() => "Disconnect to Websocket Connection");
-          state = const WebsocketState(isConnected: false, socket: null);
+          state = WebsocketState(isConnected: false, socket: socket);
+          _onServerLost();
+        });
+
+        socket.onConnectError((_) {
+          if (!isCurrent()) {
+            return;
+          }
+          _onServerLost();
         });
 
         socket.on('error', (errorMessage) {
+          if (!isCurrent()) {
+            return;
+          }
           _log.severe("Websocket Error - $errorMessage");
-          state = const WebsocketState(isConnected: false, socket: null);
+          state = WebsocketState(isConnected: false, socket: socket);
         });
 
         socket.on('AssetUploadReadyV1', _handleSyncAssetUploadReadyV1);
@@ -114,8 +142,51 @@ class WebsocketNotifier extends StateNotifier<WebsocketState> {
 
     _batchedAssetUploadReady.clear();
 
-    state.socket?.dispose();
+    final socket = state.socket;
     state = const WebsocketState(isConnected: false, socket: null);
+    socket?.dispose();
+  }
+
+  void _onServerLost() {
+    if (_serverLost) {
+      return;
+    }
+    _serverLost = true;
+    _notifyConnection('server_connection_lost_title'.t(), 'server_connection_lost_body'.t());
+  }
+
+  Future<void> _onServerRestored() async {
+    if (_serverLost) {
+      _serverLost = false;
+      _notifyConnection('server_connection_restored_title'.t(), 'server_connection_restored_body'.t());
+    }
+    final uploaded = await _ref.read(offlineUploadQueueProvider).flush();
+    if (uploaded > 0) {
+      _notifyConnection(
+        'queued_uploads_done_title'.t(),
+        'queued_uploads_done_body'.t(args: {'count': uploaded}),
+      );
+    }
+  }
+
+  // Same id so "restored" replaces "lost" instead of stacking
+  void _notifyConnection(String title, String body) {
+    unawaited(
+      FlutterLocalNotificationsPlugin().show(
+        _connectionNotificationId,
+        title,
+        body,
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'great-memories::server_connection',
+            'Server connection',
+            importance: Importance.high,
+            priority: Priority.high,
+          ),
+          iOS: DarwinNotificationDetails(),
+        ),
+      ),
+    );
   }
 
   Future<void> waitForEvent(String event, bool Function(dynamic)? predicate, Duration timeout) {

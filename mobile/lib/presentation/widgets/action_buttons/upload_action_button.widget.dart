@@ -60,6 +60,9 @@ class UploadActionButton extends ConsumerWidget {
     }
 
     var success = false;
+    var queued = false;
+    var count = 1;
+    var allDuplicates = false;
     if (!isTimeline && viewerIntentFilePath != null) {
       final viewIntentService = ref.read(viewIntentServiceProvider);
       viewIntentService.markUploadActive(viewerIntentFilePath);
@@ -80,20 +83,32 @@ class UploadActionButton extends ConsumerWidget {
     } else {
       final result = await ref.read(actionProvider.notifier).upload(source, assets: assets);
       success = result.success;
+      queued = result.queued;
+      count = result.count;
+      allDuplicates = result.count > 0 && result.duplicateCount == result.count;
     }
 
     if (!isTimeline && context.mounted && isUploadDialogOpen) {
       Navigator.of(context, rootNavigator: true).pop();
     }
 
-    if (context.mounted && !success && !wasUploadCancelled) {
-      GreatMemoriesToast.show(
-        context: context,
-        msg: 'scaffold_body_error_occurred'.t(context: context),
-        gravity: ToastGravity.BOTTOM,
-        toastType: ToastType.error,
-      );
+    if (!context.mounted || wasUploadCancelled) {
+      return;
     }
+
+    final (message, toastType) = queued
+        ? ('upload_queued_offline', ToastType.info)
+        : !success
+        ? ('upload_failed', ToastType.error)
+        : allDuplicates
+        ? ('upload_already_on_server', ToastType.info)
+        : ('upload_success_count', ToastType.success);
+    GreatMemoriesToast.show(
+      context: context,
+      msg: message.t(context: context, args: {'count': count}),
+      gravity: ToastGravity.BOTTOM,
+      toastType: toastType,
+    );
   }
 
   @override

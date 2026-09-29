@@ -136,7 +136,10 @@ class UploadRepository {
 
       try {
         final responseBody = jsonDecode(responseBodyString);
-        return UploadResult.success(remoteAssetId: responseBody['id'] as String);
+        return UploadResult.success(
+          remoteAssetId: responseBody['id'] as String,
+          isDuplicate: responseBody['status'] == 'duplicate',
+        );
       } catch (e) {
         return UploadResult.error(errorMessage: 'Failed to parse server response');
       }
@@ -187,16 +190,20 @@ class UploadResult {
   final String? errorMessage;
   final int? statusCode;
 
+  /// Server already had this file (possibly in its trash)
+  final bool isDuplicate;
+
   const UploadResult({
     required this.isSuccess,
     required this.isCancelled,
     this.remoteAssetId,
     this.errorMessage,
     this.statusCode,
+    this.isDuplicate = false,
   });
 
-  factory UploadResult.success({required String remoteAssetId}) {
-    return UploadResult(isSuccess: true, isCancelled: false, remoteAssetId: remoteAssetId);
+  factory UploadResult.success({required String remoteAssetId, bool isDuplicate = false}) {
+    return UploadResult(isSuccess: true, isCancelled: false, remoteAssetId: remoteAssetId, isDuplicate: isDuplicate);
   }
 
   factory UploadResult.error({String? errorMessage, int? statusCode}) {

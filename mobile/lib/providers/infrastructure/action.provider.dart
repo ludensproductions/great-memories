@@ -11,6 +11,7 @@ import 'package:great_memories_mobile/domain/services/asset.service.dart';
 import 'package:great_memories_mobile/domain/services/remote_album.service.dart';
 import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
 import 'package:great_memories_mobile/providers/backup/asset_upload_progress.provider.dart';
+import 'package:great_memories_mobile/providers/backup/offline_upload_queue.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/album.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/asset_viewer/asset.provider.dart' show assetExifProvider;
@@ -36,12 +37,20 @@ class ActionResult {
   final List<String> remoteAssetIds;
   final int failedCount;
 
+  /// Server was unreachable; assets were queued to upload on reconnect
+  final bool queued;
+
+  /// Uploads the server already had (restored from its trash if needed)
+  final int duplicateCount;
+
   const ActionResult({
     required this.count,
     required this.success,
     this.error,
     this.remoteAssetIds = const [],
     this.failedCount = 0,
+    this.queued = false,
+    this.duplicateCount = 0,
   });
 
   @override
@@ -550,10 +559,18 @@ class ActionNotifier extends Notifier<void> {
       return const ActionResult(count: 0, success: false, error: 'No assets to upload');
     }
 
+    // ponytail: album uploads (onAssetUploaded) aren't queued, the album add would be lost on replay
+    final offlineQueue = ref.read(offlineUploadQueueProvider);
+    if (onAssetUploaded == null && !await offlineQueue.isServerReachable()) {
+      await offlineQueue.enqueue(assetsToUpload);
+      return ActionResult(count: assetsToUpload.length, success: false, queued: true);
+    }
+
     final progressNotifier = ref.read(assetUploadProgressProvider.notifier);
     final cancelToken = Completer<void>();
     ref.read(manualUploadCancelTokenProvider.notifier).state = cancelToken;
     final remoteAssetIds = <String>[];
+    final duplicateRemoteIds = <String>[];
 
     // Initialize progress for all assets
     for (final asset in assetsToUpload) {
@@ -589,10 +606,19 @@ class ActionNotifier extends Notifier<void> {
             failedAssetIds.add(localAssetId);
             progressNotifier.setError(localAssetId);
           },
+          onDuplicate: (_, remoteAssetId) => duplicateRemoteIds.add(remoteAssetId),
         ),
       );
 
       await Future.wait(postUploadTasks);
+      // Re-uploading something that sits in the server trash means the user wants it back
+      if (duplicateRemoteIds.isNotEmpty) {
+        try {
+          await _service.restoreTrash(duplicateRemoteIds);
+        } catch (error, stack) {
+          _logger.warning('Failed to restore duplicate uploads from trash', error, stack);
+        }
+      }
       final successCount = uploadedAssetIds.difference(failedAssetIds).length;
       final isSuccess = successCount == assetsToUpload.length && failedAssetIds.isEmpty;
 
@@ -600,6 +626,7 @@ class ActionNotifier extends Notifier<void> {
         count: successCount,
         success: isSuccess,
         error: isSuccess ? null : 'Failed to upload ${assetsToUpload.length - successCount} assets',
+        duplicateCount: duplicateRemoteIds.length,
       );
     } catch (error, stack) {
       _logger.severe('Failed manually upload assets', error, stack);

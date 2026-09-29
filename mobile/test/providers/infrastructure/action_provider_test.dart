@@ -7,6 +7,7 @@ import 'package:great_memories_mobile/domain/models/user.model.dart';
 import 'package:great_memories_mobile/domain/services/asset.service.dart';
 import 'package:great_memories_mobile/domain/services/user.service.dart';
 import 'package:great_memories_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:great_memories_mobile/providers/backup/offline_upload_queue.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/action.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/asset.provider.dart';
 import 'package:great_memories_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
@@ -22,6 +23,8 @@ class MockAssetService extends Mock implements AssetService {}
 class MockForegroundUploadService extends Mock implements ForegroundUploadService {}
 
 class MockUserService extends Mock implements UserService {}
+
+class MockOfflineUploadQueue extends Mock implements OfflineUploadQueue {}
 
 class FakeBuildContext extends Fake implements BuildContext {}
 
@@ -42,17 +45,23 @@ void main() {
   late ProviderContainer container;
   late MockActionService actionService;
   late MockAssetService assetService;
+  late MockForegroundUploadService uploadService;
+  late MockOfflineUploadQueue offlineQueue;
 
   setUpAll(() {
     registerFallbackValue(FakeBuildContext());
     registerFallbackValue(_asset);
     registerFallbackValue(<String>[]);
+    registerFallbackValue(<LocalAsset>[]);
+    registerFallbackValue(const UploadCallbacks());
   });
 
   setUp(() {
     actionService = MockActionService();
     assetService = MockAssetService();
     final userService = MockUserService();
+    uploadService = MockForegroundUploadService();
+    offlineQueue = MockOfflineUploadQueue();
 
     when(() => actionService.editDateTime(any(), any())).thenAnswer((_) async => true);
     when(() => assetService.watchAsset(any())).thenAnswer((_) => const Stream.empty());
@@ -64,7 +73,8 @@ void main() {
       overrides: [
         actionServiceProvider.overrideWithValue(actionService),
         assetServiceProvider.overrideWithValue(assetService),
-        foregroundUploadServiceProvider.overrideWithValue(MockForegroundUploadService()),
+        foregroundUploadServiceProvider.overrideWithValue(uploadService),
+        offlineUploadQueueProvider.overrideWithValue(offlineQueue),
         currentUserProvider.overrideWith((ref) => CurrentUserProvider(userService)),
       ],
     );
@@ -107,6 +117,47 @@ void main() {
       expect(result, isNull);
       await container.read(assetExifProvider(_asset).future);
       verify(() => assetService.getExif(_asset)).called(1);
+    });
+  });
+
+  group('upload', () {
+    final localAsset = LocalAsset(
+      id: 'local-1',
+      name: 'photo.jpg',
+      type: AssetType.image,
+      createdAt: DateTime(2026),
+      updatedAt: DateTime(2026),
+      playbackStyle: AssetPlaybackStyle.image,
+      isEdited: false,
+    );
+
+    test('queues assets when the server is unreachable', () async {
+      when(() => offlineQueue.isServerReachable()).thenAnswer((_) async => false);
+      when(() => offlineQueue.enqueue(any())).thenAnswer((_) async {});
+
+      final result = await container.read(actionProvider.notifier).upload(ActionSource.timeline, assets: [localAsset]);
+
+      expect(result.queued, isTrue);
+      verify(() => offlineQueue.enqueue([localAsset])).called(1);
+      verifyNever(() => uploadService.uploadManual(any(), callbacks: any(named: 'callbacks')));
+    });
+
+    test('restores duplicates from the server trash and reports them', () async {
+      when(() => offlineQueue.isServerReachable()).thenAnswer((_) async => true);
+      when(() => actionService.restoreTrash(any())).thenAnswer((_) async {});
+      when(
+        () => uploadService.uploadManual(any(), cancelToken: any(named: 'cancelToken'), callbacks: any(named: 'callbacks')),
+      ).thenAnswer((inv) async {
+        final callbacks = inv.namedArguments[#callbacks] as UploadCallbacks;
+        callbacks.onSuccess!('local-1', 'remote-1');
+        callbacks.onDuplicate!('local-1', 'remote-1');
+      });
+
+      final result = await container.read(actionProvider.notifier).upload(ActionSource.timeline, assets: [localAsset]);
+
+      expect(result.success, isTrue);
+      expect(result.duplicateCount, 1);
+      verify(() => actionService.restoreTrash(['remote-1'])).called(1);
     });
   });
 }

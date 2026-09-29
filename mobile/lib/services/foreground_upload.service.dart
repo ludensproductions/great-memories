@@ -31,7 +31,10 @@ class UploadCallbacks {
   final void Function(String id, String errorMessage)? onError;
   final void Function(String id, double progress)? onICloudProgress;
 
-  const UploadCallbacks({this.onProgress, this.onSuccess, this.onError, this.onICloudProgress});
+  /// Called after onSuccess when the server already had the asset
+  final void Function(String localId, String remoteId)? onDuplicate;
+
+  const UploadCallbacks({this.onProgress, this.onSuccess, this.onError, this.onICloudProgress, this.onDuplicate});
 }
 
 final foregroundUploadServiceProvider = Provider((ref) {
@@ -382,6 +385,9 @@ class ForegroundUploadService {
 
       if (result.isSuccess && result.remoteAssetId != null) {
         callbacks.onSuccess?.call(asset.localId!, result.remoteAssetId!);
+        if (result.isDuplicate) {
+          callbacks.onDuplicate?.call(asset.localId!, result.remoteAssetId!);
+        }
       } else if (result.isCancelled) {
         _logger.warning(() => "Backup was cancelled by the user");
         shouldAbortUpload = true;

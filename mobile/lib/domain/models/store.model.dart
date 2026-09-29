@@ -18,6 +18,10 @@ enum StoreKey<T> {
 
   syncMigrationStatus<String>._(1013),
 
+  // Great Memories keys (2000+ to stay clear of upstream ids)
+  // JSON list of local asset ids waiting for the server to be reachable
+  offlineUploadQueue<String>._(2000),
+
   // Legacy keys that have been migrated to the new metadata store
   legacyBackupRequireCharging<bool>._(7),
   legacyBackupTriggerDelay<int>._(8),
