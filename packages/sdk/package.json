@@ -1,6 +1,6 @@
 {
   "name": "@great-memories/sdk",
-  "version": "1.0.1",
+  "version": "3.0.4",
   "description": "Auto-generated TypeScript SDK for the Great Memories API",
   "repository": {
     "type": "git",

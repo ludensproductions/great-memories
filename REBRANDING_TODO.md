@@ -101,6 +101,14 @@ gestiones externas:
    tiendas), `mobile/ios/Runner/Info.plist`, `mobile/android/fastlane/Fastfile`
    y `machine-learning/pyproject.toml`. Marca el reinicio de versionado como
    proyecto independiente.
+   ⚠️ **Revertido (2026-09-29):** versión subida a `3.0.4` (build `3057`).
+   El número de versión **no es solo marca**: la app móvil lo usa para elegir
+   la API (`serverVersion >= 3.0.0` → `AssetsV2`, `AlbumsV2`, OCR, edición…) y
+   el servidor para elegir el modo de restore de backups (`<= 2.4` en
+   `database-backup.service.ts`). Con `1.0.1` la app pedía `AssetsV1`, el
+   servidor lo rechazaba y el sync fallaba siempre. Regla: la versión de Great
+   Memories debe seguir siendo `>=` la de Immich de la que proviene, y subir
+   cuando se traigan cambios de upstream.
 6. Nota: las imágenes de contenedor (`ghcr.io/immich-app/...` en los mismos
    `docker-compose*.yml`) **no se tocaron** — eso es el punto 2 / Paso 2, que
    depende de tener el registro GHCR propio primero. Tampoco se tocó
@@ -256,7 +264,8 @@ anteriores en cuanto haya claridad:
    `docker-compose.yml`, `docker-compose.rootless.yml`, `example.env`,
    `hwaccel.ml.yml`, `hwaccel.transcoding.yml`, `prometheus.yml`.
 3. Bump de versión de `3.0.3` a `1.0.1` en todo el monorepo (ver detalle en el
-   Paso 1 del plan de ejecución arriba).
+   Paso 1 del plan de ejecución arriba). **Revertido a `3.0.4`** — rompía la
+   compatibilidad app ↔ servidor (ver nota en el Paso 1).
 4. **Verificado end-to-end:** `curl` confirma `HTTP 200` en
    `releases/latest/download/docker-compose.yml` y `.../example.env`, y que
    `releases/latest` resuelve a `v1.0.1`. `install.sh` funciona de punta a

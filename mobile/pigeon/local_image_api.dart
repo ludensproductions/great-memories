@@ -5,7 +5,7 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/local_image_api.g.dart',
     swiftOut: 'ios/Runner/Images/LocalImages.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/images/LocalImages.g.kt',
+    kotlinOut: 'android/app/src/main/kotlin/com/greatmemories/app/images/LocalImages.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.images'),
     dartOptions: DartOptions(),
     dartPackageName: 'great_memories_mobile',

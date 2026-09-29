@@ -7,7 +7,7 @@ enum PermissionStatus { granted, denied, permanentlyDenied }
     dartOut: 'lib/platform/permission_api.g.dart',
     swiftOut: 'ios/Runner/Permission/PermissionApi.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/permission/PermissionApi.g.kt',
+    kotlinOut: 'android/app/src/main/kotlin/com/greatmemories/app/permission/PermissionApi.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.permission'),
     dartOptions: DartOptions(),
     dartPackageName: 'great_memories_mobile',

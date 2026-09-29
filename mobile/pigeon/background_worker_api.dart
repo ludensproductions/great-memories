@@ -5,7 +5,7 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/background_worker_api.g.dart',
     swiftOut: 'ios/Runner/Background/BackgroundWorker.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/background/BackgroundWorker.g.kt',
+    kotlinOut: 'android/app/src/main/kotlin/com/greatmemories/app/background/BackgroundWorker.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.background'),
     dartOptions: DartOptions(),
     dartPackageName: 'great_memories_mobile',

@@ -3,7 +3,7 @@ import 'package:pigeon/pigeon.dart';
 @ConfigurePigeon(
   PigeonOptions(
     dartOut: 'lib/platform/view_intent_api.g.dart',
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/great-memories/viewintent/ViewIntent.g.kt',
+    kotlinOut: 'android/app/src/main/kotlin/com/greatmemories/app/viewintent/ViewIntent.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.viewintent'),
     dartOptions: DartOptions(),
     dartPackageName: 'great_memories_mobile',

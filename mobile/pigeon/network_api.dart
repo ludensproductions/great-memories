@@ -22,7 +22,7 @@ class ClientCertPrompt {
     swiftOut: 'ios/Runner/Core/Network.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
     kotlinOut:
-        'android/app/src/main/kotlin/app/alextran/great-memories/core/Network.g.kt',
+        'android/app/src/main/kotlin/com/greatmemories/app/core/Network.g.kt',
     kotlinOptions: KotlinOptions(package: 'com.greatmemories.app.core', includeErrorClass: true),
     dartOptions: DartOptions(),
     dartPackageName: 'great_memories_mobile',
