@@ -66,8 +66,12 @@ sudo ufw allow 5353/udp
 sudo ufw allow "${SERVER_PORT}/tcp"
 sudo ufw reload
 
+if [ -z "$(ls -A /sys/class/bluetooth 2>/dev/null)" ]; then
+  echo ">>> 2. BLE: sin adaptador Bluetooth, se omite"
+else
 echo ">>> 2. BLE con BlueZ"
-sudo apt install -y bluetooth bluez python3-venv python3-dbus
+# python3-gi y python3-cairo de apt: evita que pip compile pycairo (falla en Ubuntu 22.04)
+sudo apt install -y bluetooth bluez python3-venv python3-dbus python3-gi python3-cairo
 sudo systemctl enable --now bluetooth
 
 sudo mkdir -p "$BLE_DIR"
@@ -149,6 +153,7 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now great-memories-ble
+fi
 
 echo ""
 echo "=== Esperando que todo arranque ==="

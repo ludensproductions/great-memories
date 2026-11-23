@@ -152,7 +152,7 @@ sudo ufw reload
 ### BLE (Bluetooth)
 
 ```bash
-sudo apt install -y bluetooth bluez python3-venv python3-dbus
+sudo apt install -y bluetooth bluez python3-venv python3-dbus python3-gi python3-cairo
 sudo systemctl enable --now bluetooth
 sudo mkdir -p /opt/great-memories-ble
 sudo python3 -m venv --system-site-packages /opt/great-memories-ble/venv
@@ -344,6 +344,7 @@ Los UUIDs BLE están hardcodeados en la app y en el servidor — igual que `_gre
 | App no conecta al servidor | `docker compose ps` + `sudo ufw allow 2283/tcp` |
 | `great-memories-ble` falla al boot | `journalctl -u great-memories-ble -n 30 --no-pager` |
 | BLE devuelve `127.0.0.1` | Pi sin red; verificar `ip addr` |
+| `pip install bluezero` falla compilando `pycairo` | Faltan `python3-gi python3-cairo` de apt; instalarlos, borrar `/opt/great-memories-ble/venv` y repetir |
 | Paquetes rotos al instalar bluetooth | `sudo apt full-upgrade -y` antes del install |
 | Path inválido en `.env` (Windows dev) | Usar `/` en vez de `\` en rutas |
 | `manifest unknown` / `not found` al hacer pull | `GREAT_MEMORIES_VERSION=main` en `docker/.env` (ver paso 2.1) |

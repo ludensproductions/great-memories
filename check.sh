@@ -2,7 +2,9 @@
 HOSTNAME="$(hostname)"
 FAIL=0
 
-for svc in avahi-daemon bluetooth great-memories-ble; do
+SVCS="avahi-daemon"
+[ -n "$(ls -A /sys/class/bluetooth 2>/dev/null)" ] && SVCS="$SVCS bluetooth great-memories-ble"
+for svc in $SVCS; do
   systemctl is-active "$svc" &>/dev/null && echo "✓ $svc" || { echo "✗ $svc"; FAIL=1; }
 done
 
