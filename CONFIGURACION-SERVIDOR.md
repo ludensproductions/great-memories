@@ -14,7 +14,7 @@ Ambas opciones se ejecutan **desde dentro de la Pi**.
 | RAM | Mínimo 4 GB (recomendado 6–8 GB; el contenedor de machine learning es el que más consume). |
 | Disco | SSD recomendado para la base de datos. Espacio para fotos según uso. |
 | Red | Misma red local que los celulares. Recomendado reservar la IP del servidor en el DHCP del router. |
-| Bluetooth | Solo necesario para el descubrimiento BLE. Sin adaptador, el servicio `great-memories-ble` falla pero el resto funciona. |
+| Bluetooth | Solo necesario para el descubrimiento BLE. Se controla con la flag `BLE` de `deploy.sh` (ver paso 3). |
 | Usuario | Usuario con `sudo` (no ejecutar como `root`). |
 | Firewall | Los comandos usan `ufw`. Ubuntu Server lo trae; en Raspberry Pi OS instalarlo antes: `sudo apt install -y ufw`. |
 
@@ -22,7 +22,7 @@ Ambas opciones se ejecutan **desde dentro de la Pi**.
 
 ---
 
-> **Servidor remoto (VPS / dedicado en datacenter):** mDNS y BLE solo sirven en la red local de los celulares; ahí no aplican. Basta con la parte de Docker de la Opción B (sistema base, Docker, clonar e iniciar). El puerto `2283` habla HTTP sin cifrar: publicarlo detrás de un reverse proxy con HTTPS (nginx, Caddy, Traefik) y no abrir `2283` directo a internet.
+> **Servidor remoto (VPS / dedicado en datacenter):** mDNS y BLE solo sirven en la red local de los celulares; ahí no aplican. Con script: `SERVER_HOSTNAME=$(hostname) BLE=no bash deploy.sh`. A mano: basta con la parte de Docker de la Opción B (sistema base, Docker, clonar e iniciar). El puerto `2283` habla HTTP sin cifrar: publicarlo detrás de un reverse proxy con HTTPS (nginx, Caddy, Traefik) y no abrir `2283` directo a internet.
 
 ---
 
@@ -73,6 +73,22 @@ Hostname personalizado:
 
 ```bash
 SERVER_HOSTNAME=miservidor bash deploy.sh
+```
+
+Bluetooth (descubrimiento BLE desde la app):
+
+| Flag | Cuándo usarlo |
+|---|---|
+| `BLE=auto` (default) | Instala BLE solo si el equipo tiene adaptador Bluetooth. |
+| `BLE=si` | Raspberry Pi o mini PC en la red local. |
+| `BLE=no` | Servidor virtual / datacenter. |
+
+```bash
+# Servidor virtual
+SERVER_HOSTNAME=$(hostname) BLE=no bash deploy.sh
+
+# Raspberry Pi / mini PC
+BLE=si bash deploy.sh
 ```
 
 Al terminar, reiniciar para confirmar que todo arranca solo: `sudo reboot`.

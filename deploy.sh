@@ -4,10 +4,22 @@
 # Uso:
 #   bash deploy.sh
 #   SERVER_HOSTNAME=miservidor bash deploy.sh
+#   BLE=no bash deploy.sh     # servidor virtual: sin Bluetooth
+#   BLE=si bash deploy.sh     # forzar Bluetooth (Raspberry Pi / mini PC)
+#   BLE=auto (default)        # instala Bluetooth solo si hay adaptador
 
 set -e
 
 SERVER_HOSTNAME="${SERVER_HOSTNAME:-mipi}"
+BLE="${BLE:-auto}"
+if [ "$BLE" = auto ]; then
+  [ -n "$(ls -A /sys/class/bluetooth 2>/dev/null)" ] && BLE=si || BLE=no
+fi
+case "$BLE" in
+  si|no) ;;
+  *) echo "BLE debe ser si, no o auto (recibido: $BLE)"; exit 1 ;;
+esac
+echo ">>> Bluetooth: $BLE"
 SERVER_PORT="2283"
 GREAT_MEMORIES_DIR="$(cd "$(dirname "$0")" && pwd)"
 PHOTOS_DIR="/srv/great-memories/photos"
@@ -66,8 +78,8 @@ sudo ufw allow 5353/udp
 sudo ufw allow "${SERVER_PORT}/tcp"
 sudo ufw reload
 
-if [ -z "$(ls -A /sys/class/bluetooth 2>/dev/null)" ]; then
-  echo ">>> 2. BLE: sin adaptador Bluetooth, se omite"
+if [ "$BLE" = no ]; then
+  echo ">>> 2. BLE: omitido (BLE=no)"
 else
 echo ">>> 2. BLE con BlueZ"
 # python3-gi y python3-cairo de apt: evita que pip compile pycairo (falla en Ubuntu 22.04)

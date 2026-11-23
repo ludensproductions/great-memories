@@ -3,7 +3,7 @@ HOSTNAME="$(hostname)"
 FAIL=0
 
 SVCS="avahi-daemon"
-[ -n "$(ls -A /sys/class/bluetooth 2>/dev/null)" ] && SVCS="$SVCS bluetooth great-memories-ble"
+[ -f /etc/systemd/system/great-memories-ble.service ] && SVCS="$SVCS bluetooth great-memories-ble"
 for svc in $SVCS; do
   systemctl is-active "$svc" &>/dev/null && echo "✓ $svc" || { echo "✗ $svc"; FAIL=1; }
 done
