@@ -14,6 +14,6 @@ ping -c1 -W2 "$HOSTNAME.local" &>/dev/null \
   && echo "✓ mDNS ($HOSTNAME.local)" \
   || { echo "✗ mDNS ($HOSTNAME.local)"; FAIL=1; }
 
-(cd ~/great-memories/docker && sg docker -c "docker compose ps --format 'table {{.Name}}\t{{.Status}}'") 2>/dev/null || true
+(cd "$(dirname "$0")/docker" && sg docker -c "docker compose ps --format 'table {{.Name}}\t{{.Status}}'") 2>/dev/null || true
 
 exit $FAIL

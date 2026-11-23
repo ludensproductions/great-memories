@@ -1,10 +1,10 @@
 #!/bin/bash
 # Deshace todo lo que hace deploy.sh. Para pruebas desde cero.
-# Ejecutar desde cualquier lugar en la Pi.
+# Ejecutar como: bash <ruta-del-repo>/cleanup.sh
 
 set -e
 
-GREAT_MEMORIES_DIR="$HOME/great-memories"
+GREAT_MEMORIES_DIR="$(cd "$(dirname "$0")" && pwd)"
 BLE_DIR="/opt/great-memories-ble"
 
 echo ">>> Deteniendo servicios..."

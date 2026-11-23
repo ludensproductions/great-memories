@@ -22,6 +22,10 @@ Ambas opciones se ejecutan **desde dentro de la Pi**.
 
 ---
 
+> **Servidor remoto (VPS / dedicado en datacenter):** mDNS y BLE solo sirven en la red local de los celulares; ahí no aplican. Basta con la parte de Docker de la Opción B (sistema base, Docker, clonar e iniciar). El puerto `2283` habla HTTP sin cifrar: publicarlo detrás de un reverse proxy con HTTPS (nginx, Caddy, Traefik) y no abrir `2283` directo a internet.
+
+---
+
 ## Opción A — Con script
 
 Instalar git, clonar el repo y correr el script. Hace todo automáticamente.
@@ -40,26 +44,32 @@ git clone https://github.com/ludensproductions/great-memories.git
 cd great-memories
 ```
 
-> Clonar en el **home del usuario** (`~/great-memories`): `check.sh` y `cleanup.sh` asumen esa ruta.
+El repo se puede clonar en cualquier ruta.
 
-### 2.1 Preparar `.env` (obligatorio antes del script)
+### 2.1 `.env` (opcional)
 
-`example.env` trae `GREAT_MEMORIES_VERSION=v3`, pero en GHCR solo está publicada la etiqueta `main` (las etiquetas de release aparecen hasta publicar un release). Sin este paso, `docker compose up` falla con `manifest unknown`. El script respeta un `.env` que ya exista.
+Si no existe `docker/.env`, el script lo crea desde `docker/example.env` con `GREAT_MEMORIES_VERSION=main` (la etiqueta `v3` todavía no existe en GHCR) y un `DB_PASSWORD` aleatorio. Si ya existe, lo respeta. Para fijar la zona horaria, prepararlo antes:
 
 ```bash
 cp docker/example.env docker/.env
 sed -i 's|^GREAT_MEMORIES_VERSION=.*|GREAT_MEMORIES_VERSION=main|' docker/.env
 sed -i "s|^DB_PASSWORD=.*|DB_PASSWORD=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)|" docker/.env
-nano docker/.env   # opcional: descomentar TZ, p. ej. TZ=America/Mexico_City
+nano docker/.env   # descomentar TZ, p. ej. TZ=America/Mexico_City
 ```
 
 ### 3. Correr el script
+
+> ⚠️ El script **cambia el hostname** del equipo (default: `mipi`). En un servidor que ya tiene nombre, conservarlo:
+>
+> ```bash
+> SERVER_HOSTNAME=$(hostname) bash deploy.sh
+> ```
 
 ```bash
 bash deploy.sh
 ```
 
-Hostname personalizado (default: `mipi`):
+Hostname personalizado:
 
 ```bash
 SERVER_HOSTNAME=miservidor bash deploy.sh
@@ -102,7 +112,7 @@ docker compose up -d
 curl http://localhost:2283/api/server/ping   # {"res":"pong"}
 ```
 
-Valores de `.env` a ajustar (ejecutar `cd ~` antes del `git clone`, ver nota de la Opción A):
+Valores de `.env` a ajustar:
 
 ```ini
 UPLOAD_LOCATION=/srv/great-memories/photos
@@ -276,7 +286,7 @@ sudo systemctl restart avahi-daemon
 ## Actualizar
 
 ```bash
-cd ~/great-memories
+cd <ruta-del-repo>
 git pull
 cd docker
 docker compose pull
@@ -304,7 +314,7 @@ Copiar ese archivo, `/srv/great-memories/photos` y `docker/.env` a otro disco. N
 ## Desinstalar
 
 ```bash
-bash ~/great-memories/cleanup.sh
+bash <ruta-del-repo>/cleanup.sh
 ```
 
 ⚠️ Borra **todo**: contenedores, fotos, base de datos y el repo. Respaldar antes.
@@ -339,6 +349,5 @@ Los UUIDs BLE están hardcodeados en la app y en el servidor — igual que `_gre
 | `manifest unknown` / `not found` al hacer pull | `GREAT_MEMORIES_VERSION=main` en `docker/.env` (ver paso 2.1) |
 | `no matching manifest for linux/arm/v7` | SO de 32 bits; reinstalar con Raspberry Pi OS / Ubuntu de 64 bits |
 | `deploy.sh` se corta en `sudo: ufw: command not found` | `sudo apt install -y ufw` y volver a correr el script |
-| `check.sh` no muestra contenedores | El repo no está en `~/great-memories`; clonar en el home |
 | `mipi.local` no resuelve desde Windows | Usar la IP directa, o instalar Bonjour en esa PC |
 | Contenedor `great_memories_machine_learning` reinicia en bucle | Falta de RAM; revisar `docker stats` / `free -h` |

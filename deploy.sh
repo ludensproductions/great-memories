@@ -27,7 +27,12 @@ sudo usermod -aG docker "$USER"
 
 echo ">>> 0.3 Configurar .env"
 cd "$GREAT_MEMORIES_DIR/docker"
-[ ! -f .env ] && cp example.env .env
+if [ ! -f .env ]; then
+  cp example.env .env
+  # v3 aun no existe en GHCR; solo esta publicada la etiqueta main
+  sed -i "s|^GREAT_MEMORIES_VERSION=.*|GREAT_MEMORIES_VERSION=main|" .env
+  sed -i "s|^DB_PASSWORD=.*|DB_PASSWORD=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)|" .env
+fi
 sed -i "s|UPLOAD_LOCATION=.*|UPLOAD_LOCATION=$PHOTOS_DIR|" .env
 sed -i "s|DB_DATA_LOCATION=.*|DB_DATA_LOCATION=$DB_DIR|" .env
 
